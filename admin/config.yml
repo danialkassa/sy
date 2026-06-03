@@ -8,6 +8,8 @@
   site_domain: 165.22.250.66
   app_id: b44bfe8b-1633-41ee-9533-738e78b392a0
 
+publish_mode: simple
+
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
