@@ -31,7 +31,6 @@ media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
 media_library:
-  name: ""
   max_file_size: 2048000
   choose_url: false
 
@@ -43,7 +42,6 @@ i18n:
 collections:
   - name: "products"
     label: "Products"
-    roles: ["admin", "editor"]
     label_singular: "Product"
     folder: "content/products"
     create: true
@@ -51,7 +49,8 @@ collections:
     summary: "{{name}} ({{sku}}) — {{category}}"
     identifier_field: "name"
     i18n: true
-    sortable_fields: ["name", "sku", "category"]
+    sortable_fields:
+      fields: ["name", "sku", "category"]
     view_filters:
       - label: "In Stock"
         field: "inStock"
@@ -223,14 +222,14 @@ collections:
 
   - name: "blog"
     label: "Blog Posts"
-    roles: ["admin", "editor"]
     label_singular: "Blog Post"
     folder: "content/blog"
     create: true
     slug: "{{slug}}"
     summary: "{{title}} — by {{author}} ({{category}})"
     i18n: true
-    sortable_fields: ["title", "date"]
+    sortable_fields:
+      fields: ["title", "date"]
     view_filters:
       - label: "B2B Insights"
         field: "category"
@@ -300,7 +299,6 @@ collections:
 
   - name: "testimonials"
     label: "Testimonials"
-    roles: ["admin", "editor"]
     label_singular: "Testimonial"
     folder: "content/testimonials"
     create: true
@@ -349,7 +347,6 @@ collections:
 
   - name: "team_members"
     label: "Team Members"
-    roles: ["admin", "editor"]
     label_singular: "Team Member"
     folder: "content/team"
     create: true
@@ -388,7 +385,6 @@ collections:
 
   - name: "certifications"
     label: "Certifications"
-    roles: ["admin", "editor"]
     label_singular: "Certification"
     folder: "content/certifications"
     create: true
@@ -429,7 +425,6 @@ collections:
 
   - name: "faq"
     label: "FAQ"
-    roles: ["admin", "editor"]
     label_singular: "FAQ Item"
     folder: "content/faq"
     create: true
@@ -462,7 +457,6 @@ collections:
 
   - name: "partners"
     label: "Partners & Clients"
-    roles: ["admin", "editor"]
     label_singular: "Partner"
     folder: "content/partners"
     create: true
@@ -493,7 +487,6 @@ collections:
 
   - name: "distributors"
     label: "Distributors"
-    roles: ["admin", "editor"]
     label_singular: "Distributor"
     folder: "content/distributors"
     create: true
@@ -587,7 +580,6 @@ collections:
 
   - name: "warranty"
     label: "Warranty"
-    roles: ["admin", "editor"]
     label_singular: "Warranty Policy"
     folder: "content/warranty"
     create: true
@@ -643,7 +635,6 @@ collections:
 
   - name: "safety"
     label: "Safety Notices"
-    roles: ["admin", "editor"]
     label_singular: "Safety Notice"
     folder: "content/safety"
     create: true
@@ -708,7 +699,6 @@ collections:
 
   - name: "manuals"
     label: "Product Manuals"
-    roles: ["admin", "editor"]
     label_singular: "Manual"
     folder: "content/manuals"
     create: true
@@ -768,7 +758,6 @@ collections:
 
   - name: "downloads"
     label: "Downloads"
-    roles: ["admin", "editor"]
     label_singular: "Download"
     folder: "content/downloads"
     create: true
@@ -839,7 +828,6 @@ collections:
 
   - name: "pages"
     label: "Pages"
-    roles: ["admin"]
     delete: false
     files:
       - label: "Homepage"
@@ -940,9 +928,7 @@ collections:
 
   - name: "settings"
     label: "Site Settings"
-    roles: ["admin"]
     delete: false
-    publish: false
     files:
       - label: "Navigation Menu"
         name: "navigation"
