@@ -33,6 +33,7 @@ media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
 media_library:
+  name: ""
   max_file_size: 2048000
   choose_url: false
 
@@ -52,8 +53,7 @@ collections:
     summary: "{{name}} ({{sku}}) — {{category}}"
     identifier_field: "name"
     i18n: true
-    sortable_fields:
-      fields: ["name", "sku", "category"]
+    sortable_fields: ["name", "sku", "category"]
     view_filters:
       - label: "In Stock"
         field: "inStock"
@@ -232,8 +232,7 @@ collections:
     slug: "{{slug}}"
     summary: "{{title}} — by {{author}} ({{category}})"
     i18n: true
-    sortable_fields:
-      fields: ["title", "date"]
+    sortable_fields: ["title", "date"]
     view_filters:
       - label: "B2B Insights"
         field: "category"
