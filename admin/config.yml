@@ -44,7 +44,7 @@ i18n:
 collections:
   - name: "products"
     label: "Products"
-    roles: ["admin", "editor", "translator"]
+    roles: ["admin", "editor"]
     label_singular: "Product"
     folder: "content/products"
     create: true
@@ -225,7 +225,7 @@ collections:
 
   - name: "blog"
     label: "Blog Posts"
-    roles: ["admin", "editor", "translator"]
+    roles: ["admin", "editor"]
     label_singular: "Blog Post"
     folder: "content/blog"
     create: true
@@ -303,7 +303,7 @@ collections:
 
   - name: "testimonials"
     label: "Testimonials"
-    roles: ["admin", "editor", "translator"]
+    roles: ["admin", "editor"]
     label_singular: "Testimonial"
     folder: "content/testimonials"
     create: true
@@ -352,7 +352,7 @@ collections:
 
   - name: "team_members"
     label: "Team Members"
-    roles: ["admin", "editor", "translator"]
+    roles: ["admin", "editor"]
     label_singular: "Team Member"
     folder: "content/team"
     create: true
@@ -432,7 +432,7 @@ collections:
 
   - name: "faq"
     label: "FAQ"
-    roles: ["admin", "editor", "translator"]
+    roles: ["admin", "editor"]
     label_singular: "FAQ Item"
     folder: "content/faq"
     create: true
@@ -496,7 +496,7 @@ collections:
 
   - name: "distributors"
     label: "Distributors"
-    roles: ["admin", "editor", "translator"]
+    roles: ["admin", "editor"]
     label_singular: "Distributor"
     folder: "content/distributors"
     create: true
@@ -590,7 +590,7 @@ collections:
 
   - name: "warranty"
     label: "Warranty"
-    roles: ["admin", "editor", "translator"]
+    roles: ["admin", "editor"]
     label_singular: "Warranty Policy"
     folder: "content/warranty"
     create: true
@@ -646,7 +646,7 @@ collections:
 
   - name: "safety"
     label: "Safety Notices"
-    roles: ["admin", "editor", "translator"]
+    roles: ["admin", "editor"]
     label_singular: "Safety Notice"
     folder: "content/safety"
     create: true
@@ -771,7 +771,7 @@ collections:
 
   - name: "downloads"
     label: "Downloads"
-    roles: ["admin", "editor", "translator"]
+    roles: ["admin", "editor"]
     label_singular: "Download"
     folder: "content/downloads"
     create: true
