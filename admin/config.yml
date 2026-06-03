@@ -2,10 +2,10 @@
   name: gitea
   repo: admin/b2b
   branch: main
-  api_root: http://165.22.250.66/api/v1
-  base_url: http://165.22.250.66
+  api_root: https://siyang.tools/api/v1
+  base_url: https://siyang.tools
   auth_endpoint: /login/oauth/authorize
-  site_domain: 165.22.250.66
+  site_domain: siyang.tools
   app_id: b44bfe8b-1633-41ee-9533-738e78b392a0
 
 publish_mode: simple
