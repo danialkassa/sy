@@ -1,0 +1,45 @@
+{
+  "posts": [
+    {
+      "title": "Полное руководство по закупке электроинструментов для бизнеса",
+      "slug": "b2b-power-tools-procurement",
+      "date": "2024-12-10T10:00:00Z",
+      "category": "Бизнес-аналитика",
+      "excerpt": "Все, что вам нужно знать о закупке электроинструментов для вашего бизнеса: от обеспечения качества до стратегий оптового ценообразования.",
+      "image": "../images/istock/10005.jpg",
+      "author": "Li Ming",
+      "authorRole": "Специалист по закупкам",
+      "readTime": 6,
+      "tags": ["procurement", "B2B", "sourcing", "bulk-ordering"],
+      "featured": true
+    },
+    {
+      "lang": "ru",
+      "title": "Выбор правильной электродрели для ваших проектов",
+      "slug": "choosing-the-right-power-drill",
+      "date": "2024-12-15T10:00:00Z",
+      "category": "Технические руководства",
+      "excerpt": "Подробное руководство по выбору идеальной электродрели для любого проекта: от бытового ремонта до профессионального строительства.",
+      "image": "../images/istock/10001.jpg",
+      "author": "Chen Wei",
+      "authorRole": "Инженер по продукции",
+      "readTime": 8,
+      "tags": ["drills", "guide", "technical", "cordless"],
+      "featured": false
+    },
+    {
+      "lang": "ru",
+      "title": "Стандарты безопасности, которые должен знать каждый покупатель электроинструментов",
+      "slug": "safety-standards",
+      "date": "2024-12-05T10:00:00Z",
+      "category": "Отраслевые тенденции",
+      "excerpt": "Международные сертификаты и стандарты безопасности электроинструментов, включая маркировки CE, UL и GS.",
+      "image": "../images/istock/10010.jpg",
+      "author": "Zhang Hui",
+      "authorRole": "Руководитель отдела качества",
+      "readTime": 7,
+      "tags": ["safety", "certifications", "CE", "standards"],
+      "featured": true
+    }
+  ]
+}

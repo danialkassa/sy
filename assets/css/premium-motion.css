@@ -1,0 +1,299 @@
+/**
+ * NINGBO SIYANG — PREMIUM MOTION DESIGN SYSTEM
+ *
+ * Philosophy:
+ * - Physics-based easing creates organic, weighted motion that mimics
+ *   real-world materials (dampening, elastic recoil, soft deceleration).
+ * - Durations between 0.6s–1.5s feel luxurious and cinematic because
+ *   they give the human eye time to register trajectory and weight.
+ * - Staggered delays guide the eye naturally across content, reducing
+ *   cognitive load and increasing perceived craftsmanship.
+ * - Parallax layers simulate real spatial depth in a 2D plane by
+ *   separating foreground, midground, and background motion speeds.
+ */
+
+:root {
+  /* ── Easing Curves ───────────────────────── */
+  /* outQuint: dramatic deceleration — feels heavy, premium, expensive */
+  --pm-ease-out-quint: cubic-bezier(0.23, 1, 0.32, 1);
+  /* outExpo: snappy initial velocity, silky landing — ideal for reveals */
+  --pm-ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  /* inOutQuart: symmetrical acceleration/deceleration — perfect for mask wipes */
+  --pm-ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
+  /* backOut: subtle overshoot — adds playful elasticity and tactile response */
+  --pm-ease-back-out: cubic-bezier(0.34, 1.56, 0.64, 1);
+  /* elastic: pronounced recoil/bounce — reserved for tactile micro-interactions */
+  --pm-ease-elastic: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+
+  /* ── Durations ───────────────────────────── */
+  --pm-dur-micro: 0.45s;      /* Hover / active states */
+  --pm-dur-reveal: 1.2s;      /* Content mask/blur entrances */
+  --pm-dur-hero: 1.5s;        /* Hero typography (cinematic) */
+  --pm-dur-ambient: 5s;       /* Continuous floating motion */
+
+  /* ── Depth Shadows ───────────────────────── */
+  --pm-shadow-sm: 0 4px 24px rgba(0, 0, 0, 0.2);
+  --pm-shadow-md: 0 12px 48px rgba(0, 0, 0, 0.35);
+  --pm-shadow-lg: 0 32px 80px rgba(0, 0, 0, 0.5);
+  --pm-shadow-glow: 0 0 60px rgba(250, 204, 21, 0.12);
+}
+
+/* ═══════════════════════════════════════════
+   1. MICRO-INTERACTIONS
+   ═══════════════════════════════════════════ */
+
+/* Primary CTA hover: lift + glow + elastic shadow expansion.
+   The 4px translateY simulates the button physically rising toward
+   the cursor; the glow shadow implies an energy field behind it. */
+.pm-btn {
+  transition: transform var(--pm-dur-micro) var(--pm-ease-out-quint),
+              box-shadow var(--pm-dur-micro) var(--pm-ease-out-quint),
+              background-color var(--pm-dur-micro) ease,
+              color var(--pm-dur-micro) ease;
+  will-change: transform, box-shadow;
+}
+.pm-btn:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: var(--pm-shadow-glow), var(--pm-shadow-md);
+}
+.pm-btn:active {
+  transform: translateY(-1px) scale(0.97);
+  box-shadow: var(--pm-shadow-sm);
+  transition-duration: 0.12s;
+}
+
+/* Card hover: pronounced depth with image zoom.
+   The 10px lift exaggerates mass; the long 1.4s image zoom feels
+   like a lens slowly focusing — a classic luxury-goods motion trope. */
+.pm-card {
+  transition: transform 0.65s var(--pm-ease-out-quint),
+              box-shadow 0.65s var(--pm-ease-out-quint),
+              border-color 0.4s ease,
+              background-color 0.4s ease,
+              color 0.4s ease;
+  will-change: transform, box-shadow;
+}
+.pm-card:hover {
+  /* scale(1.02) preserves existing Tailwind hover:scale utilities
+     while adding the vertical lift that creates spatial depth. */
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: var(--pm-shadow-lg);
+}
+.pm-card:hover .pm-card-img {
+  /* 1.12 beats the existing Tailwind group-hover:scale-110 (1.10)
+     so the premium zoom always takes precedence. */
+  transform: scale(1.12);
+}
+.pm-card-img {
+  transition: transform 1.4s var(--pm-ease-out-quint);
+  will-change: transform;
+}
+
+/* Link underline: grows from center outward.
+   Symmetrical expansion from the midpoint feels more intentional
+   than a left-to-right wipe — it implies balance and precision.
+   We avoid display:inline-block so flex layouts (dropdowns) are
+   not disrupted by the enhancement. */
+.pm-link {
+  position: relative;
+}
+.pm-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 1.5px;
+  background: currentColor;
+  opacity: 0.8;
+  transition: width 0.5s var(--pm-ease-out-quint),
+              left 0.5s var(--pm-ease-out-quint);
+}
+.pm-link:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* ═══════════════════════════════════════════
+   2. CONTENT REVEALS
+   ═══════════════════════════════════════════ */
+
+/* Mask wipe — bottom-to-top clip-path reveal.
+   clip-path creates a hard "curtain rise" edge. The opacity fade
+   softens the entrance so it doesn't feel robotic. */
+@keyframes pm-mask-reveal {
+  from {
+    clip-path: inset(100% 0 0 0);
+    opacity: 0.6;
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+.pm-mask-reveal {
+  animation: pm-mask-reveal var(--pm-dur-reveal) var(--pm-ease-in-out-quart) forwards;
+  animation-play-state: paused;
+}
+.pm-mask-reveal.is-visible {
+  animation-play-state: running;
+}
+
+/* Soft directional blur reveal.
+   Blur mimics the human eye pulling an object into focus from
+   a hazy depth-of-field. The translateY drift creates the sensation
+   of content "settling" into place. */
+@keyframes pm-blur-reveal {
+  from {
+    opacity: 0;
+    filter: blur(10px) brightness(1.15);
+    transform: translateY(35px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0) brightness(1);
+    transform: translateY(0);
+  }
+}
+.pm-blur-reveal {
+  animation: pm-blur-reveal 1.0s var(--pm-ease-out-expo) forwards;
+  animation-play-state: paused;
+}
+.pm-blur-reveal.is-visible {
+  animation-play-state: running;
+}
+
+/* Kinetic typography — per-line / per-word stagger.
+   The 110% translateY means the text starts completely hidden
+   below its own line-box. The 1.5deg rotation adds organic
+   imperfection — pure vertical motion feels mechanical. */
+@keyframes pm-kinetic-enter {
+  from {
+    opacity: 0;
+    transform: translateY(110%) rotate(1.5deg);
+    filter: blur(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+    filter: blur(0);
+  }
+}
+.pm-kinetic-line {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+.pm-kinetic-line > span {
+  display: inline-block;
+  /* 'both' hides the word during its stagger delay so it doesn't flash
+     visible before animating in. */
+  animation: pm-kinetic-enter 1.0s var(--pm-ease-out-expo) both;
+  animation-play-state: paused;
+  transform-origin: left center;
+}
+.pm-kinetic-line.is-visible > span {
+  animation-play-state: running;
+}
+
+/* Hero entrance — exaggerated blur + scale + Y drift.
+   The 50px travel distance and 8px blur give the headline
+   a "coming in from deep space" feel. The 1.5s duration
+   lets the user savor the arrival. */
+@keyframes pm-hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.96);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+.pm-hero-text {
+  /* 'both' applies the FROM state during animation-delay (keeps element
+     hidden while waiting) and the TO state after completion. Without
+     this, the element would be visible during the delay, then snap to
+     invisible when the animation starts — causing a flash. */
+  animation: pm-hero-enter var(--pm-dur-hero) var(--pm-ease-out-expo) both;
+}
+
+/* ═══════════════════════════════════════════
+   3. SPATIAL DEPTH (Parallax helpers)
+   ═══════════════════════════════════════════ */
+
+[data-pm-parallax] {
+  will-change: transform;
+}
+
+/* Ambient floating for icons and badges.
+   Sine-wave motion at 5s feels meditative, not frantic. */
+@keyframes pm-ambient-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+.pm-ambient {
+  animation: pm-ambient-float var(--pm-dur-ambient) ease-in-out infinite;
+}
+
+/* Stagger utility delays for manual composition */
+.pm-delay-1 { animation-delay: 0.08s; }
+.pm-delay-2 { animation-delay: 0.16s; }
+.pm-delay-3 { animation-delay: 0.24s; }
+.pm-delay-4 { animation-delay: 0.32s; }
+.pm-delay-5 { animation-delay: 0.40s; }
+.pm-delay-6 { animation-delay: 0.48s; }
+
+/* ═══════════════════════════════════════════
+   4. BASE SCROLL REVEAL
+   Shared fade-in-up for all pages.
+   Elements start invisible; JS (Anime.js or GSAP)
+   triggers the reveal on scroll.
+   ═══════════════════════════════════════════ */
+.animate-fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1),
+              transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.animate-fade-in-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.animate-fade-in-up[data-gsap-managed] {
+  transition: none;
+}
+
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(8px); }
+}
+.animate-scroll-bounce {
+  animation: scroll-bounce 1.5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+@keyframes ns-ripple {
+  to { transform: scale(1); opacity: 0; }
+}
+
+/* Reduced motion — respect user accessibility preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  [data-pm-parallax] {
+    transform: none !important;
+  }
+}

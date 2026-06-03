@@ -1,0 +1,43 @@
+{
+  "posts": [
+    {
+      "title": "The Complete Guide to B2B Power Tools Procurement",
+      "slug": "b2b-power-tools-procurement",
+      "date": "2024-12-10T10:00:00Z",
+      "category": "B2B Insights",
+      "excerpt": "Everything you need to know about sourcing power tools for your business, from quality assurance to bulk pricing strategies.",
+      "image": "../images/istock/10005.jpg",
+      "author": "Li Ming",
+      "authorRole": "Procurement Specialist",
+      "readTime": 6,
+      "tags": ["procurement", "B2B", "sourcing", "bulk-ordering"],
+      "featured": true
+    },
+    {
+      "title": "Choosing the Right Power Drill for Your Projects",
+      "slug": "choosing-the-right-power-drill",
+      "date": "2024-12-15T10:00:00Z",
+      "category": "Technical Guides",
+      "excerpt": "A comprehensive guide to selecting the perfect power drill for any project, from DIY home repairs to professional construction work.",
+      "image": "../images/istock/10001.jpg",
+      "author": "Chen Wei",
+      "authorRole": "Product Engineer",
+      "readTime": 8,
+      "tags": ["drills", "guide", "technical", "cordless"],
+      "featured": false
+    },
+    {
+      "title": "Safety Standards Every Power Tool Buyer Should Know",
+      "slug": "safety-standards",
+      "date": "2024-12-05T10:00:00Z",
+      "category": "Industry Trends",
+      "excerpt": "Understanding international safety certifications and standards for power tools, including CE, UL, and GS marks.",
+      "image": "../images/istock/10010.jpg",
+      "author": "Zhang Hui",
+      "authorRole": "Quality Assurance Manager",
+      "readTime": 7,
+      "tags": ["safety", "certifications", "CE", "standards"],
+      "featured": true
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "man-001",
+    "title": "20V Brushless Drill/Driver Instruction Manual",
+    "productSku": "SY-DD20V-BL",
+    "language": "en",
+    "file": "/manuals/sy-dd20v-bl-manual-en.pdf",
+    "version": "2.1",
+    "date": "2025-10-05"
+  },
+  {
+    "id": "man-002",
+    "title": "20V无刷电钻/起子机使用说明书",
+    "productSku": "SY-DD20V-BL",
+    "language": "zh",
+    "file": "/manuals/sy-dd20v-bl-manual-zh.pdf",
+    "version": "2.1",
+    "date": "2025-10-05"
+  }
+]

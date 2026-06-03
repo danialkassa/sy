@@ -1,0 +1,1003 @@
+backend:
+  name: gitea
+  repo: admin/site
+  branch: main
+  api_root: http://165.22.250.66/api/v1
+  base_url: http://165.22.250.66
+  auth_endpoint: /login/oauth/authorize
+  site_domain: 165.22.250.66
+  app_id: b44bfe8b-1633-41ee-9533-738e78b392a0
+  squash_merges: true
+  commit_messages:
+    create: "Add {{collection}}: {{slug}}"
+    update: "Update {{collection}}: {{slug}}"
+    delete: "Remove {{collection}}: {{slug}}"
+    uploadMedia: "Upload image: {{path}}"
+    deleteMedia: "Remove image: {{path}}"
+
+publish_mode: editorial_workflow
+
+logo_url: /ningbo-siyang-logo-dark.svg
+site_url: http://165.22.250.66
+display_url: http://165.22.250.66
+show_preview_links: true
+search: true
+locale: "en"
+
+slug:
+  encoding: "unicode"
+  clean_accents: true
+  sanitize_replacement: "-"
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+media_library:
+  max_file_size: 2048000
+  choose_url: false
+
+i18n:
+  structure: multiple_files
+  locales: ["en", "zh", "ar", "fr", "ru", "es"]
+  default_locale: "en"
+
+collections:
+  - name: "products"
+    label: "Products"
+    roles: ["admin", "editor", "translator"]
+    label_singular: "Product"
+    folder: "content/products"
+    create: true
+    slug: "{{sku}}"
+    summary: "{{name}} ({{sku}}) — {{category}}"
+    identifier_field: "name"
+    i18n: true
+    sortable_fields:
+      fields: ["name", "sku", "category"]
+    view_filters:
+      - label: "In Stock"
+        field: "inStock"
+        pattern: true
+      - label: "Out of Stock"
+        field: "inStock"
+        pattern: false
+      - label: "Featured"
+        field: "featured"
+        pattern: true
+      - label: "Drills & Drivers"
+        field: "category"
+        pattern: "Drills & Drivers"
+      - label: "Saws"
+        field: "category"
+        pattern: "Saws"
+      - label: "Grinders"
+        field: "category"
+        pattern: "Grinders"
+      - label: "Sanders"
+        field: "category"
+        pattern: "Sanders"
+      - label: "Impact Tools"
+        field: "category"
+        pattern: "Impact Tools"
+      - label: "Combo Kits"
+        field: "category"
+        pattern: "Combo Kits"
+    view_groups:
+      - label: "By Category"
+        field: "category"
+      - label: "By Brand"
+        field: "brand"
+    fields:
+      - label: "Product Name"
+        name: "name"
+        widget: "string"
+        i18n: true
+        hint: "The full product name as customers will see it."
+      - label: "Product Code (SKU)"
+        name: "sku"
+        widget: "string"
+        i18n: false
+        pattern: ['^[A-Z]{2}-[A-Z]{1,3}-[A-Z0-9-]+$', 'SKU must follow format: SY-DD-20V-BL']
+        hint: "A unique code for this product. Use letters and numbers only, no spaces."
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        i18n: false
+        options: ["Drills & Drivers", "Saws", "Grinders", "Sanders", "Impact Tools", "Combo Kits"]
+        hint: "Which product category does this belong to?"
+      - label: "Brand"
+        name: "brand"
+        widget: "select"
+        i18n: false
+        options: ["Siyang Pro", "Siyang Industrial", "Siyang Trade"]
+        default: "Siyang Pro"
+        hint: "Which brand line does this product belong to?"
+      - label: "Description"
+        name: "description"
+        widget: "text"
+        i18n: true
+        hint: "A detailed product description. 2-3 sentences highlighting key features and applications."
+      - label: "User Benefits"
+        name: "userBenefits"
+        widget: "list"
+        i18n: true
+        field: {label: "Benefit", name: "benefit", widget: "string"}
+        hint: "4-6 bullet points explaining why a buyer should choose this product."
+      - label: "Main Product Photo"
+        name: "image"
+        widget: "image"
+        i18n: false
+        media_folder: "images/products"
+        public_folder: "/images/products"
+        choose_url: false
+        hint: "Upload or choose the main product image. Use a square photo for best results."
+      - label: "Additional Images"
+        name: "images"
+        widget: "list"
+        i18n: false
+        field: {label: "Image", name: "img", widget: "image", media_folder: "images/products", public_folder: "/images/products", choose_url: false}
+        hint: "Additional product photos from different angles. Add 2-4 images."
+        required: false
+      - label: "Specifications"
+        name: "specs"
+        widget: "object"
+        i18n: false
+        hint: "Detailed product specifications. Add 15-20 specs for best results."
+        fields:
+          - {label: "Voltage", name: "voltage", widget: "string", required: false, hint: "e.g., 20V MAX, 220V"}
+          - {label: "Motor Type", name: "motorType", widget: "select", required: false, options: ["Brushless", "Brushed", "Universal"], hint: "Type of motor"}
+          - {label: "Max Torque", name: "maxTorque", widget: "string", required: false, hint: "e.g., 530 in-lbs (60 Nm)"}
+          - {label: "No-Load Speed (Low)", name: "noLoadSpeedLow", widget: "string", required: false, hint: "e.g., 0-450 RPM"}
+          - {label: "No-Load Speed (High)", name: "noLoadSpeedHigh", widget: "string", required: false, hint: "e.g., 0-1500 RPM"}
+          - {label: "Chuck Size", name: "chuckSize", widget: "string", required: false, hint: "e.g., 1/2\" (13mm)"}
+          - {label: "Weight (Tool Only)", name: "weightToolOnly", widget: "string", required: false, hint: "e.g., 3.5 lbs (1.6 kg)"}
+          - {label: "Weight (With Battery)", name: "weightWithBattery", widget: "string", required: false, hint: "e.g., 4.2 lbs (1.9 kg)"}
+          - {label: "Overall Length", name: "overallLength", widget: "string", required: false, hint: "e.g., 7-5/8\" (194mm)"}
+          - {label: "Sound Power Level", name: "soundPower", widget: "string", required: false, hint: "e.g., 95 dB(A)"}
+          - {label: "Vibration Level", name: "vibrationLevel", widget: "string", required: false, hint: "e.g., 2.5 m/s²"}
+          - {label: "Battery Platform", name: "batteryPlatform", widget: "string", required: false, hint: "e.g., Siyang 20V MAX"}
+          - {label: "LED Work Light", name: "ledWorkLight", widget: "string", required: false, hint: "e.g., Yes, with 20-second delay"}
+          - {label: "Belt Hook", name: "beltHook", widget: "string", required: false, hint: "e.g., Yes, adjustable"}
+          - {label: "Cord Length", name: "cordLength", widget: "string", required: false, hint: "e.g., 6.5 ft (2m)"}
+          - {label: "Disc/Blade Diameter", name: "discBladeDiameter", widget: "string", required: false, hint: "e.g., 7-1/4\""}
+          - {label: "Arbor Size", name: "arborSize", widget: "string", required: false, hint: "e.g., 5/8\""}
+          - {label: "Max Cutting Depth", name: "maxCuttingDepth", widget: "string", required: false, hint: "e.g., 2-1/2\" at 90°"}
+          - {label: "Pad Size", name: "padSize", widget: "string", required: false, hint: "For sanders: e.g., 5\""}
+          - {label: "Impacts Per Minute", name: "ipm", widget: "string", required: false, hint: "For impact tools: e.g., 0-3400 IPM"}
+      - label: "Compliance"
+        name: "compliance"
+        widget: "object"
+        i18n: false
+        hint: "Product certification flags."
+        required: false
+        fields:
+          - {label: "CE", name: "ce", widget: "boolean", default: true, hint: "CE Marking compliance"}
+          - {label: "RoHS", name: "rohs", widget: "boolean", default: true, hint: "RoHS compliance"}
+          - {label: "GS", name: "gs", widget: "boolean", default: false, hint: "GS Mark (Tested Safety)"}
+          - {label: "UL", name: "ul", widget: "boolean", default: false, hint: "UL certification"}
+          - {label: "EEC", name: "eec", widget: "boolean", default: true, hint: "EEC certification"}
+      - label: "Related Products"
+        name: "relatedProducts"
+        widget: "list"
+        i18n: false
+        field: {label: "SKU", name: "sku", widget: "string"}
+        hint: "2-3 SKUs of related products for cross-selling."
+        required: false
+      - label: "Downloads"
+        name: "downloads"
+        widget: "object"
+        i18n: false
+        required: false
+        hint: "Links to downloadable files for this product."
+        fields:
+          - {label: "Spec Sheet PDF", name: "specSheet", widget: "file", media_folder: "assets/downloads", public_folder: "/assets/downloads", choose_url: false, required: false, hint: "Upload the product spec sheet PDF."}
+          - {label: "Manual PDF", name: "manual", widget: "file", media_folder: "assets/downloads", public_folder: "/assets/downloads", choose_url: false, required: false, hint: "Upload the product manual PDF."}
+      - label: "Minimum Order Quantity"
+        name: "moq"
+        widget: "string"
+        i18n: false
+        default: "500 units"
+        hint: "The minimum number of units a buyer must order."
+      - label: "Lead Time"
+        name: "leadTime"
+        widget: "string"
+        i18n: false
+        default: "30-45 days"
+        hint: "How long production takes after order confirmation."
+      - label: "In Stock?"
+        name: "inStock"
+        widget: "boolean"
+        i18n: false
+        default: true
+        hint: "Toggle ON if this product is currently available."
+      - label: "Featured Product?"
+        name: "featured"
+        widget: "boolean"
+        i18n: false
+        default: false
+        hint: "Toggle ON to show this product as a featured item on the homepage."
+      - label: "Warranty"
+        name: "warranty"
+        widget: "string"
+        i18n: true
+        default: "1 year standard, 2 year brushless motor"
+        hint: "Warranty coverage description."
+
+  - name: "blog"
+    label: "Blog Posts"
+    roles: ["admin", "editor", "translator"]
+    label_singular: "Blog Post"
+    folder: "content/blog"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}} — by {{author}} ({{category}})"
+    i18n: true
+    sortable_fields:
+      fields: ["title", "date"]
+    view_filters:
+      - label: "B2B Insights"
+        field: "category"
+        pattern: "B2B Insights"
+      - label: "Industry Trends"
+        field: "category"
+        pattern: "Industry Trends"
+      - label: "Product Spotlight"
+        field: "category"
+        pattern: "Product Spotlight"
+      - label: "Company News"
+        field: "category"
+        pattern: "Company News"
+      - label: "Technical Guides"
+        field: "category"
+        pattern: "Technical Guides"
+    fields:
+      - label: "Post Title"
+        name: "title"
+        widget: "string"
+        i18n: true
+        hint: "The headline of your blog post."
+      - label: "Publish Date"
+        name: "date"
+        widget: "datetime"
+        i18n: false
+        hint: "When this post should appear as published."
+      - label: "Author Name"
+        name: "author"
+        widget: "string"
+        i18n: false
+        hint: "Who wrote this post?"
+        default: "Ningbo Siyang Team"
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        i18n: true
+        options: ["B2B Insights", "Industry Trends", "Product Spotlight", "Company News", "Technical Guides"]
+        hint: "Pick the topic area this post belongs to."
+      - label: "Cover Image"
+        name: "image"
+        widget: "image"
+        i18n: false
+        media_folder: "images/blog"
+        public_folder: "/images/blog"
+        choose_url: false
+        required: false
+        hint: "The main image shown at the top of the post. Recommended: 1200x630px."
+      - label: "Short Summary"
+        name: "excerpt"
+        widget: "text"
+        i18n: true
+        hint: "A 1-2 sentence preview of the post."
+      - label: "Reading Time (minutes)"
+        name: "readTime"
+        widget: "number"
+        i18n: false
+        default: 5
+        min: 1
+        max: 60
+        hint: "How many minutes does it take to read?"
+      - label: "Full Article"
+        name: "body"
+        widget: "markdown"
+        i18n: true
+        hint: "Write your full blog post here."
+
+  - name: "testimonials"
+    label: "Testimonials"
+    roles: ["admin", "editor", "translator"]
+    label_singular: "Testimonial"
+    folder: "content/testimonials"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{name}} — {{company}}"
+    i18n: true
+    fields:
+      - label: "Customer Name"
+        name: "name"
+        widget: "string"
+        i18n: false
+        hint: "Full name of the person giving the testimonial."
+      - label: "Company Name"
+        name: "company"
+        widget: "string"
+        i18n: false
+        hint: "The company this customer represents."
+      - label: "Testimonial Quote"
+        name: "quote"
+        widget: "text"
+        i18n: true
+        hint: "The testimonial text. Keep it authentic and specific."
+      - label: "Customer Photo"
+        name: "avatar"
+        widget: "image"
+        i18n: false
+        media_folder: "images/testimonials"
+        public_folder: "/images/testimonials"
+        choose_url: false
+        required: false
+        hint: "Optional headshot. Recommended: 200x200px."
+      - label: "Star Rating"
+        name: "rating"
+        widget: "number"
+        i18n: false
+        min: 1
+        max: 5
+        default: 5
+        hint: "Rating from 1 to 5 stars."
+      - label: "Display Order"
+        name: "order"
+        widget: "number"
+        i18n: false
+        default: 0
+        hint: "Lower numbers appear first."
+
+  - name: "team_members"
+    label: "Team Members"
+    roles: ["admin", "editor", "translator"]
+    label_singular: "Team Member"
+    folder: "content/team"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{name}} — {{title}}"
+    i18n: true
+    fields:
+      - label: "Full Name"
+        name: "name"
+        widget: "string"
+        i18n: false
+        hint: "The team member's full name."
+      - label: "Job Title"
+        name: "title"
+        widget: "string"
+        i18n: true
+        hint: "Their role or title."
+      - label: "Photo"
+        name: "photo"
+        widget: "image"
+        i18n: false
+        required: false
+        hint: "Professional headshot. Recommended: 400x400px."
+      - label: "Short Bio"
+        name: "bio"
+        widget: "text"
+        i18n: true
+        required: false
+        hint: "A brief 1-2 sentence bio."
+      - label: "Display Order"
+        name: "order"
+        widget: "number"
+        i18n: false
+        default: 0
+        hint: "Lower numbers appear first."
+
+  - name: "certifications"
+    label: "Certifications"
+    roles: ["admin", "editor"]
+    label_singular: "Certification"
+    folder: "content/certifications"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{name}} — {{issuer}} ({{year}})"
+    i18n: true
+    fields:
+      - label: "Certification Name"
+        name: "name"
+        widget: "string"
+        i18n: true
+        hint: "The official name. Example: ISO 9001:2015"
+      - label: "Issuing Body"
+        name: "issuer"
+        widget: "string"
+        i18n: false
+        hint: "The organization that issued this. Example: SGS, TUV"
+      - label: "Certificate Number"
+        name: "cert_number"
+        widget: "string"
+        i18n: false
+        required: false
+        hint: "The official certificate number."
+      - label: "Certificate Image"
+        name: "image"
+        widget: "image"
+        i18n: false
+        media_folder: "images/certificates"
+        public_folder: "/images/certificates"
+        choose_url: false
+        required: false
+        hint: "Upload a scan or photo of the certificate."
+      - label: "Year Obtained"
+        name: "year"
+        widget: "string"
+        i18n: false
+        hint: "The year obtained or last renewed."
+
+  - name: "faq"
+    label: "FAQ"
+    roles: ["admin", "editor", "translator"]
+    label_singular: "FAQ Item"
+    folder: "content/faq"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{category}} — {{question}}"
+    i18n: true
+    fields:
+      - label: "Question"
+        name: "question"
+        widget: "string"
+        i18n: true
+        hint: "The frequently asked question."
+      - label: "Answer"
+        name: "answer"
+        widget: "markdown"
+        i18n: true
+        hint: "The detailed answer."
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        i18n: true
+        options: ["Ordering & Payment", "Shipping & Delivery", "Products & Quality", "OEM/ODM Services", "Company & Factory", "Warranty & Support"]
+        hint: "Which topic area does this question belong to?"
+      - label: "Display Order"
+        name: "order"
+        widget: "number"
+        i18n: false
+        default: 0
+        hint: "Lower numbers appear first."
+
+  - name: "partners"
+    label: "Partners & Clients"
+    roles: ["admin", "editor"]
+    label_singular: "Partner"
+    folder: "content/partners"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{name}}"
+    fields:
+      - label: "Partner/Client Name"
+        name: "name"
+        widget: "string"
+        hint: "The company or brand name."
+      - label: "Logo"
+        name: "logo"
+        widget: "image"
+        required: false
+        hint: "Upload the partner's logo. Recommended: 300x150px."
+      - label: "Website URL"
+        name: "website"
+        widget: "string"
+        i18n: false
+        required: false
+        pattern: ['^https?://.+', 'Please enter a valid URL starting with http:// or https://']
+        hint: "The partner's website URL."
+      - label: "Display Order"
+        name: "order"
+        widget: "number"
+        default: 0
+        hint: "Lower numbers appear first."
+
+  - name: "distributors"
+    label: "Distributors"
+    roles: ["admin", "editor", "translator"]
+    label_singular: "Distributor"
+    folder: "content/distributors"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{companyName}} — {{country}} ({{region}})"
+    i18n: true
+    description: "Manage your global distributor and agent network. These appear on the Distributors page."
+    view_filters:
+      - label: "Asia-Pacific"
+        field: "region"
+        pattern: "Asia-Pacific"
+      - label: "Europe"
+        field: "region"
+        pattern: "Europe"
+      - label: "North America"
+        field: "region"
+        pattern: "North America"
+      - label: "Middle East"
+        field: "region"
+        pattern: "Middle East"
+      - label: "Africa"
+        field: "region"
+        pattern: "Africa"
+      - label: "South America"
+        field: "region"
+        pattern: "South America"
+    view_groups:
+      - label: "By Region"
+        field: "region"
+      - label: "By Country"
+        field: "country"
+    fields:
+      - label: "Company Name"
+        name: "companyName"
+        widget: "string"
+        i18n: false
+        hint: "The distributor's company name."
+      - label: "Country"
+        name: "country"
+        widget: "select"
+        i18n: false
+        options: ["Afghanistan", "Algeria", "Argentina", "Australia", "Austria", "Bangladesh", "Belgium", "Brazil", "Canada", "Chile", "China", "Colombia", "Czech Republic", "Denmark", "Egypt", "Ethiopia", "Finland", "France", "Germany", "Ghana", "Greece", "Hungary", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Japan", "Jordan", "Kenya", "Kuwait", "Malaysia", "Mexico", "Morocco", "Netherlands", "Nigeria", "Norway", "Oman", "Pakistan", "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russia", "Saudi Arabia", "Senegal", "Singapore", "South Africa", "South Korea", "Spain", "Sri Lanka", "Sweden", "Switzerland", "Thailand", "Turkey", "UAE", "UK", "Ukraine", "USA", "Venezuela", "Vietnam"]
+        hint: "The country where the distributor is based."
+      - label: "Region"
+        name: "region"
+        widget: "select"
+        i18n: false
+        options: ["Asia-Pacific", "Europe", "North America", "Middle East", "Africa", "South America"]
+        hint: "The geographic region."
+      - label: "Contact Person"
+        name: "contactPerson"
+        widget: "string"
+        i18n: false
+        required: false
+        hint: "Primary contact name at the distributor."
+      - label: "Email"
+        name: "email"
+        widget: "string"
+        i18n: false
+        required: false
+        pattern: ['^[^@]+@[^@]+\\.[^@]+$', 'Please enter a valid email address']
+        hint: "Contact email address."
+      - label: "Phone"
+        name: "phone"
+        widget: "string"
+        i18n: false
+        required: false
+        hint: "Contact phone number with country code."
+      - label: "Website"
+        name: "website"
+        widget: "string"
+        i18n: false
+        required: false
+        pattern: ['^https?://.+', 'Please enter a valid URL starting with http:// or https://']
+        hint: "Distributor's website URL."
+      - label: "Logo"
+        name: "logo"
+        widget: "image"
+        i18n: false
+        media_folder: "images/distributors"
+        public_folder: "/images/distributors"
+        choose_url: false
+        required: false
+        hint: "Upload the distributor's logo."
+      - label: "Address"
+        name: "address"
+        widget: "text"
+        i18n: false
+        required: false
+        hint: "Full business address."
+
+  - name: "warranty"
+    label: "Warranty"
+    roles: ["admin", "editor", "translator"]
+    label_singular: "Warranty Policy"
+    folder: "content/warranty"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}} — {{warrantyPeriod}}"
+    i18n: true
+    description: "Manage warranty policies and coverage information."
+    view_filters:
+      - label: "Standard"
+        field: "warrantyType"
+        pattern: "standard"
+      - label: "Motor"
+        field: "warrantyType"
+        pattern: "motor"
+      - label: "Extended"
+        field: "warrantyType"
+        pattern: "extended"
+    fields:
+      - label: "Policy Title"
+        name: "title"
+        widget: "string"
+        i18n: true
+        hint: "Name of the warranty policy. Example: Standard Warranty"
+      - label: "Warranty Type"
+        name: "warrantyType"
+        widget: "select"
+        i18n: false
+        options: ["standard", "motor", "extended"]
+        hint: "The type of warranty coverage."
+      - label: "Warranty Period"
+        name: "warrantyPeriod"
+        widget: "string"
+        i18n: false
+        hint: "How long the warranty lasts. Example: 1 Year, 2 Years"
+      - label: "Description"
+        name: "description"
+        widget: "markdown"
+        i18n: true
+        hint: "Full description of what this warranty covers."
+      - label: "Exclusions"
+        name: "exclusions"
+        widget: "list"
+        i18n: true
+        field: {label: "Exclusion", name: "exclusion", widget: "string"}
+        hint: "List of things NOT covered by this warranty."
+        required: false
+      - label: "Claim Process"
+        name: "claimProcess"
+        widget: "markdown"
+        i18n: true
+        hint: "Step-by-step instructions for filing a warranty claim."
+        required: false
+
+  - name: "safety"
+    label: "Safety Notices"
+    roles: ["admin", "editor", "translator"]
+    label_singular: "Safety Notice"
+    folder: "content/safety"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{noticeType}} — {{title}} ({{severity}})"
+    i18n: true
+    description: "Manage safety advisories, recalls, and compliance updates."
+    view_filters:
+      - label: "Safety Advisory"
+        field: "noticeType"
+        pattern: "safety advisory"
+      - label: "Recall"
+        field: "noticeType"
+        pattern: "recall"
+      - label: "Compliance Update"
+        field: "noticeType"
+        pattern: "compliance update"
+      - label: "Critical"
+        field: "severity"
+        pattern: "critical"
+      - label: "Warning"
+        field: "severity"
+        pattern: "warning"
+      - label: "Info"
+        field: "severity"
+        pattern: "info"
+    fields:
+      - label: "Notice Title"
+        name: "title"
+        widget: "string"
+        i18n: true
+        hint: "Title of the safety notice."
+      - label: "Notice Type"
+        name: "noticeType"
+        widget: "select"
+        i18n: false
+        options: ["safety advisory", "recall", "compliance update"]
+        hint: "What type of notice is this?"
+      - label: "Severity"
+        name: "severity"
+        widget: "select"
+        i18n: false
+        options: ["info", "warning", "critical"]
+        default: "info"
+        hint: "How urgent is this notice?"
+      - label: "Affected SKUs"
+        name: "affectedSkus"
+        widget: "string"
+        i18n: false
+        required: false
+        hint: "Comma-separated list of affected product SKUs. Leave empty if it applies to all products."
+      - label: "Description"
+        name: "description"
+        widget: "markdown"
+        i18n: true
+        hint: "Full details of the safety notice."
+      - label: "Date"
+        name: "date"
+        widget: "datetime"
+        i18n: false
+        hint: "When this notice was issued."
+
+  - name: "manuals"
+    label: "Product Manuals"
+    roles: ["admin", "editor"]
+    label_singular: "Manual"
+    folder: "content/manuals"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}} — {{language}}"
+    i18n: false
+    description: "Upload and manage product instruction manuals in multiple languages."
+    view_filters:
+      - label: "English"
+        field: "language"
+        pattern: "en"
+      - label: "Chinese"
+        field: "language"
+        pattern: "zh"
+      - label: "Arabic"
+        field: "language"
+        pattern: "ar"
+      - label: "French"
+        field: "language"
+        pattern: "fr"
+      - label: "Russian"
+        field: "language"
+        pattern: "ru"
+      - label: "Spanish"
+        field: "language"
+        pattern: "es"
+    fields:
+      - label: "Manual Title"
+        name: "title"
+        widget: "string"
+        hint: "Name of the manual. Example: 20V Drill/Driver Instruction Manual"
+      - label: "Product SKU"
+        name: "productSku"
+        widget: "string"
+        hint: "The SKU of the product this manual belongs to."
+      - label: "Language"
+        name: "language"
+        widget: "select"
+        options: ["en", "zh", "ar", "fr", "ru", "es"]
+        hint: "What language is this manual in?"
+      - label: "PDF File"
+        name: "file"
+        widget: "file"
+        media_folder: "assets/downloads"
+        public_folder: "/assets/downloads"
+        choose_url: false
+        hint: "Upload the manual PDF file."
+      - label: "Version"
+        name: "version"
+        widget: "string"
+        required: false
+        hint: "Version number. Example: 2.1"
+      - label: "Date"
+        name: "date"
+        widget: "datetime"
+        hint: "When this manual was published or last updated."
+
+  - name: "downloads"
+    label: "Downloads"
+    roles: ["admin", "editor", "translator"]
+    label_singular: "Download"
+    folder: "content/downloads"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{category}} — {{title}}"
+    i18n: true
+    description: "Manage downloadable resources: catalogs, spec sheets, certificates, and firmware."
+    view_filters:
+      - label: "Catalog"
+        field: "category"
+        pattern: "Catalog"
+      - label: "Spec Sheet"
+        field: "category"
+        pattern: "Spec Sheet"
+      - label: "Manual"
+        field: "category"
+        pattern: "Manual"
+      - label: "Certificate"
+        field: "category"
+        pattern: "Certificate"
+      - label: "Firmware"
+        field: "category"
+        pattern: "Firmware"
+    fields:
+      - label: "Download Title"
+        name: "title"
+        widget: "string"
+        i18n: true
+        hint: "Name of the downloadable resource."
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        i18n: false
+        options: ["Catalog", "Spec Sheet", "Manual", "Certificate", "Firmware"]
+        hint: "What type of download is this?"
+      - label: "File"
+        name: "file"
+        widget: "file"
+        i18n: false
+        media_folder: "assets/downloads"
+        public_folder: "/assets/downloads"
+        choose_url: false
+        hint: "Upload the file."
+      - label: "Language"
+        name: "language"
+        widget: "select"
+        i18n: false
+        options: ["en", "zh", "ar", "fr", "ru", "es"]
+        default: "en"
+        hint: "What language is this file in?"
+      - label: "Version"
+        name: "version"
+        widget: "string"
+        i18n: false
+        required: false
+        hint: "Version number. Example: 3.0"
+      - label: "Date"
+        name: "date"
+        widget: "datetime"
+        i18n: false
+        hint: "When this file was published or last updated."
+      - label: "Description"
+        name: "description"
+        widget: "text"
+        i18n: true
+        required: false
+        hint: "Brief description of what this download contains."
+
+  - name: "pages"
+    label: "Pages"
+    roles: ["admin"]
+    delete: false
+    files:
+      - label: "Homepage"
+        name: "homepage"
+        file: "content/pages/homepage.md"
+        fields:
+          - label: "Main Headline"
+            name: "heroTitle"
+            widget: "string"
+            i18n: true
+            default: "POWER YOUR CRAFT"
+            hint: "The large headline text at the top of the homepage."
+          - label: "Subtitle"
+            name: "heroSubtitle"
+            widget: "string"
+            i18n: true
+            default: "Professional Power Tools Since 1998"
+            hint: "The smaller text below the main headline."
+          - label: "Statistic 1 — Label"
+            name: "stat1Label"
+            widget: "string"
+            i18n: true
+            default: "Customers Worldwide"
+          - label: "Statistic 1 — Value"
+            name: "stat1Value"
+            widget: "string"
+            i18n: false
+            default: "500K+"
+          - label: "Statistic 2 — Label"
+            name: "stat2Label"
+            widget: "string"
+            i18n: true
+            default: "Countries Served"
+          - label: "Statistic 2 — Value"
+            name: "stat2Value"
+            widget: "string"
+            i18n: false
+            default: "45+"
+          - label: "Statistic 3 — Label"
+            name: "stat3Label"
+            widget: "string"
+            i18n: true
+            default: "Years of Excellence"
+          - label: "Statistic 3 — Value"
+            name: "stat3Value"
+            widget: "string"
+            i18n: false
+            default: "25"
+      - label: "Company Information"
+        name: "company"
+        file: "content/pages/company.md"
+        fields:
+          - label: "Company Full Name"
+            name: "companyName"
+            widget: "string"
+            i18n: false
+            default: "Ningbo Siyang Power Tools Co., Ltd."
+          - label: "Contact Email"
+            name: "email"
+            widget: "string"
+            i18n: false
+            default: "sales@ningbosiyang.com"
+            pattern: ['^[^@]+@[^@]+\\.[^@]+$', 'Please enter a valid email address']
+          - label: "Phone Number"
+            name: "phone"
+            widget: "string"
+            i18n: false
+            default: "+86 574 8888 8888"
+          - label: "Address"
+            name: "address"
+            widget: "string"
+            i18n: false
+            default: "Ningbo Industrial Zone, Zhejiang, China 315000"
+          - label: "Year Founded"
+            name: "founded"
+            widget: "string"
+            i18n: false
+            default: "1998"
+          - label: "WeChat QR Code Image"
+            name: "wechatQR"
+            widget: "image"
+            i18n: false
+            required: false
+            hint: "Upload the WeChat QR code image."
+          - label: "WhatsApp Number"
+            name: "whatsapp"
+            widget: "string"
+            i18n: false
+            required: false
+            hint: "Your WhatsApp number with country code, no spaces."
+          - label: "YouTube Channel Link"
+            name: "youtube"
+            widget: "string"
+            i18n: false
+            required: false
+            pattern: ['^https?://.+', 'Please enter a valid URL starting with http:// or https://']
+            hint: "Full URL to your YouTube channel."
+
+  - name: "settings"
+    label: "Site Settings"
+    roles: ["admin"]
+    delete: false
+    publish: false
+    files:
+      - label: "Navigation Menu"
+        name: "navigation"
+        file: "content/settings/navigation.md"
+        fields:
+          - label: "Product Categories"
+            name: "categories"
+            widget: "list"
+            hint: "The product categories shown in the website navigation menu."
+            fields:
+              - label: "Category Name"
+                name: "name"
+                widget: "string"
+                i18n: true
+                hint: "The display name. Example: Drills & Drivers"
+              - label: "Page Link Name"
+                name: "slug"
+                widget: "string"
+                i18n: false
+                hint: "Used for the website link. Lowercase with hyphens. Example: drills-drivers"
+              - label: "Description"
+                name: "description"
+                widget: "string"
+                i18n: true
+                hint: "A short description shown in the dropdown menu."
+      - label: "Footer"
+        name: "footer"
+        file: "content/settings/footer.md"
+        fields:
+          - label: "Copyright Text"
+            name: "copyright"
+            widget: "string"
+            i18n: false
+            default: "\u00a9 2026 Ningbo Siyang Power Tools Co., Ltd."
+            hint: "The copyright notice shown at the bottom of every page."
+          - label: "Trust Badge 1"
+            name: "badge1"
+            widget: "string"
+            i18n: true
+            default: "2-Year Warranty"
+          - label: "Trust Badge 2"
+            name: "badge2"
+            widget: "string"
+            i18n: true
+            default: "ISO 9001 Certified"
+          - label: "Trust Badge 3"
+            name: "badge3"
+            widget: "string"
+            i18n: true
+            default: "SGS Verified"
+          - label: "Trust Badge 4"
+            name: "badge4"
+            widget: "string"
+            i18n: true
+            default: "CE Certified"

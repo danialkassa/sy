@@ -1,0 +1,45 @@
+{
+  "posts": [
+    {
+      "title": "Le Guide Complet d'Approvisionnement en Outils Electriques Professionnels",
+      "slug": "b2b-power-tools-procurement",
+      "date": "2024-12-10T10:00:00Z",
+      "category": "Perspectives Commerciales",
+      "excerpt": "Tout ce que vous devez savoir sur l'approvisionnement en outils electriques pour votre entreprise, de l'assurance qualite aux strategies de tarification en gros.",
+      "image": "../images/istock/10005.jpg",
+      "author": "Li Ming",
+      "authorRole": "Spécialiste des Achats",
+      "readTime": 6,
+      "tags": ["procurement", "B2B", "sourcing", "bulk-ordering"],
+      "featured": true
+    },
+    {
+      "lang": "fr",
+      "title": "Choisir la Perceuse Adaptee a Vos Projets",
+      "slug": "choosing-the-right-power-drill",
+      "date": "2024-12-15T10:00:00Z",
+      "category": "Guides Techniques",
+      "excerpt": "Un guide complet pour selectionner la perceuse ideale pour tout projet, des reparations domestiques aux travaux de construction professionnels.",
+      "image": "../images/istock/10001.jpg",
+      "author": "Chen Wei",
+      "authorRole": "Ingénieur Produit",
+      "readTime": 8,
+      "tags": ["drills", "guide", "technical", "cordless"],
+      "featured": false
+    },
+    {
+      "lang": "fr",
+      "title": "Les Normes de Securite que Tout Acheteur d'Outils Electriques Doit Connaitre",
+      "slug": "safety-standards",
+      "date": "2024-12-05T10:00:00Z",
+      "category": "Tendances du Secteur",
+      "excerpt": "Comprendre les certifications et normes de securite internationales pour les outils electriques, y compris les marquages CE, UL et GS.",
+      "image": "../images/istock/10010.jpg",
+      "author": "Zhang Hui",
+      "authorRole": "Responsable Assurance Qualité",
+      "readTime": 7,
+      "tags": ["safety", "certifications", "CE", "standards"],
+      "featured": true
+    }
+  ]
+}

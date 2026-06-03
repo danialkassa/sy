@@ -1,0 +1,72 @@
+[
+  {
+    "id": "faq-001",
+    "question": "What is the minimum order quantity?",
+    "answer": "MOQ varies by product, typically 200-500 units for standard products. Custom OEM orders may have higher MOQs.",
+    "category": "Orders",
+    "order": 1
+  },
+  {
+    "id": "faq-002",
+    "question": "What payment methods do you accept?",
+    "answer": "We accept T/T (30% deposit, 70% before shipment), L/C at sight for orders over $50,000, Western Union for samples, and Alibaba Trade Assurance.",
+    "category": "Payment",
+    "order": 2
+  },
+  {
+    "id": "faq-003",
+    "question": "What is the lead time for production?",
+    "answer": "Standard products: 30-45 days. Custom OEM/ODM: 45-60 days depending on complexity.",
+    "category": "Orders",
+    "order": 3
+  },
+  {
+    "id": "faq-004",
+    "question": "Do you offer samples?",
+    "answer": "Yes, we encourage sample orders for quality verification. Sample pricing may differ from bulk pricing.",
+    "category": "Orders",
+    "order": 4
+  },
+  {
+    "id": "faq-005",
+    "question": "What certifications do your products have?",
+    "answer": "CE, RoHS, ISO 9001:2015 (SGS certified), GS mark on selected products, EEC compliance.",
+    "category": "Quality",
+    "order": 5
+  },
+  {
+    "id": "faq-006",
+    "question": "Can you customize products with our brand?",
+    "answer": "Yes, we offer full OEM and ODM services including custom branding, packaging, and product modifications.",
+    "category": "Customization",
+    "order": 6
+  },
+  {
+    "id": "faq-007",
+    "question": "What is your warranty policy?",
+    "answer": "1-year standard warranty on all products. 2-year warranty on brushless motors. See our Warranty page for full details.",
+    "category": "Warranty",
+    "order": 7
+  },
+  {
+    "id": "faq-008",
+    "question": "Do you provide after-sales support?",
+    "answer": "Yes, our support team responds within 24 hours. We provide technical documentation, spare parts, and warranty service.",
+    "category": "Support",
+    "order": 8
+  },
+  {
+    "id": "faq-009",
+    "question": "What trade terms do you offer?",
+    "answer": "FOB, CIF, EXW, and DDP. Standard terms are FOB Ningbo. We can accommodate other Incoterms upon request.",
+    "category": "Shipping",
+    "order": 9
+  },
+  {
+    "id": "faq-010",
+    "question": "How do I become a distributor?",
+    "answer": "Contact us at sales@ningbosiyang.com with your market details, expected volumes, and business plan. We evaluate partnerships on a case-by-case basis.",
+    "category": "Partnership",
+    "order": 10
+  }
+]

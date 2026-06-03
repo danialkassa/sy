@@ -1,0 +1,45 @@
+{
+  "posts": [
+    {
+      "title": "الدليل الشراء لأدوات الطاقة التجارية بين الشركات",
+      "slug": "b2b-power-tools-procurement",
+      "date": "2024-12-10T10:00:00Z",
+      "category": "رؤى تجارية",
+      "excerpt": "كل ما تحتاج معرفته حول شراء أدوات الطاقة لعملك، من ضمان الجودة إلى استراتيجيات التسعير بالجملة.",
+      "image": "../images/istock/10005.jpg",
+      "author": "Li Ming",
+      "authorRole": "أخصائي المشتريات",
+      "readTime": 6,
+      "tags": ["procurement", "B2B", "sourcing", "bulk-ordering"],
+      "featured": true
+    },
+    {
+      "lang": "ar",
+      "title": "اختيار مثقاب الطاقة المناسب لمشاريعك",
+      "slug": "choosing-the-right-power-drill",
+      "date": "2024-12-15T10:00:00Z",
+      "category": "أدلة فنية",
+      "excerpt": "دليل شامل لاختيار مثقاب الطاقة المثالي لأي مشروع، من إصلاحات المنزل الشخصية إلى أعمال البناء المهنية.",
+      "image": "../images/istock/10001.jpg",
+      "author": "Chen Wei",
+      "authorRole": "مهندس المنتج",
+      "readTime": 8,
+      "tags": ["drills", "guide", "technical", "cordless"],
+      "featured": false
+    },
+    {
+      "lang": "ar",
+      "title": "معايير السلامة التي يجب على كل مشتر لأدوات الطاقة معرفتها",
+      "slug": "safety-standards",
+      "date": "2024-12-05T10:00:00Z",
+      "category": "اتجاهات الصناعة",
+      "excerpt": "فهم شهادات ومعايير السلامة الدولية لأدوات الطاقة، بما في ذلك علامات CE وUL وGS.",
+      "image": "../images/istock/10010.jpg",
+      "author": "Zhang Hui",
+      "authorRole": "مدير ضمان الجودة",
+      "readTime": 7,
+      "tags": ["safety", "certifications", "CE", "standards"],
+      "featured": true
+    }
+  ]
+}

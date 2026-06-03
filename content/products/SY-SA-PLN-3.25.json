@@ -1,0 +1,59 @@
+﻿{
+    "sku":  "SY-SA-PLN-3.25",
+    "name":  "Electric Hand Planer 3-1/4\"",
+    "brand":  "Ningbo Siyang Pro",
+    "category":  "sanders",
+    "categoryLabel":  "Sanders",
+    "description":  "Professional 3-1/4 inch electric hand planer with 6.0 Amp motor delivering 34,000 RPM for fast, smooth planing. Includes a parallel fence for consistent results and a depth adjustment knob for precise control. Ideal for door fitting, joist planing, and surface leveling.",
+    "specs":  {
+                  "voltage":  "120V AC, 60Hz",
+                  "motorType":  "6.0 Amp",
+                  "padSize":  "3-1/4\" blade",
+                  "speed":  "34,000 RPM",
+                  "orbitDiameter":  "N/A",
+                  "dustCollection":  "Dual-side chip ejection",
+                  "padType":  "N/A",
+                  "weightToolOnly":  "6.0 lbs (2.7 kg)",
+                  "overallLength":  "11.8\"",
+                  "soundPower":  "92 dB(A)",
+                  "vibrationLevel":  "3.8 m/s²",
+                  "cordLength":  "6 ft (1.8 m)",
+                  "cuttingDepth":  "1/8\" (3.2mm)",
+                  "switchType":  "Trigger with lock-on",
+                  "bladeType":  "Reversible carbide",
+                  "depthStops":  "16 positions",
+                  "fenceIncluded":  "Parallel fence"
+              },
+    "images":  [
+                   "../images/istock/10023.jpg",
+                   "../images/istock/10023-2.jpg",
+                   "../images/istock/10023-3.jpg"
+               ],
+    "userBenefits":  [
+                         "6.0 Amp motor at 34,000 RPM delivers smooth, splinter-free cuts even in dense hardwoods",
+                         "16-position depth adjustment knob allows precise cuts from 0 to 1/8\" for fine-tuned material removal",
+                         "Parallel fence ensures consistent, straight planing along edges for door fitting and board jointing",
+                         "Dual-side chip ejection lets you direct shavings left or right to keep your work area clear",
+                         "Reversible carbide blades double cutting life by flipping to the unused edge when one side dulls"
+                     ],
+    "relatedProducts":  [
+                            "SY-SA-BLT-3X21",
+                            "SY-SA-DSK-5IN"
+                        ],
+    "compliance":  {
+                       "ce":  true,
+                       "rohs":  true,
+                       "gs":  false,
+                       "ul":  false,
+                       "eec":  true
+                   },
+    "featured":  false,
+    "warranty":  "1 year standard",
+    "inStock":  true,
+    "moq":  "300 units",
+    "leadTime":  "30-45 days",
+    "downloads":  {
+                      "specSheet":  "/downloads/spec-sheets/SY-SA-PLN-3.25.pdf",
+                      "manual":  "/downloads/manuals/SY-SA-PLN-3.25.pdf"
+                  }
+}

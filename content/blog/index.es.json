@@ -1,0 +1,45 @@
+{
+  "posts": [
+    {
+      "title": "Guia Completa para la Compra de Herramientas Electricas Empresariales",
+      "slug": "b2b-power-tools-procurement",
+      "date": "2024-12-10T10:00:00Z",
+      "category": "Perspectivas Empresariales",
+      "excerpt": "Todo lo que necesita saber sobre la adquisicion de herramientas electricas para su empresa, desde la garantia de calidad hasta las estrategias de precios al por mayor.",
+      "image": "../images/istock/10005.jpg",
+      "author": "Li Ming",
+      "authorRole": "Especialista en Compras",
+      "readTime": 6,
+      "tags": ["procurement", "B2B", "sourcing", "bulk-ordering"],
+      "featured": true
+    },
+    {
+      "lang": "es",
+      "title": "Elegir el Taladro Adecuado para Sus Proyectos",
+      "slug": "choosing-the-right-power-drill",
+      "date": "2024-12-15T10:00:00Z",
+      "category": "Guias Tecnicas",
+      "excerpt": "Una guia completa para seleccionar el taladro perfecto para cualquier proyecto, desde reparaciones domesticas hasta trabajos de construccion profesionales.",
+      "image": "../images/istock/10001.jpg",
+      "author": "Chen Wei",
+      "authorRole": "Ingeniero de Producto",
+      "readTime": 8,
+      "tags": ["drills", "guide", "technical", "cordless"],
+      "featured": false
+    },
+    {
+      "lang": "es",
+      "title": "Normas de Seguridad que Todo Comprador de Herramientas Electricas Debe Conocer",
+      "slug": "safety-standards",
+      "date": "2024-12-05T10:00:00Z",
+      "category": "Tendencias del Sector",
+      "excerpt": "Comprension de las certificaciones y normas internacionales de seguridad para herramientas electricas, incluidas las marcas CE, UL y GS.",
+      "image": "../images/istock/10010.jpg",
+      "author": "Zhang Hui",
+      "authorRole": "Gerente de Calidad",
+      "readTime": 7,
+      "tags": ["safety", "certifications", "CE", "standards"],
+      "featured": true
+    }
+  ]
+}

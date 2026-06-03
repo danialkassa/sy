@@ -1,0 +1,271 @@
+.nc-root,
+body,
+#nc-root {
+  background: #09090b !important;
+  color: #e4e4e7 !important;
+  font-family: 'Source Sans 3', sans-serif !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+[class*='Heading'] {
+  font-family: 'Oswald', sans-serif !important;
+  color: #e4e4e7 !important;
+}
+
+.nc-sidebar,
+aside,
+[class*='Sidebar'] {
+  background: #18181b !important;
+  border-right: 1px solid #27272a !important;
+}
+
+.nc-sidebar .nc-sidebar-heading,
+aside [class*='heading'],
+aside [class*='CollectionTop'] {
+  color: #facc15 !important;
+}
+
+.nc-sidebar .nc-sidebar-link,
+aside a {
+  color: #a1a1aa !important;
+}
+
+.nc-sidebar .nc-sidebar-link:hover,
+.nc-sidebar .nc-sidebar-link.nc-sidebar-link-active,
+aside a:hover,
+aside a[aria-current='page'] {
+  color: #facc15 !important;
+  background: rgba(250, 204, 21, 0.1) !important;
+}
+
+.nc-topBar,
+header,
+[class*='AppHeader'] {
+  background: #18181b !important;
+  border-bottom: 1px solid #27272a !important;
+}
+
+.nc-entryEditor-container,
+main,
+[class*='EditorContainer'] {
+  background: #09090b !important;
+}
+
+.nc-entryEditor-toolbar,
+[class*='Toolbar'] {
+  background: #18181b !important;
+  border-bottom: 1px solid #27272a !important;
+}
+
+.nc-collection-list-item,
+[class*='CollectionItemContainer-card'],
+[class*='Card'] {
+  background: #18181b !important;
+  border: 1px solid #27272a !important;
+  color: #e4e4e7 !important;
+}
+
+.nc-collection-list-item:hover,
+[class*='CollectionItemContainer-card']:hover,
+[class*='Card']:hover {
+  border-color: #facc15 !important;
+}
+
+.nc-control,
+[class*='ControlContainer'] {
+  background: transparent !important;
+}
+
+.nc-control label,
+label,
+[class*='FieldLabel'] {
+  color: #e4e4e7 !important;
+  font-family: 'Source Sans 3', sans-serif !important;
+}
+
+.nc-control input,
+.nc-control textarea,
+.nc-control select,
+input,
+textarea,
+select {
+  background: #09090b !important;
+  border: 1px solid #3f3f46 !important;
+  color: #e4e4e7 !important;
+  border-radius: 0.5rem !important;
+}
+
+.nc-control input:focus,
+.nc-control textarea:focus,
+.nc-control select:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #facc15 !important;
+  box-shadow: 0 0 0 2px rgba(250, 204, 21, 0.2) !important;
+  outline: none !important;
+}
+
+.nc-control input::placeholder,
+.nc-control textarea::placeholder,
+input::placeholder,
+textarea::placeholder {
+  color: #52525b !important;
+}
+
+.nc-control .nc-hint,
+[class*='Hint'] {
+  color: #71717a !important;
+}
+
+.nc-button-primary,
+button[class*='PrimaryButton'],
+button[class*='StyledButton'][type='button'],
+button[class*='Button'] {
+  border-radius: 0.5rem !important;
+}
+
+.nc-button-primary,
+button[class*='PrimaryButton'] {
+  background: #facc15 !important;
+  color: #09090b !important;
+  font-weight: 600 !important;
+  border: 1px solid #facc15 !important;
+}
+
+.nc-button-primary:hover,
+button[class*='PrimaryButton']:hover {
+  background: #eab308 !important;
+}
+
+.nc-button-secondary,
+button[class*='SecondaryButton'] {
+  background: #27272a !important;
+  color: #e4e4e7 !important;
+  border: 1px solid #3f3f46 !important;
+}
+
+.nc-button-secondary:hover,
+button[class*='SecondaryButton']:hover {
+  border-color: #facc15 !important;
+  color: #facc15 !important;
+}
+
+.nc-toggle-input:checked + .nc-toggle-track,
+input[type='checkbox']:checked,
+input[type='radio']:checked {
+  accent-color: #facc15 !important;
+  background: #facc15 !important;
+  border-color: #facc15 !important;
+}
+
+.nc-toggle-track {
+  background: #3f3f46 !important;
+}
+
+.nc-markdown-widget,
+[class*='EditorContainer'] [class*='Markdown'] {
+  background: #09090b !important;
+}
+
+.nc-markdown-widget .nc-markdown-editor,
+[class*='MarkdownEditor'] {
+  background: #09090b !important;
+  color: #e4e4e7 !important;
+}
+
+.nc-markdown-widget-toolbar,
+[class*='ToolbarContainer'] {
+  background: #18181b !important;
+  border-bottom: 1px solid #27272a !important;
+}
+
+.nc-markdown-widget-toolbar button,
+[class*='ToolbarContainer'] button {
+  color: #a1a1aa !important;
+}
+
+.nc-markdown-widget-toolbar button:hover,
+[class*='ToolbarContainer'] button:hover,
+.nc-markdown-widget-toolbar button.active,
+[class*='ToolbarContainer'] button[aria-pressed='true'] {
+  color: #facc15 !important;
+}
+
+.nc-image-widget,
+[class*='ImageControl'] {
+  background: #09090b !important;
+  border: 2px dashed #3f3f46 !important;
+  border-radius: 0.5rem !important;
+}
+
+.nc-image-widget:hover,
+[class*='ImageControl']:hover {
+  border-color: #facc15 !important;
+}
+
+.nc-preview-pane,
+iframe {
+  background: #09090b !important;
+}
+
+.nc-loginPage,
+[class*='LoginPage'] {
+  background: #09090b !important;
+}
+
+.nc-loginPage .nc-loginPage-button,
+[class*='LoginPage'] button,
+[class*='LoginButton'] {
+  background: #facc15 !important;
+  color: #09090b !important;
+  font-weight: 700 !important;
+  border-radius: 0.5rem !important;
+  font-family: 'Oswald', sans-serif !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+}
+
+.nc-editorial-workflow .nc-editorial-workflow-card,
+[class*='WorkflowCard'] {
+  background: #18181b !important;
+  border: 1px solid #27272a !important;
+}
+
+.nc-search input,
+[class*='SearchContainer'] input {
+  background: #09090b !important;
+  border: 1px solid #3f3f46 !important;
+  color: #e4e4e7 !important;
+}
+
+.nc-filter .nc-filter-control,
+[class*='FilterContainer'] select,
+[class*='FilterContainer'] button {
+  background: #18181b !important;
+  border: 1px solid #27272a !important;
+  color: #e4e4e7 !important;
+}
+
+::-webkit-scrollbar {
+  width: 8px !important;
+  height: 8px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: #18181b !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3f3f46 !important;
+  border-radius: 4px !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #facc15 !important;
+}

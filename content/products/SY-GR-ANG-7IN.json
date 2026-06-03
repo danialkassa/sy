@@ -1,0 +1,57 @@
+﻿{
+    "sku":  "SY-GR-ANG-7IN",
+    "name":  "7\" Large Angle Grinder 15A",
+    "brand":  "Ningbo Siyang Pro",
+    "category":  "grinders",
+    "categoryLabel":  "Grinders",
+    "description":  "Heavy-duty 7 inch angle grinder with 15 Amp motor and electronic speed control for consistent performance under load. Delivers 8500 RPM for aggressive material removal in metal fabrication and construction applications. Features overload protection and soft start.",
+    "specs":  {
+                  "voltage":  "120V AC, 60Hz",
+                  "motorType":  "15 Amp",
+                  "noLoadSpeed":  "8,500 RPM",
+                  "discDiameter":  "7\"",
+                  "arborSize":  "7/8\"",
+                  "spindleThread":  "5/8\"-11",
+                  "switchType":  "Slide with lock-on",
+                  "weightToolOnly":  "6.2 lbs (2.8 kg)",
+                  "overallLength":  "15.2\"",
+                  "soundPower":  "102 dB(A)",
+                  "vibrationLevel":  "6.8 m/s²",
+                  "cordLength":  "8 ft (2.4 m)",
+                  "wheelGuard":  "Adjustable with tool-free release",
+                  "auxiliaryHandle":  "Vibration-reducing side handle",
+                  "spindleLock":  "Yes"
+              },
+    "images":  [
+                   "../images/istock/10014.jpg",
+                   "../images/istock/10014-2.jpg",
+                   "../images/istock/10014-3.jpg"
+               ],
+    "userBenefits":  [
+                         "15 Amp motor with electronic speed control maintains consistent RPM under heavy load for uniform results",
+                         "Soft start reduces torque kickback at power-on, protecting both operator and workpiece",
+                         "Overload protection shuts down the motor before damage occurs, extending tool service life",
+                         "Tool-free adjustable guard allows rapid repositioning without a wrench for maximum productivity",
+                         "Vibration-reducing side handle minimizes hand-arm fatigue during extended grinding sessions"
+                     ],
+    "relatedProducts":  [
+                            "SY-GR-ANG-4.5",
+                            "SY-GR-POL-6IN"
+                        ],
+    "compliance":  {
+                       "ce":  true,
+                       "rohs":  true,
+                       "gs":  false,
+                       "ul":  false,
+                       "eec":  true
+                   },
+    "featured":  false,
+    "warranty":  "1 year standard",
+    "inStock":  true,
+    "moq":  "300 units",
+    "leadTime":  "30-45 days",
+    "downloads":  {
+                      "specSheet":  "/downloads/spec-sheets/SY-GR-ANG-7IN.pdf",
+                      "manual":  "/downloads/manuals/SY-GR-ANG-7IN.pdf"
+                  }
+}

@@ -1,0 +1,42 @@
+{
+  "short_name": "Ningbo Siyang",
+  "name": "Ningbo Siyang – Professional Power Tools",
+  "description": "Professional power tools manufacturer since 1998. Drills, saws, grinders, sanders and combo kits shipped worldwide.",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "imagine-logo-dark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#EAB308",
+  "background_color": "#09090B",
+  "lang": "en",
+  "categories": ["business", "manufacturing"],
+  "screenshots": [
+    {
+      "src": "screenshots/desktop-home.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Homepage with hero and featured products"
+    },
+    {
+      "src": "screenshots/mobile-home.png",
+      "sizes": "375x812",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Mobile homepage"
+    }
+  ],
+  "orientation": "any",
+  "prefer_related_applications": false
+}

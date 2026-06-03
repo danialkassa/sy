@@ -1,0 +1,45 @@
+{
+  "posts": [
+    {
+      "title": "B2B电动工具采购完整指南",
+      "slug": "b2b-power-tools-procurement",
+      "date": "2024-12-10T10:00:00Z",
+      "category": "B2B洞察",
+      "excerpt": "为您的企业采购电动工具所需了解的一切，从质量保证到批量定价策略。",
+      "image": "../images/istock/10005.jpg",
+      "author": "Li Ming",
+      "authorRole": "采购专家",
+      "readTime": 6,
+      "tags": ["procurement", "B2B", "sourcing", "bulk-ordering"],
+      "featured": true
+    },
+    {
+      "lang": "zh",
+      "title": "为您的项目选择合适的电钻",
+      "slug": "choosing-the-right-power-drill",
+      "date": "2024-12-15T10:00:00Z",
+      "category": "技术指南",
+      "excerpt": "选择适合任何项目的电钻的综合指南，从家庭DIY维修到专业建筑施工。",
+      "image": "../images/istock/10001.jpg",
+      "author": "Chen Wei",
+      "authorRole": "产品工程师",
+      "readTime": 8,
+      "tags": ["drills", "guide", "technical", "cordless"],
+      "featured": false
+    },
+    {
+      "lang": "zh",
+      "title": "每位电动工具采购商都应了解的安全标准",
+      "slug": "safety-standards",
+      "date": "2024-12-05T10:00:00Z",
+      "category": "行业趋势",
+      "excerpt": "了解电动工具的国际安全认证和标准，包括CE、UL和GS标志。",
+      "image": "../images/istock/10010.jpg",
+      "author": "Zhang Hui",
+      "authorRole": "质量保证经理",
+      "readTime": 7,
+      "tags": ["safety", "certifications", "CE", "standards"],
+      "featured": true
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="robots" content="noindex"/>
+  <title>Content Manager — Ningbo Siyang</title>
+  <link rel="stylesheet" href="./cms-theme.css"/>
+  <style>
+    body { margin: 0; background: #09090b; }
+    .nc-entryCard-card { border-color: #27272a !important; }
+  </style>
+</head>
+<body>
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script src="./previews/product-preview.js"></script>
+  <script src="./previews/blog-preview.js"></script>
+  <script src="./previews/homepage-preview.js"></script>
+  <script src="./widgets/color-swatch.js"></script>
+  <script src="./widgets/product-card.js"></script>
+  <script>
+    (function() {
+      var CMS = window.CMS;
+      if (!CMS) return;
+
+      CMS.registerPreviewStyle('/assets/css/styles.css');
+
+      CMS.registerPreviewTemplate('products', window.ProductPreview);
+      CMS.registerPreviewTemplate('blog', window.BlogPreview);
+      CMS.registerPreviewTemplate('pages', window.HomepagePreview);
+
+      CMS.registerWidget('color-swatch', window.ColorSwatchControl, window.ColorSwatchPreview);
+      CMS.registerWidget('product-card', window.ProductCardControl, window.ProductCardPreview);
+
+      CMS.registerEditorComponent({
+        id: "product-callout",
+        label: "Product Callout",
+        fields: [
+          { name: "product", label: "Product", widget: "relation", collection: "products", value_field: "sku", search_fields: ["name", "sku"], display_fields: ["name"] }
+        ],
+        pattern: /^product-callout (\S+)$/,
+        fromBlock: function(match) { return { product: match[1] }; },
+        toBlock: function(data) { return "product-callout " + data.product; },
+        toPreview: function(data) { return '<div style="background:#18181b;border:1px solid #27272a;border-radius:8px;padding:16px;margin:16px 0;"><strong style="color:#facc15;">Product: ' + data.product + '</strong></div>'; }
+      });
+
+      CMS.registerEditorComponent({
+        id: "cta-button",
+        label: "CTA Button",
+        fields: [
+          { name: "text", label: "Button Text", widget: "string" },
+          { name: "url", label: "Link URL", widget: "string" },
+          { name: "style", label: "Style", widget: "select", options: ["primary", "secondary"] }
+        ],
+        pattern: /^cta-button (\S+) (\S+) (\S+)$/,
+        fromBlock: function(match) { return { text: match[1], url: match[2], style: match[3] }; },
+        toBlock: function(data) { return "cta-button " + data.text + " " + data.url + " " + (data.style || "primary"); },
+        toPreview: function(data) { var bg = data.style === "secondary" ? "#27272a" : "#facc15"; var color = data.style === "secondary" ? "#e4e4e7" : "#09090b"; return '<a href="' + data.url + '" style="display:inline-block;background:' + bg + ';color:' + color + ';padding:10px 24px;border-radius:8px;font-weight:600;text-decoration:none;margin:8px 0;">' + data.text + '</a>'; }
+      });
+
+      CMS.registerEditorComponent({
+        id: "image-gallery",
+        label: "Image Gallery",
+        fields: [
+          { name: "images", label: "Images", widget: "list", field: { name: "image", label: "Image", widget: "image" } },
+          { name: "columns", label: "Columns", widget: "number", default: 3, min: 2, max: 4 }
+        ],
+        pattern: /^image-gallery (.+)$/,
+        fromBlock: function(match) { return { images: match[1].split(","), columns: 3 }; },
+        toBlock: function(data) { return "image-gallery " + (data.images || []).join(","); },
+        toPreview: function(data) { var imgs = (data.images || []); var html = '<div style="display:grid;grid-template-columns:repeat(' + (data.columns || 3) + ',1fr);gap:8px;margin:16px 0;">'; imgs.forEach(function(img) { html += '<img src="' + img + '" style="width:100%;border-radius:8px;object-fit:cover;aspect-ratio:1;" />'; }); html += '</div>'; return html; }
+      });
+
+      CMS.registerEditorComponent({
+        id: "quote-block",
+        label: "Customer Quote",
+        fields: [
+          { name: "quote", label: "Quote Text", widget: "text" },
+          { name: "name", label: "Customer Name", widget: "string" },
+          { name: "company", label: "Company", widget: "string" }
+        ],
+        pattern: /^quote-block (.+?)\|(.+?)\|(.+)$/,
+        fromBlock: function(match) { return { quote: match[1], name: match[2], company: match[3] }; },
+        toBlock: function(data) { return "quote-block " + data.quote + "|" + data.name + "|" + data.company; },
+        toPreview: function(data) { return '<blockquote style="border-left:3px solid #facc15;padding:16px 20px;margin:16px 0;background:#18181b;border-radius:0 8px 8px 0;"><p style="color:#e4e4e7;font-style:italic;margin:0 0 8px 0;">"' + data.quote + '"</p><cite style="color:#a1a1aa;font-style:normal;">— ' + data.name + ', ' + data.company + '</cite></blockquote>'; }
+      });
+    })();
+  </script>
+</body>
+</html>

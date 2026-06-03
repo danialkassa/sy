@@ -1,0 +1,43 @@
+---
+copyright: "© 2024 Ningbo Siyang Power Tools Co., Ltd."
+badge1: "2-Year Warranty"
+badge2: "ISO 9001 Certified"
+badge3: "SGS Verified"
+badge4: "CE Certified"
+columns:
+  - title: "Products"
+    links:
+      - label: "Drills & Drivers"
+        href: "/products/drills-drivers"
+      - label: "Saws"
+        href: "/products/saws"
+      - label: "Grinders"
+        href: "/products/grinders"
+      - label: "Sanders"
+        href: "/products/sanders"
+      - label: "Impact Tools"
+        href: "/products/impact-tools"
+      - label: "Combo Kits"
+        href: "/products/combo-kits"
+  - title: "Company"
+    links:
+      - label: "About Us"
+        href: "/company"
+      - label: "Certifications"
+        href: "/certifications"
+      - label: "Blog"
+        href: "/blog"
+  - title: "Support"
+    links:
+      - label: "Contact"
+        href: "/contact"
+      - label: "FAQ"
+        href: "/faq"
+      - label: "Warranty"
+        href: "/warranty"
+socialLinks:
+  - platform: "LinkedIn"
+    href: "https://linkedin.com/company/ningbosiyang"
+  - platform: "YouTube"
+    href: "https://youtube.com/@ningbosiyang"
+---
