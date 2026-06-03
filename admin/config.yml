@@ -15,8 +15,6 @@ backend:
     uploadMedia: "Upload image: {{path}}"
     deleteMedia: "Remove image: {{path}}"
 
-publish_mode: editorial_workflow
-
 logo_url: /ningbo-siyang-logo-dark.svg
 site_url: http://165.22.250.66
 display_url: http://165.22.250.66
