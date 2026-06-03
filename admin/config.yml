@@ -1,6 +1,6 @@
 ﻿backend:
   name: gitea
-  repo: admin/Ninsiyang
+  repo: admin/b2b
   branch: main
   api_root: http://165.22.250.66/api/v1
   base_url: http://165.22.250.66
