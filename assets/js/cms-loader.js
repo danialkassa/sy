@@ -613,6 +613,109 @@
     });
   };
 
+  CMSLoader.loadTeamMembers = function (containerSelector) {
+    var container = document.querySelector(containerSelector);
+    if (!container) return Promise.resolve();
+
+    var indexPath = getBasePath() + 'content/team/index.json';
+
+    return loadJSONWithLangFallback(indexPath, currentLang).then(function (index) {
+      var members = index.members || [];
+      members.sort(function (a, b) { return (a.order || 0) - (b.order || 0); });
+
+      var html = members.map(function (member) {
+        var name = escapeHtml(member.name || '');
+        var title = escapeHtml(member.title || '');
+        var photo = member.photo || '';
+        var bio = escapeHtml(member.bio || '');
+
+        return '<div class="bg-zinc-900 rounded-xl border border-zinc-800 p-6 text-center hover:border-yellow-400/30 transition-colors">' +
+          '<div class="w-24 h-24 mx-auto mb-4 rounded-full bg-zinc-800 overflow-hidden">' +
+          '<img src="' + photo + '" alt="' + name + '" class="w-full h-full object-cover" onerror="this.style.display=\'none\'"/>' +
+          '</div>' +
+          '<h3 class="font-oswald text-lg font-bold text-white mb-1">' + name + '</h3>' +
+          '<p class="text-yellow-400 text-sm font-medium mb-3">' + title + '</p>' +
+          '<p class="text-zinc-400 text-sm leading-relaxed">' + bio + '</p>' +
+          '</div>';
+      }).join('');
+
+      container.innerHTML = html;
+    }).catch(function () {});
+  };
+
+  CMSLoader.loadTestimonials = function (containerSelector) {
+    var container = document.querySelector(containerSelector);
+    if (!container) return Promise.resolve();
+
+    var indexPath = getBasePath() + 'content/testimonials/index.json';
+
+    return loadJSONWithLangFallback(indexPath, currentLang).then(function (index) {
+      var testimonials = index.testimonials || [];
+      testimonials.sort(function (a, b) { return (a.order || 0) - (b.order || 0); });
+
+      var html = testimonials.map(function (testimonial) {
+        var name = escapeHtml(testimonial.name || '');
+        var company = escapeHtml(testimonial.company || '');
+        var quote = escapeHtml(testimonial.quote || '');
+        var avatar = testimonial.avatar || '';
+        var rating = testimonial.rating || 5;
+
+        var stars = '<div class="flex items-center gap-1 mb-4">';
+        for (var s = 0; s < 5; s++) {
+          stars += s < rating
+            ? '<svg class="w-4 h-4 text-yellow-400 fill-yellow-400" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>'
+            : '<svg class="w-4 h-4 text-zinc-600" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>';
+        }
+        stars += '</div>';
+
+        return '<div class="bg-zinc-900 rounded-xl border border-zinc-800 p-6 hover:border-yellow-400/30 transition-colors">' +
+          stars +
+          '<p class="text-zinc-300 italic mb-4 leading-relaxed">"' + quote + '"</p>' +
+          '<div class="flex items-center gap-3">' +
+          '<div class="w-10 h-10 rounded-full bg-zinc-800 overflow-hidden">' +
+          '<img src="' + avatar + '" alt="' + name + '" class="w-full h-full object-cover" onerror="this.style.display=\'none\'"/>' +
+          '</div>' +
+          '<div>' +
+          '<p class="text-white font-medium text-sm">' + name + '</p>' +
+          '<p class="text-zinc-500 text-xs">' + company + '</p>' +
+          '</div>' +
+          '</div>' +
+          '</div>';
+      }).join('');
+
+      container.innerHTML = html;
+    }).catch(function () {});
+  };
+
+  CMSLoader.loadCertifications = function (containerSelector) {
+    var container = document.querySelector(containerSelector);
+    if (!container) return Promise.resolve();
+
+    var indexPath = getBasePath() + 'content/certifications/index.json';
+
+    return loadJSONWithLangFallback(indexPath, currentLang).then(function (index) {
+      var certs = index.certifications || [];
+
+      var html = certs.map(function (cert) {
+        var name = escapeHtml(cert.name || '');
+        var issuer = escapeHtml(cert.issuer || '');
+        var image = cert.image || '';
+        var year = escapeHtml(String(cert.year || ''));
+
+        return '<div class="bg-zinc-900 rounded-xl border border-zinc-800 p-6 hover:border-yellow-400/30 transition-colors">' +
+          '<div class="w-16 h-16 mx-auto mb-4 bg-zinc-800 rounded-lg overflow-hidden">' +
+          '<img src="' + image + '" alt="' + name + '" class="w-full h-full object-cover" onerror="this.style.display=\'none\'"/>' +
+          '</div>' +
+          '<h3 class="font-oswald text-lg font-bold text-white mb-1 text-center">' + name + '</h3>' +
+          '<p class="text-yellow-400 text-sm text-center mb-1">' + issuer + '</p>' +
+          '<p class="text-zinc-500 text-xs text-center">' + year + '</p>' +
+          '</div>';
+      }).join('');
+
+      container.innerHTML = html;
+    }).catch(function () {});
+  };
+
   CMSLoader.reloadContent = function () {
     CMSLoader.loadHomepage();
     CMSLoader.loadCompanyInfo();
@@ -629,6 +732,15 @@
     if (document.getElementById('cms-products-grid')) {
       var category = new URLSearchParams(window.location.search).get('category') || '';
       CMSLoader.loadProducts(category, '#cms-products-grid');
+    }
+    if (document.getElementById('cms-team-grid')) {
+      CMSLoader.loadTeamMembers('#cms-team-grid');
+    }
+    if (document.getElementById('cms-testimonials-grid')) {
+      CMSLoader.loadTestimonials('#cms-testimonials-grid');
+    }
+    if (document.getElementById('cms-certifications-grid')) {
+      CMSLoader.loadCertifications('#cms-certifications-grid');
     }
   };
 
@@ -670,6 +782,15 @@
     if (document.getElementById('cms-products-grid')) {
       var category = new URLSearchParams(window.location.search).get('category') || '';
       CMSLoader.loadProducts(category, '#cms-products-grid');
+    }
+    if (document.getElementById('cms-team-grid')) {
+      CMSLoader.loadTeamMembers('#cms-team-grid');
+    }
+    if (document.getElementById('cms-testimonials-grid')) {
+      CMSLoader.loadTestimonials('#cms-testimonials-grid');
+    }
+    if (document.getElementById('cms-certifications-grid')) {
+      CMSLoader.loadCertifications('#cms-certifications-grid');
     }
   });
 })();

@@ -1,42 +1,7 @@
-[
-  {
-    "id": "cert-001",
-    "name": "ISO 9001:2015",
-    "issuer": "SGS",
-    "year": 2018,
-    "image": "../images/certifications/iso-9001.jpg",
-    "order": 1
-  },
-  {
-    "id": "cert-002",
-    "name": "CE Marking",
-    "issuer": "EU Notified Body",
-    "year": 2019,
-    "image": "../images/certifications/ce-mark.jpg",
-    "order": 2
-  },
-  {
-    "id": "cert-003",
-    "name": "RoHS Compliance",
-    "issuer": "SGS",
-    "year": 2019,
-    "image": "../images/certifications/rohs.jpg",
-    "order": 3
-  },
-  {
-    "id": "cert-004",
-    "name": "GS Mark",
-    "issuer": "TÜV Rheinland",
-    "year": 2020,
-    "image": "../images/certifications/gs-mark.jpg",
-    "order": 4
-  },
-  {
-    "id": "cert-005",
-    "name": "EEC Certification",
-    "issuer": "Intertek",
-    "year": 2021,
-    "image": "../images/certifications/eec.jpg",
-    "order": 5
-  }
-]
+{
+  "certifications": [
+    {"name": "ISO 9001:2015", "issuer": "SGS", "cert_number": "CN-2024-9001", "image": "", "year": "2024"},
+    {"name": "CE Marking", "issuer": "TUV Rheinland", "cert_number": "CE-2024-SY", "image": "", "year": "2024"},
+    {"name": "RoHS Compliance", "issuer": "SGS", "cert_number": "ROHS-2024-SY", "image": "", "year": "2024"}
+  ]
+}
