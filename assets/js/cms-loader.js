@@ -1,4 +1,9 @@
 (function () {
+  var _t = function(key, fallback) {
+    if (typeof i18n !== 'undefined' && i18n.t) { var val = i18n.t(key); return val && val !== key ? val : fallback; }
+    return fallback;
+  };
+
   var CMSLoader = {};
 
   function parseFrontmatter(text) {
@@ -141,7 +146,7 @@
     if (!dateStr) return '';
     var d = new Date(dateStr);
     if (isNaN(d.getTime())) return dateStr;
-    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    var months = [_t('cms.january','January'), _t('cms.february','February'), _t('cms.march','March'), _t('cms.april','April'), _t('cms.may','May'), _t('cms.june','June'), _t('cms.july','July'), _t('cms.august','August'), _t('cms.september','September'), _t('cms.october','October'), _t('cms.november','November'), _t('cms.december','December')];
     return months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
   }
 
@@ -227,7 +232,7 @@
           '<div class="p-5">' +
           '<div class="flex items-center gap-2 mb-3">' +
           '<span class="px-2 py-1 text-xs font-medium rounded ' + color.bg + ' ' + color.text + '">' + escapeHtml(post.category || '') + '</span>' +
-          '<span class="text-xs text-zinc-500">' + (post.readTime || '5') + ' min read</span>' +
+          '<span class="text-xs text-zinc-500">' + (post.readTime || '5') + ' ' + _t('cms.minRead','min read') + '</span>' +
           '</div>' +
           '<h3 class="font-oswald text-lg font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors">' +
           '<a href="' + getBasePath() + 'blogs/post.html?slug=' + (post.slug || '') + '">' + escapeHtml(post.title || '') + '</a>' +
@@ -236,7 +241,7 @@
           '<div class="flex items-center gap-3 text-xs text-zinc-500">' +
           '<span>' + formatDate(post.date) + '</span>' +
           '<span class="w-1 h-1 rounded-full bg-zinc-600"></span>' +
-          '<span>By ' + escapeHtml(post.author || 'Ningbo Siyang Team') + '</span>' +
+          '<span>' + _t('cms.byAuthor','By') + ' ' + escapeHtml(post.author || _t('cms.team','Ningbo Siyang Team')) + '</span>' +
           '</div>' +
           '</div>' +
           '</article>';
@@ -274,7 +279,7 @@
           '<div class="p-5">' +
           '<div class="flex items-center gap-2 mb-3">' +
           '<span class="px-2 py-1 text-xs font-medium rounded ' + color.bg + ' ' + color.text + '">' + escapeHtml(post.category || '') + '</span>' +
-          '<span class="text-xs text-zinc-500">' + (post.readTime || '5') + ' min read</span>' +
+          '<span class="text-xs text-zinc-500">' + (post.readTime || '5') + ' ' + _t('cms.minRead','min read') + '</span>' +
           '</div>' +
           '<h3 class="font-oswald text-lg font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors">' +
           '<a href="' + getBasePath() + 'blogs/post.html?slug=' + (post.slug || '') + '">' + escapeHtml(post.title || '') + '</a>' +
@@ -283,7 +288,7 @@
           '<div class="flex items-center gap-3 text-xs text-zinc-500">' +
           '<span>' + formatDate(post.date) + '</span>' +
           '<span class="w-1 h-1 rounded-full bg-zinc-600"></span>' +
-          '<span>By ' + escapeHtml(post.author || 'Ningbo Siyang Team') + '</span>' +
+          '<span>' + _t('cms.byAuthor','By') + ' ' + escapeHtml(post.author || _t('cms.team','Ningbo Siyang Team')) + '</span>' +
           '</div>' +
           '</div>' +
           '</article>';
@@ -319,7 +324,7 @@
       var metaHtml = '<div class="flex flex-wrap items-center gap-3 mb-4">' +
         '<span class="px-3 py-1 text-sm font-medium rounded-full bg-yellow-400/10 text-yellow-400">' + escapeHtml(post.category || '') + '</span>' +
         '<span class="text-sm text-zinc-500">' + formatDate(post.date) + '</span>' +
-        '<span class="text-sm text-zinc-500">' + (post.readTime || '5') + ' min read</span>' +
+        '<span class="text-sm text-zinc-500">' + (post.readTime || '5') + ' ' + _t('cms.minRead','min read') + '</span>' +
         '</div>';
 
       var titleHtml = '<h1 class="font-oswald text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">' + escapeHtml(post.title || '') + '</h1>';
@@ -366,7 +371,7 @@
           badges += '<span class="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">-' + discount + '%</span>';
         }
         if (product.isFeatured) {
-          badges += '<span class="bg-yellow-400 text-zinc-900 text-xs font-bold px-2 py-1 rounded">Featured</span>';
+          badges += '<span class="bg-yellow-400 text-zinc-900 text-xs font-bold px-2 py-1 rounded">' + _t('cms.featured','Featured') + '</span>';
         }
         var badgeContainer = badges ? '<div class="absolute top-3 left-3 flex flex-col gap-1.5">' + badges + '</div>' : '';
 
@@ -376,8 +381,8 @@
         }
 
         var stockHtml = product.stock > 0
-          ? '<span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>'
-          : '<span class="text-xs text-red-400 font-medium">Out of Stock</span>';
+          ? '<span class="text-xs text-green-400 font-medium">&#10003; ' + _t('cms.inStock','In Stock') + '</span>'
+          : '<span class="text-xs text-red-400 font-medium">' + _t('cms.outOfStock','Out of Stock') + '</span>';
 
         var stars = product.rating || 4;
         var starsHtml = '<div class="flex items-center gap-0.5">';
@@ -394,7 +399,7 @@
           '<div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/20 to-transparent opacity-60 group-hover:opacity-35 transition-opacity"></div>' +
           badgeContainer +
           '<div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">' +
-          '<button data-quote-add data-quote-sku="' + (product.sku || '') + '" data-quote-name="' + escapeHtml(product.name || '') + '" data-quote-brand="' + escapeHtml(product.brand || '') + '" data-quote-image="' + (product.image || '') + '" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>' +
+          '<button data-quote-add data-quote-sku="' + (product.sku || '') + '" data-quote-name="' + escapeHtml(product.name || '') + '" data-quote-brand="' + escapeHtml(product.brand || '') + '" data-quote-image="' + (product.image || '') + '" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>' + _t('cms.addToQuote','Add to Quote') + '</button>' +
           '</div>' +
           '</div>' +
           '<div class="p-4 flex flex-col flex-1">' +
@@ -447,7 +452,7 @@
           badges += '<span class="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">-' + discount + '%</span>';
         }
         if (product.isFeatured) {
-          badges += '<span class="bg-yellow-400 text-zinc-900 text-xs font-bold px-2 py-1 rounded">Featured</span>';
+          badges += '<span class="bg-yellow-400 text-zinc-900 text-xs font-bold px-2 py-1 rounded">' + _t('cms.featured','Featured') + '</span>';
         }
         var badgeContainer = badges ? '<div class="absolute top-3 left-3 flex flex-col gap-1.5">' + badges + '</div>' : '';
 
@@ -457,8 +462,8 @@
         }
 
         var stockHtml = product.stock > 0
-          ? '<span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>'
-          : '<span class="text-xs text-red-400 font-medium">Out of Stock</span>';
+          ? '<span class="text-xs text-green-400 font-medium">&#10003; ' + _t('cms.inStock','In Stock') + '</span>'
+          : '<span class="text-xs text-red-400 font-medium">' + _t('cms.outOfStock','Out of Stock') + '</span>';
 
         return '<div data-id="' + (product.sku || '') + '" class="group relative bg-zinc-800 rounded-xl overflow-hidden border border-zinc-700 hover:border-yellow-400/50 transition-all duration-300 hover:shadow-xl hover:shadow-yellow-400/5 flex flex-col">' +
           '<div class="relative aspect-square bg-zinc-900 overflow-hidden shrink-0">' +
@@ -466,7 +471,7 @@
           '<div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/20 to-transparent opacity-60 group-hover:opacity-35 transition-opacity"></div>' +
           badgeContainer +
           '<div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">' +
-          '<button data-quote-add data-quote-sku="' + (product.sku || '') + '" data-quote-name="' + escapeHtml(product.name || '') + '" data-quote-brand="' + escapeHtml(product.brand || '') + '" data-quote-image="' + (product.image || '') + '" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>' +
+          '<button data-quote-add data-quote-sku="' + (product.sku || '') + '" data-quote-name="' + escapeHtml(product.name || '') + '" data-quote-brand="' + escapeHtml(product.brand || '') + '" data-quote-image="' + (product.image || '') + '" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>' + _t('cms.addToQuote','Add to Quote') + '</button>' +
           '</div>' +
           '</div>' +
           '<div class="p-4 flex flex-col flex-1">' +
@@ -510,7 +515,108 @@
   CMSLoader.parseMarkdown = parseMarkdown;
   CMSLoader.formatDate = formatDate;
 
+  CMSLoader.loadHomepage = function () {
+    return CMSLoader.loadPageSettings('homepage').then(function (data) {
+      if (!data || !Object.keys(data).length) return;
+
+      var heroLine1 = document.getElementById('cms-hero-title-line1');
+      var heroLine2 = document.getElementById('cms-hero-title-line2');
+      if (data.heroTitle && heroLine1 && heroLine2) {
+        var parts = data.heroTitle.split(' ');
+        if (parts.length > 1) {
+          heroLine1.textContent = parts.slice(0, -1).join(' ');
+          heroLine2.textContent = parts[parts.length - 1];
+        } else {
+          heroLine1.textContent = data.heroTitle;
+          heroLine2.textContent = '';
+        }
+      }
+
+      var statMap = [
+        { valueId: 'cms-stat1-value', labelId: 'cms-stat1-label', valueKey: 'stat1Value', labelKey: 'stat1Label' },
+        { valueId: 'cms-stat2-value', labelId: 'cms-stat2-label', valueKey: 'stat2Value', labelKey: 'stat2Label' },
+        { valueId: 'cms-stat3-value', labelId: 'cms-stat3-label', valueKey: 'stat3Value', labelKey: 'stat3Label' }
+      ];
+
+      statMap.forEach(function (stat) {
+        var valueEl = document.getElementById(stat.valueId);
+        var labelEl = document.getElementById(stat.labelId);
+        if (data[stat.valueKey] && valueEl) {
+          var rawVal = data[stat.valueKey];
+          var suffix = rawVal.replace(/[\d.]/g, '');
+          var numVal = parseInt(rawVal.replace(/[^\d]/g, ''), 10);
+          if (!isNaN(numVal)) {
+            valueEl.setAttribute('data-count-up', String(numVal));
+            valueEl.setAttribute('data-count-suffix', suffix || '');
+          }
+          valueEl.textContent = '0';
+        }
+        if (data[stat.labelKey] && labelEl) {
+          labelEl.textContent = data[stat.labelKey];
+        }
+      });
+
+      if (typeof window.initCountUp === 'function') {
+        window.initCountUp();
+      }
+    });
+  };
+
+  CMSLoader.loadCompanyInfo = function () {
+    return CMSLoader.loadPageSettings('company').then(function (data) {
+      if (!data || !Object.keys(data).length) return;
+
+      var selectors = {
+        email: '.cms-company-email',
+        phone: '.cms-company-phone',
+        address: '.cms-company-address',
+        companyName: '.cms-company-name',
+        founded: '.cms-company-founded',
+        whatsapp: '.cms-company-whatsapp',
+        youtube: '.cms-company-youtube',
+        wechatQR: '.cms-company-wechat-qr'
+      };
+
+      Object.keys(selectors).forEach(function (key) {
+        if (data[key]) {
+          var els = document.querySelectorAll(selectors[key]);
+          els.forEach(function (el) {
+            if (el.tagName === 'A') {
+              if (key === 'email') el.href = 'mailto:' + data[key];
+              else if (key === 'phone') el.href = 'tel:' + data[key];
+              else if (key === 'whatsapp') el.href = 'https://wa.me/' + data[key].replace(/[^0-9]/g, '');
+              else if (key === 'youtube') el.href = data[key];
+              else el.href = data[key];
+            }
+            if (key === 'wechatQR' && el.tagName === 'IMG') {
+              el.src = data[key];
+            } else if (key !== 'wechatQR') {
+              el.textContent = data[key];
+            }
+          });
+        }
+      });
+    });
+  };
+
+  CMSLoader.loadFooterSettings = function () {
+    return CMSLoader.loadSiteSettings('footer').then(function (data) {
+      if (!data || !Object.keys(data).length) return;
+
+      var copyright = document.getElementById('cms-footer-copyright');
+      if (data.copyright && copyright) copyright.textContent = data.copyright;
+
+      ['badge1', 'badge2', 'badge3', 'badge4'].forEach(function (key) {
+        var el = document.getElementById('cms-footer-' + key);
+        if (data[key] && el) el.textContent = data[key];
+      });
+    });
+  };
+
   CMSLoader.reloadContent = function () {
+    CMSLoader.loadHomepage();
+    CMSLoader.loadCompanyInfo();
+    CMSLoader.loadFooterSettings();
     if (document.getElementById('cms-blog-index')) {
       CMSLoader.loadBlogIndex('#cms-blog-index');
     }
@@ -549,6 +655,9 @@
   });
 
   document.addEventListener('DOMContentLoaded', function () {
+    CMSLoader.loadHomepage();
+    CMSLoader.loadCompanyInfo();
+    CMSLoader.loadFooterSettings();
     if (document.getElementById('cms-blog-index')) {
       CMSLoader.loadBlogIndex('#cms-blog-index');
     }
