@@ -33,6 +33,7 @@ media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
 media_library:
+  name: ''
   max_file_size: 5120000
   choose_url: false
 
@@ -60,8 +61,7 @@ collections:
     summary: "{{name}} ({{sku}})"
     description: "Manage your complete product catalog. Each product has basic info, specifications, compliance, and trade details."
     identifier_field: "name"
-    sortable_fields:
-      fields: ["name", "sku", "category", "brand"]
+    sortable_fields: ["name", "sku", "category", "brand"]
     view_filters:
       - label: "In Stock"
         field: "inStock"
@@ -401,8 +401,7 @@ collections:
     format: "yaml-frontmatter"
     summary: "{{title}} — {{category}}"
     description: "Write and manage blog posts for SEO, industry authority, and customer engagement."
-    sortable_fields:
-      fields: ["title", "date", "category"]
+    sortable_fields: ["title", "date", "category"]
     view_filters:
       - label: "B2B Insights"
         field: "category"
@@ -518,8 +517,7 @@ collections:
     format: "yaml-frontmatter"
     summary: "{{name}} — {{company}}"
     description: "Customer testimonials and reviews. These appear on the company page and homepage."
-    sortable_fields:
-      fields: ["name", "company", "order"]
+    sortable_fields: ["name", "company", "order"]
     view_filters:
       - label: "Draft (Hidden)"
         field: "draft"
@@ -594,8 +592,7 @@ collections:
     format: "yaml-frontmatter"
     summary: "{{name}} — {{title}}"
     description: "Manage the team members displayed on the About > Team page."
-    sortable_fields:
-      fields: ["name", "title", "order"]
+    sortable_fields: ["name", "title", "order"]
     view_filters:
       - label: "Draft (Hidden)"
         field: "draft"
@@ -671,8 +668,7 @@ collections:
     format: "yaml-frontmatter"
     summary: "{{name}} — {{issuer}} ({{year}})"
     description: "Manage company certifications and quality marks. These appear on the Certifications page and build buyer trust."
-    sortable_fields:
-      fields: ["name", "issuer", "year"]
+    sortable_fields: ["name", "issuer", "year"]
     view_filters:
       - label: "Draft (Hidden)"
         field: "draft"
@@ -747,8 +743,7 @@ collections:
     format: "yaml-frontmatter"
     summary: "{{category}} — {{question}}"
     description: "Manage frequently asked questions. These appear on the FAQ page grouped by category."
-    sortable_fields:
-      fields: ["question", "category", "order"]
+    sortable_fields: ["question", "category", "order"]
     view_filters:
       - label: "Orders"
         field: "category"
@@ -825,8 +820,7 @@ collections:
     format: "yaml-frontmatter"
     summary: "{{name}}"
     description: "Manage partner and client logos displayed on the company page and homepage."
-    sortable_fields:
-      fields: ["name", "order"]
+    sortable_fields: ["name", "order"]
     view_filters:
       - label: "Draft (Hidden)"
         field: "draft"
@@ -892,8 +886,7 @@ collections:
     format: "yaml-frontmatter"
     summary: "{{companyName}} — {{country}}"
     description: "Manage your global distributor and agent network. Distributors appear on the Distributors page filtered by region."
-    sortable_fields:
-      fields: ["companyName", "country", "region"]
+    sortable_fields: ["companyName", "country", "region"]
     view_filters:
       - label: "Asia-Pacific"
         field: "region"
@@ -1003,8 +996,7 @@ collections:
     format: "yaml-frontmatter"
     summary: "{{title}} — {{warrantyPeriod}}"
     description: "Manage warranty policies and coverage information. These appear on the Warranty page."
-    sortable_fields:
-      fields: ["title", "warrantyType", "warrantyPeriod"]
+    sortable_fields: ["title", "warrantyType", "warrantyPeriod"]
     view_filters:
       - label: "Standard"
         field: "warrantyType"
@@ -1085,8 +1077,7 @@ collections:
     format: "yaml-frontmatter"
     summary: "{{noticeType}} — {{title}}"
     description: "Manage safety advisories, recalls, and compliance updates. Critical and warning notices are prominently displayed."
-    sortable_fields:
-      fields: ["title", "noticeType", "severity", "date"]
+    sortable_fields: ["title", "noticeType", "severity", "date"]
     view_filters:
       - label: "Safety Advisory"
         field: "noticeType"
@@ -1186,8 +1177,7 @@ collections:
     format: "yaml-frontmatter"
     summary: "{{title}} — {{language}}"
     description: "Upload and manage product instruction manuals in multiple languages. Each manual is linked to a product by SKU."
-    sortable_fields:
-      fields: ["title", "productSku", "language", "date"]
+    sortable_fields: ["title", "productSku", "language", "date"]
     view_filters:
       - label: "English"
         field: "language"
@@ -1287,8 +1277,7 @@ collections:
     format: "yaml-frontmatter"
     summary: "{{category}} — {{title}}"
     description: "Manage downloadable resources: product catalogs, spec sheets, certificates, and firmware updates."
-    sortable_fields:
-      fields: ["title", "category", "language", "date"]
+    sortable_fields: ["title", "category", "language", "date"]
     view_filters:
       - label: "Catalog"
         field: "category"
@@ -1394,8 +1383,7 @@ collections:
     format: "yaml-frontmatter"
     summary: "{{client}} — {{title}}"
     description: "Manage success stories and case studies. These showcase your OEM/ODM capabilities and build credibility with potential buyers."
-    sortable_fields:
-      fields: ["title", "client", "country", "date"]
+    sortable_fields: ["title", "client", "country", "date"]
     view_filters:
       - label: "Featured"
         field: "featured"
