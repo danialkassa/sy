@@ -1,7 +1,25 @@
 {
   "members": [
-    {"name": "Chen Wei", "title": "CEO & Founder", "photo": "", "bio": "Over 25 years of experience in power tool manufacturing and international trade.", "order": 1},
-    {"name": "Dr. Liang Zhang", "title": "CTO", "photo": "", "bio": "PhD in Mechanical Engineering. Leads R&D with 15+ patents in brushless motor technology.", "order": 2},
-    {"name": "Wang Jun", "title": "Sales Director", "photo": "", "bio": "15 years of B2B export experience across 40+ countries.", "order": 3}
+    {
+      "name": "Chen Wei",
+      "title": "CEO & Founder",
+      "photo": "",
+      "bio": "Over 25 years of experience in power tool manufacturing and international trade.",
+      "order": 1
+    },
+    {
+      "name": "Dr. Liang Zhang",
+      "title": "CTO",
+      "photo": "",
+      "bio": "PhD in Mechanical Engineering. Leads R&D with 15+ patents in brushless motor technology.",
+      "order": 2
+    },
+    {
+      "name": "Wang Jun",
+      "title": "Sales Director",
+      "photo": "",
+      "bio": "15 years of B2B export experience across 40+ countries.",
+      "order": 3
+    }
   ]
 }

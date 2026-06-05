@@ -1,60 +1,69 @@
-﻿{
-    "sku":  "SY-DD-SDS-PLU",
-    "name":  "SDS-Plus Rotary Hammer Drill 1-1/8\"",
-    "brand":  "Ningbo Siyang Pro",
-    "category":  "drills-drivers",
-    "categoryLabel":  "Drills \u0026 Drivers",
-    "description":  "Heavy-duty SDS-Plus rotary hammer with 3-mode operation for drilling, hammer drilling, and chiseling. Features an active vibration control system and 7.5 Amp motor for reliable performance in concrete and masonry applications. Ideal for professional construction and renovation projects.",
-    "specs":  {
-                  "voltage":  "220V",
-                  "motorType":  "Brushed",
-                  "maxTorque":  "3.0 Ft-lbs (4.1 J) impact energy",
-                  "noLoadSpeedLow":  "0-450 RPM",
-                  "noLoadSpeedHigh":  "0-900 RPM",
-                  "chuckSize":  "SDS-Plus",
-                  "chuckType":  "SDS-Plus, tool-free bit insertion",
-                  "clutchSettings":  "3-mode (rotary drill, hammer drill, chisel)",
-                  "drillingCapacityWood":  "1-1/4\" (32mm)",
-                  "drillingCapacityMetal":  "1/2\" (13mm)",
-                  "drillingCapacityConcrete":  "1-1/8\" (28mm)",
-                  "weightToolOnly":  "7.2 lbs (3.3 kg)",
-                  "overallLength":  "14-1/2\" (368mm)",
-                  "soundPower":  "100 dB(A)",
-                  "vibrationLevel":  "5.8 m/s²",
-                  "cordLength":  "6.5 ft (2m)",
-                  "ledWorkLight":  "No",
-                  "beltHook":  "No"
-              },
-    "userBenefits":  [
-                         "3-mode operation covers drilling, hammer drilling, and chiseling in one versatile tool",
-                         "Active vibration control system reduces hand strain during long concrete drilling sessions",
-                         "SDS-Plus chuck enables tool-free bit changes, saving time on the jobsite",
-                         "7.5 Amp motor delivers consistent power for all-day professional use without battery downtime",
-                         "1-1/8\" capacity in concrete handles the most common anchor and rebar drilling tasks"
-                     ],
-    "images":  [
-                   "../images/istock/10002.jpg",
-                   "../images/istock/10002-2.jpg",
-                   "../images/istock/10002-3.jpg"
-               ],
-    "relatedProducts":  [
-                            "SY-DD-RH-1IN",
-                            "SY-DD-RH-DEM"
-                        ],
-    "compliance":  {
-                       "ce":  true,
-                       "rohs":  true,
-                       "gs":  true,
-                       "ul":  false,
-                       "eec":  true
-                   },
-    "featured":  false,
-    "warranty":  "1 year standard",
-    "inStock":  true,
-    "moq":  "300 units",
-    "leadTime":  "30-45 days",
-    "downloads":  {
-                      "specSheet":  "/downloads/spec-sheets/SY-DD-SDS-PLU.pdf",
-                      "manual":  "/downloads/manuals/SY-DD-SDS-PLU.pdf"
-                  }
+{
+  "name": "SDS-Plus Rotary Hammer Drill 1-1/8\"",
+  "sku": "SY-DD-SDS-PLU",
+  "category": "drills-drivers",
+  "categoryLabel": "Drills & Drivers",
+  "price": 0,
+  "compareAtPrice": 0,
+  "image": "../images/istock/10002.jpg",
+  "images": [
+    "../images/istock/10002.jpg",
+    "../images/istock/10002-2.jpg",
+    "../images/istock/10002-3.jpg"
+  ],
+  "brand": "Ningbo Siyang Pro",
+  "tagline": "Heavy-duty SDS-Plus rotary hammer with 3-mode operation for drilling, hammer drilling, and chiseling. Features an active vibration control system and 7.5 Amp motor for reliable performance in concrete and masonry applications. Ideal for professional construction and renovation projects.",
+  "description": "Heavy-duty SDS-Plus rotary hammer with 3-mode operation for drilling, hammer drilling, and chiseling. Features an active vibration control system and 7.5 Amp motor for reliable performance in concrete and masonry applications. Ideal for professional construction and renovation projects.",
+  "userBenefits": [
+    "3-mode operation covers drilling, hammer drilling, and chiseling in one versatile tool",
+    "Active vibration control system reduces hand strain during long concrete drilling sessions",
+    "SDS-Plus chuck enables tool-free bit changes, saving time on the jobsite",
+    "7.5 Amp motor delivers consistent power for all-day professional use without battery downtime",
+    "1-1/8\" capacity in concrete handles the most common anchor and rebar drilling tasks"
+  ],
+  "specs": {
+    "voltage": "220V",
+    "motorType": "Brushed",
+    "maxTorque": "3.0 Ft-lbs (4.1 J) impact energy",
+    "noLoadSpeedLow": "0-450 RPM",
+    "noLoadSpeedHigh": "0-900 RPM",
+    "chuckSize": "SDS-Plus",
+    "chuckType": "SDS-Plus, tool-free bit insertion",
+    "clutchSettings": "3-mode (rotary drill, hammer drill, chisel)",
+    "drillingCapacityWood": "1-1/4\" (32mm)",
+    "drillingCapacityMetal": "1/2\" (13mm)",
+    "drillingCapacityConcrete": "1-1/8\" (28mm)",
+    "weightToolOnly": "7.2 lbs (3.3 kg)",
+    "overallLength": "14-1/2\" (368mm)",
+    "soundPower": "100 dB(A)",
+    "vibrationLevel": "5.8 m/s²",
+    "cordLength": "6.5 ft (2m)",
+    "ledWorkLight": "No",
+    "beltHook": "No"
+  },
+  "compliance": {
+    "ce": true,
+    "rohs": true,
+    "gs": true,
+    "ul": false,
+    "eec": true
+  },
+  "stock": 50,
+  "inStock": true,
+  "rating": 4,
+  "reviewCount": 0,
+  "isFeatured": false,
+  "isTopProduct": false,
+  "featured": false,
+  "moq": "300 units",
+  "leadTime": "30-45 days",
+  "warranty": "1 year standard",
+  "relatedProducts": [
+    "SY-DD-RH-1IN",
+    "SY-DD-RH-DEM"
+  ],
+  "downloads": {
+    "specSheet": "/downloads/spec-sheets/SY-DD-SDS-PLU.pdf",
+    "manual": "/downloads/manuals/SY-DD-SDS-PLU.pdf"
+  }
 }

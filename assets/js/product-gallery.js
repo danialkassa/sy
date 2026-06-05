@@ -78,8 +78,8 @@
       thumbsContainer.style.display = 'flex';
       var html = '';
       for (var i = 0; i < images.length; i++) {
-        html += '<button type="button" class="gallery-thumb' + (i === currentIndex ? ' active' : '') + '" data-index="' + i + '" aria-label="View image ' + (i + 1) + '">' +
-          '<img src="' + images[i] + '" alt="Thumbnail ' + (i + 1) + '"/>' +
+        html += '<button type="button" class="gallery-thumb' + (i === currentIndex ? ' active' : '') + '" data-index="' + i + '" aria-label="' + _t('gallery.viewImage','View image') + ' ' + (i + 1) + '">' +
+          '<img src="' + images[i] + '" alt="' + _t('gallery.thumbnail','Thumbnail') + ' ' + (i + 1) + '"/>' +
         '</button>';
       }
       thumbsContainer.innerHTML = html;
@@ -149,7 +149,7 @@
     }
 
     function updateLightboxCounter() {
-      if (lightboxCounter) lightboxCounter.textContent = (currentIndex + 1) + ' of ' + images.length;
+      if (lightboxCounter) lightboxCounter.textContent = (currentIndex + 1) + ' ' + _t('gallery.of','of') + ' ' + images.length;
     }
 
     function handleLightboxKeys(e) {

@@ -113,7 +113,7 @@
               </div>
               <div class="p-4 border-t border-zinc-800 bg-zinc-900/50">
                 <div class="flex items-center justify-between text-sm">
-                  <span class="text-zinc-500">Need help choosing? Contact our experts</span>
+                  <span class="text-zinc-500" data-i18n="common.needHelpChoosing">Need help choosing? Contact our experts</span>
                   <a href="../contact.html" class="text-yellow-400 hover:text-yellow-300 font-medium transition-colors">Get Support &rarr;</a>
                 </div>
               </div>
@@ -377,7 +377,7 @@
       </div>
 
       <!-- Dynamic Blog Post Content (loaded via CMS) -->
-      <div id="blog-post-content" class="container mx-auto px-4 py-8">
+      <div id="cms-blog-post" class="container mx-auto px-4 py-8">
         <div class="max-w-3xl mx-auto"></div>
       </div>
 
@@ -576,21 +576,54 @@
 <script src="../assets/js/cms-loader.js" defer></script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
+  var _t = function(key, fallback) { if (typeof i18n !== 'undefined' && i18n.t) { var val = i18n.t(key); return val && val !== key ? val : fallback; } return fallback; };
   var slug = new URLSearchParams(window.location.search).get('slug');
   var hardcoded = document.getElementById('hardcoded-post');
-  var dynamic = document.getElementById('blog-post-content');
+  var dynamic = document.getElementById('cms-blog-post');
   var breadcrumb = document.getElementById('blog-breadcrumb');
 
   function showNotFound() {
     if (hardcoded) hardcoded.style.display = 'none';
     if (dynamic) {
-      dynamic.innerHTML = '<div class="max-w-3xl mx-auto py-16 text-center">' +
-        '<h1 class="font-oswald text-3xl font-bold text-white mb-4">Post Not Found</h1>' +
-        '<p class="text-zinc-400 mb-8">The blog post you are looking for does not exist or has been removed.</p>' +
-        '<a data-i18n="blog.backToBlog" href="./index.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-bold text-sm transition-colors">Back to Blog</a>' +
+      dynamic.innerHTML = '<div class="max-w-2xl mx-auto py-16 text-center">' +
+        '<div class="w-20 h-20 mx-auto mb-6 rounded-full bg-zinc-800 flex items-center justify-center">' +
+        '<svg class="w-10 h-10 text-zinc-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M15.182 16.318A4.486 4.486 0 0 0 12.016 15a4.486 4.486 0 0 0-3.198 1.318M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Z"/></svg>' +
+        '</div>' +
+        '<h1 class="font-oswald text-3xl font-bold text-white mb-4">' + _t('blog.postNotFound','Post Not Found') + '</h1>' +
+        '<p class="text-zinc-400 mb-8 max-w-md mx-auto">' + _t('blog.postNotFoundDesc','The blog post you are looking for does not exist or has been removed.') + '</p>' +
+        '<a data-i18n="blog.backToBlog" href="./index.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-bold text-sm transition-colors">' +
+        '<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"/></svg>' +
+        _t('blog.browseAllPosts','Browse All Posts') + '</a>' +
         '</div>';
     }
-    document.title = 'Post Not Found Ã¢â‚¬â€œ Ningbo Siyang';
+    document.title = 'Post Not Found \u2013 Ningbo Siyang';
+    loadSuggestedPosts();
+  }
+
+  function loadSuggestedPosts() {
+    var container = document.getElementById('cms-blog-post');
+    if (!container) return;
+    function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+    fetch('../content/blog/index.json').then(function(r) { return r.json(); }).then(function(index) {
+      var posts = index.posts || [];
+      var suggested = posts.slice(0, 3);
+      if (suggested.length === 0) return;
+      var html = '<div class="max-w-5xl mx-auto mt-8 pt-12 border-t border-zinc-800">' +
+        '<h2 class="font-oswald text-2xl font-bold text-white mb-8 text-center">' + _t('blog.youMayLike','You May Also Like') + '</h2>' +
+        '<div class="grid grid-cols-1 md:grid-cols-3 gap-6">';
+      suggested.forEach(function(post) {
+        html += '<a href="post.html?slug=' + encodeURIComponent(post.slug || '') + '" class="group bg-zinc-800 rounded-xl overflow-hidden border border-zinc-700 hover:border-yellow-400/50 transition-all duration-300">' +
+          '<div class="aspect-video bg-zinc-900 overflow-hidden">' +
+          '<img src="' + esc(post.image || post.featuredImage) + '" alt="' + esc(post.title) + '" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy"/>' +
+          '</div>' +
+          '<div class="p-4">' +
+          '<h3 class="font-oswald font-semibold text-white group-hover:text-yellow-400 transition-colors line-clamp-2 mb-2 leading-snug">' + esc(post.title) + '</h3>' +
+          '<p class="text-xs text-zinc-500">' + esc(post.date) + '</p>' +
+          '</div></a>';
+      });
+      html += '</div></div>';
+      container.insertAdjacentHTML('beforeend', html);
+    }).catch(function() {});
   }
 
   function escapeHtml(str) {

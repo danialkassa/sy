@@ -109,7 +109,7 @@
   function renderStep1() {
     var content = document.getElementById('selector-content');
     if (!content) return;
-    content.innerHTML = '<h3 class="font-oswald text-xl font-bold text-white mb-4">What type of work do you need to do?</h3>' +
+    content.innerHTML = '<h3 class="font-oswald text-xl font-bold text-white mb-4">' + _t('selector.step1Title','What type of work do you need to do?') + '</h3>' +
       '<div class="grid grid-cols-2 md:grid-cols-3 gap-3">' +
       [_t("selector.workDrilling","Drilling"), _t("selector.workCutting","Cutting"), _t("selector.workGrinding","Grinding"), _t("selector.workSanding","Sanding"), _t("selector.workFastening","Fastening"), _t("selector.workCombo","Multiple (Combo)")].map(function(opt) {
         return '<button type="button" class="selector-option" data-value="' + opt + '">' +
@@ -122,7 +122,7 @@
   function renderStep2() {
     var content = document.getElementById('selector-content');
     if (!content) return;
-    content.innerHTML = '<h3 class="font-oswald text-xl font-bold text-white mb-4">What power source do you prefer?</h3>' +
+    content.innerHTML = '<h3 class="font-oswald text-xl font-bold text-white mb-4">' + _t('selector.step2Title','What power source do you prefer?') + '</h3>' +
       '<div class="space-y-2 max-w-md">' +
       [_t("selector.powerCordless","Cordless (20V MAX)"), _t("selector.powerCorded","Corded"), _t("selector.powerNoPref","No preference")].map(function(opt) {
         return '<button type="button" class="selector-option" data-value="' + opt + '">' +
@@ -136,7 +136,7 @@
     var content = document.getElementById('selector-content');
     if (!content) return;
     var apps = getAppOptions(state.data.work);
-    content.innerHTML = '<h3 class="font-oswald text-xl font-bold text-white mb-4">What specific application?</h3>' +
+    content.innerHTML = '<h3 class="font-oswald text-xl font-bold text-white mb-4">' + _t('selector.step3Title','What specific application?') + '</h3>' +
       '<div class="grid grid-cols-2 gap-3 max-w-xl">' +
       apps.map(function(opt) {
         return '<button type="button" class="selector-option" data-value="' + opt + '">' +
@@ -151,7 +151,7 @@
     if (!content) return;
     var rawKey = getKey(state.data);
     var rec = RECOMMENDATIONS[rawKey] || RECOMMENDATIONS['drilling-nopref-general'];
-    content.innerHTML = '<h3 class="font-oswald text-xl font-bold text-white mb-4">Recommended Tools</h3>' +
+    content.innerHTML = '<h3 class="font-oswald text-xl font-bold text-white mb-4">' + _t('selector.recommendedTools','Recommended Tools') + '</h3>' +
       '<p class="text-zinc-400 text-sm mb-6">' + rec.reason + '</p>' +
       '<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">' +
       rec.skus.map(function(sku) {
@@ -160,12 +160,12 @@
             '<svg class="w-8 h-8 text-yellow-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>' +
           '</div>' +
           '<p class="text-white font-semibold text-sm mb-1">' + sku + '</p>' +
-          '<a href="' + (window.location.pathname.indexOf('/products/') >= 0 ? './product.html?sku=' + sku : './products/product.html?sku=' + sku) + '" class="text-yellow-400 hover:text-yellow-300 text-xs font-medium inline-flex items-center gap-1">View Details <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>' +
+          '<a href="' + (window.location.pathname.indexOf('/products/') >= 0 ? './product.html?sku=' + sku : './products/product.html?sku=' + sku) + '" class="text-yellow-400 hover:text-yellow-300 text-xs font-medium inline-flex items-center gap-1">' + _t('selector.viewDetails','View Details') + ' <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>' +
         '</div>';
       }).join('') + '</div>' +
       '<div class="flex gap-3">' +
-        '<a href="' + (window.location.pathname.indexOf('/products/') >= 0 ? './product.html?sku=' + rec.skus[0] : './products/product.html?sku=' + rec.skus[0]) + '" class="inline-flex items-center justify-center h-11 px-6 bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-bold rounded-md shadow-lg transition-colors text-sm">View Top Pick</a>' +
-        '<button type="button" id="selector-restart" class="inline-flex items-center justify-center h-11 px-6 border border-zinc-700 text-zinc-300 hover:text-yellow-400 hover:border-yellow-400 rounded-md transition-colors text-sm">Start Over</button>' +
+        '<a href="' + (window.location.pathname.indexOf('/products/') >= 0 ? './product.html?sku=' + rec.skus[0] : './products/product.html?sku=' + rec.skus[0]) + '" class="inline-flex items-center justify-center h-11 px-6 bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-bold rounded-md shadow-lg transition-colors text-sm">' + _t('selector.viewTopPick','View Top Pick') + '</a>' +
+        '<button type="button" id="selector-restart" class="inline-flex items-center justify-center h-11 px-6 border border-zinc-700 text-zinc-300 hover:text-yellow-400 hover:border-yellow-400 rounded-md transition-colors text-sm">' + _t('selector.startOver','Start Over') + '</button>' +
       '</div>';
     document.getElementById('selector-restart').addEventListener('click', restart);
   }

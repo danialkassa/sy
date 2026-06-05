@@ -1,31 +1,10 @@
 [
   {
-    "id": "cs-001",
-    "title": "How Gulf Industrial Supplies Launched Their Own Brand in 6 Months",
-    "client": "Gulf Industrial Supplies",
-    "country": "United Arab Emirates",
-    "countryFlag": "\uD83C\uDDE6\uD83C\uDDEA",
-    "industry": "Construction & Industrial Distribution",
-    "challenge": "Gulf Industrial Supplies wanted to launch a private-label power tool brand for the GCC market but had no manufacturing capabilities, no engineering team, and no experience in product development. Their existing supplier could not support OEM customization at the scale or speed they needed.",
-    "solution": "Ningbo Siyang assigned a dedicated OEM team to co-develop a custom 20V cordless platform. We handled tool design, battery specification, Arabic/English bilingual packaging, and full regulatory compliance documentation for the Gulf market. The production line was prioritized to deliver the first 12 SKUs within 6 months.",
-    "results": [
-      "12 SKUs launched within 6 months from initial brief",
-      "0.3% defect rate across first production batch",
-      "35% margin improvement over reselling existing brands",
-      "Expanded to 18 SKUs within 12 months due to market demand"
-    ],
-    "testimonial": "We've been distributing Ningbo Siyang products across the GCC for over 5 years now, and their 0.3% return rate speaks for itself. When we launched our OEM private-label line of 20V drills and drivers, the factory delivered Arabic/English packaging and tool specs that matched our market perfectly.",
-    "testimonialAuthor": "Ahmed Al-Rashid, Procurement Director",
-    "image": "../images/case-studies/gulf-industrial.jpg",
-    "date": "2024-06-15",
-    "featured": true
-  },
-  {
-    "id": "cs-002",
+    "id": "euro-werkzeuge",
     "title": "Euro Werkzeuge GmbH Secures GS and TÜV Certification for German Market Entry",
     "client": "Euro Werkzeuge GmbH",
     "country": "Germany",
-    "countryFlag": "\uD83C\uDDE9\uD83C\uDDEA",
+    "countryFlag": "🇩🇪",
     "industry": "Industrial Tool Distribution",
     "challenge": "The German industrial market demands rigorous safety and quality certifications. Euro Werkzeuge needed angle grinders that could pass GS and TÜV testing on the first submission, but their previous Chinese supplier had failed multiple certification attempts, causing costly delays and lost contracts.",
     "solution": "Ningbo Siyang established a joint quality program with Euro Werkzeuge, including a pre-certification factory audit, a dedicated QC production line, and third-party testing coordination. We redesigned the grinder's safety guard and motor insulation to exceed EU standards before formal submission.",
@@ -42,11 +21,32 @@
     "featured": true
   },
   {
-    "id": "cs-003",
+    "id": "gulf-industrial",
+    "title": "How Gulf Industrial Supplies Launched Their Own Brand in 6 Months",
+    "client": "Gulf Industrial Supplies",
+    "country": "United Arab Emirates",
+    "countryFlag": "🇦🇪",
+    "industry": "Construction & Industrial Distribution",
+    "challenge": "Gulf Industrial Supplies wanted to launch a private-label power tool brand for the GCC market but had no manufacturing capabilities, no engineering team, and no experience in product development. Their existing supplier could not support OEM customization at the scale or speed they needed.",
+    "solution": "Ningbo Siyang assigned a dedicated OEM team to co-develop a custom 20V cordless platform. We handled tool design, battery specification, Arabic/English bilingual packaging, and full regulatory compliance documentation for the Gulf market. The production line was prioritized to deliver the first 12 SKUs within 6 months.",
+    "results": [
+      "12 SKUs launched within 6 months from initial brief",
+      "0.3% defect rate across first production batch",
+      "35% margin improvement over reselling existing brands",
+      "Expanded to 18 SKUs within 12 months due to market demand"
+    ],
+    "testimonial": "We've been distributing Ningbo Siyang products across the GCC for over 5 years now, and their 0.3% return rate speaks for itself. When we launched our OEM private-label line of 20V drills and drivers, the factory delivered Arabic/English packaging and tool specs that matched our market perfectly.",
+    "testimonialAuthor": "Ahmed Al-Rashid, Procurement Director",
+    "image": "../images/case-studies/gulf-industrial.jpg",
+    "date": "2024-06-15",
+    "featured": true
+  },
+  {
+    "id": "stroyinvest",
     "title": "StroyInvest LLC Deploys Cold-Weather Cordless Tools Across CIS Region",
     "client": "StroyInvest LLC",
     "country": "Russia",
-    "countryFlag": "\uD83C\uDDF7\uD83C\uDDFA",
+    "countryFlag": "🇷🇺",
     "industry": "Construction Equipment Supply",
     "challenge": "StroyInvest needed a complete 20V cordless power tool range that could operate reliably in Russian winter conditions down to minus 20 degrees Celsius. Standard lithium-ion batteries from other manufacturers lost 40 to 50 percent of their capacity in cold weather, making them unsuitable for construction sites in Siberia and the Urals. They also required Russian-language manuals and region-specific packaging.",
     "solution": "Ningbo Siyang's engineering team developed a custom battery chemistry optimized for low-temperature discharge performance. We produced Russian documentation, designed regional packaging with Cyrillic labeling, and conducted cold-chamber testing to validate performance before mass production.",

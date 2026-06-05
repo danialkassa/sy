@@ -26,7 +26,7 @@
           <span data-i18n="trust.iso9001" class="flex items-center gap-1.5 text-xs font-medium text-zinc-500"><svg class="w-3.5 h-3.5 text-yellow-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>ISO 9001</span>
           <span data-i18n="trust.ceCertified" class="flex items-center gap-1.5 text-xs font-medium text-zinc-500"><svg class="w-3.5 h-3.5 text-yellow-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>CE Certified</span>
           <span data-i18n="trust.sgsVerified" class="flex items-center gap-1.5 text-xs font-medium text-zinc-500"><svg class="w-3.5 h-3.5 text-yellow-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>SGS Verified</span>
-          <span data-i18n="trust.rohs" class="flex items-center gap-1.5 text-xs font-medium text-zinc-500"><svg class="w-3.5 h-3.5 text-yellow-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>RoHS</span>
+          <span data-i18n="trust.rohs" class="flex items-center gap-1.5 text-xs font-medium text-zinc-500"><svg class="w-3.5 h-3.5 text-yellow-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg data-i18n="safety.rohsTitle">RoHS</span>
           <span class="text-zinc-700">|</span>
           <div class="relative" id="lang-selector">
             <button data-i18n-aria="nav.language" class="flex items-center gap-1.5 text-xs font-medium text-zinc-500 hover:text-yellow-400 transition-colors cursor-pointer" aria-label="Select language" aria-expanded="false" aria-haspopup="listbox">
@@ -107,8 +107,8 @@
               </div>
               <div class="p-4 border-t border-zinc-800 bg-zinc-900/50">
                 <div class="flex items-center justify-between text-sm">
-                  <span class="text-zinc-500">Need help choosing? Contact our experts</span>
-                  <a href="../contact.html" class="text-yellow-400 hover:text-yellow-300 font-medium transition-colors">Get Support &rarr;</a>
+                  <span class="text-zinc-500" data-i18n="common.needHelpChoosing">Need help choosing? Contact our experts</span>
+                  <a href="../contact.html" class="text-yellow-400 hover:text-yellow-300 font-medium transition-colors" data-i18n="nav.getSupport">Get Support &rarr;</a>
                 </div>
               </div>
             </div>
@@ -180,7 +180,7 @@
                   </div>
                   <div>
                     <h4 data-i18n="nav.aboutPaymentTerms" class="text-sm font-medium text-white group-hover:text-yellow-400 transition-colors">Payment &amp; Trade Terms</h4>
-                    <p class="text-xs text-zinc-500">Secure payment methods and trade terms</p>
+                    <p data-i18n="safety.securePayment" class="text-xs text-zinc-500">Secure payment methods and trade terms</p>
                   </div>
                 </a>
                 <a href="./safety.html" class="flex items-start gap-3 p-3 rounded-lg hover:bg-zinc-800 transition-colors group">
@@ -208,7 +208,7 @@
                     <svg class="w-5 h-5 text-yellow-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
                   </div>
                   <div class="flex-1">
-                    <p class="text-sm text-zinc-300 group-hover:text-yellow-400 transition-colors">Download our company brochure</p>
+                    <p data-i18n="safety.downloadBrochure" class="text-sm text-zinc-300 group-hover:text-yellow-400 transition-colors">Download our company brochure</p>
                     <span class="text-xs text-yellow-400 group-hover:text-yellow-300">Request PDF &rarr;</span>
                   </div>
                 </a>
@@ -294,147 +294,23 @@
         <div class="max-w-3xl">
           <h1 data-i18n="safety.title" class="font-oswald text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">SAFETY &amp; COMPLIANCE</h1>
           <p data-i18n="safety.subtitle" class="text-lg md:text-xl text-zinc-300 mb-8 leading-relaxed">Product safety information and regulatory compliance</p>
-          <a href="../contact.html#quote-form" data-i18n="safety.heroCta" class="inline-flex items-center justify-center h-12 px-8 text-sm font-semibold bg-yellow-400 text-zinc-900 hover:bg-yellow-300 rounded-md shadow-lg shadow-yellow-400/20 transition-all hover:scale-105 active:scale-95">Contact for Safety Inquiries</a>
+          <a href="../contact.html#quote-form" data-i18n="safety.heroCta" class="inline-flex items-center justify-center h-12 px-8 text-sm font-semibold bg-yellow-400 text-zinc-900 hover:bg-yellow-300 rounded-md shadow-lg shadow-yellow-400/20 transition-all hover:scale-105 active:scale-95" data-i18n="safety.heroCta" data-i18n="safety.heroCta">Contact for Safety Inquiries</a>
         </div>
       </div>
     </section>
 
-    <section class="py-20 bg-zinc-950">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-14">
-          <h2 data-i18n="safety.generalSafety" class="font-oswald text-3xl md:text-4xl font-bold text-white mb-4">General Safety Guidelines</h2>
-          <p data-i18n="safety.generalSafetyDesc" class="text-zinc-400 text-lg max-w-2xl mx-auto">Follow these essential safety rules when operating any power tool to protect yourself and others.</p>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="group rounded-xl border border-zinc-800 bg-zinc-900/50 hover:border-yellow-400/50 hover:bg-zinc-800/50 transition-all duration-300 p-6">
-            <div class="w-12 h-12 bg-yellow-400/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-yellow-400/20 transition-colors">
-              <svg class="w-6 h-6 text-yellow-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
-            </div>
-            <h3 data-i18n="safety.rule1Title" class="font-oswald text-lg font-semibold text-white mb-2 group-hover:text-yellow-400 transition-colors">Wear Protective Equipment</h3>
-            <p data-i18n="safety.rule1Desc" class="text-sm text-zinc-400 leading-relaxed">Always wear appropriate personal protective equipment (safety glasses, hearing protection, dust mask).</p>
-          </div>
-          <div class="group rounded-xl border border-zinc-800 bg-zinc-900/50 hover:border-yellow-400/50 hover:bg-zinc-800/50 transition-all duration-300 p-6">
-            <div class="w-12 h-12 bg-yellow-400/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-yellow-400/20 transition-colors">
-              <svg class="w-6 h-6 text-yellow-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/></svg>
-            </div>
-            <h3 data-i18n="safety.rule2Title" class="font-oswald text-lg font-semibold text-white mb-2 group-hover:text-yellow-400 transition-colors">Read the Manual</h3>
-            <p data-i18n="safety.rule2Desc" class="text-sm text-zinc-400 leading-relaxed">Read and understand the instruction manual before operating any power tool.</p>
-          </div>
-          <div class="group rounded-xl border border-zinc-800 bg-zinc-900/50 hover:border-yellow-400/50 hover:bg-zinc-800/50 transition-all duration-300 p-6">
-            <div class="w-12 h-12 bg-yellow-400/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-yellow-400/20 transition-colors">
-              <svg class="w-6 h-6 text-yellow-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v10"/><path d="M18.4 6.6a8 8 0 1 1-12.8 0"/><path d="M9 22h6"/></svg>
-            </div>
-            <h3 data-i18n="safety.rule3Title" class="font-oswald text-lg font-semibold text-white mb-2 group-hover:text-yellow-400 transition-colors">Keep Work Areas Clean</h3>
-            <p data-i18n="safety.rule3Desc" class="text-sm text-zinc-400 leading-relaxed">Keep work areas clean and well-lit to prevent accidents and ensure clear visibility.</p>
-          </div>
-          <div class="group rounded-xl border border-zinc-800 bg-zinc-900/50 hover:border-yellow-400/50 hover:bg-zinc-800/50 transition-all duration-300 p-6">
-            <div class="w-12 h-12 bg-yellow-400/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-yellow-400/20 transition-colors">
-              <svg class="w-6 h-6 text-yellow-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18.36 6.64A9 9 0 0 1 20.77 15"/><path d="M2 12a10 10 0 0 1 18.36-5.36"/><line x1="2" x2="2" y1="2" y2="6"/><line x1="2" x2="6" y1="2" y2="2"/><path d="M12 12l-4-4"/><circle cx="12" cy="12" r="1"/></svg>
-            </div>
-            <h3 data-i18n="safety.rule4Title" class="font-oswald text-lg font-semibold text-white mb-2 group-hover:text-yellow-400 transition-colors">Disconnect Before Servicing</h3>
-            <p data-i18n="safety.rule4Desc" class="text-sm text-zinc-400 leading-relaxed">Disconnect power before adjusting, cleaning, or servicing tools to prevent accidental start-up.</p>
-          </div>
-          <div class="group rounded-xl border border-zinc-800 bg-zinc-900/50 hover:border-yellow-400/50 hover:bg-zinc-800/50 transition-all duration-300 p-6">
-            <div class="w-12 h-12 bg-yellow-400/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-yellow-400/20 transition-colors">
-              <svg class="w-6 h-6 text-yellow-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/></svg>
-            </div>
-            <h3 data-i18n="safety.rule5Title" class="font-oswald text-lg font-semibold text-white mb-2 group-hover:text-yellow-400 transition-colors">Keep Away from Children</h3>
-            <p data-i18n="safety.rule5Desc" class="text-sm text-zinc-400 leading-relaxed">Keep children and untrained persons away from power tools to avoid serious injury.</p>
-          </div>
-          <div class="group rounded-xl border border-zinc-800 bg-zinc-900/50 hover:border-yellow-400/50 hover:bg-zinc-800/50 transition-all duration-300 p-6">
-            <div class="w-12 h-12 bg-yellow-400/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-yellow-400/20 transition-colors">
-              <svg class="w-6 h-6 text-yellow-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="M12 4v16"/><path d="M2 12h20"/></svg>
-            </div>
-            <h3 data-i18n="safety.rule6Title" class="font-oswald text-lg font-semibold text-white mb-2 group-hover:text-yellow-400 transition-colors">Store Tools Safely</h3>
-            <p data-i18n="safety.rule6Desc" class="text-sm text-zinc-400 leading-relaxed">Store tools in a dry, secure place out of reach of children when not in use.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="py-20 bg-zinc-900/30">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-14">
-          <h2 data-i18n="safety.regulatoryCompliance" class="font-oswald text-3xl md:text-4xl font-bold text-white mb-4">Regulatory Compliance</h2>
-          <p data-i18n="safety.regulatoryComplianceDesc" class="text-zinc-400 text-lg max-w-2xl mx-auto">Our products meet the highest international safety and environmental standards.</p>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="group rounded-xl border border-zinc-800 bg-zinc-900/50 hover:border-yellow-400/50 hover:bg-zinc-800/50 transition-all duration-300 p-6">
-            <div class="w-12 h-12 bg-yellow-400/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-yellow-400/20 transition-colors">
-              <svg class="w-6 h-6 text-yellow-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-            </div>
-            <h3 data-i18n="safety.ceTitle" class="font-oswald text-lg font-semibold text-white mb-2 group-hover:text-yellow-400 transition-colors">CE Marking</h3>
-            <p data-i18n="safety.ceDesc" class="text-sm text-zinc-400 leading-relaxed mb-3">All products comply with EU Machinery Directive 2006/42/EC.</p>
-            <div class="pt-3 border-t border-zinc-800">
-              <p data-i18n="safety.ceDirective" class="text-xs text-zinc-500 uppercase tracking-wider mb-1">Directive</p>
-              <p class="text-sm text-yellow-400 font-semibold">2006/42/EC</p>
-            </div>
-          </div>
-          <div class="group rounded-xl border border-zinc-800 bg-zinc-900/50 hover:border-yellow-400/50 hover:bg-zinc-800/50 transition-all duration-300 p-6">
-            <div class="w-12 h-12 bg-yellow-400/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-yellow-400/20 transition-colors">
-              <svg class="w-6 h-6 text-yellow-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
-            </div>
-            <h3 data-i18n="safety.rohsTitle" class="font-oswald text-lg font-semibold text-white mb-2 group-hover:text-yellow-400 transition-colors">RoHS</h3>
-            <p data-i18n="safety.rohsDesc" class="text-sm text-zinc-400 leading-relaxed mb-3">Products comply with Restriction of Hazardous Substances Directive.</p>
-            <div class="pt-3 border-t border-zinc-800">
-              <p data-i18n="safety.rohsScope" class="text-xs text-zinc-500 uppercase tracking-wider mb-1">Scope</p>
-              <p class="text-sm text-yellow-400 font-semibold">Hazardous Substances</p>
-            </div>
-          </div>
-          <div class="group rounded-xl border border-zinc-800 bg-zinc-900/50 hover:border-yellow-400/50 hover:bg-zinc-800/50 transition-all duration-300 p-6">
-            <div class="w-12 h-12 bg-yellow-400/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-yellow-400/20 transition-colors">
-              <svg class="w-6 h-6 text-yellow-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
-            </div>
-            <h3 data-i18n="safety.isoTitle" class="font-oswald text-lg font-semibold text-white mb-2 group-hover:text-yellow-400 transition-colors">ISO 9001:2015</h3>
-            <p data-i18n="safety.isoDesc" class="text-sm text-zinc-400 leading-relaxed mb-3">Quality management system certified by SGS.</p>
-            <div class="pt-3 border-t border-zinc-800">
-              <p data-i18n="safety.isoCertified" class="text-xs text-zinc-500 uppercase tracking-wider mb-1">Certified By</p>
-              <p class="text-sm text-yellow-400 font-semibold">SGS</p>
-            </div>
-          </div>
-          <div class="group rounded-xl border border-zinc-800 bg-zinc-900/50 hover:border-yellow-400/50 hover:bg-zinc-800/50 transition-all duration-300 p-6">
-            <div class="w-12 h-12 bg-yellow-400/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-yellow-400/20 transition-colors">
-              <svg class="w-6 h-6 text-yellow-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12h6"/></svg>
-            </div>
-            <h3 data-i18n="safety.gsTitle" class="font-oswald text-lg font-semibold text-white mb-2 group-hover:text-yellow-400 transition-colors">GS Mark</h3>
-            <p data-i18n="safety.gsDesc" class="text-sm text-zinc-400 leading-relaxed mb-3">Selected products carry Geprüfte Sicherheit (Tested Safety) certification.</p>
-            <div class="pt-3 border-t border-zinc-800">
-              <p data-i18n="safety.gsScope" class="text-xs text-zinc-500 uppercase tracking-wider mb-1">Scope</p>
-              <p class="text-sm text-yellow-400 font-semibold">Selected Products</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="py-20 bg-zinc-950">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-14">
-          <h2 data-i18n="safety.productNotices" class="font-oswald text-3xl md:text-4xl font-bold text-white mb-4">Product Safety Notices</h2>
-          <p data-i18n="safety.productNoticesDesc" class="text-zinc-400 text-lg max-w-2xl mx-auto">Current safety recall information and product notices for Ningbo Siyang products.</p>
-        </div>
-        <div class="max-w-3xl mx-auto">
-          <div class="rounded-xl border border-zinc-800 bg-zinc-900/50 p-8 text-center">
-            <div class="w-16 h-16 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg class="w-8 h-8 text-green-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
-            </div>
-            <p data-i18n="safety.noRecalls" class="text-lg text-white font-medium mb-4">There are currently no active safety recalls for Ningbo Siyang products.</p>
-            <p data-i18n="safety.contactIfAffected" class="text-zinc-400 leading-relaxed">If you believe your product may be affected, contact us immediately at <a href="mailto:sales@ningbosiyang.com" class="text-yellow-400 hover:text-yellow-300 transition-colors">sales@ningbosiyang.com</a></p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <div id="cms-safety-grid" class="container mx-auto px-4"></div>
 
     <section class="py-20 bg-gradient-to-b from-zinc-900/50 to-zinc-950">
       <div class="container mx-auto px-4 text-center">
         <h2 data-i18n="safety.ctaTitle" class="font-oswald text-3xl md:text-4xl font-bold text-white mb-4">Contact for Safety Inquiries</h2>
-        <p data-i18n="safety.ctaDesc" class="text-zinc-400 text-lg max-w-2xl mx-auto mb-8">Have questions about product safety, compliance documentation, or certification? Our team is here to help.</p>
+        <p data-i18n="safety.ctaDesc" class="text-zinc-400 text-lg max-w-2xl mx-auto mb-8" data-i18n="safety.ctaDesc" data-i18n="safety.ctaDesc">Have questions about product safety, compliance documentation, or certification? Our team is here to help.</p>
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a href="mailto:sales@ningbosiyang.com" class="inline-flex items-center justify-center h-12 px-8 text-sm font-semibold bg-yellow-400 text-zinc-900 hover:bg-yellow-300 rounded-md shadow-lg shadow-yellow-400/20 transition-all hover:scale-105 active:scale-95">
             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
             Email Safety Team
           </a>
-          <a href="../contact.html" class="inline-flex items-center justify-center h-12 px-8 text-sm font-semibold border border-zinc-700 text-white hover:border-yellow-400 hover:text-yellow-400 rounded-md transition-all">Contact Our Team</a>
+          <a data-i18n="safety.contactOurTeam" href="../contact.html" class="inline-flex items-center justify-center h-12 px-8 text-sm font-semibold border border-zinc-700 text-white hover:border-yellow-400 hover:text-yellow-400 rounded-md transition-all">Contact Our Team</a>
         </div>
       </div>
     </section>
@@ -582,6 +458,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js" defer></script>
   <script src="../assets/js/animations.js" defer></script>
   <script src="../assets/js/quote-cart.js" defer></script>
+  <script src="../assets/js/cms-loader.js" defer></script>
 <div id="messaging-fab" class="fixed bottom-6 right-6 z-50">
   <div id="fab-options" class="hidden flex flex-col gap-3 mb-3">
     <a data-i18n="messaging.whatsapp" href="https://wa.me/8657488888888" target="_blank" rel="noopener noreferrer" data-site-whatsapp class="flex items-center gap-2 bg-green-600 hover:bg-green-500 text-white px-4 py-2 rounded-full shadow-lg transition-colors text-sm">
@@ -604,7 +481,7 @@
     <div class="bg-zinc-800 rounded-2xl p-6 text-center" onclick="event.stopPropagation()">
       <h3 data-i18n="messaging.wechatQRTitle" class="text-white font-bold mb-2">Scan on WeChat</h3>
       <img src="/assets/images/wechat-qr.png" alt="WeChat QR Code" class="w-48 h-48 rounded-lg object-cover" onerror="this.style.display='none';this.parentElement.insertAdjacentHTML('beforeend','<div class="w-48 h-48 bg-zinc-700 rounded-lg flex items-center justify-center text-zinc-500 text-sm">QR Code</div>');" />
-      <p class="text-zinc-400 text-xs mt-2">Open WeChat and scan to connect</p>
+      <p data-i18n="safety.wechatScan" class="text-zinc-400 text-xs mt-2">Open WeChat and scan to connect</p>
       <button onclick="document.getElementById('wechat-qr-modal').classList.add('hidden')" class="mt-3 text-zinc-400 hover:text-white text-sm">Close</button>
     </div>
   </div>

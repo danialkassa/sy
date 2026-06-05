@@ -1,20 +1,11 @@
 [
   {
-    "id": "sfty-001",
-    "title": "Proper PPE Usage with Siyang Power Tools",
+    "title": "Lithium-Ion Battery Safety Advisory",
     "noticeType": "safety advisory",
-    "severity": "info",
-    "affectedSkus": ["SY-DD20V-BL", "SY-AG18V-BL", "SY-CF20V-BL", "SY-RG20V-BL", "SY-CT20V-BL"],
-    "description": "All operators of Siyang power tools must wear appropriate Personal Protective Equipment (PPE) at all times during operation. This includes safety glasses or goggles meeting ANSI Z87.1 / EN 166 standards, hearing protection when operating tools above 85 dB, and cut-resistant gloves where applicable. When using grinding or cutting tools, a full face shield and dust mask rated for the material being processed are required. Steel-toed safety boots should be worn when operating heavy-duty tools. Failure to use proper PPE may result in serious injury. Refer to each tool's instruction manual for specific PPE requirements.",
-    "date": "2025-09-15"
-  },
-  {
-    "id": "sfty-002",
-    "title": "Updated CE Marking Requirements for Power Tools — 2026 Compliance",
-    "noticeType": "compliance update",
     "severity": "warning",
-    "affectedSkus": ["SY-DD20V-BL", "SY-AG18V-BL", "SY-CF20V-BL", "SY-RG20V-BL", "SY-CT20V-BL", "SY-DD12V-BL", "SY-AG12V-BL"],
-    "description": "Effective March 1, 2026, the European Commission has updated the CE marking requirements under the Machinery Directive 2006/42/EC as amended by Regulation (EU) 2024/1689. All Siyang power tools shipped to the EU market must comply with the revised electromagnetic compatibility (EMC) testing standards and updated noise emission labeling. Products manufactured before January 2026 that do not meet the new requirements must be re-certified before sale in EU member states. Distributors are advised to verify compliance status of current inventory and contact compliance@siyangtools.com for updated Declaration of Conformity documents.",
-    "date": "2026-01-20"
+    "description": "Always use Siyang-approved chargers and batteries with our 20V MAX platform tools. Third-party batteries may not have proper overcurrent protection and could pose a safety risk. Store batteries in a cool, dry place between 5°C and 25°C.",
+    "resolution": "",
+    "affectedSkus": [],
+    "date": "2025-01-15"
   }
 ]

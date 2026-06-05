@@ -1,0 +1,58 @@
+---
+name: "10\" Table Saw"
+sku: "SY-SW-TAB-10IN"
+category: "saws"
+categoryLabel: "Saws"
+brand: "Ningbo Siyang Pro"
+images:
+
+  - "../images/istock/10011.jpg"
+  - "../images/istock/10011-2.jpg"
+  - "../images/istock/10011-3.jpg"
+description: "Heavy-duty 10 inch table saw with 15 Amp motor and rack & pinion fence system for precise adjustments. Features a cast aluminum table top and on-board storage for accessories. Designed for professional woodworking, rip cutting, and crosscutting applications."
+userBenefits:
+
+  - "Rack & pinion fence system delivers micro-adjusted, repeatable rip cuts with sub-1/32\" accuracy"
+  - "30\" right rip capacity handles full sheets of plywood and wide hardwood boards in a single pass"
+  - "15 Amp motor with 4800 RPM powers through hardwoods and pressure-treated lumber without stalling"
+  - "Cast aluminum table top stays flat and resists warping for precise cuts over years of use"
+  - "On-board storage keeps blade wrenches, push stick, and rip fence organized and always within reach"
+specs:
+  voltage: "Corded"
+  motorType: "15 Amp"
+  noLoadSpeed: "4800 RPM"
+  bladeDiameter: "10\" (254mm)"
+  arborSize: "5/8\" (16mm)"
+  maxCuttingDepth90: "3-1/8\" (79mm)"
+  maxCuttingDepth45: "2-1/4\" (57mm)"
+  bevelCapacity: "0-45°"
+  weightToolOnly: "68.0 lbs (30.8 kg)"
+  overallLength: "26-1/2\" (673mm)"
+  soundPower: "105 dB(A)"
+  vibrationLevel: "1.8 m/s²"
+  cordLength: "6.5 ft (2m)"
+  bladeIncluded: "Yes, 24T carbide-tipped"
+  shoeMaterial: "Cast aluminum table top"
+  laserGuide: "No"
+  fenceSystem: "Rack & pinion"
+  maxRipCapacityRight: "30\" (762mm)"
+  maxRipCapacityLeft: "12\" (305mm)"
+compliance:
+  ce: true
+  rohs: true
+  gs: true
+  ul: false
+  eec: true
+inStock: true
+moq: "150 units"
+leadTime: "35-50 days"
+warranty: "1 year standard"
+featured: false
+relatedProducts:
+
+  - "SY-SW-MIT-10IN"
+  - "SY-SW-BAND-9IN"
+downloads:
+  specSheet: "/downloads/spec-sheets/SY-SW-TAB-10IN.pdf"
+  manual: "/downloads/manuals/SY-SW-TAB-10IN.pdf"
+---

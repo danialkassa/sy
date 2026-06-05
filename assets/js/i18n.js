@@ -71,6 +71,7 @@ I18N.prototype._getBasePath = function() {
   if (path.indexOf('/blogs/') !== -1) return '../';
   if (path.indexOf('/products/') !== -1) return '../';
   if (path.indexOf('/about/') !== -1) return '../';
+  if (path.indexOf('/tools/') !== -1) return '../';
   return './';
 };
 
@@ -102,7 +103,7 @@ I18N.prototype.t = function(key, fallback, params) {
     if (val == null || typeof val !== 'object') return fallback || key;
     val = val[keys[i]];
   }
-  if (val == null) return fallback || key;
+  if (val == null || val === '') return fallback || key;
 
   if (params && typeof val === 'string') {
     for (var p in params) {
@@ -121,7 +122,29 @@ I18N.prototype.applyTranslations = function() {
   document.querySelectorAll('[data-i18n]').forEach(function(el) {
     var key = el.getAttribute('data-i18n');
     var val = self.t(key);
-    if (val !== key) el.textContent = val;
+    if (val !== key) {
+      // Only replace textContent if element has no child elements
+      // This preserves SVG icons, <span> children, etc.
+      var hasElementChildren = false;
+      for (var c = 0; c < el.childNodes.length; c++) {
+        if (el.childNodes[c].nodeType === 1) { hasElementChildren = true; break; }
+      }
+      if (hasElementChildren) {
+        // Replace only text nodes, preserve element children
+        var textNodeFound = false;
+        for (var i = 0; i < el.childNodes.length; i++) {
+          if (el.childNodes[i].nodeType === 3 && el.childNodes[i].textContent.trim()) {
+            el.childNodes[i].textContent = val;
+            textNodeFound = true;
+            break;
+          }
+        }
+        // If no text node found, append the translation
+        if (!textNodeFound) el.appendChild(document.createTextNode(val));
+      } else {
+        el.textContent = val;
+      }
+    }
   });
 
   document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
@@ -140,6 +163,20 @@ I18N.prototype.applyTranslations = function() {
     var key = el.getAttribute('data-i18n-aria');
     var val = self.t(key);
     if (val !== key) el.setAttribute('aria-label', val);
+  });
+
+  // Handle data-i18n-html for HTML content injection (trusted JSON sources only)
+  document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
+    var key = el.getAttribute('data-i18n-html');
+    var val = self.t(key);
+    if (val !== key) el.innerHTML = val;
+  });
+
+  // Handle data-i18n-alt for image alt text (accessibility)
+  document.querySelectorAll('[data-i18n-alt]').forEach(function(el) {
+    var key = el.getAttribute('data-i18n-alt');
+    var val = self.t(key);
+    if (val !== key) el.setAttribute('alt', val);
   });
 };
 

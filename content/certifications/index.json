@@ -1,7 +1,22 @@
 {
   "certifications": [
-    {"name": "ISO 9001:2015", "issuer": "SGS", "cert_number": "CN-2024-9001", "image": "", "year": "2024"},
-    {"name": "CE Marking", "issuer": "TUV Rheinland", "cert_number": "CE-2024-SY", "image": "", "year": "2024"},
-    {"name": "RoHS Compliance", "issuer": "SGS", "cert_number": "ROHS-2024-SY", "image": "", "year": "2024"}
+    {
+      "name": "CE Marking",
+      "issuer": "TUV Rheinland",
+      "image": "",
+      "year": "2024"
+    },
+    {
+      "name": "ISO 9001:2015",
+      "issuer": "SGS",
+      "image": "",
+      "year": "2024"
+    },
+    {
+      "name": "RoHS Compliance",
+      "issuer": "SGS",
+      "image": "",
+      "year": "2024"
+    }
   ]
 }

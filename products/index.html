@@ -63,7 +63,7 @@
           </div>
           <div class="hidden sm:block">
             <span class="font-oswald text-xl font-bold text-white tracking-tight group-hover:text-yellow-400 transition-colors">NINGBO SIYANG</span>
-            <span class="block text-xs text-zinc-500 uppercase tracking-widest -mt-1">Professional Tools</span>
+            <span data-i18n="nav.professionalTools" class="block text-xs text-zinc-500 uppercase tracking-widest -mt-1">Professional Tools</span>
           </div>
         </a>
         <!-- Desktop Nav -->
@@ -113,7 +113,7 @@
               </div>
               <div class="p-4 border-t border-zinc-800 bg-zinc-900/50">
                 <div class="flex items-center justify-between text-sm">
-                  <span class="text-zinc-500">Need help choosing? Contact our experts</span>
+                  <span class="text-zinc-500" data-i18n="common.needHelpChoosing">Need help choosing? Contact our experts</span>
                   <a href="../contact.html" class="text-yellow-400 hover:text-yellow-300 font-medium transition-colors">Get Support &rarr;</a>
                 </div>
               </div>
@@ -122,7 +122,7 @@
           <!-- About dropdown -->
           <div class="relative group">
             <button data-i18n="nav.about" class="flex items-center gap-1 px-4 py-2 text-sm font-medium text-zinc-300 hover:text-yellow-400 transition-colors" aria-haspopup="true" aria-expanded="false">
-              About Us
+              <span data-i18n="nav.about">About Us</span>
               <svg class="w-4 h-4 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
             </button>
             <div class="dropdown-panel absolute top-full left-0 mt-1 w-[400px] bg-zinc-900 border border-zinc-800 rounded-xl shadow-2xl shadow-black/50 overflow-hidden z-50">
@@ -218,7 +218,7 @@
               </div>
             </div>
           </div>
-          <a href="../contact.html" class="px-4 py-2 text-sm font-medium text-zinc-300 hover:text-yellow-400 transition-colors">Contact</a>
+          <a data-i18n="nav.contact" href="../contact.html" class="px-4 py-2 text-sm font-medium text-zinc-300 hover:text-yellow-400 transition-colors">Contact</a>
           <a data-i18n="nav.requestQuote" href="../contact.html#quote-form" class="px-4 py-2 text-sm font-medium text-yellow-400 hover:text-yellow-300 transition-colors">Request Quote</a>
         <div id="mobile-lang-options" class="px-4 py-1 space-y-0.5">
         </div>
@@ -238,7 +238,7 @@
               <button data-search-open class="p-2 text-zinc-400 hover:text-yellow-400 transition-colors" aria-label="Search products" data-i18n-aria="search.openSearch">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
               </button>
-              <a data-i18n="nav.requestQuote" href="../contact.html#quote-form" class="relative inline-flex items-center justify-center gap-2 h-11 px-5 text-sm font-semibold bg-yellow-400 text-zinc-900 hover:bg-yellow-300 rounded-md shadow-lg shadow-yellow-400/20 transition-all hover:scale-105 active:scale-95">Request Quote</a>
+              <a data-i18n="nav.requestQuote" href="../contact.html#quote-form" class="relative inline-flex items-center justify-center gap-2 h-11 px-5 text-sm font-semibold bg-yellow-400 text-zinc-900 hover:bg-yellow-300 rounded-md shadow-lg shadow-yellow-400/20 transition-all hover:scale-105 active:scale-95"><span data-i18n="nav.requestQuote">Request Quote</span></a>
           </div>
           <!-- Mobile menu button -->
 <button data-mobile-menu-toggle class="lg:hidden inline-flex items-center justify-center h-11 w-11 rounded-md text-zinc-300 hover:text-yellow-400 hover:bg-zinc-800 transition-colors" aria-label="Open navigation menu">
@@ -251,7 +251,7 @@
     <div id="mobile-menu-panel" class="hidden lg:hidden bg-zinc-900 border-b border-zinc-800">
       <div class="container mx-auto px-4 py-4 flex flex-col gap-2">
         <a data-i18n="nav.home" href="../index.html" class="px-4 py-3 text-sm font-medium text-zinc-300 hover:text-yellow-400 hover:bg-zinc-800 rounded-lg transition-colors">Home</a>
-        <a href="./index.html" class="px-4 py-3 text-sm font-medium text-zinc-300 hover:text-yellow-400 hover:bg-zinc-800 rounded-lg transition-colors">All Products</a>
+        <a data-i18n="nav.productsAll" href="./index.html" class="px-4 py-3 text-sm font-medium text-zinc-300 hover:text-yellow-400 hover:bg-zinc-800 rounded-lg transition-colors">All Products</a>
         <div data-i18n="nav.products" class="px-4 py-2 text-xs font-semibold text-zinc-500 uppercase tracking-wider">Categories</div>
         <a data-i18n="categories.drillsDrivers" href="./drills-drivers.html" class="px-4 py-2 pl-8 text-sm font-medium text-zinc-400 hover:text-yellow-400 hover:bg-zinc-800 rounded-lg transition-colors">Drills &amp; Drivers</a>
         <a data-i18n="categories.saws" href="./saws.html" class="px-4 py-2 pl-8 text-sm font-medium text-zinc-400 hover:text-yellow-400 hover:bg-zinc-800 rounded-lg transition-colors">Saws</a>
@@ -271,7 +271,7 @@
         <a href="../about/safety.html" class="block py-2 text-zinc-400 hover:text-yellow-400 transition-colors" data-i18n="nav.aboutSafety">Safety &amp; Compliance</a>
         <a data-i18n="nav.aboutBrochure" href="../about/brochure.html" class="px-4 py-2 pl-8 text-sm font-medium text-zinc-400 hover:text-yellow-400 hover:bg-zinc-800 rounded-lg transition-colors">Download Brochure</a>
         <div class="border-t border-zinc-800 my-1"></div>
-        <a href="../contact.html" class="px-4 py-3 text-sm font-medium text-zinc-300 hover:text-yellow-400 hover:bg-zinc-800 rounded-lg transition-colors">Contact</a>
+        <a data-i18n="nav.contact" href="../contact.html" class="px-4 py-3 text-sm font-medium text-zinc-300 hover:text-yellow-400 hover:bg-zinc-800 rounded-lg transition-colors">Contact</a>
         <a data-i18n="nav.requestQuote" href="../contact.html#quote-form" class="px-4 py-3 text-sm font-medium text-yellow-400 hover:text-yellow-300 hover:bg-zinc-800 rounded-lg transition-colors">Request Quote</a>
         <div id="mobile-lang-options-2" class="px-4 py-1 space-y-0.5">
         </div>
@@ -288,18 +288,18 @@
       <div class="grid lg:grid-cols-[1.25fr_0.75fr] gap-10 items-end">
         <div>
           <h1 data-i18n="nav.productsAll" class="font-oswald text-4xl md:text-6xl font-bold text-white leading-tight mb-4">POWER TOOLS <span class="text-yellow-400">CATALOG</span></h1>
-          <p class="text-zinc-400 text-lg max-w-2xl">Browse our full catalog of professional power tools including drills, saws, grinders, sanders, impact tools and combo kits.</p>
+          <p data-i18n="products.heroDesc" class="text-zinc-400 text-lg max-w-2xl">Browse our full catalog of professional power tools including drills, saws, grinders, sanders, impact tools and combo kits.</p>
           <div class="mt-8 flex flex-wrap gap-3">
-            <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-zinc-200">Easy Filtering</span>
-            <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-zinc-200">Comparison ready</span>
-            <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-zinc-200">Quote-friendly</span>
+            <span data-i18n="products.badge.easyFiltering" class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-zinc-200">Easy Filtering</span>
+            <span data-i18n="products.badge.comparisonReady" class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-zinc-200">Comparison ready</span>
+            <span data-i18n="products.badge.quoteFriendly" class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-zinc-200">Quote-friendly</span>
           </div>
         </div>
         <div class="grid grid-cols-2 gap-4">
-          <div class="rounded-2xl border border-zinc-800 bg-zinc-900/70 p-5"><div class="text-3xl font-bold text-yellow-400 mb-1" data-count-up="48">0</div><div class="text-sm text-zinc-400">Products</div></div>
-          <div class="rounded-2xl border border-zinc-800 bg-zinc-900/70 p-5"><div class="text-3xl font-bold text-yellow-400 mb-1" data-count-up="12">0</div><div class="text-sm text-zinc-400">Featured</div></div>
+          <div class="rounded-2xl border border-zinc-800 bg-zinc-900/70 p-5"><div class="text-3xl font-bold text-yellow-400 mb-1" data-count-up="48">0</div><div data-i18n="products.stats.products" class="text-sm text-zinc-400">Products</div></div>
+          <div class="rounded-2xl border border-zinc-800 bg-zinc-900/70 p-5"><div class="text-3xl font-bold text-yellow-400 mb-1" data-count-up="12">0</div><div data-i18n="products.stats.featured" class="text-sm text-zinc-400">Featured</div></div>
           <div class="rounded-2xl border border-zinc-800 bg-zinc-900/70 p-5"><div class="text-3xl font-bold text-yellow-400 mb-1" data-count-up="6">0</div><div data-i18n="nav.products" class="text-sm text-zinc-400">Categories</div></div>
-          <div class="rounded-2xl border border-zinc-800 bg-zinc-900/70 p-5"><div class="text-3xl font-bold text-yellow-400 mb-1" data-count-up="100" data-count-suffix="%">0%</div><div class="text-sm text-zinc-400">Quote-ready</div></div>
+          <div class="rounded-2xl border border-zinc-800 bg-zinc-900/70 p-5"><div class="text-3xl font-bold text-yellow-400 mb-1" data-count-up="100" data-count-suffix="%">0%</div><div data-i18n="products.stats.quoteReady" class="text-sm text-zinc-400">Quote-ready</div></div>
         </div>
       </div>
     </div>
@@ -311,12 +311,12 @@
       <div class="lg:hidden flex items-center gap-3 mb-6">
         <button onclick="toggleMobileFilters()" class="inline-flex items-center justify-center h-11 px-4 border border-zinc-700 text-zinc-300 hover:text-yellow-400 hover:border-yellow-400 rounded-md transition-colors text-sm">
           <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
-          Filters
+          <span data-i18n="products.filtersTitle">Filters</span>
           <span id="mobile-filter-badge" class="hidden ml-2 w-5 h-5 bg-yellow-400 text-zinc-900 text-xs font-bold rounded-full flex items-center justify-center">!</span>
         </button>
         <select id="catalog-sort-mobile" onchange="document.getElementById('catalog-sort').value=this.value;applyFilters()" class="h-10 px-3 rounded-md bg-zinc-900 border border-zinc-700 text-zinc-300 text-sm focus:border-yellow-400 outline-none">
-          <option value="newest">Sort by: Newest</option>
-          <option value="name">Name: A-Z</option>
+          <option value="newest" data-i18n="products.sort.newest">Sort by: Newest</option>
+          <option value="name" data-i18n="products.sort.nameAZ">Name: A-Z</option>
         </select>
       </div>
 
@@ -327,7 +327,7 @@
           <div class="p-4 border-b border-zinc-800 flex items-center justify-between">
             <h2 class="text-white flex items-center gap-2 font-oswald text-lg font-semibold">
               <svg class="w-5 h-5 text-yellow-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
-              Filters
+              <span data-i18n="products.filtersTitle">Filters</span>
             </h2>
             <button onclick="toggleMobileFilters()" class="w-8 h-8 flex items-center justify-center text-zinc-400 hover:text-white rounded-lg hover:bg-zinc-800 transition-colors">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
@@ -342,42 +342,42 @@
         <div class="sticky top-24 bg-zinc-900 rounded-xl border border-zinc-800 p-4">
           <h2 class="font-oswald text-lg font-semibold text-white mb-4 flex items-center gap-2">
             <svg class="w-5 h-5 text-yellow-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
-            Filters
+            <span data-i18n="products.filtersTitle">Filters</span>
           </h2>
           <div class="space-y-6">
             <!-- Clear All Filters -->
             <button id="clear-all-filters" onclick="clearFilters()" class="hidden w-full h-11 border border-zinc-700 text-zinc-300 hover:text-yellow-400 hover:border-yellow-400 rounded-md transition-colors text-sm flex items-center justify-center">
               <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-              Clear All Filters
+              <span data-i18n="products.clearFilters">Clear All Filters</span>
             </button>
 
             <!-- Categories -->
             <div>
               <button onclick="toggleSection('cat-section','cat-chevron')" class="flex items-center justify-between w-full py-2 text-sm font-semibold text-white">
-                Categories
+                <span data-i18n="products.categoryLabel">Categories</span>
                 <svg id="cat-chevron" class="w-4 h-4 text-zinc-500 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
               </button>
               <div id="cat-section" class="pt-2 space-y-1">
-                <button onclick="setCategory('')" data-cat="" class="filter-cat-btn block w-full text-left px-3 py-2 text-sm rounded-lg transition-colors text-zinc-400 hover:text-white hover:bg-zinc-800">All Products</button>
-                <button onclick="setCategory('drills-drivers')" data-cat="drills-drivers" class="filter-cat-btn block w-full text-left px-3 py-2 text-sm rounded-lg transition-colors text-zinc-400 hover:text-white hover:bg-zinc-800">Drills &amp; Drivers</button>
-                <button onclick="setCategory('saws')" data-cat="saws" class="filter-cat-btn block w-full text-left px-3 py-2 text-sm rounded-lg transition-colors text-zinc-400 hover:text-white hover:bg-zinc-800">Saws</button>
-                <button onclick="setCategory('grinders')" data-cat="grinders" class="filter-cat-btn block w-full text-left px-3 py-2 text-sm rounded-lg transition-colors text-zinc-400 hover:text-white hover:bg-zinc-800">Grinders</button>
-                <button onclick="setCategory('sanders')" data-cat="sanders" class="filter-cat-btn block w-full text-left px-3 py-2 text-sm rounded-lg transition-colors text-zinc-400 hover:text-white hover:bg-zinc-800">Sanders</button>
-                <button onclick="setCategory('impact-tools')" data-cat="impact-tools" class="filter-cat-btn block w-full text-left px-3 py-2 text-sm rounded-lg transition-colors text-zinc-400 hover:text-white hover:bg-zinc-800">Impact Tools</button>
-                <button onclick="setCategory('combo-kits')" data-cat="combo-kits" class="filter-cat-btn block w-full text-left px-3 py-2 text-sm rounded-lg transition-colors text-zinc-400 hover:text-white hover:bg-zinc-800">Combo Kits</button>
+                <button onclick="setCategory('')" data-cat="" class="filter-cat-btn block w-full text-left px-3 py-2 text-sm rounded-lg transition-colors text-zinc-400 hover:text-white hover:bg-zinc-800" data-i18n="products.cat.all">All Products</button>
+                <button onclick="setCategory('drills-drivers')" data-cat="drills-drivers" class="filter-cat-btn block w-full text-left px-3 py-2 text-sm rounded-lg transition-colors text-zinc-400 hover:text-white hover:bg-zinc-800" data-i18n="categories.drillsDrivers">Drills &amp; Drivers</button>
+                <button onclick="setCategory('saws')" data-cat="saws" class="filter-cat-btn block w-full text-left px-3 py-2 text-sm rounded-lg transition-colors text-zinc-400 hover:text-white hover:bg-zinc-800" data-i18n="categories.saws">Saws</button>
+                <button onclick="setCategory('grinders')" data-cat="grinders" class="filter-cat-btn block w-full text-left px-3 py-2 text-sm rounded-lg transition-colors text-zinc-400 hover:text-white hover:bg-zinc-800" data-i18n="categories.grinders">Grinders</button>
+                <button onclick="setCategory('sanders')" data-cat="sanders" class="filter-cat-btn block w-full text-left px-3 py-2 text-sm rounded-lg transition-colors text-zinc-400 hover:text-white hover:bg-zinc-800" data-i18n="categories.sanders">Sanders</button>
+                <button onclick="setCategory('impact-tools')" data-cat="impact-tools" class="filter-cat-btn block w-full text-left px-3 py-2 text-sm rounded-lg transition-colors text-zinc-400 hover:text-white hover:bg-zinc-800" data-i18n="categories.impactTools">Impact Tools</button>
+                <button onclick="setCategory('combo-kits')" data-cat="combo-kits" class="filter-cat-btn block w-full text-left px-3 py-2 text-sm rounded-lg transition-colors text-zinc-400 hover:text-white hover:bg-zinc-800" data-i18n="categories.comboKits">Combo Kits</button>
               </div>
             </div><!-- Brands -->
             <div>
               <button onclick="toggleSection('brand-section','brand-chevron')" class="flex items-center justify-between w-full py-2 text-sm font-semibold text-white">
-                Brands
+                <span data-i18n="products.brandLabel">Brands</span>
                 <svg id="brand-chevron" class="w-4 h-4 text-zinc-500 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
               </button>
               <div id="brand-section" class="pt-2 space-y-1">
-                <button onclick="setBrand('Ningbo Siyang')" data-brand="Ningbo Siyang" class="filter-brand-btn block w-full text-left px-3 py-2 text-sm rounded-lg transition-colors text-zinc-400 hover:text-white hover:bg-zinc-800">Ningbo Siyang</button>
-                <button onclick="setBrand('Ningbo Siyang Pro')" data-brand="Ningbo Siyang Pro" class="filter-brand-btn block w-full text-left px-3 py-2 text-sm rounded-lg transition-colors text-zinc-400 hover:text-white hover:bg-zinc-800">Ningbo Siyang Pro</button>
-                <button onclick="setBrand('Ningbo Siyang Elite')" data-brand="Ningbo Siyang Elite" class="filter-brand-btn block w-full text-left px-3 py-2 text-sm rounded-lg transition-colors text-zinc-400 hover:text-white hover:bg-zinc-800">Ningbo Siyang Elite</button>
-                <button onclick="setBrand('ProCraft')" data-brand="ProCraft" class="filter-brand-btn block w-full text-left px-3 py-2 text-sm rounded-lg transition-colors text-zinc-400 hover:text-white hover:bg-zinc-800">ProCraft</button>
-                <button onclick="setBrand('TitanTools')" data-brand="TitanTools" class="filter-brand-btn block w-full text-left px-3 py-2 text-sm rounded-lg transition-colors text-zinc-400 hover:text-white hover:bg-zinc-800">TitanTools</button>
+                <button onclick="setBrand('Ningbo Siyang')" data-brand="Ningbo Siyang" class="filter-brand-btn block w-full text-left px-3 py-2 text-sm rounded-lg transition-colors text-zinc-400 hover:text-white hover:bg-zinc-800" data-i18n="products.brand.ningboSiyang">Ningbo Siyang</button>
+                <button onclick="setBrand('Ningbo Siyang Pro')" data-brand="Ningbo Siyang Pro" class="filter-brand-btn block w-full text-left px-3 py-2 text-sm rounded-lg transition-colors text-zinc-400 hover:text-white hover:bg-zinc-800" data-i18n="products.brand.ningboSiyangPro">Ningbo Siyang Pro</button>
+                <button onclick="setBrand('Ningbo Siyang Elite')" data-brand="Ningbo Siyang Elite" class="filter-brand-btn block w-full text-left px-3 py-2 text-sm rounded-lg transition-colors text-zinc-400 hover:text-white hover:bg-zinc-800" data-i18n="products.brand.ningboSiyangElite">Ningbo Siyang Elite</button>
+                <button onclick="setBrand('ProCraft')" data-brand="ProCraft" class="filter-brand-btn block w-full text-left px-3 py-2 text-sm rounded-lg transition-colors text-zinc-400 hover:text-white hover:bg-zinc-800" data-i18n="products.brand.proCraft">ProCraft</button>
+                <button onclick="setBrand('TitanTools')" data-brand="TitanTools" class="filter-brand-btn block w-full text-left px-3 py-2 text-sm rounded-lg transition-colors text-zinc-400 hover:text-white hover:bg-zinc-800" data-i18n="products.brand.titanTools">TitanTools</button>
               </div>
             </div>
 
@@ -385,7 +385,7 @@
             <div class="py-2">
               <label class="flex items-center gap-2 cursor-pointer">
                 <input type="checkbox" id="filter-instock" class="w-4 h-4 rounded border-zinc-600 bg-zinc-900 text-yellow-400 focus:ring-yellow-400 focus:ring-offset-0" onchange="applyFilters()"/>
-                <span class="text-sm text-zinc-300">In Stock Only</span>
+                <span data-i18n="products.inStockOnly" class="text-sm text-zinc-300">In Stock Only</span>
               </label>
             </div>
           </div>
@@ -399,19 +399,19 @@
           <form onsubmit="event.preventDefault(); applyFilters();" class="flex-1 max-w-md">
             <div class="relative">
               <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.34-4.34"/></svg>
-              <input type="search" id="catalog-search" placeholder="Search products..." class="w-full h-10 pl-10 pr-3 rounded-md bg-zinc-900 border border-zinc-700 text-white placeholder:text-zinc-500 text-sm focus:border-yellow-400 outline-none" oninput="applyFilters()"/>
+              <input type="search" id="catalog-search" placeholder="Search products..." data-i18n-placeholder="products.searchPlaceholder" class="w-full h-10 pl-10 pr-3 rounded-md bg-zinc-900 border border-zinc-700 text-white placeholder:text-zinc-500 text-sm focus:border-yellow-400 outline-none" oninput="applyFilters()"/>
             </div>
           </form>
           <select id="catalog-sort" onchange="applyFilters()" class="h-10 px-3 rounded-md bg-zinc-900 border border-zinc-700 text-zinc-300 text-sm focus:border-yellow-400 outline-none">
-            <option value="newest">Sort by: Newest</option>
-            <option value="name">Name: A-Z</option>
+            <option value="newest" data-i18n="products.sort.newest">Sort by: Newest</option>
+            <option value="name" data-i18n="products.sort.nameAZ">Name: A-Z</option>
           </select>
         </div>
 
         <!-- Results count -->
         <div class="flex flex-wrap items-center justify-between gap-4 mb-8">
-          <h2 class="text-white text-xl font-semibold"><span id="result-count">48</span> products</h2>
-          <a href="../about/company.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-zinc-700 text-zinc-300 hover:text-yellow-400 hover:border-yellow-400 transition-colors text-sm">See our story <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+          <h2 class="text-white text-xl font-semibold"><span id="result-count">48</span> <span data-i18n="products.resultsLabel">products</span></h2>
+          <a href="../about/company.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-zinc-700 text-zinc-300 hover:text-yellow-400 hover:border-yellow-400 transition-colors text-sm"><span data-i18n="products.seeOurStory">See our story</span> <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
         </div>
 
         <!-- Products Grid -->
@@ -422,14 +422,14 @@
       <div class="relative aspect-square bg-zinc-900 overflow-hidden shrink-0">
         <img src="../images/istock/10001.jpg" alt="20V MAX Brushless Drill/Driver" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy"/>
         <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/20 to-transparent opacity-60 group-hover:opacity-35 transition-opacity"></div>
-        <div class="absolute top-3 left-3 flex flex-col gap-1.5"><span class="bg-yellow-400 text-zinc-900 text-xs font-bold px-2 py-1 rounded">Featured</span></div>
+        <div class="absolute top-3 left-3 flex flex-col gap-1.5"><span class="bg-yellow-400 text-zinc-900 text-xs font-bold px-2 py-1 rounded" data-i18n="products.badge.featured">Featured</span></div>
         <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300">
           <a href="./product.html?sku=dd-1" aria-label="View details for 20V MAX Brushless Drill/Driver" class="flex w-11 h-11 bg-zinc-900/90 backdrop-blur-sm rounded-lg items-center justify-center text-zinc-300 hover:text-yellow-400 hover:bg-zinc-900 transition-colors">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="dd-1" data-quote-name="20V MAX Brushless Drill/Driver" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/istock/10001.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="dd-1" data-quote-name="20V MAX Brushless Drill/Driver" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/istock/10001.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -441,9 +441,9 @@
           <span class="text-xs text-zinc-500">(48)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -458,7 +458,7 @@
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="dd-2" data-quote-name="SDS-Plus Rotary Hammer Drill 1-1/8&quot;" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/istock/10002.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="dd-2" data-quote-name="SDS-Plus Rotary Hammer Drill 1-1/8&quot;" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/istock/10002.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -470,9 +470,9 @@
           <span class="text-xs text-zinc-500">(85)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -480,14 +480,14 @@
       <div class="relative aspect-square bg-zinc-900 overflow-hidden shrink-0">
         <img src="../images/istock/10003.jpg" alt="Demolition Rotary Hammer 1-9/16"" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy"/>
         <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/20 to-transparent opacity-60 group-hover:opacity-35 transition-opacity"></div>
-        <div class="absolute top-3 left-3 flex flex-col gap-1.5"><span class="bg-yellow-400 text-zinc-900 text-xs font-bold px-2 py-1 rounded">Featured</span></div>
+        <div class="absolute top-3 left-3 flex flex-col gap-1.5"><span class="bg-yellow-400 text-zinc-900 text-xs font-bold px-2 py-1 rounded" data-i18n="products.badge.featured">Featured</span></div>
         <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300">
           <a href="./product.html?sku=dd-3" aria-label="View details for Demolition Rotary Hammer 1-9/16"" class="flex w-11 h-11 bg-zinc-900/90 backdrop-blur-sm rounded-lg items-center justify-center text-zinc-300 hover:text-yellow-400 hover:bg-zinc-900 transition-colors">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="dd-3" data-quote-name="Demolition Rotary Hammer 1-9/16&quot;" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/istock/10003.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="dd-3" data-quote-name="Demolition Rotary Hammer 1-9/16&quot;" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/istock/10003.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -499,9 +499,9 @@
           <span class="text-xs text-zinc-500">(122)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -516,7 +516,7 @@
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="dd-4" data-quote-name="Corded Hammer Drill 7.5A 1/2&quot;" data-quote-brand="Ningbo Siyang" data-quote-image="../images/istock/10004.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="dd-4" data-quote-name="Corded Hammer Drill 7.5A 1/2&quot;" data-quote-brand="Ningbo Siyang" data-quote-image="../images/istock/10004.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -528,9 +528,9 @@
           <span class="text-xs text-zinc-500">(159)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -545,7 +545,7 @@
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="dd-5" data-quote-name="18V Compact Brushless Drill/Driver" data-quote-brand="Ningbo Siyang" data-quote-image="../images/istock/10005.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="dd-5" data-quote-name="18V Compact Brushless Drill/Driver" data-quote-brand="Ningbo Siyang" data-quote-image="../images/istock/10005.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -557,9 +557,9 @@
           <span class="text-xs text-zinc-500">(196)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -567,14 +567,14 @@
       <div class="relative aspect-square bg-zinc-900 overflow-hidden shrink-0">
         <img src="../images/istock/10006.jpg" alt="20V Drill & Driver Combo Set" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy"/>
         <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/20 to-transparent opacity-60 group-hover:opacity-35 transition-opacity"></div>
-        <div class="absolute top-3 left-3 flex flex-col gap-1.5"><span class="bg-yellow-400 text-zinc-900 text-xs font-bold px-2 py-1 rounded">Featured</span></div>
+        <div class="absolute top-3 left-3 flex flex-col gap-1.5"><span class="bg-yellow-400 text-zinc-900 text-xs font-bold px-2 py-1 rounded" data-i18n="products.badge.featured">Featured</span></div>
         <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300">
           <a href="./product.html?sku=dd-6" aria-label="View details for 20V Drill & Driver Combo Set" class="flex w-11 h-11 bg-zinc-900/90 backdrop-blur-sm rounded-lg items-center justify-center text-zinc-300 hover:text-yellow-400 hover:bg-zinc-900 transition-colors">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="dd-6" data-quote-name="20V Drill &amp; Driver Combo Set" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/istock/10006.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="dd-6" data-quote-name="20V Drill &amp; Driver Combo Set" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/istock/10006.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -586,9 +586,9 @@
           <span class="text-xs text-zinc-500">(233)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -603,7 +603,7 @@
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="dd-7" data-quote-name="1&quot; SDS-Plus Rotary Hammer Pro" data-quote-brand="Ningbo Siyang" data-quote-image="../images/unsplach/drill-closeup/10072.jpeg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="dd-7" data-quote-name="1&quot; SDS-Plus Rotary Hammer Pro" data-quote-brand="Ningbo Siyang" data-quote-image="../images/unsplach/drill-closeup/10072.jpeg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -615,9 +615,9 @@
           <span class="text-xs text-zinc-500">(270)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -632,7 +632,7 @@
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="dd-8" data-quote-name="Heavy-Duty Right Angle Drill 7.5A" data-quote-brand="Ningbo Siyang" data-quote-image="../images/unsplach/drill-closeup/10074.jpeg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="dd-8" data-quote-name="Heavy-Duty Right Angle Drill 7.5A" data-quote-brand="Ningbo Siyang" data-quote-image="../images/unsplach/drill-closeup/10074.jpeg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -644,9 +644,9 @@
           <span class="text-xs text-zinc-500">(307)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -654,14 +654,14 @@
       <div class="relative aspect-square bg-zinc-900 overflow-hidden shrink-0">
         <img src="../images/istock/10007.jpg" alt="7-1/4" Circular Saw with Laser Guide" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy"/>
         <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/20 to-transparent opacity-60 group-hover:opacity-35 transition-opacity"></div>
-        <div class="absolute top-3 left-3 flex flex-col gap-1.5"><span class="bg-yellow-400 text-zinc-900 text-xs font-bold px-2 py-1 rounded">Featured</span></div>
+        <div class="absolute top-3 left-3 flex flex-col gap-1.5"><span class="bg-yellow-400 text-zinc-900 text-xs font-bold px-2 py-1 rounded" data-i18n="products.badge.featured">Featured</span></div>
         <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300">
           <a href="./product.html?sku=sw-1" aria-label="View details for 7-1/4&quot; Circular Saw with Laser Guide" class="flex w-11 h-11 bg-zinc-900/90 backdrop-blur-sm rounded-lg items-center justify-center text-zinc-300 hover:text-yellow-400 hover:bg-zinc-900 transition-colors">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="sw-1" data-quote-name="7-1/4&quot; Circular Saw with Laser Guide" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/istock/10007.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="sw-1" data-quote-name="7-1/4&quot; Circular Saw with Laser Guide" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/istock/10007.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -673,9 +673,9 @@
           <span class="text-xs text-zinc-500">(344)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -690,7 +690,7 @@
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="sw-2" data-quote-name="Variable Speed Jigsaw 7A" data-quote-brand="Ningbo Siyang" data-quote-image="../images/istock/10008.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="sw-2" data-quote-name="Variable Speed Jigsaw 7A" data-quote-brand="Ningbo Siyang" data-quote-image="../images/istock/10008.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -702,9 +702,9 @@
           <span class="text-xs text-zinc-500">(381)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -712,14 +712,14 @@
       <div class="relative aspect-square bg-zinc-900 overflow-hidden shrink-0">
         <img src="../images/istock/10009.jpg" alt="Reciprocating Saw 12A Variable Speed" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy"/>
         <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/20 to-transparent opacity-60 group-hover:opacity-35 transition-opacity"></div>
-        <div class="absolute top-3 left-3 flex flex-col gap-1.5"><span class="bg-yellow-400 text-zinc-900 text-xs font-bold px-2 py-1 rounded">Featured</span></div>
+        <div class="absolute top-3 left-3 flex flex-col gap-1.5"><span class="bg-yellow-400 text-zinc-900 text-xs font-bold px-2 py-1 rounded" data-i18n="products.badge.featured">Featured</span></div>
         <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300">
           <a href="./product.html?sku=sw-3" aria-label="View details for Reciprocating Saw 12A Variable Speed" class="flex w-11 h-11 bg-zinc-900/90 backdrop-blur-sm rounded-lg items-center justify-center text-zinc-300 hover:text-yellow-400 hover:bg-zinc-900 transition-colors">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="sw-3" data-quote-name="Reciprocating Saw 12A Variable Speed" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/istock/10009.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="sw-3" data-quote-name="Reciprocating Saw 12A Variable Speed" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/istock/10009.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -731,9 +731,9 @@
           <span class="text-xs text-zinc-500">(418)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -741,14 +741,14 @@
       <div class="relative aspect-square bg-zinc-900 overflow-hidden shrink-0">
         <img src="../images/istock/10010.jpg" alt="10" Sliding Compound Miter Saw" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy"/>
         <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/20 to-transparent opacity-60 group-hover:opacity-35 transition-opacity"></div>
-        <div class="absolute top-3 left-3 flex flex-col gap-1.5"><span class="bg-yellow-400 text-zinc-900 text-xs font-bold px-2 py-1 rounded">Featured</span></div>
+        <div class="absolute top-3 left-3 flex flex-col gap-1.5"><span class="bg-yellow-400 text-zinc-900 text-xs font-bold px-2 py-1 rounded" data-i18n="products.badge.featured">Featured</span></div>
         <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300">
           <a href="./product.html?sku=sw-4" aria-label="View details for 10" Sliding Compound Miter Saw" class="flex w-11 h-11 bg-zinc-900/90 backdrop-blur-sm rounded-lg items-center justify-center text-zinc-300 hover:text-yellow-400 hover:bg-zinc-900 transition-colors">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="sw-4" data-quote-name="10&quot; Sliding Compound Miter Saw" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/istock/10010.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="sw-4" data-quote-name="10&quot; Sliding Compound Miter Saw" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/istock/10010.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -760,9 +760,9 @@
           <span class="text-xs text-zinc-500">(455)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -777,7 +777,7 @@
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="sw-5" data-quote-name="10&quot; Portable Table Saw" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/istock/10011.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="sw-5" data-quote-name="10&quot; Portable Table Saw" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/istock/10011.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -789,9 +789,9 @@
           <span class="text-xs text-zinc-500">(492)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-orange-400 font-medium">&#9889; Only 7 left</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-orange-400 font-medium" data-i18n="products.limitedStock">&#9889; Only 7 left</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -806,7 +806,7 @@
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="sw-6" data-quote-name="9&quot; Band Saw 9A" data-quote-brand="Ningbo Siyang" data-quote-image="../images/istock/10012.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="sw-6" data-quote-name="9&quot; Band Saw 9A" data-quote-brand="Ningbo Siyang" data-quote-image="../images/istock/10012.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -818,9 +818,9 @@
           <span class="text-xs text-zinc-500">(529)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -835,7 +835,7 @@
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="sw-7" data-quote-name="6-1/2&quot; Cordless Circular Saw 20V" data-quote-brand="Ningbo Siyang" data-quote-image="../images/unsplach/drill-home/10053.jpeg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="sw-7" data-quote-name="6-1/2&quot; Cordless Circular Saw 20V" data-quote-brand="Ningbo Siyang" data-quote-image="../images/unsplach/drill-home/10053.jpeg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -847,9 +847,9 @@
           <span class="text-xs text-zinc-500">(566)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -864,7 +864,7 @@
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="sw-8" data-quote-name="Multi-Tool Oscillating Saw Kit" data-quote-brand="Ningbo Siyang" data-quote-image="../images/unsplach/drill-home/10054.jpeg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="sw-8" data-quote-name="Multi-Tool Oscillating Saw Kit" data-quote-brand="Ningbo Siyang" data-quote-image="../images/unsplach/drill-home/10054.jpeg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -876,9 +876,9 @@
           <span class="text-xs text-zinc-500">(603)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -886,14 +886,14 @@
       <div class="relative aspect-square bg-zinc-900 overflow-hidden shrink-0">
         <img src="../images/istock/10013.jpg" alt="4-1/2" Angle Grinder 11A" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy"/>
         <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/20 to-transparent opacity-60 group-hover:opacity-35 transition-opacity"></div>
-        <div class="absolute top-3 left-3 flex flex-col gap-1.5"><span class="bg-yellow-400 text-zinc-900 text-xs font-bold px-2 py-1 rounded">Featured</span></div>
+        <div class="absolute top-3 left-3 flex flex-col gap-1.5"><span class="bg-yellow-400 text-zinc-900 text-xs font-bold px-2 py-1 rounded" data-i18n="products.badge.featured">Featured</span></div>
         <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300">
           <a href="./product.html?sku=gr-1" aria-label="View details for 4-1/2&quot; Angle Grinder 11A" class="flex w-11 h-11 bg-zinc-900/90 backdrop-blur-sm rounded-lg items-center justify-center text-zinc-300 hover:text-yellow-400 hover:bg-zinc-900 transition-colors">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="gr-1" data-quote-name="4-1/2&quot; Angle Grinder 11A" data-quote-brand="Ningbo Siyang" data-quote-image="../images/istock/10013.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="gr-1" data-quote-name="4-1/2&quot; Angle Grinder 11A" data-quote-brand="Ningbo Siyang" data-quote-image="../images/istock/10013.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -905,9 +905,9 @@
           <span class="text-xs text-zinc-500">(640)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -922,7 +922,7 @@
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="gr-2" data-quote-name="7&quot; Large Angle Grinder 15A" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/istock/10014.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="gr-2" data-quote-name="7&quot; Large Angle Grinder 15A" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/istock/10014.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -934,9 +934,9 @@
           <span class="text-xs text-zinc-500">(677)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -951,7 +951,7 @@
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="gr-3" data-quote-name="6&quot; Bench Grinder 5/8 HP" data-quote-brand="Ningbo Siyang" data-quote-image="../images/istock/10015.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="gr-3" data-quote-name="6&quot; Bench Grinder 5/8 HP" data-quote-brand="Ningbo Siyang" data-quote-image="../images/istock/10015.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -963,9 +963,9 @@
           <span class="text-xs text-zinc-500">(714)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -980,7 +980,7 @@
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="gr-4" data-quote-name="1/4&quot; Die Grinder Variable Speed" data-quote-brand="Ningbo Siyang" data-quote-image="../images/istock/10016.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="gr-4" data-quote-name="1/4&quot; Die Grinder Variable Speed" data-quote-brand="Ningbo Siyang" data-quote-image="../images/istock/10016.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -992,9 +992,9 @@
           <span class="text-xs text-zinc-500">(751)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -1009,7 +1009,7 @@
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="gr-5" data-quote-name="4-1/2&quot; Angle Grinder with Trigger" data-quote-brand="Ningbo Siyang" data-quote-image="../images/istock/10017.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="gr-5" data-quote-name="4-1/2&quot; Angle Grinder with Trigger" data-quote-brand="Ningbo Siyang" data-quote-image="../images/istock/10017.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -1021,9 +1021,9 @@
           <span class="text-xs text-zinc-500">(788)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -1031,14 +1031,14 @@
       <div class="relative aspect-square bg-zinc-900 overflow-hidden shrink-0">
         <img src="../images/istock/10018.jpg" alt="6" Variable Speed Polisher/Grinder" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy"/>
         <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/20 to-transparent opacity-60 group-hover:opacity-35 transition-opacity"></div>
-        <div class="absolute top-3 left-3 flex flex-col gap-1.5"><span class="bg-yellow-400 text-zinc-900 text-xs font-bold px-2 py-1 rounded">Featured</span></div>
+        <div class="absolute top-3 left-3 flex flex-col gap-1.5"><span class="bg-yellow-400 text-zinc-900 text-xs font-bold px-2 py-1 rounded" data-i18n="products.badge.featured">Featured</span></div>
         <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300">
           <a href="./product.html?sku=gr-6" aria-label="View details for 6" Variable Speed Polisher/Grinder" class="flex w-11 h-11 bg-zinc-900/90 backdrop-blur-sm rounded-lg items-center justify-center text-zinc-300 hover:text-yellow-400 hover:bg-zinc-900 transition-colors">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="gr-6" data-quote-name="6&quot; Variable Speed Polisher/Grinder" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/istock/10018.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="gr-6" data-quote-name="6&quot; Variable Speed Polisher/Grinder" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/istock/10018.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -1050,9 +1050,9 @@
           <span class="text-xs text-zinc-500">(825)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -1067,7 +1067,7 @@
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="gr-7" data-quote-name="8&quot; Low Speed Bench Grinder" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/unsplach/drill-home/10055.jpeg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="gr-7" data-quote-name="8&quot; Low Speed Bench Grinder" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/unsplach/drill-home/10055.jpeg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -1079,9 +1079,9 @@
           <span class="text-xs text-zinc-500">(862)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -1089,14 +1089,14 @@
       <div class="relative aspect-square bg-zinc-900 overflow-hidden shrink-0">
         <img src="../images/unsplach/drill-closeup/10077.jpeg" alt="20V Cordless Angle Grinder" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy"/>
         <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/20 to-transparent opacity-60 group-hover:opacity-35 transition-opacity"></div>
-        <div class="absolute top-3 left-3 flex flex-col gap-1.5"><span class="bg-yellow-400 text-zinc-900 text-xs font-bold px-2 py-1 rounded">Featured</span></div>
+        <div class="absolute top-3 left-3 flex flex-col gap-1.5"><span class="bg-yellow-400 text-zinc-900 text-xs font-bold px-2 py-1 rounded" data-i18n="products.badge.featured">Featured</span></div>
         <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300">
           <a href="./product.html?sku=gr-8" aria-label="View details for 20V Cordless Angle Grinder" class="flex w-11 h-11 bg-zinc-900/90 backdrop-blur-sm rounded-lg items-center justify-center text-zinc-300 hover:text-yellow-400 hover:bg-zinc-900 transition-colors">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="gr-8" data-quote-name="20V Cordless Angle Grinder" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/unsplach/drill-closeup/10077.jpeg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="gr-8" data-quote-name="20V Cordless Angle Grinder" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/unsplach/drill-closeup/10077.jpeg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -1108,9 +1108,9 @@
           <span class="text-xs text-zinc-500">(899)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -1118,14 +1118,14 @@
       <div class="relative aspect-square bg-zinc-900 overflow-hidden shrink-0">
         <img src="../images/istock/10019.jpg" alt="5" Random Orbital Sander 3A" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy"/>
         <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/20 to-transparent opacity-60 group-hover:opacity-35 transition-opacity"></div>
-        <div class="absolute top-3 left-3 flex flex-col gap-1.5"><span class="bg-yellow-400 text-zinc-900 text-xs font-bold px-2 py-1 rounded">Featured</span></div>
+        <div class="absolute top-3 left-3 flex flex-col gap-1.5"><span class="bg-yellow-400 text-zinc-900 text-xs font-bold px-2 py-1 rounded" data-i18n="products.badge.featured">Featured</span></div>
         <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300">
           <a href="./product.html?sku=sa-1" aria-label="View details for 5" Random Orbital Sander 3A" class="flex w-11 h-11 bg-zinc-900/90 backdrop-blur-sm rounded-lg items-center justify-center text-zinc-300 hover:text-yellow-400 hover:bg-zinc-900 transition-colors">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="sa-1" data-quote-name="5&quot; Random Orbital Sander 3A" data-quote-brand="Ningbo Siyang" data-quote-image="../images/istock/10019.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="sa-1" data-quote-name="5&quot; Random Orbital Sander 3A" data-quote-brand="Ningbo Siyang" data-quote-image="../images/istock/10019.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -1137,9 +1137,9 @@
           <span class="text-xs text-zinc-500">(936)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -1154,7 +1154,7 @@
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="sa-2" data-quote-name="3Ãƒâ€”21&quot; Variable Speed Belt Sander" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/istock/10020.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="sa-2" data-quote-name="3Ãƒâ€”21&quot; Variable Speed Belt Sander" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/istock/10020.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -1166,9 +1166,9 @@
           <span class="text-xs text-zinc-500">(973)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -1183,7 +1183,7 @@
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="sa-3" data-quote-name="Detail/Trim Sander 2.4A" data-quote-brand="Ningbo Siyang" data-quote-image="../images/istock/10021.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="sa-3" data-quote-name="Detail/Trim Sander 2.4A" data-quote-brand="Ningbo Siyang" data-quote-image="../images/istock/10021.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -1195,9 +1195,9 @@
           <span class="text-xs text-zinc-500">(1010)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -1212,7 +1212,7 @@
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="sa-4" data-quote-name="1/4-Sheet Finishing Sander 2A" data-quote-brand="Ningbo Siyang" data-quote-image="../images/istock/10022.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="sa-4" data-quote-name="1/4-Sheet Finishing Sander 2A" data-quote-brand="Ningbo Siyang" data-quote-image="../images/istock/10022.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -1224,9 +1224,9 @@
           <span class="text-xs text-zinc-500">(1047)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -1234,14 +1234,14 @@
       <div class="relative aspect-square bg-zinc-900 overflow-hidden shrink-0">
         <img src="../images/istock/10023.jpg" alt="Electric Hand Planer 3-1/4" 6A" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy"/>
         <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/20 to-transparent opacity-60 group-hover:opacity-35 transition-opacity"></div>
-        <div class="absolute top-3 left-3 flex flex-col gap-1.5"><span class="bg-yellow-400 text-zinc-900 text-xs font-bold px-2 py-1 rounded">Featured</span></div>
+        <div class="absolute top-3 left-3 flex flex-col gap-1.5"><span class="bg-yellow-400 text-zinc-900 text-xs font-bold px-2 py-1 rounded" data-i18n="products.badge.featured">Featured</span></div>
         <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300">
           <a href="./product.html?sku=sa-5" aria-label="View details for Electric Hand Planer 3-1/4" 6A" class="flex w-11 h-11 bg-zinc-900/90 backdrop-blur-sm rounded-lg items-center justify-center text-zinc-300 hover:text-yellow-400 hover:bg-zinc-900 transition-colors">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="sa-5" data-quote-name="Electric Hand Planer 3-1/4&quot; 6A" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/istock/10023.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="sa-5" data-quote-name="Electric Hand Planer 3-1/4&quot; 6A" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/istock/10023.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -1253,9 +1253,9 @@
           <span class="text-xs text-zinc-500">(1084)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -1270,7 +1270,7 @@
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="sa-6" data-quote-name="6&quot; Dual-Action Orbital Polisher" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/istock/10024.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="sa-6" data-quote-name="6&quot; Dual-Action Orbital Polisher" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/istock/10024.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -1282,9 +1282,9 @@
           <span class="text-xs text-zinc-500">(1121)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -1299,7 +1299,7 @@
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="sa-7" data-quote-name="Disc/Belt Sander Combo 4.3A" data-quote-brand="Ningbo Siyang" data-quote-image="../images/unsplach/drill-home/10056.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="sa-7" data-quote-name="Disc/Belt Sander Combo 4.3A" data-quote-brand="Ningbo Siyang" data-quote-image="../images/unsplach/drill-home/10056.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -1311,9 +1311,9 @@
           <span class="text-xs text-zinc-500">(1158)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -1321,14 +1321,14 @@
       <div class="relative aspect-square bg-zinc-900 overflow-hidden shrink-0">
         <img src="../images/unsplach/drill-closeup/10079.jpeg" alt="20V Cordless Random Orbital Sander" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy"/>
         <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/20 to-transparent opacity-60 group-hover:opacity-35 transition-opacity"></div>
-        <div class="absolute top-3 left-3 flex flex-col gap-1.5"><span class="bg-yellow-400 text-zinc-900 text-xs font-bold px-2 py-1 rounded">Featured</span></div>
+        <div class="absolute top-3 left-3 flex flex-col gap-1.5"><span class="bg-yellow-400 text-zinc-900 text-xs font-bold px-2 py-1 rounded" data-i18n="products.badge.featured">Featured</span></div>
         <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300">
           <a href="./product.html?sku=sa-8" aria-label="View details for 20V Cordless Random Orbital Sander" class="flex w-11 h-11 bg-zinc-900/90 backdrop-blur-sm rounded-lg items-center justify-center text-zinc-300 hover:text-yellow-400 hover:bg-zinc-900 transition-colors">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="sa-8" data-quote-name="20V Cordless Random Orbital Sander" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/unsplach/drill-closeup/10079.jpeg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="sa-8" data-quote-name="20V Cordless Random Orbital Sander" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/unsplach/drill-closeup/10079.jpeg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -1340,9 +1340,9 @@
           <span class="text-xs text-zinc-500">(1195)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -1350,14 +1350,14 @@
       <div class="relative aspect-square bg-zinc-900 overflow-hidden shrink-0">
         <img src="../images/istock/10025.jpg" alt="20V MAX Impact Driver 1650 in-lbs" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy"/>
         <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/20 to-transparent opacity-60 group-hover:opacity-35 transition-opacity"></div>
-        <div class="absolute top-3 left-3 flex flex-col gap-1.5"><span class="bg-yellow-400 text-zinc-900 text-xs font-bold px-2 py-1 rounded">Featured</span></div>
+        <div class="absolute top-3 left-3 flex flex-col gap-1.5"><span class="bg-yellow-400 text-zinc-900 text-xs font-bold px-2 py-1 rounded" data-i18n="products.badge.featured">Featured</span></div>
         <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300">
           <a href="./product.html?sku=it-1" aria-label="View details for 20V MAX Impact Driver 1650 in-lbs" class="flex w-11 h-11 bg-zinc-900/90 backdrop-blur-sm rounded-lg items-center justify-center text-zinc-300 hover:text-yellow-400 hover:bg-zinc-900 transition-colors">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="it-1" data-quote-name="20V MAX Impact Driver 1650 in-lbs" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/istock/10025.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="it-1" data-quote-name="20V MAX Impact Driver 1650 in-lbs" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/istock/10025.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -1369,9 +1369,9 @@
           <span class="text-xs text-zinc-500">(1232)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -1386,7 +1386,7 @@
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="it-2" data-quote-name="20V Impact Wrench 1/2&quot; 330 ft-lbs" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/istock/10026.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="it-2" data-quote-name="20V Impact Wrench 1/2&quot; 330 ft-lbs" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/istock/10026.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -1398,9 +1398,9 @@
           <span class="text-xs text-zinc-500">(1269)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -1408,14 +1408,14 @@
       <div class="relative aspect-square bg-zinc-900 overflow-hidden shrink-0">
         <img src="../images/istock/10027.jpg" alt="3/4" High-Torque Impact Wrench" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy"/>
         <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/20 to-transparent opacity-60 group-hover:opacity-35 transition-opacity"></div>
-        <div class="absolute top-3 left-3 flex flex-col gap-1.5"><span class="bg-yellow-400 text-zinc-900 text-xs font-bold px-2 py-1 rounded">Featured</span></div>
+        <div class="absolute top-3 left-3 flex flex-col gap-1.5"><span class="bg-yellow-400 text-zinc-900 text-xs font-bold px-2 py-1 rounded" data-i18n="products.badge.featured">Featured</span></div>
         <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300">
           <a href="./product.html?sku=it-3" aria-label="View details for 3/4" High-Torque Impact Wrench" class="flex w-11 h-11 bg-zinc-900/90 backdrop-blur-sm rounded-lg items-center justify-center text-zinc-300 hover:text-yellow-400 hover:bg-zinc-900 transition-colors">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="it-3" data-quote-name="3/4&quot; High-Torque Impact Wrench" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/istock/10027.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="it-3" data-quote-name="3/4&quot; High-Torque Impact Wrench" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/istock/10027.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -1428,8 +1428,8 @@
         </div>
         <div class="mt-auto">
           <span class="text-xs text-orange-400 font-medium">&#9889; Only 9 left</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -1444,7 +1444,7 @@
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="it-4" data-quote-name="1/4&quot; Impact Driver Compact 20V" data-quote-brand="Ningbo Siyang" data-quote-image="../images/istock/10028.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="it-4" data-quote-name="1/4&quot; Impact Driver Compact 20V" data-quote-brand="Ningbo Siyang" data-quote-image="../images/istock/10028.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -1456,9 +1456,9 @@
           <span class="text-xs text-zinc-500">(1343)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -1473,7 +1473,7 @@
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="it-5" data-quote-name="Corded Impact Wrench 7.5A 1/2&quot;" data-quote-brand="Ningbo Siyang" data-quote-image="../images/istock/10029.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="it-5" data-quote-name="Corded Impact Wrench 7.5A 1/2&quot;" data-quote-brand="Ningbo Siyang" data-quote-image="../images/istock/10029.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -1485,9 +1485,9 @@
           <span class="text-xs text-zinc-500">(1380)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -1502,7 +1502,7 @@
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="it-6" data-quote-name="18V Impact Wrench 3/8&quot; Compact" data-quote-brand="Ningbo Siyang" data-quote-image="../images/istock/10030.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="it-6" data-quote-name="18V Impact Wrench 3/8&quot; Compact" data-quote-brand="Ningbo Siyang" data-quote-image="../images/istock/10030.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -1514,9 +1514,9 @@
           <span class="text-xs text-zinc-500">(1417)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -1531,7 +1531,7 @@
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="it-7" data-quote-name="20V Cordless Ratchet 3/8&quot;" data-quote-brand="Ningbo Siyang" data-quote-image="../images/unsplach/drill-closeup/10080.jpeg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="it-7" data-quote-name="20V Cordless Ratchet 3/8&quot;" data-quote-brand="Ningbo Siyang" data-quote-image="../images/unsplach/drill-closeup/10080.jpeg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -1543,9 +1543,9 @@
           <span class="text-xs text-zinc-500">(1454)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -1553,14 +1553,14 @@
       <div class="relative aspect-square bg-zinc-900 overflow-hidden shrink-0">
         <img src="../images/unsplach/drill-closeup/10081.jpeg" alt="20V Brushless Impact Driver Kit" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy"/>
         <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/20 to-transparent opacity-60 group-hover:opacity-35 transition-opacity"></div>
-        <div class="absolute top-3 left-3 flex flex-col gap-1.5"><span class="bg-yellow-400 text-zinc-900 text-xs font-bold px-2 py-1 rounded">Featured</span></div>
+        <div class="absolute top-3 left-3 flex flex-col gap-1.5"><span class="bg-yellow-400 text-zinc-900 text-xs font-bold px-2 py-1 rounded" data-i18n="products.badge.featured">Featured</span></div>
         <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300">
           <a href="./product.html?sku=it-8" aria-label="View details for 20V Brushless Impact Driver Kit" class="flex w-11 h-11 bg-zinc-900/90 backdrop-blur-sm rounded-lg items-center justify-center text-zinc-300 hover:text-yellow-400 hover:bg-zinc-900 transition-colors">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="it-8" data-quote-name="20V Brushless Impact Driver Kit" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/unsplach/drill-closeup/10081.jpeg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="it-8" data-quote-name="20V Brushless Impact Driver Kit" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/unsplach/drill-closeup/10081.jpeg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -1572,9 +1572,9 @@
           <span class="text-xs text-zinc-500">(1491)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -1582,14 +1582,14 @@
       <div class="relative aspect-square bg-zinc-900 overflow-hidden shrink-0">
         <img src="../images/istock/10031.jpg" alt="6-Tool 20V Combo Kit" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy"/>
         <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/20 to-transparent opacity-60 group-hover:opacity-35 transition-opacity"></div>
-        <div class="absolute top-3 left-3 flex flex-col gap-1.5"><span class="bg-yellow-400 text-zinc-900 text-xs font-bold px-2 py-1 rounded">Featured</span></div>
+        <div class="absolute top-3 left-3 flex flex-col gap-1.5"><span class="bg-yellow-400 text-zinc-900 text-xs font-bold px-2 py-1 rounded" data-i18n="products.badge.featured">Featured</span></div>
         <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300">
           <a href="./product.html?sku=ck-1" aria-label="View details for 6-Tool 20V Combo Kit" class="flex w-11 h-11 bg-zinc-900/90 backdrop-blur-sm rounded-lg items-center justify-center text-zinc-300 hover:text-yellow-400 hover:bg-zinc-900 transition-colors">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="ck-1" data-quote-name="6-Tool 20V Combo Kit" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/istock/10031.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="ck-1" data-quote-name="6-Tool 20V Combo Kit" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/istock/10031.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -1601,9 +1601,9 @@
           <span class="text-xs text-zinc-500">(1528)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -1618,7 +1618,7 @@
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="ck-2" data-quote-name="Drill &amp; Impact Driver 2-Tool Kit" data-quote-brand="Ningbo Siyang" data-quote-image="../images/istock/10032.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="ck-2" data-quote-name="Drill &amp; Impact Driver 2-Tool Kit" data-quote-brand="Ningbo Siyang" data-quote-image="../images/istock/10032.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -1630,9 +1630,9 @@
           <span class="text-xs text-zinc-500">(1565)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -1640,14 +1640,14 @@
       <div class="relative aspect-square bg-zinc-900 overflow-hidden shrink-0">
         <img src="../images/istock/10033.jpg" alt="4-Tool Contractor Combo Kit" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy"/>
         <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/20 to-transparent opacity-60 group-hover:opacity-35 transition-opacity"></div>
-        <div class="absolute top-3 left-3 flex flex-col gap-1.5"><span class="bg-yellow-400 text-zinc-900 text-xs font-bold px-2 py-1 rounded">Featured</span></div>
+        <div class="absolute top-3 left-3 flex flex-col gap-1.5"><span class="bg-yellow-400 text-zinc-900 text-xs font-bold px-2 py-1 rounded" data-i18n="products.badge.featured">Featured</span></div>
         <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300">
           <a href="./product.html?sku=ck-3" aria-label="View details for 4-Tool Contractor Combo Kit" class="flex w-11 h-11 bg-zinc-900/90 backdrop-blur-sm rounded-lg items-center justify-center text-zinc-300 hover:text-yellow-400 hover:bg-zinc-900 transition-colors">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="ck-3" data-quote-name="4-Tool Contractor Combo Kit" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/istock/10033.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="ck-3" data-quote-name="4-Tool Contractor Combo Kit" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/istock/10033.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -1659,9 +1659,9 @@
           <span class="text-xs text-zinc-500">(1602)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -1669,14 +1669,14 @@
       <div class="relative aspect-square bg-zinc-900 overflow-hidden shrink-0">
         <img src="../images/istock/10034.webp" alt="8-Tool Professional Combo Kit" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy"/>
         <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/20 to-transparent opacity-60 group-hover:opacity-35 transition-opacity"></div>
-        <div class="absolute top-3 left-3 flex flex-col gap-1.5"><span class="bg-yellow-400 text-zinc-900 text-xs font-bold px-2 py-1 rounded">Featured</span></div>
+        <div class="absolute top-3 left-3 flex flex-col gap-1.5"><span class="bg-yellow-400 text-zinc-900 text-xs font-bold px-2 py-1 rounded" data-i18n="products.badge.featured">Featured</span></div>
         <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300">
           <a href="./product.html?sku=ck-4" aria-label="View details for 8-Tool Professional Combo Kit" class="flex w-11 h-11 bg-zinc-900/90 backdrop-blur-sm rounded-lg items-center justify-center text-zinc-300 hover:text-yellow-400 hover:bg-zinc-900 transition-colors">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="ck-4" data-quote-name="8-Tool Professional Combo Kit" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/istock/10034.webp" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="ck-4" data-quote-name="8-Tool Professional Combo Kit" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/istock/10034.webp" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -1689,8 +1689,8 @@
         </div>
         <div class="mt-auto">
           <span class="text-xs text-orange-400 font-medium">&#9889; Only 5 left</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -1705,7 +1705,7 @@
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="ck-5" data-quote-name="Homeowner 3-Tool Starter Kit" data-quote-brand="Ningbo Siyang" data-quote-image="../images/istock/10035.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="ck-5" data-quote-name="Homeowner 3-Tool Starter Kit" data-quote-brand="Ningbo Siyang" data-quote-image="../images/istock/10035.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -1717,9 +1717,9 @@
           <span class="text-xs text-zinc-500">(1676)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -1734,7 +1734,7 @@
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="ck-6" data-quote-name="5-Tool Electrician Combo Kit" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/unsplach/drill-home/10057.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="ck-6" data-quote-name="5-Tool Electrician Combo Kit" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/unsplach/drill-home/10057.jpg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -1747,8 +1747,8 @@
         </div>
         <div class="mt-auto">
           <span class="text-xs text-orange-400 font-medium">&#9889; Only 10 left</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -1763,7 +1763,7 @@
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="ck-7" data-quote-name="Grinder &amp; Drill 2-Tool Combo" data-quote-brand="Ningbo Siyang" data-quote-image="../images/unsplach/drill-closeup/10082.jpeg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="ck-7" data-quote-name="Grinder &amp; Drill 2-Tool Combo" data-quote-brand="Ningbo Siyang" data-quote-image="../images/unsplach/drill-closeup/10082.jpeg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -1775,9 +1775,9 @@
           <span class="text-xs text-zinc-500">(1750)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>
@@ -1792,7 +1792,7 @@
           </a>
         </div>
         <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <button data-quote-add data-quote-sku="ck-8" data-quote-name="3-Tool Woodworking Combo Kit" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/unsplach/drill-closeup/10083.jpeg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Add to Quote</button>
+          <button data-quote-add data-quote-sku="ck-8" data-quote-name="3-Tool Woodworking Combo Kit" data-quote-brand="Ningbo Siyang Pro" data-quote-image="../images/unsplach/drill-closeup/10083.jpeg" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span data-i18n="products.addToQuote">Add to Quote</span></button>
         </div>
       </div>
       <div class="p-4 flex flex-col flex-1">
@@ -1804,9 +1804,9 @@
           <span class="text-xs text-zinc-500">(1787)</span>
         </div>
         <div class="mt-auto">
-          <span class="text-xs text-green-400 font-medium">&#10003; In Stock</span>
-          <span class="text-xs text-zinc-500 block mt-1">MOQ: 500 units</span>
-          <span class="text-xs text-zinc-500">Lead: 30-45 days</span>
+          <span class="text-xs text-green-400 font-medium" data-i18n="products.inStock">&#10003; In Stock</span>
+          <span class="text-xs text-zinc-500 block mt-1"><span data-i18n="products.moqLabel">MOQ</span>: 500 <span data-i18n="products.unitsLabel">units</span></span>
+          <span class="text-xs text-zinc-500"><span data-i18n="products.leadLabel">Lead</span>: 30-45 <span data-i18n="products.daysLabel">days</span></span>
         </div>
       </div>
     </div>

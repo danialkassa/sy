@@ -1,0 +1,54 @@
+---
+name: "1/4\" Die Grinder 4A"
+sku: "SY-GR-DIE-1/4"
+category: "grinders"
+categoryLabel: "Grinders"
+brand: "Ningbo Siyang"
+images:
+
+  - "../images/istock/10016.jpg"
+  - "../images/istock/10016-2.jpg"
+  - "../images/istock/10016-3.jpg"
+description: "Precision 1/4 inch die grinder with 4 Amp motor and variable speed up to 25,000 RPM. Includes both 1/4 inch and 1/8 inch collets for versatile accessory compatibility. Ideal for detail grinding, deburring, and polishing in metalworking and automotive applications."
+userBenefits:
+
+  - "Variable speed 0-25,000 RPM dial lets you match speed to the accessory and material for optimal results"
+  - "Dual collet sizes (1/4\" and 1/8\") accept a wide range of burrs, stones, and polishing wheels"
+  - "Lightweight 2.5 lbs pencil-grip design enables precise control for intricate detail and deburring work"
+  - "Paddle switch with speed dial provides one-handed speed adjustment without interrupting workflow"
+  - "Compact 10.2\" length reaches into tight spaces and confined areas that larger grinders cannot access"
+specs:
+  voltage: "120V AC, 60Hz"
+  motorType: "4 Amp"
+  noLoadSpeed: "0-25,000 RPM"
+  discDiameter: "1/4\" collet"
+  arborSize: "1/4\" & 1/8\""
+  spindleThread: "1/4\"-28"
+  switchType: "Paddle with speed dial"
+  weightToolOnly: "2.5 lbs (1.1 kg)"
+  overallLength: "10.2\""
+  soundPower: "88 dB(A)"
+  vibrationLevel: "3.5 m/s²"
+  cordLength: "6 ft (1.8 m)"
+  wheelGuard: "N/A"
+  auxiliaryHandle: "N/A"
+  spindleLock: "Collet lock"
+compliance:
+  ce: true
+  rohs: true
+  gs: false
+  ul: false
+  eec: true
+inStock: true
+moq: "500 units"
+leadTime: "30-45 days"
+warranty: "1 year standard"
+featured: false
+relatedProducts:
+
+  - "SY-GR-ANG-4.5"
+  - "SY-GR-STR-ANG"
+downloads:
+  specSheet: "/downloads/spec-sheets/SY-GR-DIE-1/4.pdf"
+  manual: "/downloads/manuals/SY-GR-DIE-1/4.pdf"
+---

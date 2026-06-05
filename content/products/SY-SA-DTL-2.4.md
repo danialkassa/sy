@@ -1,0 +1,54 @@
+---
+name: "Detail/Trim Sander 2.4A"
+sku: "SY-SA-DTL-2.4"
+category: "sanders"
+categoryLabel: "Sanders"
+brand: "Ningbo Siyang"
+images:
+
+  - "../images/istock/10021.jpg"
+  - "../images/istock/10021-2.jpg"
+  - "../images/istock/10021-3.jpg"
+description: "Compact detail and trim sander with 2.4 Amp motor and quick-change pad system. Includes 3 sanding bases for versatile application in corners, edges, and tight spaces. Ideal for furniture refinishing, trim work, and detail sanding projects."
+userBenefits:
+
+  - "3 interchangeable sanding bases (finger, detail, triangular) tackle corners, edges, and contours in one tool"
+  - "Quick-change hook & loop system swaps pads in seconds without tools for uninterrupted workflow"
+  - "Ultra-lightweight 2.3 lbs design enables precise one-handed control for delicate trim and detail work"
+  - "14,000 OPM high-speed orbit delivers smooth, consistent finishes on furniture and millwork"
+  - "Compact 9.8\" length reaches into tight spaces between balusters, window sashes, and cabinet interiors"
+specs:
+  voltage: "120V AC, 60Hz"
+  motorType: "2.4 Amp"
+  padSize: "Interchangeable (3 bases)"
+  speed: "14,000 OPM"
+  orbitDiameter: "1/32\""
+  dustCollection: "Built-in dust port"
+  padType: "Quick-change hook & loop"
+  weightToolOnly: "2.3 lbs (1.0 kg)"
+  overallLength: "9.8\""
+  soundPower: "78 dB(A)"
+  vibrationLevel: "2.2 m/s²"
+  cordLength: "6 ft (1.8 m)"
+  switchType: "Slide"
+  basesIncluded: "3 (finger, detail, triangular)"
+  bearingType: "Sealed ball bearing"
+compliance:
+  ce: true
+  rohs: true
+  gs: false
+  ul: false
+  eec: true
+inStock: true
+moq: "500 units"
+leadTime: "30-45 days"
+warranty: "1 year standard"
+featured: false
+relatedProducts:
+
+  - "SY-SA-ORB-5IN"
+  - "SY-SA-SHT-1-4"
+downloads:
+  specSheet: "/downloads/spec-sheets/SY-SA-DTL-2.4.pdf"
+  manual: "/downloads/manuals/SY-SA-DTL-2.4.pdf"
+---

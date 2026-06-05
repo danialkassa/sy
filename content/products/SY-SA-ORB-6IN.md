@@ -1,0 +1,54 @@
+---
+name: "6\" Random Orbital Sander 5A"
+sku: "SY-SA-ORB-6IN"
+category: "sanders"
+categoryLabel: "Sanders"
+brand: "Ningbo Siyang Pro"
+images:
+
+  - "../images/istock/10024.jpg"
+  - "../images/istock/10024-2.jpg"
+  - "../images/istock/10024-3.jpg"
+description: "Professional 6 inch random orbital sander with 5 Amp motor, dual action, and variable speed control. Features 21mm throw for aggressive material removal and a comfortable ergonomic design. Ideal for automotive body work, woodworking, and industrial surface finishing."
+userBenefits:
+
+  - "21mm (3/4\") long-throw orbit covers more surface area per pass, cutting sanding time significantly"
+  - "5 Amp motor with variable speed maintains consistent OPM under load for uniform finish quality"
+  - "Vacuum port adapter connects directly to shop dust extraction systems for a cleaner, healthier workspace"
+  - "6-inch pad covers 44% more area than 5-inch sanders, reducing the number of passes required"
+  - "Dual-action random orbital motion prevents holograms and swirl marks on clear coat finishes"
+specs:
+  voltage: "120V AC, 60Hz"
+  motorType: "5 Amp"
+  padSize: "6\""
+  speed: "4,000-10,000 OPM"
+  orbitDiameter: "3/4\" (21mm)"
+  dustCollection: "Vacuum port adapter"
+  padType: "Hook & loop"
+  weightToolOnly: "4.8 lbs (2.2 kg)"
+  overallLength: "8.2\""
+  soundPower: "86 dB(A)"
+  vibrationLevel: "3.5 m/s²"
+  cordLength: "8 ft (2.4 m)"
+  switchType: "Variable speed dial"
+  padBrake: "Yes"
+  bearingType: "Sealed ball bearing"
+compliance:
+  ce: true
+  rohs: true
+  gs: false
+  ul: false
+  eec: true
+inStock: true
+moq: "300 units"
+leadTime: "30-45 days"
+warranty: "1 year standard"
+featured: true
+relatedProducts:
+
+  - "SY-SA-ORB-5IN"
+  - "SY-GR-POL-6IN"
+downloads:
+  specSheet: "/downloads/spec-sheets/SY-SA-ORB-6IN.pdf"
+  manual: "/downloads/manuals/SY-SA-ORB-6IN.pdf"
+---

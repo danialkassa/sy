@@ -1,44 +1,20 @@
 [
   {
-    "id": "partner-001",
-    "name": "Gulf Industrial Supplies",
-    "country": "UAE",
-    "logo": "../images/partners/gulf-industrial.svg",
+    "name": "SGH Tools Europe",
+    "logo": "",
+    "website": "https://example.com",
     "order": 1
   },
   {
-    "id": "partner-002",
-    "name": "Euro Werkzeuge GmbH",
-    "country": "Germany",
-    "logo": "../images/partners/euro-werkzeuge.svg",
+    "name": "Pacific Hardware Distributors",
+    "logo": "",
+    "website": "https://example.com",
     "order": 2
   },
   {
-    "id": "partner-003",
-    "name": "Pacific Tool Distributors",
-    "country": "Australia",
-    "logo": "../images/partners/pacific-tool.svg",
+    "name": "Middle East Tools & Hardware",
+    "logo": "",
+    "website": "https://example.com",
     "order": 3
-  },
-  {
-    "id": "partner-004",
-    "name": "StroyInvest LLC",
-    "country": "Russia",
-    "logo": "../images/partners/stroyinvest.svg",
-    "order": 4
-  },
-  {
-    "id": "partner-005",
-    "name": "Andina Ferramentas",
-    "country": "Brazil",
-    "logo": "../images/partners/andina-ferramentas.svg",
-    "order": 5
-  },
-  {
-    "id": "partner-006",
-    "name": "Sahel Industrial Equipment",
-    "country": "Nigeria",
-    "logo": "../images/partners/sahel-industrial.svg",
-    "order": 6
   }
 ]

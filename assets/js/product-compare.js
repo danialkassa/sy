@@ -78,7 +78,7 @@
     var content = document.getElementById('compare-content');
     if (!content) return;
 
-    content.innerHTML = '<div class="text-center py-10"><div class="animate-spin w-8 h-8 border-2 border-yellow-400 border-t-transparent rounded-full mx-auto mb-4"></div><p class="text-zinc-400">" + _t("compare.loadingComparison","Loading comparison...") + "</p></div>';
+    content.innerHTML = '<div class="text-center py-10"><div class="animate-spin w-8 h-8 border-2 border-yellow-400 border-t-transparent rounded-full mx-auto mb-4"></div><p class="text-zinc-400">' + _t("compare.loadingComparison","Loading comparison...") + '</p></div>';
     overlay.classList.remove('hidden');
 
     var base = window.location.pathname.indexOf('/products/') >= 0 ? '../' : '';
@@ -92,7 +92,7 @@
     Promise.all(promises).then(function(products) {
       var valid = products.filter(Boolean);
       if (valid.length < 2) {
-        content.innerHTML = '<div class="text-center py-10 text-zinc-400">" + _t("compare.notEnoughData","Not enough products with data to compare.") + "</div>';
+        content.innerHTML = '<div class="text-center py-10 text-zinc-400">' + _t("compare.notEnoughData","Not enough products with data to compare.") + '</div>';
         return;
       }
 
@@ -112,15 +112,15 @@
         html += '<div class="' + colWidth + ' min-w-[280px] bg-zinc-900 border border-zinc-800 rounded-xl p-5">';
         html += '<div class="flex items-center justify-between mb-3">';
         html += '<h3 class="font-oswald text-lg font-bold text-white">' + escapeHtml(p.name || '') + '</h3>';
-        html += '<button type="button" class="compare-remove text-zinc-500 hover:text-red-400 text-sm" data-sku="' + escapeHtml(p.sku || '') + '">&#10005; Remove</button>';
+        html += '<button type="button" class="compare-remove text-zinc-500 hover:text-red-400 text-sm" data-sku="' + escapeHtml(p.sku || '') + '">&#10005; ' + _t("compare.remove","Remove") + '</button>';
         html += '</div>';
         html += '<img src="' + (p.images && p.images[0] ? p.images[0] : '../images/placeholder.jpg') + '" alt="' + escapeHtml(p.name || '') + '" class="w-full aspect-square object-cover rounded-lg mb-3"/>';
         html += '<p class="text-xs text-yellow-400/80 uppercase tracking-wider font-semibold mb-1">' + escapeHtml(p.brand || '') + '</p>';
-        html += '<p class="text-xs text-zinc-500 mb-1">SKU: ' + escapeHtml(p.sku || '') + '</p>';
-        html += '<p class="text-xs text-zinc-500 mb-1">Category: ' + escapeHtml(p.categoryLabel || p.category || '') + '</p>';
-        html += '<p class="text-xs text-zinc-500 mb-2">MOQ: ' + escapeHtml(p.moq || '') + ' | Lead: ' + escapeHtml(p.leadTime || '') + '</p>';
+        html += '<p class="text-xs text-zinc-500 mb-1">' + _t("cms.sku","SKU") + ': ' + escapeHtml(p.sku || '') + '</p>';
+        html += '<p class="text-xs text-zinc-500 mb-1">' + _t("cms.category","Category") + ': ' + escapeHtml(p.categoryLabel || p.category || '') + '</p>';
+        html += '<p class="text-xs text-zinc-500 mb-2">' + _t("cms.moq","MOQ") + ': ' + escapeHtml(p.moq || '') + ' | ' + _t("cms.leadTime","Lead Time") + ': ' + escapeHtml(p.leadTime || '') + '</p>';
         if (p.userBenefits && p.userBenefits.length) {
-          html += '<div class="mt-3"><p class="text-xs font-semibold text-zinc-300 mb-1">" + _t("compare.benefits","Benefits") + "</p><ul class="text-xs text-zinc-400 space-y-1">';
+          html += '<div class="mt-3"><p class="text-xs font-semibold text-zinc-300 mb-1">' + _t("compare.benefits","Benefits") + '</p><ul class="text-xs text-zinc-400 space-y-1">';
           p.userBenefits.forEach(function(b) { html += '<li class="flex items-start gap-1"><span class="text-green-400">&#10003;</span> ' + escapeHtml(b) + '</li>'; });
           html += '</ul></div>';
         }
@@ -131,7 +131,7 @@
 
       if (allSpecKeys.length) {
         html += '<div class="mt-6 bg-zinc-900 border border-zinc-800 rounded-xl p-5 overflow-x-auto">';
-        html += '<h3 class="font-oswald text-lg font-bold text-white mb-4">" + _t("compare.specificationsComparison","Specifications Comparison") + "</h3>';
+        html += '<h3 class="font-oswald text-lg font-bold text-white mb-4">' + _t("compare.specificationsComparison","Specifications Comparison") + '</h3>';
         html += '<table class="compare-table w-full min-w-[500px]">';
         html += '<thead><tr><th class="text-left text-zinc-400 text-xs uppercase tracking-wider py-2 pr-4">Spec</th>';
         valid.forEach(function(p) {
@@ -179,7 +179,7 @@
       if (!sku) return;
       var label = document.createElement('label');
       label.className = 'compare-card-checkbox absolute top-3 left-3 z-10 flex items-center gap-1.5 text-xs font-medium text-zinc-400 bg-zinc-900/80 backdrop-blur-sm rounded-md px-2 py-1 cursor-pointer';
-      label.innerHTML = '<input type="checkbox" class="compare-checkbox" data-compare-sku="' + sku + '"/> <span>" + _t("compare.compare","Compare") + "</span>';
+      label.innerHTML = '<input type="checkbox" class="compare-checkbox" data-compare-sku="' + sku + '"/> <span>' + _t("compare.compare","Compare") + '</span>';
       var imageContainer = card.querySelector('.aspect-square');
       if (imageContainer) {
         imageContainer.style.position = 'relative';
@@ -191,9 +191,9 @@
     var overlayHTML = '<div id="compare-overlay" class="fixed inset-0 z-[100] bg-zinc-950/98 hidden overflow-y-auto">' +
       '<div class="container mx-auto px-4 py-8">' +
         '<div class="flex justify-between items-center mb-6">' +
-          '<h2 class="font-oswald text-2xl font-bold text-white">" + _t("compare.title","Product Comparison") + "</h2>' +
+          '<h2 class="font-oswald text-2xl font-bold text-white">' + _t("compare.title","Product Comparison") + '</h2>' +
           '<div class="flex gap-3">' +
-            '<button id="compare-clear" class="text-sm text-zinc-400 hover:text-yellow-400">" + _t("compare.clearAll","Clear All") + "</button>' +
+            '<button id="compare-clear" class="text-sm text-zinc-400 hover:text-yellow-400">' + _t("compare.clearAll","Clear All") + '</button>' +
             '<button id="compare-close" class="text-zinc-400 hover:text-white">' +
               '<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>' +
             '</button>' +
@@ -206,7 +206,7 @@
     var fabHTML = '<div id="compare-fab" class="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 hidden" style="z-index:80">' +
       '<button type="button" class="flex items-center gap-2 bg-yellow-400 text-zinc-950 px-6 py-3 rounded-full font-semibold shadow-lg hover:bg-yellow-500 transition-colors">' +
         '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6m6 0V9a2 2 0 012-2h2a2 2 0 012 2v10m6 0v-4a2 2 0 00-2-2h-2a2 2 0 00-2 2v4"/></svg>' +
-        '" + _t("compare.compare","Compare") + " (<span id="compare-count">0</span>)' +
+        _t("compare.compare","Compare") + ' (<span id="compare-count">0</span>)' +
       '</button>' +
     '</div>';
 

@@ -1,57 +1,66 @@
-﻿{
-    "sku":  "SY-SA-CRD-ORB",
-    "name":  "20V Cordless Random Orbital Sander",
-    "brand":  "Ningbo Siyang Pro",
-    "category":  "sanders",
-    "categoryLabel":  "Sanders",
-    "description":  "Cordless 20V MAX random orbital sander with 5 inch hook \u0026 loop pad. Delivers 8,000-12,000 OPM for professional finishing results without the constraint of a power cord. Ideal for on-site sanding, surface preparation, and finishing work.",
-    "specs":  {
-                  "voltage":  "20V MAX DC",
-                  "motorType":  "Brushless",
-                  "padSize":  "5\"",
-                  "speed":  "8,000-12,000 OPM",
-                  "orbitDiameter":  "3/32\"",
-                  "dustCollection":  "Dust bag included",
-                  "padType":  "Hook \u0026 loop",
-                  "weightToolOnly":  "3.5 lbs (1.6 kg)",
-                  "overallLength":  "6.8\"",
-                  "soundPower":  "80 dB(A)",
-                  "vibrationLevel":  "2.5 m/s²",
-                  "cordLength":  "N/A (cordless)",
-                  "switchType":  "Paddle",
-                  "padBrake":  "Yes",
-                  "batteryPlatform":  "Ningbo Siyang 20V MAX"
-              },
-    "images":  [
-                   "../images/unsplach/drill-closeup/10079.jpeg",
-                   "../images/unsplach/drill-closeup/10079-2.jpeg",
-                   "../images/unsplach/drill-closeup/10079-3.jpeg"
-               ],
-    "userBenefits":  [
-                         "Brushless motor delivers up to 40% more runtime per charge and longer motor life than brushed alternatives",
-                         "Cordless 20V MAX platform eliminates power cord tangles and enables sanding anywhere on the jobsite",
-                         "Variable speed 8,000-12,000 OPM matches sanding aggressiveness to the task for optimal finish quality",
-                         "Compatible with the full Ningbo Siyang 20V MAX battery system for cross-tool battery sharing",
-                         "Lightweight 3.5 lbs design with compact 6.8\" length provides comfortable one-handed operation"
-                     ],
-    "relatedProducts":  [
-                            "SY-SA-ORB-5IN",
-                            "SY-GR-CRD-ANG"
-                        ],
-    "compliance":  {
-                       "ce":  true,
-                       "rohs":  true,
-                       "gs":  false,
-                       "ul":  false,
-                       "eec":  true
-                   },
-    "featured":  true,
-    "warranty":  "1 year standard, 2 year brushless motor",
-    "inStock":  true,
-    "moq":  "400 units",
-    "leadTime":  "30-45 days",
-    "downloads":  {
-                      "specSheet":  "/downloads/spec-sheets/SY-SA-CRD-ORB.pdf",
-                      "manual":  "/downloads/manuals/SY-SA-CRD-ORB.pdf"
-                  }
+{
+  "name": "20V Cordless Random Orbital Sander",
+  "sku": "SY-SA-CRD-ORB",
+  "category": "sanders",
+  "categoryLabel": "Sanders",
+  "price": 0,
+  "compareAtPrice": 0,
+  "image": "../images/unsplach/drill-closeup/10079.jpeg",
+  "images": [
+    "../images/unsplach/drill-closeup/10079.jpeg",
+    "../images/unsplach/drill-closeup/10079-2.jpeg",
+    "../images/unsplach/drill-closeup/10079-3.jpeg"
+  ],
+  "brand": "Ningbo Siyang Pro",
+  "tagline": "Cordless 20V MAX random orbital sander with 5 inch hook & loop pad. Delivers 8,000-12,000 OPM for professional finishing results without the constraint of a power cord. Ideal for on-site sanding, surface preparation, and finishing work.",
+  "description": "Cordless 20V MAX random orbital sander with 5 inch hook & loop pad. Delivers 8,000-12,000 OPM for professional finishing results without the constraint of a power cord. Ideal for on-site sanding, surface preparation, and finishing work.",
+  "userBenefits": [
+    "Brushless motor delivers up to 40% more runtime per charge and longer motor life than brushed alternatives",
+    "Cordless 20V MAX platform eliminates power cord tangles and enables sanding anywhere on the jobsite",
+    "Variable speed 8,000-12,000 OPM matches sanding aggressiveness to the task for optimal finish quality",
+    "Compatible with the full Ningbo Siyang 20V MAX battery system for cross-tool battery sharing",
+    "Lightweight 3.5 lbs design with compact 6.8\" length provides comfortable one-handed operation"
+  ],
+  "specs": {
+    "voltage": "20V MAX DC",
+    "motorType": "Brushless",
+    "padSize": "5\"",
+    "speed": "8,000-12,000 OPM",
+    "orbitDiameter": "3/32\"",
+    "dustCollection": "Dust bag included",
+    "padType": "Hook & loop",
+    "weightToolOnly": "3.5 lbs (1.6 kg)",
+    "overallLength": "6.8\"",
+    "soundPower": "80 dB(A)",
+    "vibrationLevel": "2.5 m/s²",
+    "cordLength": "N/A (cordless)",
+    "switchType": "Paddle",
+    "padBrake": "Yes",
+    "batteryPlatform": "Ningbo Siyang 20V MAX"
+  },
+  "compliance": {
+    "ce": true,
+    "rohs": true,
+    "gs": false,
+    "ul": false,
+    "eec": true
+  },
+  "stock": 50,
+  "inStock": true,
+  "rating": 4,
+  "reviewCount": 0,
+  "isFeatured": true,
+  "isTopProduct": false,
+  "featured": true,
+  "moq": "400 units",
+  "leadTime": "30-45 days",
+  "warranty": "1 year standard, 2 year brushless motor",
+  "relatedProducts": [
+    "SY-SA-ORB-5IN",
+    "SY-GR-CRD-ANG"
+  ],
+  "downloads": {
+    "specSheet": "/downloads/spec-sheets/SY-SA-CRD-ORB.pdf",
+    "manual": "/downloads/manuals/SY-SA-CRD-ORB.pdf"
+  }
 }

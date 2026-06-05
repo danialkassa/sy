@@ -1,45 +1,34 @@
 {
   "posts": [
     {
-      "title": "الدليل الشراء لأدوات الطاقة التجارية بين الشركات",
+      "title": "The Complete Guide to B2B Power Tools Procurement",
       "slug": "b2b-power-tools-procurement",
       "date": "2024-12-10T10:00:00Z",
-      "category": "رؤى تجارية",
-      "excerpt": "كل ما تحتاج معرفته حول شراء أدوات الطاقة لعملك، من ضمان الجودة إلى استراتيجيات التسعير بالجملة.",
+      "category": "B2B Insights",
+      "excerpt": "Everything you need to know about sourcing power tools for your business, from quality assurance to bulk pricing strategies.",
       "image": "../images/istock/10005.jpg",
       "author": "Li Ming",
-      "authorRole": "أخصائي المشتريات",
-      "readTime": 6,
-      "tags": ["procurement", "B2B", "sourcing", "bulk-ordering"],
-      "featured": true
+      "readTime": 6
     },
     {
-      "lang": "ar",
-      "title": "اختيار مثقاب الطاقة المناسب لمشاريعك",
+      "title": "Choosing the Right Power Drill for Your Projects",
       "slug": "choosing-the-right-power-drill",
       "date": "2024-12-15T10:00:00Z",
-      "category": "أدلة فنية",
-      "excerpt": "دليل شامل لاختيار مثقاب الطاقة المثالي لأي مشروع، من إصلاحات المنزل الشخصية إلى أعمال البناء المهنية.",
+      "category": "Technical Guides",
+      "excerpt": "A comprehensive guide to selecting the perfect power drill for any project, from DIY home repairs to professional construction work.",
       "image": "../images/istock/10001.jpg",
       "author": "Chen Wei",
-      "authorRole": "مهندس المنتج",
-      "readTime": 8,
-      "tags": ["drills", "guide", "technical", "cordless"],
-      "featured": false
+      "readTime": 8
     },
     {
-      "lang": "ar",
-      "title": "معايير السلامة التي يجب على كل مشتر لأدوات الطاقة معرفتها",
+      "title": "Safety Standards Every Power Tool Buyer Should Know",
       "slug": "safety-standards",
       "date": "2024-12-05T10:00:00Z",
-      "category": "اتجاهات الصناعة",
-      "excerpt": "فهم شهادات ومعايير السلامة الدولية لأدوات الطاقة، بما في ذلك علامات CE وUL وGS.",
+      "category": "Industry Trends",
+      "excerpt": "Understanding international safety certifications and standards for power tools, including CE, UL, and GS marks.",
       "image": "../images/istock/10010.jpg",
       "author": "Zhang Hui",
-      "authorRole": "مدير ضمان الجودة",
-      "readTime": 7,
-      "tags": ["safety", "certifications", "CE", "standards"],
-      "featured": true
+      "readTime": 7
     }
   ]
 }

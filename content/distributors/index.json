@@ -1,50 +1,35 @@
 [
   {
-    "id": "dist-001",
-    "companyName": "Werkzeug Pro GmbH",
+    "companyName": "Ferramentas Brasil Ltda",
+    "country": "Brazil",
+    "region": "South America",
+    "contactPerson": "Maria Santos",
+    "email": "contato@ferramentasbrasil.com.br",
+    "phone": "+55 11 3456 7890",
+    "website": "https://ferramentasbrasil.com.br",
+    "logo": "",
+    "address": "Rua das Ferramentas 120, Sao Paulo, SP, Brazil"
+  },
+  {
+    "companyName": "Gulf Tools Trading LLC",
+    "country": "UAE",
+    "region": "Middle East",
+    "contactPerson": "Ahmed Al-Rashid",
+    "email": "info@gulftools.ae",
+    "phone": "+971 4 123 4567",
+    "website": "https://gulftools.ae",
+    "logo": "",
+    "address": "Dubai Industrial City, Dubai, UAE"
+  },
+  {
+    "companyName": "Mueller Industrial Supply GmbH",
     "country": "Germany",
     "region": "Europe",
-    "contactPerson": "Hans Müller",
-    "email": "hans.mueller@werkzeugpro.de",
-    "phone": "+49 711 5543 2200",
-    "website": "https://www.werkzeugpro.de",
-    "logo": "/images/distributors/werkzeug-pro-logo.png",
-    "address": "Industriestraße 42, 70329 Stuttgart, Germany"
-  },
-  {
-    "id": "dist-002",
-    "companyName": "Al Faisal Industrial Supplies LLC",
-    "country": "United Arab Emirates",
-    "region": "Middle East",
-    "contactPerson": "Ahmed Al Rashid",
-    "email": "ahmed@alfaisalindustrial.ae",
-    "phone": "+971 4 286 9900",
-    "website": "https://www.alfaisalindustrial.ae",
-    "logo": "/images/distributors/al-faisal-logo.png",
-    "address": "Dubai Investment Park, Building 15, Plot 7, Dubai, UAE"
-  },
-  {
-    "id": "dist-003",
-    "companyName": "Atlantic Tool & Equipment Inc.",
-    "country": "United States",
-    "region": "North America",
-    "contactPerson": "Robert Jensen",
-    "email": "r.jensen@atlantictool.com",
-    "phone": "+1 614 855 7100",
-    "website": "https://www.atlantictool.com",
-    "logo": "/images/distributors/atlantic-tool-logo.png",
-    "address": "4820 Trabue Rd, Columbus, OH 43228, United States"
-  },
-  {
-    "id": "dist-004",
-    "companyName": "Safari Power Solutions (Pty) Ltd.",
-    "country": "South Africa",
-    "region": "Africa",
-    "contactPerson": "Thabo Nkosi",
-    "email": "thabo@safaripower.co.za",
-    "phone": "+27 11 465 3200",
-    "website": "https://www.safaripower.co.za",
-    "logo": "/images/distributors/safari-power-logo.png",
-    "address": "153 Commissioner Street, Johannesburg 2001, South Africa"
+    "contactPerson": "Hans Mueller",
+    "email": "sales@mueller-supply.de",
+    "phone": "+49 89 123 4567",
+    "website": "https://mueller-supply.de",
+    "logo": "",
+    "address": "Industriestrasse 45, 80339 Munich, Germany"
   }
 ]

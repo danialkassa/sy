@@ -1,4 +1,8 @@
 var ProductFilters = (function() {
+  var _t = function(key, fallback) {
+    if (typeof i18n !== 'undefined' && i18n.t) { var val = i18n.t(key); return val && val !== key ? val : fallback; }
+    return fallback;
+  };
   var activeFilters = {};
 
   function init() {
@@ -33,14 +37,14 @@ var ProductFilters = (function() {
   function buildFilterUI(filterBar, cards) {
     var attrs = getFilterableAttributes(cards);
     var labels = {
-      voltage: 'Voltage',
-      motor: 'Motor',
-      power: 'Power',
-      type: 'Type',
-      discsize: 'Disc Size',
-      padsize: 'Pad Size',
-      drive: 'Drive',
-      pieces: 'Pieces'
+      voltage: _t('filters.voltage','Voltage'),
+      motor: _t('filters.motor','Motor'),
+      power: _t('filters.power','Power'),
+      type: _t('filters.type','Type'),
+      discsize: _t('filters.discSize','Disc Size'),
+      padsize: _t('filters.padSize','Pad Size'),
+      drive: _t('filters.drive','Drive'),
+      pieces: _t('filters.pieces','Pieces')
     };
 
     filterBar.innerHTML = '';
@@ -68,7 +72,7 @@ var ProductFilters = (function() {
 
       var allBtn = document.createElement('button');
       allBtn.className = 'w-full text-left px-3 py-1.5 text-sm text-zinc-400 hover:bg-zinc-800 hover:text-white transition-colors';
-      allBtn.textContent = 'All';
+      allBtn.textContent = _t('filters.all','All');
       allBtn.setAttribute('data-filter-value', '');
       allBtn.setAttribute('data-filter-key', key);
       dropdown.appendChild(allBtn);
@@ -90,7 +94,7 @@ var ProductFilters = (function() {
     var clearBtn = document.createElement('button');
     clearBtn.id = 'filter-clear';
     clearBtn.className = 'text-sm text-zinc-500 hover:text-yellow-400 transition-colors ml-2 flex-shrink-0';
-    clearBtn.textContent = 'Clear All';
+    clearBtn.textContent = _t('filters.clearAll','Clear All');
     clearBtn.style.display = 'none';
     filterBar.appendChild(clearBtn);
   }
@@ -202,7 +206,7 @@ var ProductFilters = (function() {
 
     var countEl = document.getElementById('filter-count');
     if (countEl) {
-      countEl.textContent = 'Showing ' + visible + ' of ' + total + ' products';
+      countEl.textContent = _t('filters.showing','Showing') + ' ' + visible + ' ' + _t('filters.of','of') + ' ' + total + ' ' + _t('filters.products','products');
     }
   }
 
@@ -240,14 +244,14 @@ document.addEventListener('languageChanged', function() {
   cards.forEach(function(card) {
     if (card.style.display !== 'none') visible++;
   });
-  var showingText = (typeof i18n !== 'undefined' && i18n.t) ? i18n.t('products.showing', 'Showing') : 'Showing';
-  var ofText = (typeof i18n !== 'undefined' && i18n.t) ? i18n.t('products.of', 'of') : 'of';
-  var productsText = (typeof i18n !== 'undefined' && i18n.t) ? i18n.t('products.products', 'products') : 'products';
+  var showingText = _t('filters.showing', 'Showing');
+  var ofText = _t('filters.of', 'of');
+  var productsText = _t('filters.products', 'products');
   countEl.textContent = showingText + ' ' + visible + ' ' + ofText + ' ' + cards.length + ' ' + productsText;
 
   var clearBtn = document.getElementById('filter-clear');
   if (clearBtn) {
-    clearBtn.textContent = (typeof i18n !== 'undefined' && i18n.t) ? i18n.t('common.clearAll', 'Clear All') : 'Clear All';
+    clearBtn.textContent = _t('filters.clearAll', 'Clear All');
   }
 
   if (typeof i18n !== 'undefined' && i18n.applyTranslations) {

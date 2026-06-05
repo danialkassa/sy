@@ -1,113 +1,122 @@
-﻿{
-    "sku":  "SY-CK-8PC-PRO",
-    "name":  "8-Tool Professional Combo Kit",
-    "brand":  "Ningbo Siyang Pro",
-    "category":  "combo-kits",
-    "categoryLabel":  "Combo Kits",
-    "description":  "Ultimate 8-tool professional combo kit with every essential cordless tool. Includes drill/driver, impact driver, circular saw, reciprocating saw, oscillating tool, sander, LED light, and Bluetooth speaker. Comes with 4× 4.0Ah batteries, 2 chargers, and rolling bag.",
-    "specs":  {
-                  "voltage":  "20V MAX",
-                  "motorType":  "Brushless",
-                  "toolsIncluded":  [
-                                        "Drill/Driver",
-                                        "Impact Driver",
-                                        "Circular Saw",
-                                        "Reciprocating Saw",
-                                        "Oscillating Tool",
-                                        "Sander",
-                                        "LED Work Light",
-                                        "Bluetooth Speaker"
-                                    ],
-                  "toolsCount":  8,
-                  "batteriesIncluded":  "4× 4.0Ah",
-                  "chargerIncluded":  true,
-                  "caseType":  "Rolling bag with telescoping handle",
-                  "totalWeight":  "52.0 lbs (23.6 kg)",
-                  "batteryPlatform":  "20V MAX",
-                  "warrantyPeriod":  "3 year limited",
-                  "tool1Specs":  {
-                                     "name":  "Drill/Driver",
-                                     "maxTorque":  "500 in-lbs",
-                                     "noLoadSpeed":  "0-550/0-1800 RPM",
-                                     "chuckSize":  "1/2\" keyless"
-                                 },
-                  "tool2Specs":  {
-                                     "name":  "Impact Driver",
-                                     "maxTorque":  "1800 in-lbs",
-                                     "noLoadSpeed":  "0-3200 RPM",
-                                     "ipm":  "0-3800",
-                                     "chuckType":  "1/4\" hex"
-                                 },
-                  "tool3Specs":  {
-                                     "name":  "Circular Saw",
-                                     "bladeSize":  "6-1/2\"",
-                                     "maxDepthCut90":  "2-1/8\"",
-                                     "noLoadSpeed":  "4200 RPM"
-                                 },
-                  "tool4Specs":  {
-                                     "name":  "Reciprocating Saw",
-                                     "strokeLength":  "1-1/8\"",
-                                     "spm":  "0-3000",
-                                     "bladeType":  "Tool-free blade change"
-                                 },
-                  "tool5Specs":  {
-                                     "name":  "Oscillating Tool",
-                                     "oscillationsPerMin":  "10000-20000",
-                                     "oscillationAngle":  "3.2°",
-                                     "accessoryFit":  "Universal adapter"
-                                 },
-                  "tool6Specs":  {
-                                     "name":  "Sander",
-                                     "padSize":  "5\" hook \u0026 loop",
-                                     "opm":  "8000-12000",
-                                     "dustCollection":  "Integrated dust port"
-                                 },
-                  "tool7Specs":  {
-                                     "name":  "LED Work Light",
-                                     "lumens":  "300 lm",
-                                     "runtime":  "6 hours on 4.0Ah battery"
-                                 },
-                  "tool8Specs":  {
-                                     "name":  "Bluetooth Speaker",
-                                     "bluetoothRange":  "30 ft",
-                                     "speakerPower":  "10W",
-                                     "runtime":  "8 hours on 4.0Ah battery"
-                                 },
-                  "chargerType":  "2× dual-port rapid chargers",
-                  "bagMaterial":  "Ballistic nylon with wheels and telescoping handle",
-                  "batteryChemistry":  "Lithium-ion"
-              },
-    "images":  [
-                   "../images/istock/10034.webp",
-                   "../images/istock/10034-2.webp",
-                   "../images/istock/10034-3.webp"
-               ],
-    "userBenefits":  [
-                         "Complete 8-tool arsenal eliminates the need for any additional cordless tool purchases",
-                         "4× 4.0Ah batteries with 2 dual chargers keep all tools running continuously on multi-person crews",
-                         "Random orbital sander delivers professional swirl-free finishes for cabinetry and trim work",
-                         "Bluetooth speaker provides jobsite entertainment powered by the same 20V battery platform",
-                         "Rolling bag with telescoping handle makes transporting 52 lbs of professional tools manageable",
-                         "Highest-value kit in the lineup — saves up to 35% versus purchasing each tool separately"
-                     ],
-    "relatedProducts":  [
-                            "SY-CK-6PC-20V",
-                            "SY-IT-DRV-BRUS"
-                        ],
-    "compliance":  {
-                       "ce":  true,
-                       "rohs":  true,
-                       "gs":  true,
-                       "ul":  true,
-                       "eec":  true
-                   },
-    "featured":  false,
-    "warranty":  "3 year limited kit warranty",
-    "inStock":  true,
-    "moq":  "100 units",
-    "leadTime":  "35-50 days",
-    "downloads":  {
-                      "specSheet":  "/downloads/spec-sheets/SY-CK-8PC-PRO.pdf",
-                      "manual":  "/downloads/manuals/SY-CK-8PC-PRO.pdf"
-                  }
+{
+  "name": "8-Tool Professional Combo Kit",
+  "sku": "SY-CK-8PC-PRO",
+  "category": "combo-kits",
+  "categoryLabel": "Combo Kits",
+  "price": 0,
+  "compareAtPrice": 0,
+  "image": "../images/istock/10034.webp",
+  "images": [
+    "../images/istock/10034.webp",
+    "../images/istock/10034-2.webp",
+    "../images/istock/10034-3.webp"
+  ],
+  "brand": "Ningbo Siyang Pro",
+  "tagline": "Ultimate 8-tool professional combo kit with every essential cordless tool. Includes drill/driver, impact driver, circular saw, reciprocating saw, oscillating tool, sander, LED light, and Bluetooth speaker. Comes with 4× 4.0Ah batteries, 2 chargers, and rolling bag.",
+  "description": "Ultimate 8-tool professional combo kit with every essential cordless tool. Includes drill/driver, impact driver, circular saw, reciprocating saw, oscillating tool, sander, LED light, and Bluetooth speaker. Comes with 4× 4.0Ah batteries, 2 chargers, and rolling bag.",
+  "userBenefits": [
+    "Complete 8-tool arsenal eliminates the need for any additional cordless tool purchases",
+    "4× 4.0Ah batteries with 2 dual chargers keep all tools running continuously on multi-person crews",
+    "Random orbital sander delivers professional swirl-free finishes for cabinetry and trim work",
+    "Bluetooth speaker provides jobsite entertainment powered by the same 20V battery platform",
+    "Rolling bag with telescoping handle makes transporting 52 lbs of professional tools manageable",
+    "Highest-value kit in the lineup — saves up to 35% versus purchasing each tool separately"
+  ],
+  "specs": {
+    "voltage": "20V MAX",
+    "motorType": "Brushless",
+    "toolsIncluded": [
+      "Drill/Driver",
+      "Impact Driver",
+      "Circular Saw",
+      "Reciprocating Saw",
+      "Oscillating Tool",
+      "Sander",
+      "LED Work Light",
+      "Bluetooth Speaker"
+    ],
+    "toolsCount": 8,
+    "batteriesIncluded": "4× 4.0Ah",
+    "chargerIncluded": true,
+    "caseType": "Rolling bag with telescoping handle",
+    "totalWeight": "52.0 lbs (23.6 kg)",
+    "batteryPlatform": "20V MAX",
+    "warrantyPeriod": "3 year limited",
+    "tool1Specs": {
+      "name": "Drill/Driver",
+      "maxTorque": "500 in-lbs",
+      "noLoadSpeed": "0-550/0-1800 RPM",
+      "chuckSize": "1/2\" keyless"
+    },
+    "tool2Specs": {
+      "name": "Impact Driver",
+      "maxTorque": "1800 in-lbs",
+      "noLoadSpeed": "0-3200 RPM",
+      "ipm": "0-3800",
+      "chuckType": "1/4\" hex"
+    },
+    "tool3Specs": {
+      "name": "Circular Saw",
+      "bladeSize": "6-1/2\"",
+      "maxDepthCut90": "2-1/8\"",
+      "noLoadSpeed": "4200 RPM"
+    },
+    "tool4Specs": {
+      "name": "Reciprocating Saw",
+      "strokeLength": "1-1/8\"",
+      "spm": "0-3000",
+      "bladeType": "Tool-free blade change"
+    },
+    "tool5Specs": {
+      "name": "Oscillating Tool",
+      "oscillationsPerMin": "10000-20000",
+      "oscillationAngle": "3.2°",
+      "accessoryFit": "Universal adapter"
+    },
+    "tool6Specs": {
+      "name": "Sander",
+      "padSize": "5\" hook & loop",
+      "opm": "8000-12000",
+      "dustCollection": "Integrated dust port"
+    },
+    "tool7Specs": {
+      "name": "LED Work Light",
+      "lumens": "300 lm",
+      "runtime": "6 hours on 4.0Ah battery"
+    },
+    "tool8Specs": {
+      "name": "Bluetooth Speaker",
+      "bluetoothRange": "30 ft",
+      "speakerPower": "10W",
+      "runtime": "8 hours on 4.0Ah battery"
+    },
+    "chargerType": "2× dual-port rapid chargers",
+    "bagMaterial": "Ballistic nylon with wheels and telescoping handle",
+    "batteryChemistry": "Lithium-ion"
+  },
+  "compliance": {
+    "ce": true,
+    "rohs": true,
+    "gs": true,
+    "ul": true,
+    "eec": true
+  },
+  "stock": 50,
+  "inStock": true,
+  "rating": 4,
+  "reviewCount": 0,
+  "isFeatured": false,
+  "isTopProduct": false,
+  "featured": false,
+  "moq": "100 units",
+  "leadTime": "35-50 days",
+  "warranty": "3 year limited kit warranty",
+  "relatedProducts": [
+    "SY-CK-6PC-20V",
+    "SY-IT-DRV-BRUS"
+  ],
+  "downloads": {
+    "specSheet": "/downloads/spec-sheets/SY-CK-8PC-PRO.pdf",
+    "manual": "/downloads/manuals/SY-CK-8PC-PRO.pdf"
+  }
 }

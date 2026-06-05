@@ -33,23 +33,35 @@ media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
 media_library:
-  max_file_size: 2048000
+  max_file_size: 5120000
   choose_url: false
 
 collections:
   # ============================================================
   # 1. PRODUCTS — Full product catalog
   # ============================================================
+  # DATA SOURCE: content/products/index.json (listing) + content/products/SY-*.json (detail)
+  # The website reads from index.json for product cards. CMS writes .md files.
+  # A bridge (Phase 2) will regenerate index.json from .md files.
+  #
+  # CRITICAL: category values use URL-slug format (e.g., "drills-drivers")
+  # to match the actual data in index.json and individual product JSONs.
+  # categoryLabel uses display format for the website UI.
+  # ============================================================
   - name: "products"
     label: "Products"
     label_singular: "Product"
     folder: "content/products"
     create: true
+    delete: true
     slug: "{{sku}}"
-    summary: "{{name}} ({{sku}}) — {{category}}"
+    extension: "md"
+    format: "yaml-frontmatter"
+    summary: "{{name}} ({{sku}})"
+    description: "Manage your complete product catalog. Each product has basic info, specifications, compliance, and trade details."
     identifier_field: "name"
     sortable_fields:
-      fields: ["name", "sku", "category"]
+      fields: ["name", "sku", "category", "brand"]
     view_filters:
       - label: "In Stock"
         field: "inStock"
@@ -62,158 +74,335 @@ collections:
         pattern: true
       - label: "Drills & Drivers"
         field: "category"
-        pattern: "Drills & Drivers"
+        pattern: "drills-drivers"
       - label: "Saws"
         field: "category"
-        pattern: "Saws"
+        pattern: "saws"
       - label: "Grinders"
         field: "category"
-        pattern: "Grinders"
+        pattern: "grinders"
       - label: "Sanders"
         field: "category"
-        pattern: "Sanders"
+        pattern: "sanders"
       - label: "Impact Tools"
         field: "category"
-        pattern: "Impact Tools"
+        pattern: "impact-tools"
       - label: "Combo Kits"
         field: "category"
-        pattern: "Combo Kits"
+        pattern: "combo-kits"
+      - label: "Draft (Hidden)"
+        field: "draft"
+        pattern: true
+      - label: "Published"
+        field: "draft"
+        pattern: false
     view_groups:
       - label: "By Category"
         field: "category"
       - label: "By Brand"
         field: "brand"
+      - label: "By Stock Status"
+        field: "inStock"
     fields:
+      - label: "Draft (Hidden)"
+        name: "draft"
+        widget: "boolean"
+        default: false
+        required: false
+        hint: "Toggle ON to hide this item from the website without deleting it. The item still exists in the CMS but won't appear on any page."
+      # ---- Basic Info ----
       - label: "Product Name"
         name: "name"
         widget: "string"
-        hint: "The full product name as customers will see it."
+        hint: "The full product name as displayed to buyers. Be specific: include voltage, key feature, and tool type."
       - label: "Product Code (SKU)"
         name: "sku"
         widget: "string"
-        pattern: ['^[A-Z]{2}-[A-Z]{1,3}-[A-Z0-9-]+$', 'SKU must follow format: SY-DD-20V-BL']
-        hint: "A unique code for this product. Use letters and numbers only, no spaces."
-      - label: "Category"
+        hint: "Unique product identifier. Format: SY-TT-VV-XXX (e.g., SY-DD-20V-BL). This becomes the filename."
+      - label: "Category (URL Slug)"
         name: "category"
         widget: "select"
-        options: ["Drills & Drivers", "Saws", "Grinders", "Sanders", "Impact Tools", "Combo Kits"]
-        hint: "Which product category does this belong to?"
+        options:
+          - label: "Drills & Drivers"
+            value: "drills-drivers"
+          - label: "Saws"
+            value: "saws"
+          - label: "Grinders"
+            value: "grinders"
+          - label: "Sanders"
+            value: "sanders"
+          - label: "Impact Tools"
+            value: "impact-tools"
+          - label: "Combo Kits"
+            value: "combo-kits"
+        hint: "Select the product category. Uses URL-slug format to match the website routing. Determines which product page it appears on."
+      - label: "Category Display Label"
+        name: "categoryLabel"
+        widget: "select"
+        options:
+          - label: "Drills & Drivers"
+            value: "Drills & Drivers"
+          - label: "Saws"
+            value: "Saws"
+          - label: "Grinders"
+            value: "Grinders"
+          - label: "Sanders"
+            value: "Sanders"
+          - label: "Impact Tools"
+            value: "Impact Tools"
+          - label: "Combo Kits"
+            value: "Combo Kits"
+        hint: "Human-readable category name shown on product cards and pages. Should match the Category above."
       - label: "Brand"
         name: "brand"
         widget: "select"
-        options: ["Siyang Pro", "Siyang Industrial", "Siyang Trade"]
-        default: "Siyang Pro"
+        options: ["Ningbo Siyang", "Ningbo Siyang Pro", "Ningbo Siyang Industrial", "Siyang Trade"]
+        default: "Ningbo Siyang"
         hint: "Which brand line does this product belong to?"
       - label: "Description"
         name: "description"
         widget: "text"
-        hint: "A detailed product description. 2-3 sentences highlighting key features and applications."
+        hint: "2-3 sentence product description highlighting key features, applications, and what's included. This appears on product cards and detail pages."
+      - label: "Tagline"
+        name: "tagline"
+        widget: "string"
+        required: false
+        hint: "A short punchy one-liner shown on product cards instead of the full description. If empty, the description is used."
       - label: "User Benefits"
         name: "userBenefits"
-        widget: "list"
-        field: {label: "Benefit", name: "benefit", widget: "string"}
-        hint: "4-6 bullet points explaining why a buyer should choose this product."
+        widget: "string"
+        hint: "A single compelling sentence explaining why a buyer should choose this product. Shown on product cards in the listing."
+      # ---- Images ----
       - label: "Main Product Photo"
         name: "image"
         widget: "image"
         media_folder: "images/products"
         public_folder: "/images/products"
         choose_url: false
-        hint: "Upload or choose the main product image. Use a square photo for best results."
+        hint: "The primary product image. Use a clean, well-lit photo on a white or neutral background. Recommended: 800x800px minimum."
       - label: "Additional Images"
         name: "images"
         widget: "list"
         field: {label: "Image", name: "img", widget: "image", media_folder: "images/products", public_folder: "/images/products", choose_url: false}
-        hint: "Additional product photos from different angles. Add 2-4 images."
+        hint: "Additional product photos from different angles or in use. Add 2-4 images for best results."
         required: false
+      # ---- Specifications ----
       - label: "Specifications"
         name: "specs"
         widget: "object"
-        hint: "Detailed product specifications. Add 15-20 specs for best results."
-        fields:
-          - {label: "Voltage", name: "voltage", widget: "string", required: false, hint: "e.g., 20V MAX, 220V"}
-          - {label: "Motor Type", name: "motorType", widget: "select", required: false, options: ["Brushless", "Brushed", "Universal"], hint: "Type of motor"}
-          - {label: "Max Torque", name: "maxTorque", widget: "string", required: false, hint: "e.g., 530 in-lbs (60 Nm)"}
-          - {label: "No-Load Speed (Low)", name: "noLoadSpeedLow", widget: "string", required: false, hint: "e.g., 0-450 RPM"}
-          - {label: "No-Load Speed (High)", name: "noLoadSpeedHigh", widget: "string", required: false, hint: "e.g., 0-1500 RPM"}
-          - {label: "Chuck Size", name: "chuckSize", widget: "string", required: false, hint: "e.g., 1/2\" (13mm)"}
-          - {label: "Weight (Tool Only)", name: "weightToolOnly", widget: "string", required: false, hint: "e.g., 3.5 lbs (1.6 kg)"}
-          - {label: "Weight (With Battery)", name: "weightWithBattery", widget: "string", required: false, hint: "e.g., 4.2 lbs (1.9 kg)"}
-          - {label: "Overall Length", name: "overallLength", widget: "string", required: false, hint: "e.g., 7-5/8\" (194mm)"}
-          - {label: "Sound Power Level", name: "soundPower", widget: "string", required: false, hint: "e.g., 95 dB(A)"}
-          - {label: "Vibration Level", name: "vibrationLevel", widget: "string", required: false, hint: "e.g., 2.5 m/s²"}
-          - {label: "Battery Platform", name: "batteryPlatform", widget: "string", required: false, hint: "e.g., Siyang 20V MAX"}
-          - {label: "LED Work Light", name: "ledWorkLight", widget: "string", required: false, hint: "e.g., Yes, with 20-second delay"}
-          - {label: "Belt Hook", name: "beltHook", widget: "string", required: false, hint: "e.g., Yes, adjustable"}
-          - {label: "Cord Length", name: "cordLength", widget: "string", required: false, hint: "e.g., 6.5 ft (2m)"}
-          - {label: "Disc/Blade Diameter", name: "discBladeDiameter", widget: "string", required: false, hint: "e.g., 7-1/4\""}
-          - {label: "Arbor Size", name: "arborSize", widget: "string", required: false, hint: "e.g., 5/8\""}
-          - {label: "Max Cutting Depth", name: "maxCuttingDepth", widget: "string", required: false, hint: "e.g., 2-1/2\" at 90°"}
-          - {label: "Pad Size", name: "padSize", widget: "string", required: false, hint: "For sanders: e.g., 5\""}
-          - {label: "Impacts Per Minute", name: "ipm", widget: "string", required: false, hint: "For impact tools: e.g., 0-3400 IPM"}
-      - label: "Compliance"
-        name: "compliance"
-        widget: "object"
-        hint: "Product certification flags."
+        hint: "Detailed technical specifications. Only fill in the specs relevant to this product type — leave others blank."
         required: false
         fields:
-          - {label: "CE", name: "ce", widget: "boolean", default: true, hint: "CE Marking compliance"}
-          - {label: "RoHS", name: "rohs", widget: "boolean", default: true, hint: "RoHS compliance"}
-          - {label: "GS", name: "gs", widget: "boolean", default: false, hint: "GS Mark (Tested Safety)"}
-          - {label: "UL", name: "ul", widget: "boolean", default: false, hint: "UL certification"}
-          - {label: "EEC", name: "eec", widget: "boolean", default: true, hint: "EEC certification"}
+          - label: "Voltage"
+            name: "voltage"
+            widget: "string"
+            required: false
+            hint: "e.g., 20V MAX, 220V-240V, 110V"
+          - label: "Motor Type"
+            name: "motorType"
+            widget: "select"
+            required: false
+            options: ["", "Brushless", "Brushed", "Universal"]
+            hint: "Type of motor. Brushless is more efficient and durable."
+          - label: "Max Torque"
+            name: "maxTorque"
+            widget: "string"
+            required: false
+            hint: "e.g., 530 in-lbs (60 Nm)"
+          - label: "No-Load Speed (Low)"
+            name: "noLoadSpeedLow"
+            widget: "string"
+            required: false
+            hint: "e.g., 0-450 RPM"
+          - label: "No-Load Speed (High)"
+            name: "noLoadSpeedHigh"
+            widget: "string"
+            required: false
+            hint: "e.g., 0-1500 RPM"
+          - label: "No-Load Speed (RPM)"
+            name: "noLoadSpeed"
+            widget: "string"
+            required: false
+            hint: "For grinders/sanders with single speed. e.g., 11,000 RPM"
+          - label: "Chuck Size"
+            name: "chuckSize"
+            widget: "string"
+            required: false
+            hint: "e.g., 1/2\" (13mm) keyless metal chuck"
+          - label: "Clutch Settings"
+            name: "clutchSettings"
+            widget: "string"
+            required: false
+            hint: "For drills/drivers. e.g., 16+1, 20+1"
+          - label: "Weight (Tool Only)"
+            name: "weightToolOnly"
+            widget: "string"
+            required: false
+            hint: "e.g., 3.5 lbs (1.6 kg)"
+          - label: "Weight (With Battery)"
+            name: "weightWithBattery"
+            widget: "string"
+            required: false
+            hint: "e.g., 4.2 lbs (1.9 kg)"
+          - label: "Overall Length"
+            name: "overallLength"
+            widget: "string"
+            required: false
+            hint: "e.g., 7-5/8\" (194mm)"
+          - label: "Sound Power Level"
+            name: "soundPower"
+            widget: "string"
+            required: false
+            hint: "e.g., 95 dB(A)"
+          - label: "Vibration Level"
+            name: "vibrationLevel"
+            widget: "string"
+            required: false
+            hint: "e.g., 2.5 m/s²"
+          - label: "Battery Platform"
+            name: "batteryPlatform"
+            widget: "string"
+            required: false
+            hint: "e.g., Siyang 20V MAX"
+          - label: "LED Work Light"
+            name: "ledWorkLight"
+            widget: "string"
+            required: false
+            hint: "e.g., Yes, with 20-second delay"
+          - label: "Belt Hook"
+            name: "beltHook"
+            widget: "string"
+            required: false
+            hint: "e.g., Yes, adjustable"
+          - label: "Cord Length"
+            name: "cordLength"
+            widget: "string"
+            required: false
+            hint: "For corded tools. e.g., 6.5 ft (2m)"
+          - label: "Disc/Blade Diameter"
+            name: "discBladeDiameter"
+            widget: "string"
+            required: false
+            hint: "For saws/grinders. e.g., 7-1/4\""
+          - label: "Arbor Size"
+            name: "arborSize"
+            widget: "string"
+            required: false
+            hint: "For saws/grinders. e.g., 5/8\""
+          - label: "Max Cutting Depth at 90°"
+            name: "maxCuttingDepth"
+            widget: "string"
+            required: false
+            hint: "For saws. e.g., 2-1/2\" at 90°"
+          - label: "Pad Size"
+            name: "padSize"
+            widget: "string"
+            required: false
+            hint: "For sanders. e.g., 5\" random orbit"
+          - label: "Impacts Per Minute"
+            name: "ipm"
+            widget: "string"
+            required: false
+            hint: "For impact tools. e.g., 0-3400 IPM"
+          - label: "Spindle Thread"
+            name: "spindleThread"
+            widget: "string"
+            required: false
+            hint: "For grinders. e.g., M14 x 2.0"
+          - label: "Switch Type"
+            name: "switchType"
+            widget: "string"
+            required: false
+            hint: "e.g., Variable speed trigger, Paddle switch, Slide switch"
+          - label: "Auxiliary Handle"
+            name: "auxHandle"
+            widget: "string"
+            required: false
+            hint: "e.g., Yes, 2-position"
+      # ---- Compliance ----
+      - label: "Compliance"
+        name: "compliance"
+        widget: "string"
+        hint: "List all certifications separated by commas. Example: CE, ROHS, GS, EEC. Must match the format used in index.json."
+        default: "CE, ROHS, EEC"
+      # ---- Trade Details ----
       - label: "Related Products"
         name: "relatedProducts"
         widget: "list"
-        field: {label: "SKU", name: "sku", widget: "string"}
-        hint: "2-3 SKUs of related products for cross-selling."
+        hint: "2-3 SKUs of related products for cross-selling on the product detail page. Type each SKU on a new line."
         required: false
       - label: "Downloads"
         name: "downloads"
         widget: "object"
         required: false
-        hint: "Links to downloadable files for this product."
+        hint: "Upload product documentation files."
         fields:
-          - {label: "Spec Sheet PDF", name: "specSheet", widget: "file", media_folder: "assets/downloads", public_folder: "/assets/downloads", choose_url: false, required: false, hint: "Upload the product spec sheet PDF."}
-          - {label: "Manual PDF", name: "manual", widget: "file", media_folder: "assets/downloads", public_folder: "/assets/downloads", choose_url: false, required: false, hint: "Upload the product manual PDF."}
+          - label: "Spec Sheet PDF"
+            name: "specSheet"
+            widget: "file"
+            media_folder: "assets/downloads"
+            public_folder: "/assets/downloads"
+            choose_url: false
+            required: false
+            hint: "Upload the product spec sheet PDF."
+          - label: "Manual PDF"
+            name: "manual"
+            widget: "file"
+            media_folder: "assets/downloads"
+            public_folder: "/assets/downloads"
+            choose_url: false
+            required: false
+            hint: "Upload the product manual PDF."
       - label: "Minimum Order Quantity"
         name: "moq"
         widget: "string"
         default: "500 units"
-        hint: "The minimum number of units a buyer must order."
+        hint: "The minimum number of units a buyer must order. Adjust for different product types."
       - label: "Lead Time"
         name: "leadTime"
         widget: "string"
         default: "30-45 days"
-        hint: "How long production takes after order confirmation."
+        hint: "Production lead time after order confirmation and deposit payment."
       - label: "In Stock?"
         name: "inStock"
         widget: "boolean"
         default: true
-        hint: "Toggle ON if this product is currently available."
+        hint: "Toggle ON if this product is currently available for ordering."
       - label: "Featured Product?"
         name: "featured"
         widget: "boolean"
         default: false
-        hint: "Toggle ON to show this product as a featured item on the homepage."
+        hint: "Toggle ON to show this product as a featured item on the homepage hero section."
       - label: "Warranty"
         name: "warranty"
         widget: "string"
         default: "1 year standard, 2 year brushless motor"
-        hint: "Warranty coverage description."
+        hint: "Warranty coverage description. Be specific about what's covered and for how long."
+      - label: "Warehouse Location"
+        name: "warehouseLocation"
+        widget: "string"
+        required: false
+        hint: "Internal use only. Which warehouse stores this product. Not displayed on the website."
 
   # ============================================================
   # 2. BLOG POSTS
+  # ============================================================
+  # DATA SOURCE: content/blog/index.json (listing) + content/blog/{slug}.md (detail)
+  # The cms-loader reads index.json for blog listing and .md files for full posts.
   # ============================================================
   - name: "blog"
     label: "Blog Posts"
     label_singular: "Blog Post"
     folder: "content/blog"
     create: true
+    delete: true
     slug: "{{slug}}"
-    summary: "{{title}} — by {{author}} ({{category}})"
+    extension: "md"
+    format: "yaml-frontmatter"
+    summary: "{{title}} — {{category}}"
+    description: "Write and manage blog posts for SEO, industry authority, and customer engagement."
     sortable_fields:
-      fields: ["title", "date"]
+      fields: ["title", "date", "category"]
     view_filters:
       - label: "B2B Insights"
         field: "category"
@@ -230,25 +419,60 @@ collections:
       - label: "Technical Guides"
         field: "category"
         pattern: "Technical Guides"
+      - label: "Featured Posts"
+        field: "featured"
+        pattern: true
+      - label: "Draft (Hidden)"
+        field: "draft"
+        pattern: true
+      - label: "Published"
+        field: "draft"
+        pattern: false
+    view_groups:
+      - label: "By Category"
+        field: "category"
+      - label: "By Author"
+        field: "author"
     fields:
+      - label: "Draft (Hidden)"
+        name: "draft"
+        widget: "boolean"
+        default: false
+        required: false
+        hint: "Toggle ON to hide this item from the website without deleting it. The item still exists in the CMS but won't appear on any page."
       - label: "Post Title"
         name: "title"
         widget: "string"
-        hint: "The headline of your blog post."
+        hint: "Write a clear, compelling headline. Include keywords for SEO."
+      - label: "URL Slug"
+        name: "slug"
+        widget: "string"
+        hint: "URL-friendly version of the title. Lowercase with hyphens. Example: choosing-the-right-power-drill"
       - label: "Publish Date"
         name: "date"
         widget: "datetime"
-        hint: "When this post should appear as published."
+        hint: "When this post should appear as published. Set a future date to schedule."
       - label: "Author Name"
         name: "author"
         widget: "string"
         hint: "Who wrote this post?"
         default: "Ningbo Siyang Team"
+      - label: "Author Role"
+        name: "authorRole"
+        widget: "string"
+        hint: "The author's job title or role. Shown under their name on the post."
+        default: "Content Team"
+        required: false
       - label: "Category"
         name: "category"
         widget: "select"
         options: ["B2B Insights", "Industry Trends", "Product Spotlight", "Company News", "Technical Guides"]
-        hint: "Pick the topic area this post belongs to."
+        hint: "Pick the topic area. This determines which blog section the post appears in."
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        hint: "3-5 relevant tags for SEO and filtering. Use lowercase. Example: procurement, B2B, sourcing"
+        required: false
       - label: "Cover Image"
         name: "image"
         widget: "image"
@@ -256,46 +480,83 @@ collections:
         public_folder: "/images/blog"
         choose_url: false
         required: false
-        hint: "The main image shown at the top of the post. Recommended: 1200x630px."
+        hint: "The main image shown at the top of the post and in the blog listing. Recommended: 1200x630px."
       - label: "Short Summary"
         name: "excerpt"
         widget: "text"
-        hint: "A 1-2 sentence preview of the post."
+        hint: "A 1-2 sentence preview shown in the blog listing. Make it compelling to encourage clicks."
       - label: "Reading Time (minutes)"
         name: "readTime"
         widget: "number"
         default: 5
         min: 1
         max: 60
-        hint: "How many minutes does it take to read?"
+        hint: "Estimated reading time. Most posts are 3-8 minutes."
+      - label: "Featured Post?"
+        name: "featured"
+        widget: "boolean"
+        default: false
+        hint: "Toggle ON to show this post as a featured article on the homepage."
       - label: "Full Article"
         name: "body"
         widget: "markdown"
-        hint: "Write your full blog post here."
+        hint: "Write your full blog post here. Use headings (##), bold, lists, and images for readability."
 
   # ============================================================
   # 3. TESTIMONIALS
+  # ============================================================
+  # DATA SOURCE: content/testimonials/index.json
   # ============================================================
   - name: "testimonials"
     label: "Testimonials"
     label_singular: "Testimonial"
     folder: "content/testimonials"
     create: true
+    delete: true
     slug: "{{slug}}"
+    extension: "md"
+    format: "yaml-frontmatter"
     summary: "{{name}} — {{company}}"
+    description: "Customer testimonials and reviews. These appear on the company page and homepage."
+    sortable_fields:
+      fields: ["name", "company", "order"]
+    view_filters:
+      - label: "Draft (Hidden)"
+        field: "draft"
+        pattern: true
+      - label: "Published"
+        field: "draft"
+        pattern: false
     fields:
+      - label: "Draft (Hidden)"
+        name: "draft"
+        widget: "boolean"
+        default: false
+        required: false
+        hint: "Toggle ON to hide this item from the website without deleting it. The item still exists in the CMS but won't appear on any page."
       - label: "Customer Name"
         name: "name"
         widget: "string"
         hint: "Full name of the person giving the testimonial."
+      - label: "Job Title"
+        name: "position"
+        widget: "string"
+        required: false
+        hint: "Their role at the company. Example: Procurement Manager"
       - label: "Company Name"
         name: "company"
         widget: "string"
         hint: "The company this customer represents."
+      - label: "Country"
+        name: "country"
+        widget: "select"
+        options: ["", "Germany", "UAE", "Brazil", "USA", "UK", "France", "Australia", "Japan", "South Korea", "India", "Saudi Arabia", "South Africa", "Mexico", "Indonesia", "Thailand", "Vietnam", "Turkey", "Russia", "Nigeria", "Other"]
+        required: false
+        hint: "The customer's country. Used for regional filtering."
       - label: "Testimonial Quote"
         name: "quote"
         widget: "text"
-        hint: "The testimonial text. Keep it authentic and specific."
+        hint: "The testimonial text. Keep it authentic, specific, and 2-3 sentences. Avoid generic praise."
       - label: "Customer Photo"
         name: "avatar"
         widget: "image"
@@ -303,31 +564,52 @@ collections:
         public_folder: "/images/testimonials"
         choose_url: false
         required: false
-        hint: "Optional headshot. Recommended: 200x200px."
+        hint: "Optional headshot. Recommended: 200x200px square."
       - label: "Star Rating"
         name: "rating"
         widget: "number"
         min: 1
         max: 5
         default: 5
-        hint: "Rating from 1 to 5 stars."
+        hint: "Rating from 1 to 5 stars. Most testimonials should be 4-5."
       - label: "Display Order"
         name: "order"
         widget: "number"
         default: 0
-        hint: "Lower numbers appear first."
+        hint: "Lower numbers appear first. Use 10, 20, 30... to leave room for reordering."
 
   # ============================================================
   # 4. TEAM MEMBERS
+  # ============================================================
+  # DATA SOURCE: content/team/index.json
   # ============================================================
   - name: "team_members"
     label: "Team Members"
     label_singular: "Team Member"
     folder: "content/team"
     create: true
+    delete: true
     slug: "{{slug}}"
+    extension: "md"
+    format: "yaml-frontmatter"
     summary: "{{name}} — {{title}}"
+    description: "Manage the team members displayed on the About > Team page."
+    sortable_fields:
+      fields: ["name", "title", "order"]
+    view_filters:
+      - label: "Draft (Hidden)"
+        field: "draft"
+        pattern: true
+      - label: "Published"
+        field: "draft"
+        pattern: false
     fields:
+      - label: "Draft (Hidden)"
+        name: "draft"
+        widget: "boolean"
+        default: false
+        required: false
+        hint: "Toggle ON to hide this item from the website without deleting it. The item still exists in the CMS but won't appear on any page."
       - label: "Full Name"
         name: "name"
         widget: "string"
@@ -335,47 +617,89 @@ collections:
       - label: "Job Title"
         name: "title"
         widget: "string"
-        hint: "Their role or title."
+        hint: "Their role or title. Example: CEO & Founder, Sales Director"
+      - label: "Department"
+        name: "department"
+        widget: "select"
+        options: ["Leadership", "Engineering & R&D", "Sales & Marketing", "Quality Assurance", "Operations", "Finance"]
+        required: false
+        hint: "Which department do they belong to?"
       - label: "Photo"
         name: "photo"
         widget: "image"
+        media_folder: "images/team"
+        public_folder: "/images/team"
+        choose_url: false
         required: false
-        hint: "Professional headshot. Recommended: 400x400px."
+        hint: "Professional headshot. Recommended: 400x400px square."
       - label: "Short Bio"
         name: "bio"
         widget: "text"
         required: false
-        hint: "A brief 1-2 sentence bio."
+        hint: "A brief 1-2 sentence bio highlighting experience and expertise."
+      - label: "Email"
+        name: "email"
+        widget: "string"
+        required: false
+        pattern: ['^[^@]+@[^@]+\\.[^@]+$', 'Please enter a valid email address']
+        hint: "Work email address. Optional — only shown on the team page."
+      - label: "LinkedIn Profile"
+        name: "linkedin"
+        widget: "string"
+        required: false
+        pattern: ['^https?://.+', 'Please enter a valid URL starting with http:// or https://']
+        hint: "LinkedIn profile URL."
       - label: "Display Order"
         name: "order"
         widget: "number"
         default: 0
-        hint: "Lower numbers appear first."
+        hint: "Lower numbers appear first. Use 10, 20, 30... to leave room for reordering."
 
   # ============================================================
   # 5. CERTIFICATIONS
+  # ============================================================
+  # DATA SOURCE: content/certifications/index.json
   # ============================================================
   - name: "certifications"
     label: "Certifications"
     label_singular: "Certification"
     folder: "content/certifications"
     create: true
+    delete: true
     slug: "{{slug}}"
+    extension: "md"
+    format: "yaml-frontmatter"
     summary: "{{name}} — {{issuer}} ({{year}})"
+    description: "Manage company certifications and quality marks. These appear on the Certifications page and build buyer trust."
+    sortable_fields:
+      fields: ["name", "issuer", "year"]
+    view_filters:
+      - label: "Draft (Hidden)"
+        field: "draft"
+        pattern: true
+      - label: "Published"
+        field: "draft"
+        pattern: false
     fields:
+      - label: "Draft (Hidden)"
+        name: "draft"
+        widget: "boolean"
+        default: false
+        required: false
+        hint: "Toggle ON to hide this item from the website without deleting it. The item still exists in the CMS but won't appear on any page."
       - label: "Certification Name"
         name: "name"
         widget: "string"
-        hint: "The official name. Example: ISO 9001:2015"
+        hint: "The official name. Example: ISO 9001:2015, CE Marking, RoHS Compliance"
       - label: "Issuing Body"
         name: "issuer"
         widget: "string"
-        hint: "The organization that issued this. Example: SGS, TUV"
+        hint: "The organization that issued this. Example: SGS, TUV Rheinland, Intertek"
       - label: "Certificate Number"
         name: "cert_number"
         widget: "string"
         required: false
-        hint: "The official certificate number."
+        hint: "The official certificate number. Shown on the website for verification."
       - label: "Certificate Image"
         name: "image"
         widget: "image"
@@ -383,81 +707,163 @@ collections:
         public_folder: "/images/certificates"
         choose_url: false
         required: false
-        hint: "Upload a scan or photo of the certificate."
+        hint: "Upload a scan or photo of the certificate. Recommended: 800px wide minimum."
+      - label: "Scope"
+        name: "scope"
+        widget: "text"
+        required: false
+        hint: "What does this certification cover? Example: Design and manufacture of electric power tools"
       - label: "Year Obtained"
         name: "year"
         widget: "string"
         hint: "The year obtained or last renewed."
+      - label: "Expiry Date"
+        name: "expiryDate"
+        widget: "string"
+        required: false
+        hint: "When does this certification expire? Leave blank if it doesn't expire. Example: 2027-12-31"
+      - label: "Verification URL"
+        name: "verifyUrl"
+        widget: "string"
+        required: false
+        pattern: ['^https?://.+', 'Please enter a valid URL starting with http:// or https://']
+        hint: "A URL where buyers can verify this certification online."
 
   # ============================================================
   # 6. FAQ
+  # ============================================================
+  # DATA SOURCE: content/faq/index.json
+  # CRITICAL: category values must match index.json exactly:
+  #   Orders, Payment, Shipping, Quality, Customization, Warranty, Support, Partnership
   # ============================================================
   - name: "faq"
     label: "FAQ"
     label_singular: "FAQ Item"
     folder: "content/faq"
     create: true
+    delete: true
     slug: "{{slug}}"
+    extension: "md"
+    format: "yaml-frontmatter"
     summary: "{{category}} — {{question}}"
+    description: "Manage frequently asked questions. These appear on the FAQ page grouped by category."
+    sortable_fields:
+      fields: ["question", "category", "order"]
     view_filters:
-      - label: "Ordering & Payment"
+      - label: "Orders"
         field: "category"
-        pattern: "Ordering & Payment"
-      - label: "Shipping & Delivery"
+        pattern: "Orders"
+      - label: "Payment"
         field: "category"
-        pattern: "Shipping & Delivery"
-      - label: "Products & Quality"
+        pattern: "Payment"
+      - label: "Shipping"
         field: "category"
-        pattern: "Products & Quality"
-      - label: "OEM/ODM Services"
+        pattern: "Shipping"
+      - label: "Quality"
         field: "category"
-        pattern: "OEM/ODM Services"
-      - label: "Company & Factory"
+        pattern: "Quality"
+      - label: "Customization"
         field: "category"
-        pattern: "Company & Factory"
-      - label: "Warranty & Support"
+        pattern: "Customization"
+      - label: "Warranty"
         field: "category"
-        pattern: "Warranty & Support"
+        pattern: "Warranty"
+      - label: "Support"
+        field: "category"
+        pattern: "Support"
+      - label: "Partnership"
+        field: "category"
+        pattern: "Partnership"
+      - label: "Draft (Hidden)"
+        field: "draft"
+        pattern: true
+      - label: "Published"
+        field: "draft"
+        pattern: false
+    view_groups:
+      - label: "By Category"
+        field: "category"
     fields:
+      - label: "Draft (Hidden)"
+        name: "draft"
+        widget: "boolean"
+        default: false
+        required: false
+        hint: "Toggle ON to hide this item from the website without deleting it. The item still exists in the CMS but won't appear on any page."
       - label: "Question"
         name: "question"
         widget: "string"
-        hint: "The frequently asked question."
+        hint: "Write the question as a customer would actually ask it. Keep it concise."
       - label: "Answer"
         name: "answer"
-        widget: "markdown"
-        hint: "The detailed answer."
+        widget: "text"
+        hint: "Write a clear, helpful answer. Keep it concise — 1-3 sentences."
       - label: "Category"
         name: "category"
         widget: "select"
-        options: ["Ordering & Payment", "Shipping & Delivery", "Products & Quality", "OEM/ODM Services", "Company & Factory", "Warranty & Support"]
-        hint: "Which topic area does this question belong to?"
+        options: ["Orders", "Payment", "Shipping", "Quality", "Customization", "Warranty", "Support", "Partnership"]
+        hint: "Which topic area does this question belong to? Questions are grouped by category on the FAQ page."
       - label: "Display Order"
         name: "order"
         widget: "number"
         default: 0
-        hint: "Lower numbers appear first."
+        hint: "Lower numbers appear first within their category. Use 10, 20, 30... to leave room for reordering."
 
   # ============================================================
   # 7. PARTNERS & CLIENTS
+  # ============================================================
+  # DATA SOURCE: content/partners/index.json
   # ============================================================
   - name: "partners"
     label: "Partners & Clients"
     label_singular: "Partner"
     folder: "content/partners"
     create: true
+    delete: true
     slug: "{{slug}}"
+    extension: "md"
+    format: "yaml-frontmatter"
     summary: "{{name}}"
+    description: "Manage partner and client logos displayed on the company page and homepage."
+    sortable_fields:
+      fields: ["name", "order"]
+    view_filters:
+      - label: "Draft (Hidden)"
+        field: "draft"
+        pattern: true
+      - label: "Published"
+        field: "draft"
+        pattern: false
     fields:
+      - label: "Draft (Hidden)"
+        name: "draft"
+        widget: "boolean"
+        default: false
+        required: false
+        hint: "Toggle ON to hide this item from the website without deleting it. The item still exists in the CMS but won't appear on any page."
       - label: "Partner/Client Name"
         name: "name"
         widget: "string"
-        hint: "The company or brand name."
+        hint: "The company or brand name as it should appear."
+      - label: "Partner Type"
+        name: "partnerType"
+        widget: "select"
+        options: ["", "Distributor", "OEM Client", "Retail Chain", "Supplier", "Strategic Partner"]
+        required: false
+        hint: "What type of partnership is this?"
       - label: "Logo"
         name: "logo"
         widget: "image"
+        media_folder: "images/partners"
+        public_folder: "/images/partners"
+        choose_url: false
         required: false
-        hint: "Upload the partner's logo. Recommended: 300x150px."
+        hint: "Upload the partner's logo on a transparent or white background. Recommended: 300x150px."
+      - label: "Country"
+        name: "country"
+        widget: "string"
+        required: false
+        hint: "The partner's country."
       - label: "Website URL"
         name: "website"
         widget: "string"
@@ -473,14 +879,21 @@ collections:
   # ============================================================
   # 8. DISTRIBUTORS
   # ============================================================
+  # DATA SOURCE: content/distributors/index.json
+  # ============================================================
   - name: "distributors"
     label: "Distributors"
     label_singular: "Distributor"
     folder: "content/distributors"
     create: true
+    delete: true
     slug: "{{slug}}"
-    summary: "{{companyName}} — {{country}} ({{region}})"
-    description: "Manage your global distributor and agent network."
+    extension: "md"
+    format: "yaml-frontmatter"
+    summary: "{{companyName}} — {{country}}"
+    description: "Manage your global distributor and agent network. Distributors appear on the Distributors page filtered by region."
+    sortable_fields:
+      fields: ["companyName", "country", "region"]
     view_filters:
       - label: "Asia-Pacific"
         field: "region"
@@ -500,26 +913,37 @@ collections:
       - label: "South America"
         field: "region"
         pattern: "South America"
+      - label: "Draft (Hidden)"
+        field: "draft"
+        pattern: true
+      - label: "Published"
+        field: "draft"
+        pattern: false
     view_groups:
       - label: "By Region"
         field: "region"
       - label: "By Country"
         field: "country"
     fields:
+      - label: "Draft (Hidden)"
+        name: "draft"
+        widget: "boolean"
+        default: false
+        required: false
+        hint: "Toggle ON to hide this item from the website without deleting it. The item still exists in the CMS but won't appear on any page."
       - label: "Company Name"
         name: "companyName"
         widget: "string"
-        hint: "The distributor's company name."
+        hint: "The distributor's official company name."
       - label: "Country"
         name: "country"
-        widget: "select"
-        options: ["Afghanistan", "Algeria", "Argentina", "Australia", "Austria", "Bangladesh", "Belgium", "Brazil", "Canada", "Chile", "China", "Colombia", "Czech Republic", "Denmark", "Egypt", "Ethiopia", "Finland", "France", "Germany", "Ghana", "Greece", "Hungary", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Japan", "Jordan", "Kenya", "Kuwait", "Malaysia", "Mexico", "Morocco", "Netherlands", "Nigeria", "Norway", "Oman", "Pakistan", "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russia", "Saudi Arabia", "Senegal", "Singapore", "South Africa", "South Korea", "Spain", "Sri Lanka", "Sweden", "Switzerland", "Thailand", "Turkey", "UAE", "UK", "Ukraine", "USA", "Venezuela", "Vietnam"]
-        hint: "The country where the distributor is based."
+        widget: "string"
+        hint: "The country where the distributor is based. Type the full country name."
       - label: "Region"
         name: "region"
         widget: "select"
         options: ["Asia-Pacific", "Europe", "North America", "Middle East", "Africa", "South America"]
-        hint: "The geographic region."
+        hint: "The geographic region for filtering on the Distributors page."
       - label: "Contact Person"
         name: "contactPerson"
         widget: "string"
@@ -535,7 +959,7 @@ collections:
         name: "phone"
         widget: "string"
         required: false
-        hint: "Contact phone number with country code."
+        hint: "Contact phone number with country code. Example: +971 4 123 4567"
       - label: "Website"
         name: "website"
         widget: "string"
@@ -555,69 +979,114 @@ collections:
         widget: "text"
         required: false
         hint: "Full business address."
+      - label: "Product Lines Carried"
+        name: "productLines"
+        widget: "string"
+        required: false
+        hint: "Which product categories does this distributor carry? Example: Drills, Grinders, Combo Kits"
 
   # ============================================================
   # 9. WARRANTY
   # ============================================================
+  # DATA SOURCE: content/warranty/index.json
+  # CRITICAL: warrantyType values must match index.json exactly:
+  #   standard, brushless_motor, extended
+  # ============================================================
   - name: "warranty"
-    label: "Warranty"
+    label: "Warranty Policies"
     label_singular: "Warranty Policy"
     folder: "content/warranty"
     create: true
+    delete: true
     slug: "{{slug}}"
+    extension: "md"
+    format: "yaml-frontmatter"
     summary: "{{title}} — {{warrantyPeriod}}"
-    description: "Manage warranty policies and coverage information."
+    description: "Manage warranty policies and coverage information. These appear on the Warranty page."
+    sortable_fields:
+      fields: ["title", "warrantyType", "warrantyPeriod"]
     view_filters:
       - label: "Standard"
         field: "warrantyType"
         pattern: "standard"
-      - label: "Motor"
+      - label: "Brushless Motor"
         field: "warrantyType"
-        pattern: "motor"
+        pattern: "brushless_motor"
       - label: "Extended"
         field: "warrantyType"
         pattern: "extended"
+      - label: "Draft (Hidden)"
+        field: "draft"
+        pattern: true
+      - label: "Published"
+        field: "draft"
+        pattern: false
     fields:
+      - label: "Draft (Hidden)"
+        name: "draft"
+        widget: "boolean"
+        default: false
+        required: false
+        hint: "Toggle ON to hide this item from the website without deleting it. The item still exists in the CMS but won't appear on any page."
       - label: "Policy Title"
         name: "title"
         widget: "string"
-        hint: "Name of the warranty policy. Example: Standard Warranty"
+        hint: "Name of the warranty policy. Example: Standard Warranty, Brushless Motor Extended Warranty"
       - label: "Warranty Type"
         name: "warrantyType"
         widget: "select"
-        options: ["standard", "motor", "extended"]
+        options:
+          - label: "Standard Warranty"
+            value: "standard"
+          - label: "Brushless Motor Warranty"
+            value: "brushless_motor"
+          - label: "Extended Warranty"
+            value: "extended"
         hint: "The type of warranty coverage."
       - label: "Warranty Period"
         name: "warrantyPeriod"
         widget: "string"
-        hint: "How long the warranty lasts. Example: 1 Year, 2 Years"
+        hint: "How long the warranty lasts. Example: 1 Year, 2 Years, 3 Years"
+      - label: "Applicable Product Categories"
+        name: "applicableCategories"
+        widget: "list"
+        field: {label: "Category", name: "category", widget: "select", options: ["All Products", "Drills & Drivers", "Saws", "Grinders", "Sanders", "Impact Tools", "Combo Kits", "Brushless Motor Products"]}
+        hint: "Which product categories does this warranty apply to?"
+        required: false
       - label: "Description"
         name: "description"
-        widget: "markdown"
-        hint: "Full description of what this warranty covers."
+        widget: "text"
+        hint: "Full description of what this warranty covers. Be specific about included and excluded items."
       - label: "Exclusions"
         name: "exclusions"
         widget: "list"
-        field: {label: "Exclusion", name: "exclusion", widget: "string"}
-        hint: "List of things NOT covered by this warranty."
+        hint: "List of things NOT covered by this warranty. Be clear to avoid disputes. Each line is one exclusion."
         required: false
       - label: "Claim Process"
         name: "claimProcess"
-        widget: "markdown"
-        hint: "Step-by-step instructions for filing a warranty claim."
+        widget: "text"
+        hint: "Step-by-step instructions for filing a warranty claim. Include contact information and required documentation."
         required: false
 
   # ============================================================
   # 10. SAFETY NOTICES
+  # ============================================================
+  # DATA SOURCE: content/safety/index.json
+  # CRITICAL: affectedSkus is a list of strings (matching index.json array format)
   # ============================================================
   - name: "safety"
     label: "Safety Notices"
     label_singular: "Safety Notice"
     folder: "content/safety"
     create: true
+    delete: true
     slug: "{{slug}}"
-    summary: "{{noticeType}} — {{title}} ({{severity}})"
-    description: "Manage safety advisories, recalls, and compliance updates."
+    extension: "md"
+    format: "yaml-frontmatter"
+    summary: "{{noticeType}} — {{title}}"
+    description: "Manage safety advisories, recalls, and compliance updates. Critical and warning notices are prominently displayed."
+    sortable_fields:
+      fields: ["title", "noticeType", "severity", "date"]
     view_filters:
       - label: "Safety Advisory"
         field: "noticeType"
@@ -637,47 +1106,88 @@ collections:
       - label: "Info"
         field: "severity"
         pattern: "info"
+      - label: "Draft (Hidden)"
+        field: "draft"
+        pattern: true
+      - label: "Published"
+        field: "draft"
+        pattern: false
+    view_groups:
+      - label: "By Type"
+        field: "noticeType"
+      - label: "By Severity"
+        field: "severity"
     fields:
+      - label: "Draft (Hidden)"
+        name: "draft"
+        widget: "boolean"
+        default: false
+        required: false
+        hint: "Toggle ON to hide this item from the website without deleting it. The item still exists in the CMS but won't appear on any page."
       - label: "Notice Title"
         name: "title"
         widget: "string"
-        hint: "Title of the safety notice."
+        hint: "A clear, specific title. Example: Lithium-Ion Battery Safety Advisory"
       - label: "Notice Type"
         name: "noticeType"
         widget: "select"
-        options: ["safety advisory", "recall", "compliance update"]
+        options:
+          - label: "Safety Advisory"
+            value: "safety advisory"
+          - label: "Recall"
+            value: "recall"
+          - label: "Compliance Update"
+            value: "compliance update"
         hint: "What type of notice is this?"
       - label: "Severity"
         name: "severity"
         widget: "select"
-        options: ["info", "warning", "critical"]
+        options:
+          - label: "Info"
+            value: "info"
+          - label: "Warning"
+            value: "warning"
+          - label: "Critical"
+            value: "critical"
         default: "info"
-        hint: "How urgent is this notice?"
-      - label: "Affected SKUs"
+        hint: "How urgent is this notice? Critical notices appear with red highlights."
+      - label: "Affected Product SKUs"
         name: "affectedSkus"
-        widget: "string"
+        widget: "list"
+        hint: "List the SKUs of affected products. Leave empty if it applies to all products. Type each SKU on a new line."
         required: false
-        hint: "Comma-separated list of affected product SKUs. Leave empty if it applies to all products."
       - label: "Description"
         name: "description"
-        widget: "markdown"
-        hint: "Full details of the safety notice."
-      - label: "Date"
+        widget: "text"
+        hint: "Full details of the safety notice. Include what the issue is, who is affected, and what action to take."
+      - label: "Resolution"
+        name: "resolution"
+        widget: "text"
+        required: false
+        hint: "What should customers do? Include contact information for reporting issues."
+      - label: "Date Issued"
         name: "date"
         widget: "datetime"
-        hint: "When this notice was issued."
+        hint: "When this notice was officially issued."
 
   # ============================================================
   # 11. PRODUCT MANUALS
+  # ============================================================
+  # DATA SOURCE: content/manuals/index.json
   # ============================================================
   - name: "manuals"
     label: "Product Manuals"
     label_singular: "Manual"
     folder: "content/manuals"
     create: true
+    delete: true
     slug: "{{slug}}"
+    extension: "md"
+    format: "yaml-frontmatter"
     summary: "{{title}} — {{language}}"
-    description: "Upload and manage product instruction manuals in multiple languages."
+    description: "Upload and manage product instruction manuals in multiple languages. Each manual is linked to a product by SKU."
+    sortable_fields:
+      fields: ["title", "productSku", "language", "date"]
     view_filters:
       - label: "English"
         field: "language"
@@ -697,7 +1207,22 @@ collections:
       - label: "Spanish"
         field: "language"
         pattern: "es"
+      - label: "Draft (Hidden)"
+        field: "draft"
+        pattern: true
+      - label: "Published"
+        field: "draft"
+        pattern: false
+    view_groups:
+      - label: "By Language"
+        field: "language"
     fields:
+      - label: "Draft (Hidden)"
+        name: "draft"
+        widget: "boolean"
+        default: false
+        required: false
+        hint: "Toggle ON to hide this item from the website without deleting it. The item still exists in the CMS but won't appear on any page."
       - label: "Manual Title"
         name: "title"
         widget: "string"
@@ -705,11 +1230,23 @@ collections:
       - label: "Product SKU"
         name: "productSku"
         widget: "string"
-        hint: "The SKU of the product this manual belongs to."
+        hint: "The SKU of the product this manual belongs to. Must match an existing product SKU."
       - label: "Language"
         name: "language"
         widget: "select"
-        options: ["en", "zh", "ar", "fr", "ru", "es"]
+        options:
+          - label: "English"
+            value: "en"
+          - label: "Chinese (Simplified)"
+            value: "zh"
+          - label: "Arabic"
+            value: "ar"
+          - label: "French"
+            value: "fr"
+          - label: "Russian"
+            value: "ru"
+          - label: "Spanish"
+            value: "es"
         hint: "What language is this manual in?"
       - label: "PDF File"
         name: "file"
@@ -722,7 +1259,13 @@ collections:
         name: "version"
         widget: "string"
         required: false
-        hint: "Version number. Example: 2.1"
+        hint: "Version number. Example: 2.1. Increment when updating."
+      - label: "Page Count"
+        name: "pages"
+        widget: "number"
+        required: false
+        min: 1
+        hint: "Number of pages in the manual."
       - label: "Date"
         name: "date"
         widget: "datetime"
@@ -731,14 +1274,21 @@ collections:
   # ============================================================
   # 12. DOWNLOADS
   # ============================================================
+  # DATA SOURCE: content/downloads/index.json
+  # ============================================================
   - name: "downloads"
     label: "Downloads"
     label_singular: "Download"
     folder: "content/downloads"
     create: true
+    delete: true
     slug: "{{slug}}"
+    extension: "md"
+    format: "yaml-frontmatter"
     summary: "{{category}} — {{title}}"
-    description: "Manage downloadable resources: catalogs, spec sheets, certificates, and firmware."
+    description: "Manage downloadable resources: product catalogs, spec sheets, certificates, and firmware updates."
+    sortable_fields:
+      fields: ["title", "category", "language", "date"]
     view_filters:
       - label: "Catalog"
         field: "category"
@@ -755,11 +1305,28 @@ collections:
       - label: "Firmware"
         field: "category"
         pattern: "Firmware"
+      - label: "Draft (Hidden)"
+        field: "draft"
+        pattern: true
+      - label: "Published"
+        field: "draft"
+        pattern: false
+    view_groups:
+      - label: "By Category"
+        field: "category"
+      - label: "By Language"
+        field: "language"
     fields:
+      - label: "Draft (Hidden)"
+        name: "draft"
+        widget: "boolean"
+        default: false
+        required: false
+        hint: "Toggle ON to hide this item from the website without deleting it. The item still exists in the CMS but won't appear on any page."
       - label: "Download Title"
         name: "title"
         widget: "string"
-        hint: "Name of the downloadable resource."
+        hint: "Name of the downloadable resource. Example: 2025 Product Catalog, SY-DD-20V-BL Spec Sheet"
       - label: "Category"
         name: "category"
         widget: "select"
@@ -771,18 +1338,35 @@ collections:
         media_folder: "assets/downloads"
         public_folder: "/assets/downloads"
         choose_url: false
-        hint: "Upload the file."
+        hint: "Upload the file. Accepted formats: PDF, ZIP, EXE (for firmware)."
       - label: "Language"
         name: "language"
         widget: "select"
-        options: ["en", "zh", "ar", "fr", "ru", "es"]
+        options:
+          - label: "English"
+            value: "en"
+          - label: "Chinese (Simplified)"
+            value: "zh"
+          - label: "Arabic"
+            value: "ar"
+          - label: "French"
+            value: "fr"
+          - label: "Russian"
+            value: "ru"
+          - label: "Spanish"
+            value: "es"
         default: "en"
         hint: "What language is this file in?"
       - label: "Version"
         name: "version"
         widget: "string"
         required: false
-        hint: "Version number. Example: 3.0"
+        hint: "Version number. Example: 3.0. Increment when updating."
+      - label: "File Size"
+        name: "fileSize"
+        widget: "string"
+        required: false
+        hint: "The file size for display. Example: 2.4 MB, 150 KB"
       - label: "Date"
         name: "date"
         widget: "datetime"
@@ -791,14 +1375,129 @@ collections:
         name: "description"
         widget: "text"
         required: false
-        hint: "Brief description of what this download contains."
+        hint: "Brief description of what this download contains. 1-2 sentences."
 
   # ============================================================
-  # 13. PAGES — Homepage & Company
+  # 13. CASE STUDIES
+  # ============================================================
+  # DATA SOURCE: content/case-studies/index.json
+  # Success stories showcasing OEM/ODM capabilities and partner results.
+  # ============================================================
+  - name: "case_studies"
+    label: "Case Studies"
+    label_singular: "Case Study"
+    folder: "content/case-studies"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "yaml-frontmatter"
+    summary: "{{client}} — {{title}}"
+    description: "Manage success stories and case studies. These showcase your OEM/ODM capabilities and build credibility with potential buyers."
+    sortable_fields:
+      fields: ["title", "client", "country", "date"]
+    view_filters:
+      - label: "Featured"
+        field: "featured"
+        pattern: true
+      - label: "UAE"
+        field: "country"
+        pattern: "United Arab Emirates"
+      - label: "Germany"
+        field: "country"
+        pattern: "Germany"
+      - label: "Russia"
+        field: "country"
+        pattern: "Russia"
+      - label: "Draft (Hidden)"
+        field: "draft"
+        pattern: true
+      - label: "Published"
+        field: "draft"
+        pattern: false
+    view_groups:
+      - label: "By Country"
+        field: "country"
+      - label: "By Industry"
+        field: "industry"
+    fields:
+      - label: "Draft (Hidden)"
+        name: "draft"
+        widget: "boolean"
+        default: false
+        required: false
+        hint: "Toggle ON to hide this item from the website without deleting it. The item still exists in the CMS but won't appear on any page."
+      - label: "Case Study Title"
+        name: "title"
+        widget: "string"
+        hint: "A compelling title that highlights the outcome. Example: How Gulf Industrial Supplies Launched Their Own Brand in 6 Months"
+      - label: "Client Company"
+        name: "client"
+        widget: "string"
+        hint: "The client company name."
+      - label: "Country"
+        name: "country"
+        widget: "string"
+        hint: "The client's country. Example: United Arab Emirates, Germany, Russia"
+      - label: "Country Flag Emoji"
+        name: "countryFlag"
+        widget: "string"
+        required: false
+        hint: "The country flag emoji. Example: 🇦🇪 for UAE, 🇩🇪 for Germany, 🇷🇺 for Russia"
+      - label: "Industry"
+        name: "industry"
+        widget: "string"
+        hint: "The client's industry. Example: Construction & Industrial Distribution, Industrial Tool Distribution"
+      - label: "Challenge"
+        name: "challenge"
+        widget: "text"
+        hint: "Describe the problem the client was facing. What was their pain point? What had they tried before?"
+      - label: "Solution"
+        name: "solution"
+        widget: "text"
+        hint: "Describe how Ningbo Siyang solved the problem. What approach did we take? What was unique about our solution?"
+      - label: "Results"
+        name: "results"
+        widget: "list"
+        hint: "List the measurable outcomes. Be specific with numbers. Example: 12 SKUs launched within 6 months, 0.3% defect rate"
+      - label: "Client Testimonial"
+        name: "testimonial"
+        widget: "text"
+        required: false
+        hint: "A direct quote from the client about their experience. Keep it authentic and specific."
+      - label: "Testimonial Author"
+        name: "testimonialAuthor"
+        widget: "string"
+        required: false
+        hint: "Who said the testimonial? Example: Ahmed Al-Rashid, Procurement Director"
+      - label: "Hero Image"
+        name: "image"
+        widget: "image"
+        media_folder: "images/case-studies"
+        public_folder: "/images/case-studies"
+        choose_url: false
+        required: false
+        hint: "A representative image for the case study. Recommended: 1200x630px."
+      - label: "Date"
+        name: "date"
+        widget: "datetime"
+        hint: "When this case study was published or the project completed."
+      - label: "Featured?"
+        name: "featured"
+        widget: "boolean"
+        default: false
+        hint: "Toggle ON to feature this case study prominently on the homepage or OEM/ODM page."
+
+  # ============================================================
+  # 14. PAGES — Homepage, Company, OEM/ODM
+  # ============================================================
+  # DATA SOURCE: content/pages/*.md
+  # The cms-loader reads these files directly (no index.json).
   # ============================================================
   - name: "pages"
     label: "Pages"
     delete: false
+    description: "Edit the content of key website pages: homepage hero section, company information, and OEM/ODM capabilities."
     files:
       - label: "Homepage"
         name: "homepage"
@@ -808,36 +1507,68 @@ collections:
             name: "heroTitle"
             widget: "string"
             default: "POWER YOUR CRAFT"
-            hint: "The large headline text at the top of the homepage."
+            hint: "The large headline text at the top of the homepage. Keep it short and powerful — 2-4 words."
           - label: "Subtitle"
             name: "heroSubtitle"
             widget: "string"
             default: "Professional Power Tools Since 1998"
-            hint: "The smaller text below the main headline."
-          - label: "Statistic 1 — Label"
-            name: "stat1Label"
+            hint: "The smaller text below the main headline. One line."
+          - label: "CTA Button Text"
+            name: "heroCtaText"
             widget: "string"
-            default: "Customers Worldwide"
+            default: "Request a Quote"
+            hint: "The text on the main call-to-action button."
+          - label: "CTA Button Link"
+            name: "heroCtaLink"
+            widget: "string"
+            default: "/contact"
+            hint: "Where the CTA button links to. Use a relative path like /contact or a full URL."
           - label: "Statistic 1 — Value"
             name: "stat1Value"
             widget: "string"
             default: "500K+"
-          - label: "Statistic 2 — Label"
-            name: "stat2Label"
+            hint: "The big number. Include suffix like K+ or +. Example: 500K+, 45+, 25"
+          - label: "Statistic 1 — Label"
+            name: "stat1Label"
             widget: "string"
-            default: "Countries Served"
+            default: "Customers Worldwide"
+            hint: "The text below the number."
           - label: "Statistic 2 — Value"
             name: "stat2Value"
             widget: "string"
             default: "45+"
-          - label: "Statistic 3 — Label"
-            name: "stat3Label"
+          - label: "Statistic 2 — Label"
+            name: "stat2Label"
             widget: "string"
-            default: "Years of Excellence"
+            default: "Countries Served"
           - label: "Statistic 3 — Value"
             name: "stat3Value"
             widget: "string"
             default: "25"
+          - label: "Statistic 3 — Label"
+            name: "stat3Label"
+            widget: "string"
+            default: "Years of Excellence"
+          - label: "Featured Categories"
+            name: "featuredCategories"
+            widget: "list"
+            hint: "Which product categories to feature on the homepage. Use URL slugs: drills-drivers, saws, grinders, sanders, impact-tools, combo-kits"
+            required: false
+          - label: "Show Testimonials Section?"
+            name: "showTestimonials"
+            widget: "boolean"
+            default: true
+            hint: "Toggle ON to show the testimonials section on the homepage."
+          - label: "Show Partners Section?"
+            name: "showPartners"
+            widget: "boolean"
+            default: true
+            hint: "Toggle ON to show the partner logos section on the homepage."
+          - label: "Show Certifications Section?"
+            name: "showCertifications"
+            widget: "boolean"
+            default: true
+            hint: "Toggle ON to show the certifications section on the homepage."
       - label: "Company Information"
         name: "company"
         file: "content/pages/company.md"
@@ -846,46 +1577,113 @@ collections:
             name: "companyName"
             widget: "string"
             default: "Ningbo Siyang Power Tools Co., Ltd."
+            hint: "The official registered company name."
           - label: "Contact Email"
             name: "email"
             widget: "string"
-            default: "sales@ningbosiyang.com"
+            default: "support@ningbosiyang.com"
             pattern: ['^[^@]+@[^@]+\\.[^@]+$', 'Please enter a valid email address']
+            hint: "The main contact email address."
           - label: "Phone Number"
             name: "phone"
             widget: "string"
             default: "+86 574 8888 8888"
+            hint: "Main phone number with country code."
           - label: "Address"
             name: "address"
             widget: "string"
             default: "Ningbo Industrial Zone, Zhejiang, China 315000"
+            hint: "The company's physical address."
           - label: "Year Founded"
             name: "founded"
             widget: "string"
             default: "1998"
+            hint: "The year the company was established."
           - label: "WeChat QR Code Image"
             name: "wechatQR"
             widget: "image"
+            media_folder: "images"
+            public_folder: "/images"
+            choose_url: false
             required: false
-            hint: "Upload the WeChat QR code image."
+            hint: "Upload the WeChat QR code image. This appears in the chat widget."
           - label: "WhatsApp Number"
             name: "whatsapp"
             widget: "string"
             required: false
-            hint: "Your WhatsApp number with country code, no spaces."
-          - label: "YouTube Channel Link"
+            hint: "Your WhatsApp number with country code, no spaces or special characters. Example: 8613800138000"
+          - label: "LinkedIn Page"
+            name: "linkedin"
+            widget: "string"
+            required: false
+            pattern: ['^https?://.+', 'Please enter a valid URL starting with http:// or https://']
+            hint: "Full URL to the company LinkedIn page."
+          - label: "YouTube Channel"
             name: "youtube"
             widget: "string"
             required: false
             pattern: ['^https?://.+', 'Please enter a valid URL starting with http:// or https://']
-            hint: "Full URL to your YouTube channel."
+            hint: "Full URL to the company YouTube channel."
+          - label: "Show Team Section?"
+            name: "showTeam"
+            widget: "boolean"
+            default: true
+            hint: "Toggle ON to show the team members section on the company page."
+          - label: "Show Certifications Section?"
+            name: "showCertifications"
+            widget: "boolean"
+            default: true
+            hint: "Toggle ON to show the certifications section on the company page."
+          - label: "Show Timeline Section?"
+            name: "showTimeline"
+            widget: "boolean"
+            default: true
+            hint: "Toggle ON to show the company timeline/milestones section."
+      - label: "OEM/ODM Capabilities"
+        name: "oem-odm"
+        file: "content/pages/oem-odm.md"
+        fields:
+          - label: "Page Title"
+            name: "pageTitle"
+            widget: "string"
+            default: "OEM/ODM Capabilities"
+            hint: "The main heading shown at the top of the OEM/ODM page."
+          - label: "Subtitle"
+            name: "subtitle"
+            widget: "string"
+            default: "Full-service OEM & ODM manufacturing solutions for global power tool brands"
+            hint: "A one-line description below the main heading."
+          - label: "CTA Button Text"
+            name: "ctaText"
+            widget: "string"
+            default: "Start Your OEM Project"
+            hint: "The text on the main call-to-action button."
+          - label: "CTA Button Link"
+            name: "ctaLink"
+            widget: "string"
+            default: "/contact"
+            hint: "Where the CTA button links to."
+          - label: "Show Case Studies?"
+            name: "showCaseStudies"
+            widget: "boolean"
+            default: true
+            hint: "Toggle ON to display featured case studies on this page."
+          - label: "Show Certifications?"
+            name: "showCertifications"
+            widget: "boolean"
+            default: true
+            hint: "Toggle ON to show certification badges on this page."
 
   # ============================================================
-  # 14. SITE SETTINGS — Navigation & Footer
+  # 15. SITE SETTINGS — Navigation & Footer
+  # ============================================================
+  # DATA SOURCE: content/settings/*.md
+  # The cms-loader reads these files directly (no index.json).
   # ============================================================
   - name: "settings"
     label: "Site Settings"
     delete: false
+    description: "Configure global site settings: navigation menu, footer content, and social links."
     files:
       - label: "Navigation Menu"
         name: "navigation"
@@ -894,20 +1692,33 @@ collections:
           - label: "Product Categories"
             name: "categories"
             widget: "list"
-            hint: "The product categories shown in the website navigation menu."
+            hint: "The product categories shown in the website navigation dropdown menu. Add, remove, or reorder."
             fields:
               - label: "Category Name"
                 name: "name"
                 widget: "string"
                 hint: "The display name. Example: Drills & Drivers"
-              - label: "Page Link Name"
+              - label: "URL Slug"
                 name: "slug"
                 widget: "string"
                 hint: "Used for the website link. Lowercase with hyphens. Example: drills-drivers"
               - label: "Description"
                 name: "description"
                 widget: "string"
-                hint: "A short description shown in the dropdown menu."
+                hint: "A short description shown in the dropdown menu. Example: Cordless & corded drills"
+          - label: "Main Navigation Links"
+            name: "mainLinks"
+            widget: "list"
+            hint: "The main navigation links shown in the header. These appear on every page."
+            fields:
+              - label: "Link Label"
+                name: "label"
+                widget: "string"
+                hint: "The text shown in the menu. Example: Products, About, Contact"
+              - label: "Link URL"
+                name: "href"
+                widget: "string"
+                hint: "Where the link goes. Use relative paths like /products or /contact"
       - label: "Footer"
         name: "footer"
         file: "content/settings/footer.md"
@@ -915,12 +1726,13 @@ collections:
           - label: "Copyright Text"
             name: "copyright"
             widget: "string"
-            default: "\u00a9 2026 Ningbo Siyang Power Tools Co., Ltd."
+            default: "\u00a9 2025 Ningbo Siyang Power Tools Co., Ltd."
             hint: "The copyright notice shown at the bottom of every page."
           - label: "Trust Badge 1"
             name: "badge1"
             widget: "string"
             default: "2-Year Warranty"
+            hint: "First trust badge shown in the footer."
           - label: "Trust Badge 2"
             name: "badge2"
             widget: "string"
@@ -933,3 +1745,40 @@ collections:
             name: "badge4"
             widget: "string"
             default: "CE Certified"
+          - label: "Footer Link Columns"
+            name: "columns"
+            widget: "list"
+            hint: "The columns of links shown in the footer. Each column has a title and list of links."
+            fields:
+              - label: "Column Title"
+                name: "title"
+                widget: "string"
+                hint: "The column heading. Example: Products, Company, Support"
+              - label: "Links"
+                name: "links"
+                widget: "list"
+                fields:
+                  - label: "Link Label"
+                    name: "label"
+                    widget: "string"
+                    hint: "The text shown for the link."
+                  - label: "Link URL"
+                    name: "href"
+                    widget: "string"
+                    hint: "Where the link goes. Use relative paths like /contact"
+          - label: "Social Media Links"
+            name: "socialLinks"
+            widget: "list"
+            hint: "Social media links shown in the footer."
+            required: false
+            fields:
+              - label: "Platform"
+                name: "platform"
+                widget: "select"
+                options: ["LinkedIn", "YouTube", "Facebook", "Twitter", "Instagram", "WeChat"]
+                hint: "Which social media platform?"
+              - label: "Profile URL"
+                name: "href"
+                widget: "string"
+                pattern: ['^https?://.+', 'Please enter a valid URL starting with http:// or https://']
+                hint: "Full URL to the social media profile."

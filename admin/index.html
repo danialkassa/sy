@@ -86,5 +86,29 @@
       });
     })();
   </script>
+  <script src="./webhook-secret.js" onerror="window.__WEBHOOK_SECRET=''"></script>
+  <script>
+    // Regenerate Index button — calls the webhook listener to rebuild index.json from .md files
+    (function() {
+      var btn = document.createElement('button');
+      btn.textContent = 'Regenerate Index';
+      btn.style.cssText = 'position:fixed;bottom:20px;right:20px;z-index:9999;background:#facc15;color:#09090b;border:none;padding:10px 20px;border-radius:8px;font-weight:600;cursor:pointer;font-size:14px;box-shadow:0 4px 12px rgba(0,0,0,0.3);';
+      btn.onclick = function() {
+        btn.textContent = 'Regenerating...';
+        btn.disabled = true;
+        fetch('/webhook/regenerate', { method: 'POST', headers: { 'Authorization': 'Bearer ' + (window.__WEBHOOK_SECRET || '') } })
+          .then(function(r) { return r.json(); })
+          .then(function(data) {
+            btn.textContent = data.success ? 'Done!' : 'Failed';
+            setTimeout(function() { btn.textContent = 'Regenerate Index'; btn.disabled = false; }, 3000);
+          })
+          .catch(function() {
+            btn.textContent = 'Error';
+            setTimeout(function() { btn.textContent = 'Regenerate Index'; btn.disabled = false; }, 3000);
+          });
+      };
+      document.body.appendChild(btn);
+    })();
+  </script>
 </body>
 </html>

@@ -142,7 +142,7 @@
                   <svg class="w-5 h-5 -rotate-90 text-zinc-600 group-hover:text-yellow-400 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
                 </a>
               </div>
-              <div class="grid grid-cols-3 gap-3 p-4">
+              <div id="cms-nav-categories" class="grid grid-cols-3 gap-3 p-4">
                 <a href="./products/drills-drivers.html" class="group flex flex-col justify-center rounded-lg border border-zinc-800 bg-zinc-900/50 hover:border-yellow-400/50 hover:bg-zinc-800/50 transition-all duration-300 p-4">
                   <h4 data-i18n="nav.drillsDrivers" class="text-sm font-semibold text-white group-hover:text-yellow-400 transition-colors mb-0.5">Drills &amp; Drivers</h4>
                   <p data-i18n="nav.drillsDriversDesc" class="text-xs text-zinc-400">Cordless &amp; corded drills</p>
@@ -1623,43 +1623,39 @@
           </div>
         </div>
         <!-- Products Column -->
-        <div>
-          <h3 data-i18n="footer.products" class="font-oswald text-lg font-semibold text-white mb-4 uppercase tracking-wide">Products</h3>
-          <ul class="space-y-2">
-            <li><a data-i18n="categories.drillsDrivers" href="./products/drills-drivers.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">Drills &amp; Drivers</a></li>
-            <li><a data-i18n="categories.saws" href="./products/saws.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">Saws</a></li>
-            <li><a data-i18n="categories.grinders" href="./products/grinders.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">Grinders</a></li>
-            <li><a data-i18n="categories.sanders" href="./products/sanders.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">Sanders</a></li>
-            <li><a data-i18n="categories.impactTools" href="./products/impact-tools.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">Impact Tools</a></li>
-            <li><a data-i18n="categories.comboKits" href="./products/combo-kits.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">Combo Kits</a></li>
-          </ul>
-        </div>
-        <!-- Support & Company Column -->
-        <div>
-          <h3 data-i18n="footer.support" class="font-oswald text-lg font-semibold text-white mb-4 uppercase tracking-wide">Support</h3>
-          <ul class="space-y-2">
-            <li><a data-i18n="contact.title" href="./contact.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">Contact Us</a></li>
-            <li><a data-i18n="footer.faqs" href="./contact.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">FAQs</a></li>
-            <li><a data-i18n="footer.shippingInfo" href="./terms.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">Shipping Info</a></li>
-            <li><a data-i18n="footer.returnsWarranty" href="./terms.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">Returns &amp; Warranty</a></li>
-          </ul>
-          <h3 data-i18n="footer.company" class="font-oswald text-lg font-semibold text-white mb-4 mt-8 uppercase tracking-wide">Company</h3>
-          <ul class="space-y-2">
-            <li><a data-i18n="nav.about" href="./about/index.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">About Us</a></li>
-            <li><a data-i18n="nav.aboutCompany" href="./about/company.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">Company Profile</a></li>
-            <li><a data-i18n="nav.aboutTeam" href="./about/team.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">Our Team</a></li>
-            <li><a data-i18n="nav.aboutCertifications" href="./about/certifications.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">Certifications</a></li>
-            <li><a data-i18n="nav.aboutGlobal" href="./about/global.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">Global Presence</a></li>
-            <li><a href="./about/distributors.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">Distributors</a></li>
-            <li><a data-i18n="nav.aboutOemOdm" href="./about/oem-odm.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">OEM/ODM</a></li>
-              <li><a data-i18n="footer.paymentTerms" href="./about/payment-terms.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">Payment &amp; Trade Terms</a></li>
-            <li><a data-i18n="footer.paymentTerms" href="./about/payment-terms.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">Payment &amp; Trade Terms</a></li>
-            <li><a href="./about/warranty.html" class="text-zinc-400 hover:text-yellow-400 transition-colors" data-i18n="footer.warranty">Warranty</a></li>
-            <li><a href="./about/safety.html" class="text-zinc-400 hover:text-yellow-400 transition-colors" data-i18n="footer.safety">Safety &amp; Compliance</a></li>
-            <li><a data-i18n="nav.aboutBrochure" href="./about/brochure.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">Download Brochure</a></li>
-            <li><a data-i18n="footer.privacy" href="./privacy.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">Privacy Policy</a></li>
-            <li><a data-i18n="footer.terms" href="./terms.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">Terms of Service</a></li>
-          </ul>
+        <div id="cms-footer-columns" class="lg:col-span-2 grid grid-cols-2 gap-8">
+          <div>
+            <h3 data-i18n="footer.products" class="font-oswald text-lg font-semibold text-white mb-4 uppercase tracking-wide">Products</h3>
+            <ul class="space-y-2">
+              <li><a data-i18n="categories.drillsDrivers" href="./products/drills-drivers.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">Drills &amp; Drivers</a></li>
+              <li><a data-i18n="categories.saws" href="./products/saws.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">Saws</a></li>
+              <li><a data-i18n="categories.grinders" href="./products/grinders.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">Grinders</a></li>
+              <li><a data-i18n="categories.sanders" href="./products/sanders.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">Sanders</a></li>
+              <li><a data-i18n="categories.impactTools" href="./products/impact-tools.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">Impact Tools</a></li>
+              <li><a data-i18n="categories.comboKits" href="./products/combo-kits.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">Combo Kits</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 data-i18n="footer.support" class="font-oswald text-lg font-semibold text-white mb-4 uppercase tracking-wide">Support</h3>
+            <ul class="space-y-2">
+              <li><a data-i18n="contact.title" href="./contact.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">Contact Us</a></li>
+              <li><a data-i18n="footer.faqs" href="./contact.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">FAQs</a></li>
+              <li><a data-i18n="footer.shippingInfo" href="./terms.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">Shipping Info</a></li>
+              <li><a data-i18n="footer.returnsWarranty" href="./terms.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">Returns &amp; Warranty</a></li>
+            </ul>
+            <h3 data-i18n="footer.company" class="font-oswald text-lg font-semibold text-white mb-4 mt-8 uppercase tracking-wide">Company</h3>
+            <ul class="space-y-2">
+              <li><a data-i18n="nav.about" href="./about/index.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">About Us</a></li>
+              <li><a data-i18n="nav.aboutCompany" href="./about/company.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">Company Profile</a></li>
+              <li><a data-i18n="nav.aboutTeam" href="./about/team.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">Our Team</a></li>
+              <li><a data-i18n="nav.aboutCertifications" href="./about/certifications.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">Certifications</a></li>
+              <li><a data-i18n="nav.aboutGlobal" href="./about/global.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">Global Presence</a></li>
+              <li><a href="./about/distributors.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">Distributors</a></li>
+              <li><a data-i18n="nav.aboutOemOdm" href="./about/oem-odm.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">OEM/ODM</a></li>
+              <li><a href="./about/warranty.html" class="text-zinc-400 hover:text-yellow-400 transition-colors" data-i18n="footer.warranty">Warranty</a></li>
+              <li><a href="./about/safety.html" class="text-zinc-400 hover:text-yellow-400 transition-colors" data-i18n="footer.safety">Safety &amp; Compliance</a></li>
+            </ul>
+          </div>
         </div>
         <!-- Newsletter Column -->
         <div>
@@ -1678,7 +1674,7 @@
           </div>
           <div class="mt-6">
             <h4 data-i18n="footer.connect" class="text-sm font-medium text-zinc-300 mb-3">Connect With Us</h4>
-            <div class="flex items-center gap-3">
+            <div id="cms-social-links" class="flex items-center gap-3">
                             <a href="#" onclick="event.preventDefault();document.getElementById('wechat-qr-tooltip').classList.toggle('hidden')" class="w-11 h-11 bg-zinc-800 rounded-lg flex items-center justify-center text-zinc-400 hover:bg-green-400 hover:text-zinc-900 transition-colors relative" aria-label="WeChat">
                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 01.213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 00.167-.054l1.9-1.106a.614.614 0 01.486-.067c1.084.297 2.248.464 3.071.464h.055c-.092-.37-.14-.753-.14-1.146 0-3.545 3.2-6.418 7.146-6.418h.06C15.37 5.084 12.39 2.188 8.691 2.188zm8.614 8.607c-3.45 0-6.246 2.468-6.246 5.513 0 3.046 2.797 5.514 6.246 5.514.69 0 1.36-.1 1.99-.284a.478.478 0 01.38.053l1.48.862a.255.255 0 00.13.042c.125 0 .227-.103.227-.23 0-.056-.023-.11-.038-.166l-.304-1.153a.462.462 0 01.166-.518C22.427 19.338 23.3 17.6 23.3 16.308c0-3.045-2.797-5.513-5.995-5.513z"/></svg>
                 <span data-i18n="messaging.wechatQRTitle" id="wechat-qr-tooltip" class="hidden absolute bottom-full right-0 mb-2 bg-zinc-800 border border-zinc-700 rounded-lg p-2 text-xs text-zinc-300 whitespace-nowrap">Scan QR code on WeChat</span>
@@ -1698,7 +1694,7 @@
     <div class="border-t border-zinc-800">
       <div class="container mx-auto px-4 py-6">
         <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-          <p class="text-sm text-zinc-500">&copy; 2026 Ningbo Siyang Tools. All rights reserved.</p>
+          <p id="cms-footer-copyright" class="text-sm text-zinc-500">&copy; 2026 Ningbo Siyang Tools. All rights reserved.</p>
           <div class="flex items-center gap-6">
             <a data-i18n="footer.privacy" href="./privacy.html" class="text-sm text-zinc-500 hover:text-yellow-400 transition-colors">Privacy Policy</a>
             <a data-i18n="footer.terms" href="./terms.html" class="text-sm text-zinc-500 hover:text-yellow-400 transition-colors">Terms of Service</a>
@@ -1911,6 +1907,7 @@
   <script src="./assets/js/product-selector.js" defer></script>
   <script src="./assets/js/product-compare.js" defer></script>
   <script src="./assets/js/quote-cart.js" defer></script>
+  <script src="./assets/js/cms-loader.js" defer></script>
 <div id="messaging-fab" class="fixed bottom-6 right-6 z-50">
   <div id="fab-options" class="hidden flex flex-col gap-3 mb-3">
     <a data-i18n="messaging.whatsapp" href="https://wa.me/8657488888888" target="_blank" rel="noopener noreferrer" data-site-whatsapp class="flex items-center gap-2 bg-green-600 hover:bg-green-500 text-white px-4 py-2 rounded-full shadow-lg transition-colors text-sm">

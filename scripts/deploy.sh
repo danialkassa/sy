@@ -58,7 +58,6 @@ rsync -avz --delete \
     --exclude='.git' \
     --exclude='node_modules' \
     --exclude='.ai-tasks' \
-    --exclude='scripts' \
     --exclude='fix-lang-selector.ps1' \
     "${PROJECT_DIR}/" "${SSH_USER}@${SSH_HOST}:${REMOTE_DIR}/"
 
@@ -101,9 +100,9 @@ ssh "${SSH_USER}@${SSH_HOST}" '
     if [ -n "$GITEA_CONF" ] && [ -f "$GITEA_CONF" ]; then
         # Update ROOT_URL so Gitea knows its proxied URL
         if grep -q "ROOT_URL" "$GITEA_CONF"; then
-            sed -i "s|ROOT_URL.*|ROOT_URL = http://'"${SSH_HOST}"'/git/|" "$GITEA_CONF"
+            sed -i "s|ROOT_URL.*|ROOT_URL = https://siyang.tools/|" "$GITEA_CONF"
         else
-            sed -i "/\[server\]/a ROOT_URL = http://'"${SSH_HOST}"'/git/" "$GITEA_CONF"
+            sed -i "/\[server\]/a ROOT_URL = https://siyang.tools/" "$GITEA_CONF"
         fi
 
         # Restart Gitea
@@ -126,10 +125,52 @@ ssh "${SSH_USER}@${SSH_HOST}" '
 '
 
 # ============================================================
-# 7. Verify deployment
+# 7. Set up webhook listener service
+# ============================================================
+log "Setting up webhook listener service..."
+ssh "${SSH_USER}@${SSH_HOST}" '
+    # Install Node.js if not present
+    if ! command -v node &> /dev/null; then
+        echo "  Installing Node.js..."
+        curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+        apt-get install -y nodejs
+    fi
+    echo "  Node.js version: $(node --version)"
+
+    # Copy systemd service file
+    cp '"${REMOTE_DIR}"'/scripts/siyang-webhook.service /etc/systemd/system/siyang-webhook.service
+
+    # Generate or reuse webhook secret
+    SECRET_FILE=/etc/siyang-webhook-secret
+    if [ -f "$SECRET_FILE" ]; then
+        WEBHOOK_SECRET=$(cat "$SECRET_FILE")
+        echo "  Reusing existing WEBHOOK_SECRET"
+    else
+        WEBHOOK_SECRET=$(openssl rand -hex 32)
+        echo "$WEBHOOK_SECRET" > "$SECRET_FILE"
+        chmod 600 "$SECRET_FILE"
+        echo "  Generated new WEBHOOK_SECRET — save this for Gitea webhook config:"
+        echo "  $WEBHOOK_SECRET"
+    fi
+
+    # Set webhook secret in systemd service (replace only the Environment line)
+    sed -i "s|Environment=WEBHOOK_SECRET=change-me-in-production|Environment=WEBHOOK_SECRET=$WEBHOOK_SECRET|" /etc/systemd/system/siyang-webhook.service
+
+    # Write webhook secret JS file for admin Regenerate Index button
+    echo "window.__WEBHOOK_SECRET = '$WEBHOOK_SECRET';" > '"${REMOTE_DIR}"'/admin/webhook-secret.js
+
+    # Enable and start the service
+    systemctl daemon-reload
+    systemctl enable siyang-webhook
+    systemctl restart siyang-webhook
+    echo "  Webhook listener started on port 3099"
+'
+
+# ============================================================
+# 8. Verify deployment
 # ============================================================
 log "Verifying deployment..."
-HTTP_CODE=$(ssh "${SSH_USER}@${SSH_HOST}" "curl -s -o /dev/null -w '%{http_code}' http://localhost/" 2>/dev/null || echo "000")
+HTTP_CODE=$(ssh "${SSH_USER}@${SSH_HOST}" "curl -sL -o /dev/null -w '%{http_code}' http://localhost/" 2>/dev/null || echo "000")
 
 if [ "$HTTP_CODE" = "200" ]; then
     log "Website is LIVE at http://${SSH_HOST}/"

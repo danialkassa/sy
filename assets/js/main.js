@@ -6,6 +6,11 @@
 (function() {
   'use strict';
 
+  var _t = function(key, fallback) {
+    if (typeof i18n !== 'undefined' && i18n.t) { var val = i18n.t(key); return val && val !== key ? val : fallback; }
+    return fallback;
+  };
+
   // ===== Hero Carousel (if present) =====
   const heroSlides = document.querySelectorAll('.hero-slide');
   const heroDots = document.querySelectorAll('.hero-dot');
@@ -255,13 +260,13 @@ function handleNewsletterSubscribe(e) {
   var input = e.target.closest('div').querySelector('input[type="email"]') || document.querySelector('#newsletter-email');
   if (!input) return;
   var email = input.value.trim();
-  if (!email || email.indexOf('@') === -1) { alert('Please enter a valid email address.'); return; }
+  if (!email || email.indexOf('@') === -1) { alert(_t('quote.errorEmail','Please enter a valid email address.')); return; }
   var recipient = (typeof SITE_CONFIG !== 'undefined') ? SITE_CONFIG.email : 'sales@ningbosiyang.com';
-  var subject = encodeURIComponent('Newsletter Subscription Request');
-  var body = encodeURIComponent('Please add ' + email + ' to the Ningbo Siyang newsletter mailing list.\n\nThank you.');
+  var subject = encodeURIComponent(_t('newsletter.subject','Newsletter Subscription Request'));
+  var body = encodeURIComponent(_t('newsletter.bodyText','Please add ') + email + _t('newsletter.bodyText2',' to the Ningbo Siyang newsletter mailing list.\n\nThank you.'));
   window.location.href = 'mailto:' + recipient + '?subject=' + subject + '&body=' + body;
   input.value = '';
-  alert('Your subscription request has been prepared. Please send the email that was opened in your email client.');
+  alert(_t('newsletter.success','Your subscription request has been prepared. Please send the email that was opened in your email client.'));
 }
 
 document.addEventListener('click', function(e) {

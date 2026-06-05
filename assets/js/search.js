@@ -1,4 +1,8 @@
 var SearchEngine = (function() {
+  var _t = function(key, fallback) {
+    if (typeof i18n !== 'undefined' && i18n.t) { var val = i18n.t(key); return val && val !== key ? val : fallback; }
+    return fallback;
+  };
   var productIndex = [];
   var isLoading = false;
   var isLoaded = false;
@@ -155,7 +159,7 @@ var SearchEngine = (function() {
         var base = getBasePath();
 
         if (matches.length === 0) {
-          results.innerHTML = '<div class="text-center py-8 text-zinc-500" data-i18n="search.noResults">No products found for "' + query.replace(/</g, '&lt;') + '"</div>';
+          results.innerHTML = '<div class="text-center py-8 text-zinc-500" data-i18n="search.noResults">' + _t("search.noResultsFor","No products found for") + ' "' + query.replace(/</g, '&lt;') + '"</div>';
           return;
         }
 
@@ -190,8 +194,7 @@ document.addEventListener('languageChanged', function() {
   if (!overlay) return;
   var input = document.getElementById('search-input');
   if (input && !input.value) {
-    var placeholder = (typeof i18n !== 'undefined' && i18n.t) ? i18n.t('search.placeholder', 'Search products by name, SKU, or category...') : 'Search products by name, SKU, or category...';
-    input.setAttribute('placeholder', placeholder);
+    input.setAttribute('placeholder', _t('search.placeholder', 'Search products by name, SKU, or category...'));
   }
   if (typeof i18n !== 'undefined' && i18n.applyTranslations) {
     i18n.applyTranslations();

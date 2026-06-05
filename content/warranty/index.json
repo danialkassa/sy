@@ -1,50 +1,27 @@
 [
   {
-    "id": "war-001",
+    "title": "Brushless Motor Extended Warranty",
+    "warrantyType": "motor",
+    "warrantyPeriod": "2 Years",
+    "description": "All Siyang brushless motor products include an extended 2-year warranty on the motor assembly. This covers motor failure due to manufacturing defects under normal operating conditions.",
+    "exclusions": [
+      "Water or liquid damage to motor",
+      "Damage from dropping or impact",
+      "Use with non-approved batteries"
+    ],
+    "claimProcess": "1. Contact support with your product serial number.\\n2. Provide proof of purchase and description of the issue.\\n3. Our technical team will diagnose remotely first.\\n4. If confirmed, ship to service center for motor replacement."
+  },
+  {
     "title": "Standard Warranty",
     "warrantyType": "standard",
-    "warrantyPeriod": "1 year",
-    "description": "Covers manufacturing defects in materials and workmanship under normal use. Siyang Power Tools will repair or replace any product that fails due to a manufacturing defect within the warranty period, free of charge.",
+    "warrantyPeriod": "1 Year",
+    "description": "All Siyang power tools are covered by a standard 1-year warranty from the date of purchase. This warranty covers manufacturing defects in materials and workmanship under normal use.",
     "exclusions": [
-      "Normal wear and tear of consumable parts (brushes, belts, blades, bits)",
-      "Damage caused by misuse, abuse, or negligence",
-      "Unauthorized modifications or repairs",
-      "Damage from use of non-original accessories or attachments",
-      "Cosmetic damage that does not affect performance",
-      "Damage caused by improper storage or exposure to corrosive environments"
+      "Normal wear and tear",
+      "Damage from misuse or abuse",
+      "Consumable parts (blades, bits, belts)",
+      "Modifications or unauthorized repairs"
     ],
-    "claimProcess": "Contact the authorized distributor where the product was purchased with your original proof of purchase. The distributor will assess the defect and arrange for repair or replacement. If purchased directly, email warranty@siyangtools.com with your order number and a description of the defect."
-  },
-  {
-    "id": "war-002",
-    "title": "Brushless Motor Warranty",
-    "warrantyType": "brushless_motor",
-    "warrantyPeriod": "2 years",
-    "description": "Extended coverage specifically for the brushless motor assembly in eligible Siyang brushless power tools. This warranty covers motor stator, rotor, bearing, and electronic controller failures due to manufacturing defects under normal operating conditions.",
-    "exclusions": [
-      "Damage from overloading or stalling the motor beyond rated capacity",
-      "Water or liquid ingress into the motor housing",
-      "Damage from use with incorrect voltage or power sources",
-      "Normal wear of motor bearings after 500 hours of operation",
-      "Damage from operation in environments exceeding rated temperature specifications",
-      "Any non-motor components (switches, housings, chucks, gearboxes)"
-    ],
-    "claimProcess": "Submit a motor warranty claim through any authorized Siyang service center. Provide the tool's serial number, original purchase receipt, and a detailed description of the motor failure. Siyang reserves the right to inspect the motor to verify the defect falls within warranty coverage."
-  },
-  {
-    "id": "war-003",
-    "title": "Extended Warranty",
-    "warrantyType": "extended",
-    "warrantyPeriod": "3 years",
-    "description": "Comprehensive coverage for the entire power tool including all mechanical, electrical, and electronic components. This premium warranty is available for select professional-grade Siyang products and must be registered within 30 days of purchase.",
-    "exclusions": [
-      "Consumable parts (brushes, blades, bits, belts, filters)",
-      "Battery packs and chargers (covered under separate battery warranty)",
-      "Damage from commercial rental use",
-      "Damage from use in hazardous or explosive atmospheres",
-      "Modification of the product from its original specification",
-      "Failure to perform routine maintenance as specified in the user manual"
-    ],
-    "claimProcess": "Register your product at warranty.siyangtools.com within 30 days of purchase to activate the extended warranty. For claims, contact our dedicated extended warranty support line at +86 574 5588 9900 or email extendedwarranty@siyangtools.com. Provide your registration number, serial number, and proof of purchase. A Siyang technician will be assigned to your case within 2 business days."
+    "claimProcess": "1. Contact your distributor with proof of purchase.\\n2. Describe the defect and provide photos.\\n3. Ship the tool to the nearest service center.\\n4. We will repair or replace within 14 business days."
   }
 ]

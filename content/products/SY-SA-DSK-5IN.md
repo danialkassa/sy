@@ -1,0 +1,55 @@
+---
+name: "Disc/Belt Sander Combo 4.3A"
+sku: "SY-SA-DSK-5IN"
+category: "sanders"
+categoryLabel: "Sanders"
+brand: "Ningbo Siyang"
+images:
+
+  - "../images/unsplach/drill-home/10056.jpg"
+  - "../images/unsplach/drill-home/10056-2.jpg"
+  - "../images/unsplach/drill-home/10056-3.jpg"
+description: "Versatile disc and belt sander combo with 4.3 Amp motor. Features a 5 inch disc and 4×24 inch belt with cast iron table for stable, precise sanding. Ideal for workshop applications requiring both belt and disc sanding capabilities."
+userBenefits:
+
+  - "Dual belt and disc stations in one benchtop unit save workshop space and budget versus two separate machines"
+  - "Cast iron table tilts 0-45° for bevel sanding and precise angle work on both belt and disc"
+  - "4×24\" belt provides generous sanding surface for larger workpieces and longer belt life between changes"
+  - "5\" disc with adjustable miter gauge enables accurate edge sanding and contour shaping"
+  - "Dust port connects to standard shop vacuums for cleaner air and better visibility while sanding"
+specs:
+  voltage: "120V AC, 60Hz"
+  motorType: "4.3 Amp"
+  padSize: "5\" disc"
+  speed: "3,400 RPM (disc) / 1,250 SFPM (belt)"
+  orbitDiameter: "N/A"
+  dustCollection: "Dust port"
+  padType: "N/A"
+  weightToolOnly: "35.0 lbs (15.9 kg)"
+  overallLength: "18.0\""
+  soundPower: "88 dB(A)"
+  vibrationLevel: "2.0 m/s²"
+  cordLength: "6 ft (1.8 m)"
+  beltSize: "4×24\""
+  switchType: "Toggle"
+  tableTilt: "0-45°"
+  miterGauge: "Included"
+compliance:
+  ce: true
+  rohs: true
+  gs: true
+  ul: false
+  eec: true
+inStock: true
+moq: "200 units"
+leadTime: "35-50 days"
+warranty: "1 year standard"
+featured: false
+relatedProducts:
+
+  - "SY-SA-BLT-3X21"
+  - "SY-GR-BCH-6IN"
+downloads:
+  specSheet: "/downloads/spec-sheets/SY-SA-DSK-5IN.pdf"
+  manual: "/downloads/manuals/SY-SA-DSK-5IN.pdf"
+---

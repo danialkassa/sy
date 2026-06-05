@@ -24,6 +24,7 @@
   <script src="../assets/js/site-config.js"></script>
   <script src="../assets/js/i18n.js"></script>
   <script src="../assets/js/main.js" defer></script>
+  <script src="../assets/js/cms-loader.js" defer></script>
 </head>
 <body class="min-h-screen flex flex-col bg-zinc-950 text-white font-sans">
   <header class="sticky top-0 z-50 w-full border-b border-zinc-800 bg-zinc-950/95 backdrop-blur supports-[backdrop-filter]:bg-zinc-950/80">
@@ -65,17 +66,17 @@
             <div class="dropdown-panel absolute top-full left-0 mt-1 w-[720px] bg-zinc-900 border border-zinc-800 rounded-xl shadow-2xl shadow-black/50 overflow-hidden z-50">
               <div class="p-4 border-b border-zinc-800">
                 <a href="../products/index.html" class="group flex items-center justify-between hover:text-yellow-400 transition-colors">
-                  <div><h3 class="text-base font-semibold text-white group-hover:text-yellow-400 transition-colors">All Products</h3><p class="text-sm text-zinc-500">Browse our complete catalog</p></div>
+                  <div><h3 class="text-base font-semibold text-white group-hover:text-yellow-400 transition-colors">All Products</h3><p data-i18n="distributors.browseCatalog" class="text-sm text-zinc-500">Browse our complete catalog</p></div>
                   <svg class="w-5 h-5 -rotate-90 text-zinc-600 group-hover:text-yellow-400 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
                 </a>
               </div>
               <div class="grid grid-cols-3 gap-3 p-4">
-                <a href="../products/drills-drivers.html" class="group flex flex-col justify-center rounded-lg border border-zinc-800 bg-zinc-900/50 hover:border-yellow-400/50 hover:bg-zinc-800/50 transition-all duration-300 p-4"><h4 class="text-sm font-semibold text-white group-hover:text-yellow-400 transition-colors mb-0.5">Drills & Drivers</h4><p class="text-xs text-zinc-400">Cordless & corded drills</p></a>
-                <a href="../products/saws.html" class="group flex flex-col justify-center rounded-lg border border-zinc-800 bg-zinc-900/50 hover:border-yellow-400/50 hover:bg-zinc-800/50 transition-all duration-300 p-4"><h4 class="text-sm font-semibold text-white group-hover:text-yellow-400 transition-colors mb-0.5">Saws</h4><p class="text-xs text-zinc-400">Circular, miter & jigsaws</p></a>
-                <a href="../products/grinders.html" class="group flex flex-col justify-center rounded-lg border border-zinc-800 bg-zinc-900/50 hover:border-yellow-400/50 hover:bg-zinc-800/50 transition-all duration-300 p-4"><h4 class="text-sm font-semibold text-white group-hover:text-yellow-400 transition-colors mb-0.5">Grinders</h4><p class="text-xs text-zinc-400">Angle & bench grinders</p></a>
-                <a href="../products/sanders.html" class="group flex flex-col justify-center rounded-lg border border-zinc-800 bg-zinc-900/50 hover:border-yellow-400/50 hover:bg-zinc-800/50 transition-all duration-300 p-4"><h4 class="text-sm font-semibold text-white group-hover:text-yellow-400 transition-colors mb-0.5">Sanders</h4><p class="text-xs text-zinc-400">Orbital & belt sanders</p></a>
-                <a href="../products/impact-tools.html" class="group flex flex-col justify-center rounded-lg border border-zinc-800 bg-zinc-900/50 hover:border-yellow-400/50 hover:bg-zinc-800/50 transition-all duration-300 p-4"><h4 class="text-sm font-semibold text-white group-hover:text-yellow-400 transition-colors mb-0.5">Impact Tools</h4><p class="text-xs text-zinc-400">Impact drivers & wrenches</p></a>
-                <a href="../products/combo-kits.html" class="group flex flex-col justify-center rounded-lg border border-zinc-800 bg-zinc-900/50 hover:border-yellow-400/50 hover:bg-zinc-800/50 transition-all duration-300 p-4"><h4 class="text-sm font-semibold text-white group-hover:text-yellow-400 transition-colors mb-0.5">Combo Kits</h4><p class="text-xs text-zinc-400">Complete tool sets</p></a>
+                <a href="../products/drills-drivers.html" class="group flex flex-col justify-center rounded-lg border border-zinc-800 bg-zinc-900/50 hover:border-yellow-400/50 hover:bg-zinc-800/50 transition-all duration-300 p-4"><h4 class="text-sm font-semibold text-white group-hover:text-yellow-400 transition-colors mb-0.5" data-i18n="nav.drillsDrivers">Drills & Drivers</h4><p class="text-xs text-zinc-400" data-i18n="nav.drillsDriversDesc">Cordless & corded drills</p></a>
+                <a href="../products/saws.html" class="group flex flex-col justify-center rounded-lg border border-zinc-800 bg-zinc-900/50 hover:border-yellow-400/50 hover:bg-zinc-800/50 transition-all duration-300 p-4"><h4 class="text-sm font-semibold text-white group-hover:text-yellow-400 transition-colors mb-0.5" data-i18n="nav.saws">Saws</h4><p class="text-xs text-zinc-400" data-i18n="nav.sawsDesc">Circular, miter & jigsaws</p></a>
+                <a href="../products/grinders.html" class="group flex flex-col justify-center rounded-lg border border-zinc-800 bg-zinc-900/50 hover:border-yellow-400/50 hover:bg-zinc-800/50 transition-all duration-300 p-4"><h4 class="text-sm font-semibold text-white group-hover:text-yellow-400 transition-colors mb-0.5" data-i18n="nav.grinders">Grinders</h4><p class="text-xs text-zinc-400" data-i18n="nav.grindersDesc">Angle & bench grinders</p></a>
+                <a href="../products/sanders.html" class="group flex flex-col justify-center rounded-lg border border-zinc-800 bg-zinc-900/50 hover:border-yellow-400/50 hover:bg-zinc-800/50 transition-all duration-300 p-4"><h4 class="text-sm font-semibold text-white group-hover:text-yellow-400 transition-colors mb-0.5" data-i18n="nav.sanders">Sanders</h4><p class="text-xs text-zinc-400" data-i18n="nav.sandersDesc">Orbital & belt sanders</p></a>
+                <a href="../products/impact-tools.html" class="group flex flex-col justify-center rounded-lg border border-zinc-800 bg-zinc-900/50 hover:border-yellow-400/50 hover:bg-zinc-800/50 transition-all duration-300 p-4"><h4 class="text-sm font-semibold text-white group-hover:text-yellow-400 transition-colors mb-0.5" data-i18n="nav.impactTools">Impact Tools</h4><p class="text-xs text-zinc-400" data-i18n="nav.impactToolsDesc">Impact drivers & wrenches</p></a>
+                <a href="../products/combo-kits.html" class="group flex flex-col justify-center rounded-lg border border-zinc-800 bg-zinc-900/50 hover:border-yellow-400/50 hover:bg-zinc-800/50 transition-all duration-300 p-4"><h4 class="text-sm font-semibold text-white group-hover:text-yellow-400 transition-colors mb-0.5" data-i18n="nav.comboKits">Combo Kits</h4><p class="text-xs text-zinc-400" data-i18n="nav.comboKitsDesc">Complete tool sets</p></a>
               </div>
             </div>
           </div>
@@ -84,30 +85,30 @@
             <div class="dropdown-panel absolute top-full left-0 mt-1 w-[400px] bg-zinc-900 border border-zinc-800 rounded-xl shadow-2xl shadow-black/50 overflow-hidden z-50">
               <div class="p-4 border-b border-zinc-800">
                 <a href="index.html" class="group flex items-center justify-between hover:text-yellow-400 transition-colors">
-                  <div><h3 class="text-base font-semibold text-white group-hover:text-yellow-400 transition-colors">About Ningbo Siyang</h3><p class="text-sm text-zinc-500">Professional power tools manufacturer since 1998</p></div>
+                  <div><h3 data-i18n="distributors.aboutNingbo" class="text-base font-semibold text-white group-hover:text-yellow-400 transition-colors">About Ningbo Siyang</h3><p data-i18n="distributors.aboutDesc" class="text-sm text-zinc-500">Professional power tools manufacturer since 1998</p></div>
                   <svg class="w-5 h-5 -rotate-90 text-zinc-600 group-hover:text-yellow-400 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
                 </a>
               </div>
               <div class="p-2">
                 <a href="company.html" class="flex items-start gap-3 p-3 rounded-lg hover:bg-zinc-800 transition-colors group">
                   <div class="w-10 h-10 bg-zinc-800 group-hover:bg-yellow-400/20 rounded-lg flex items-center justify-center shrink-0 transition-colors"><svg class="w-5 h-5 text-yellow-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
-                  <div><h4 class="text-sm font-medium text-white group-hover:text-yellow-400 transition-colors">Company Profile</h4><p class="text-xs text-zinc-500">Learn about our history and mission</p></div>
+                  <div><h4 data-i18n="distributors.companyProfile" class="text-sm font-medium text-white group-hover:text-yellow-400 transition-colors">Company Profile</h4><p data-i18n="distributors.companyProfileDesc" class="text-xs text-zinc-500">Learn about our history and mission</p></div>
                 </a>
                 <a href="team.html" class="flex items-start gap-3 p-3 rounded-lg hover:bg-zinc-800 transition-colors group">
                   <div class="w-10 h-10 bg-zinc-800 group-hover:bg-yellow-400/20 rounded-lg flex items-center justify-center shrink-0 transition-colors"><svg class="w-5 h-5 text-yellow-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-                  <div><h4 class="text-sm font-medium text-white group-hover:text-yellow-400 transition-colors">Our Team</h4><p class="text-xs text-zinc-500">Meet the experts behind our products</p></div>
+                  <div><h4 class="text-sm font-medium text-white group-hover:text-yellow-400 transition-colors">Our Team</h4><p data-i18n="distributors.meetExperts" class="text-xs text-zinc-500">Meet the experts behind our products</p></div>
                 </a>
                 <a href="certifications.html" class="flex items-start gap-3 p-3 rounded-lg hover:bg-zinc-800 transition-colors group">
                   <div class="w-10 h-10 bg-zinc-800 group-hover:bg-yellow-400/20 rounded-lg flex items-center justify-center shrink-0 transition-colors"><svg class="w-5 h-5 text-yellow-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-                  <div><h4 class="text-sm font-medium text-white group-hover:text-yellow-400 transition-colors">Certifications</h4><p class="text-xs text-zinc-500">Quality standards and certifications</p></div>
+                  <div><h4 class="text-sm font-medium text-white group-hover:text-yellow-400 transition-colors">Certifications</h4><p data-i18n="distributors.qualityStandards" class="text-xs text-zinc-500">Quality standards and certifications</p></div>
                 </a>
                 <a href="global.html" class="flex items-start gap-3 p-3 rounded-lg hover:bg-zinc-800 transition-colors group">
                   <div class="w-10 h-10 bg-zinc-800 group-hover:bg-yellow-400/20 rounded-lg flex items-center justify-center shrink-0 transition-colors"><svg class="w-5 h-5 text-yellow-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-                  <div><h4 class="text-sm font-medium text-white group-hover:text-yellow-400 transition-colors">Global Presence</h4><p class="text-xs text-zinc-500">Our worldwide operations</p></div>
+                  <div><h4 data-i18n="distributors.globalPresence" class="text-sm font-medium text-white group-hover:text-yellow-400 transition-colors">Global Presence</h4><p data-i18n="distributors.worldwideOps" class="text-xs text-zinc-500">Our worldwide operations</p></div>
                 </a>
                 <a href="distributors.html" class="flex items-start gap-3 p-3 rounded-lg bg-yellow-400/10 border border-yellow-400/20 hover:bg-zinc-800 transition-colors group">
                   <div class="w-10 h-10 bg-zinc-800 group-hover:bg-yellow-400/20 rounded-lg flex items-center justify-center shrink-0 transition-colors"><svg class="w-5 h-5 text-yellow-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-                  <div><h4 class="text-sm font-medium text-white group-hover:text-yellow-400 transition-colors" data-i18n="nav.distributors">Distributors</h4><p class="text-xs text-zinc-500">Find a distributor near you</p></div>
+                  <div><h4 class="text-sm font-medium text-white group-hover:text-yellow-400 transition-colors" data-i18n="nav.distributors">Distributors</h4><p class="text-xs text-zinc-500" data-i18n="nav.distributorsDesc">Find a distributor near you</p></div>
                 </a>
               </div>
             </div>
@@ -141,25 +142,12 @@
           <span class="text-xs font-semibold text-yellow-400 uppercase tracking-widest">6 Regions · Worldwide Coverage</span>
         </div>
         <h1 class="font-oswald text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-none mb-4">GLOBAL <span class="text-yellow-400">DISTRIBUTION</span> NETWORK</h1>
-        <p class="text-lg text-zinc-400 max-w-2xl leading-relaxed">Our authorized distributors and agents provide local support, inventory, and after-sales service across six continents. Find a partner near you or apply to become a Ningbo Siyang distributor.</p>
+        <p data-i18n="distributors.subtitle" class="text-lg text-zinc-400 max-w-2xl leading-relaxed">Our authorized distributors and agents provide local support, inventory, and after-sales service across six continents. Find a partner near you or apply to become a Ningbo Siyang distributor.</p>
       </div>
     </section>
 
     <section class="py-12 bg-zinc-950">
-      <div class="container mx-auto px-4">
-        <div class="flex flex-wrap gap-3 justify-center mb-10">
-          <button data-region="all" class="region-btn active px-5 py-2 rounded-full border border-zinc-700 text-sm font-medium text-zinc-300 hover:text-yellow-400 hover:border-yellow-400 transition-colors">All Regions</button>
-          <button data-region="asia-pacific" class="region-btn px-5 py-2 rounded-full border border-zinc-700 text-sm font-medium text-zinc-300 hover:text-yellow-400 hover:border-yellow-400 transition-colors">Asia-Pacific</button>
-          <button data-region="europe" class="region-btn px-5 py-2 rounded-full border border-zinc-700 text-sm font-medium text-zinc-300 hover:text-yellow-400 hover:border-yellow-400 transition-colors">Europe</button>
-          <button data-region="north-america" class="region-btn px-5 py-2 rounded-full border border-zinc-700 text-sm font-medium text-zinc-300 hover:text-yellow-400 hover:border-yellow-400 transition-colors">North America</button>
-          <button data-region="middle-east" class="region-btn px-5 py-2 rounded-full border border-zinc-700 text-sm font-medium text-zinc-300 hover:text-yellow-400 hover:border-yellow-400 transition-colors">Middle East</button>
-          <button data-region="africa" class="region-btn px-5 py-2 rounded-full border border-zinc-700 text-sm font-medium text-zinc-300 hover:text-yellow-400 hover:border-yellow-400 transition-colors">Africa</button>
-          <button data-region="south-america" class="region-btn px-5 py-2 rounded-full border border-zinc-700 text-sm font-medium text-zinc-300 hover:text-yellow-400 hover:border-yellow-400 transition-colors">South America</button>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="distributors-grid">
-        </div>
-      </div>
+      <div id="cms-distributors-grid" class="container mx-auto px-4"></div>
     </section>
 
     <section class="py-16 bg-zinc-900 border-t border-zinc-800">
@@ -169,10 +157,10 @@
           <div class="relative max-w-2xl mx-auto">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-400/10 border border-yellow-400/20 mb-5">
               <svg class="w-3.5 h-3.5 text-yellow-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              <span class="text-xs font-semibold text-yellow-400 uppercase tracking-widest">Partner With Us</span>
+              <span data-i18n="distributors.partnerWithUs" class="text-xs font-semibold text-yellow-400 uppercase tracking-widest">Partner With Us</span>
             </div>
             <h2 class="font-oswald text-3xl md:text-4xl font-bold text-white mb-3" data-i18n-html="distributors.becomeDistributor">BECOME A <span class="text-yellow-400">DISTRIBUTOR</span></h2>
-            <p class="text-zinc-400 leading-relaxed mb-6">Join our global network of authorized distributors. We provide competitive pricing, marketing support, training materials, and dedicated account management to help you succeed.</p>
+            <p data-i18n="distributors.joinDesc" class="text-zinc-400 leading-relaxed mb-6" data-i18n="distributors.joinText" data-i18n="distributors.joinText">Join our global network of authorized distributors. We provide competitive pricing, marketing support, training materials, and dedicated account management to help you succeed.</p>
             <a href="mailto:sales@ningbosiyang.com?subject=Distributor%20Application%20-%20Ningbo%20Siyang" class="inline-flex items-center justify-center h-12 px-8 bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-bold rounded-md shadow-xl shadow-yellow-400/25 transition-colors">
               <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
               Apply Now
@@ -226,7 +214,7 @@
             '</div>' +
           '</div>' +
           '<div class="space-y-2 text-sm">' +
-            '<p class="text-zinc-400"><span class="text-zinc-500">Contact:</span> ' + escapeDist(d.contact) + '</p>' +
+            '<p class="text-zinc-400"><span class="text-zinc-500">' + _t("common.contactLabel","Contact:") + '</span> ' + escapeDist(d.contact) + '</p>' +
             '<p><a href="mailto:' + escapeDist(d.email) + '" class="text-yellow-400 hover:text-yellow-300 transition-colors">' + escapeDist(d.email) + '</a></p>' +
             '<p><a href="tel:' + escapeDist(d.phone).replace(/\s+/g, '') + '" class="text-zinc-400 hover:text-white transition-colors">' + escapeDist(d.phone) + '</a></p>' +
             '<p class="text-zinc-500 text-xs mt-2">' + escapeDist(d.address) + '</p>' +
@@ -237,7 +225,7 @@
         '</div>';
       });
       if (!html) {
-        html = '<div class="col-span-full text-center py-16"><p class="text-zinc-500 text-lg">No distributors found in this region.</p><p class="text-zinc-600 text-sm mt-2">Contact us to inquire about distribution opportunities.</p></div>';
+        html = '<div class="col-span-full text-center py-16"><p data-i18n="distributors.noDistributors" class="text-zinc-500 text-lg">No distributors found in this region.</p><p data-i18n="distributors.contactInquiry" class="text-zinc-600 text-sm mt-2">Contact us to inquire about distribution opportunities.</p></div>';
       }
       grid.innerHTML = html;
     }

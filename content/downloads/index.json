@@ -1,32 +1,12 @@
 [
   {
-    "id": "dl-001",
-    "title": "Siyang Power Tools — 2026 Product Catalog",
+    "title": "2025 Product Catalog",
     "category": "Catalog",
-    "file": "/downloads/siyang-product-catalog-2026-en.pdf",
     "language": "en",
-    "version": "2026.1",
-    "date": "2026-02-01",
-    "description": "Complete product catalog featuring Siyang's full line of corded and cordless power tools including drill/drivers, angle grinders, circular saws, rotary hammers, and accessories. Includes specifications, part numbers, and packaging information for all current models."
-  },
-  {
-    "id": "dl-002",
-    "title": "SY-DD20V-BL 20V Brushless Drill/Driver — Specification Sheet",
-    "category": "Spec Sheet",
-    "file": "/downloads/sy-dd20v-bl-spec-sheet-en.pdf",
-    "language": "en",
-    "version": "2.0",
-    "date": "2025-11-10",
-    "description": "Detailed technical specification sheet for the SY-DD20V-BL 20V Brushless Drill/Driver. Includes performance curves, torque ratings, dimensional drawings, battery compatibility matrix, and compliance certifications."
-  },
-  {
-    "id": "dl-003",
-    "title": "Siyang 20V Platform — Firmware Update v3.2.1",
-    "category": "Firmware",
-    "file": "/downloads/siyang-20v-firmware-v3.2.1-en.zip",
-    "language": "en",
-    "version": "3.2.1",
-    "date": "2026-04-18",
-    "description": "Firmware update for all Siyang 20V brushless tools with smart connectivity. This update improves thermal management algorithm, enhances low-battery cutoff accuracy, and resolves an intermittent Bluetooth pairing issue. Compatible with SY-DD20V-BL, SY-AG18V-BL, and SY-CF20V-BL models manufactured after June 2025. Refer to the included README for installation instructions."
+    "file": "",
+    "version": "3.0",
+    "fileSize": "",
+    "date": "2025-01-01",
+    "description": "Complete product catalog featuring all Siyang power tool models, specifications, and ordering information."
   }
 ]
