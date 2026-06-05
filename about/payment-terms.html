@@ -280,7 +280,7 @@
       </div>
     </div>
   </header>
-  <main id="main-content" class="flex-1" tabindex="-1">
+  <main id="main-content" class="flex-1" tabindex="-1"><div id="cms-page-content" class="min-h-screen bg-zinc-950" style="min-height:auto">
 
     <section class="relative min-h-[400px] lg:min-h-[500px] flex items-center overflow-hidden">
       <div class="absolute inset-0">
@@ -505,7 +505,7 @@
       </div>
     </section>
 
-  </main>
+  </div></main>
 
   <footer class="bg-zinc-950 border-t border-zinc-800">
     <div class="container mx-auto px-4 py-12">
@@ -691,4 +691,6 @@
   </div>
 </div>
 <script src="../assets/js/search.js"></script>
+
+<script>if(typeof CMSLoader!=="undefined")CMSLoader.loadPageMarkdown("payment-terms","cms-page-content");</script>
 </body></html>

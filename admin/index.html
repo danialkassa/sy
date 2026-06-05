@@ -5,33 +5,79 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="robots" content="noindex"/>
   <title>Content Manager — Ningbo Siyang</title>
+
+  <!-- Google Fonts preload -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <!-- CMS theme + animations -->
   <link rel="stylesheet" href="./cms-theme.css"/>
-  <style>
-    body { margin: 0; background: #09090b; }
-    .nc-entryCard-card { border-color: #27272a !important; }
-  </style>
+  <style> body { margin: 0; background: #09090b; } </style>
 </head>
 <body>
   <script src="https://unpkg.com/decap-cms@3.3.3/dist/decap-cms.js"></script>
+
+  <!-- Animation orchestrator (load before previews) -->
+  <script src="./cms-animations.js"></script>
+
+  <!-- Preview templates -->
   <script src="./previews/product-preview.js"></script>
   <script src="./previews/blog-preview.js"></script>
   <script src="./previews/homepage-preview.js"></script>
-  <script src="./widgets/color-swatch.js"></script>
-  <script src="./widgets/product-card.js"></script>
+  <script src="./previews/team-preview.js"></script>
+  <script src="./previews/testimonial-preview.js"></script>
+  <script src="./previews/faq-preview.js"></script>
+  <script src="./previews/certification-preview.js"></script>
+  <script src="./previews/case-study-preview.js"></script>
+  <script src="./previews/safety-preview.js"></script>
+  <script src="./previews/partner-preview.js"></script>
+  <script src="./previews/distributor-preview.js"></script>
+  <script src="./previews/download-preview.js"></script>
+  <script src="./previews/warranty-preview.js"></script>
+  <script src="./previews/manuals-preview.js"></script>
+  <script src="./previews/company-preview.js"></script>
+  <script src="./previews/oem-odm-preview.js"></script>
+  <script src="./previews/settings-preview.js"></script>
+
+  <!-- Custom widgets (unused — registered but not referenced in config.yml) -->
+  <!-- <script src="./widgets/color-swatch.js"></script> -->
+  <!-- <script src="./widgets/product-card.js"></script> -->
+
   <script>
     (function() {
       var CMS = window.CMS;
       if (!CMS) return;
 
-      CMS.registerPreviewStyle('/assets/css/styles.css');
+      /* Public site CSS is scoped to preview iframe only, but may conflict with CMS theme.
+         Loading selectively via preview templates instead of global injection. */
+      /* CMS.registerPreviewStyle('/assets/css/styles.css'); */
 
-      CMS.registerPreviewTemplate('products', window.ProductPreview);
-      CMS.registerPreviewTemplate('blog', window.BlogPreview);
-      CMS.registerPreviewTemplate('pages', window.HomepagePreview);
+      /* ── Preview Templates ─────────────────────────── */
+      CMS.registerPreviewTemplate('products',       window.ProductPreview);
+      CMS.registerPreviewTemplate('blog',           window.BlogPreview);
+      CMS.registerPreviewTemplate('homepage',       window.HomepagePreview);
+      CMS.registerPreviewTemplate('company',        window.CompanyPreview);
+      CMS.registerPreviewTemplate('oem-odm',        window.OemOdmPreview);
+      CMS.registerPreviewTemplate('navigation',     window.NavigationPreview);
+      CMS.registerPreviewTemplate('footer',         window.FooterPreview);
+      CMS.registerPreviewTemplate('team_members',   window.TeamPreview);
+      CMS.registerPreviewTemplate('testimonials',   window.TestimonialPreview);
+      CMS.registerPreviewTemplate('faq',            window.FaqPreview);
+      CMS.registerPreviewTemplate('certifications', window.CertificationPreview);
+      CMS.registerPreviewTemplate('case_studies',   window.CaseStudyPreview);
+      CMS.registerPreviewTemplate('safety',         window.SafetyPreview);
+      CMS.registerPreviewTemplate('partners',       window.PartnerPreview);
+      CMS.registerPreviewTemplate('distributors',   window.DistributorPreview);
+      CMS.registerPreviewTemplate('downloads',      window.DownloadPreview);
+      CMS.registerPreviewTemplate('warranty',       window.WarrantyPreview);
+      CMS.registerPreviewTemplate('manuals',        window.ManualsPreview);
 
-      CMS.registerWidget('color-swatch', window.ColorSwatchControl, window.ColorSwatchPreview);
-      CMS.registerWidget('product-card', window.ProductCardControl, window.ProductCardPreview);
+      /* ── Custom Widgets (currently unused in config.yml) ── */
+      /* CMS.registerWidget('color-swatch', window.ColorSwatchControl, window.ColorSwatchPreview); */
+      /* CMS.registerWidget('product-card', window.ProductCardControl, window.ProductCardPreview); */
 
+      /* ── Editor Components ─────────────────────────── */
       CMS.registerEditorComponent({
         id: "product-callout",
         label: "Product Callout",
@@ -41,7 +87,9 @@
         pattern: /^product-callout (\S+)$/,
         fromBlock: function(match) { return { product: match[1] }; },
         toBlock: function(data) { return "product-callout " + data.product; },
-        toPreview: function(data) { return '<div style="background:#18181b;border:1px solid #27272a;border-radius:8px;padding:16px;margin:16px 0;"><strong style="color:#facc15;">Product: ' + data.product + '</strong></div>'; }
+        toPreview: function(data) {
+          return '<div style="background:#18181b;border:1px solid #27272a;border-radius:8px;padding:16px;margin:16px 0;animation:cms-fade-in-up 0.4s ease both;"><strong style="color:#facc15;">Product: ' + data.product + '</strong></div>';
+        }
       });
 
       CMS.registerEditorComponent({
@@ -52,10 +100,14 @@
           { name: "url", label: "Link URL", widget: "string" },
           { name: "style", label: "Style", widget: "select", options: ["primary", "secondary"] }
         ],
-        pattern: /^cta-button (\S+) (\S+) (\S+)$/,
+        pattern: /^cta-button "([^"]*)" "([^"]*)" (\S+)$/,
         fromBlock: function(match) { return { text: match[1], url: match[2], style: match[3] }; },
-        toBlock: function(data) { return "cta-button " + data.text + " " + data.url + " " + (data.style || "primary"); },
-        toPreview: function(data) { var bg = data.style === "secondary" ? "#27272a" : "#facc15"; var color = data.style === "secondary" ? "#e4e4e7" : "#09090b"; return '<a href="' + data.url + '" style="display:inline-block;background:' + bg + ';color:' + color + ';padding:10px 24px;border-radius:8px;font-weight:600;text-decoration:none;margin:8px 0;">' + data.text + '</a>'; }
+        toBlock: function(data) { return 'cta-button "' + (data.text || "") + '" "' + (data.url || "") + '" ' + (data.style || "primary"); },
+        toPreview: function(data) {
+          var bg = data.style === "secondary" ? "#27272a" : "#facc15";
+          var color = data.style === "secondary" ? "#e4e4e7" : "#09090b";
+          return '<a href="' + data.url + '" style="display:inline-block;background:' + bg + ';color:' + color + ';padding:10px 24px;border-radius:8px;font-weight:600;text-decoration:none;margin:8px 0;animation:cms-fade-in-up 0.4s ease both;">' + data.text + '</a>';
+        }
       });
 
       CMS.registerEditorComponent({
@@ -65,10 +117,18 @@
           { name: "images", label: "Images", widget: "list", field: { name: "image", label: "Image", widget: "image" } },
           { name: "columns", label: "Columns", widget: "number", default: 3, min: 2, max: 4 }
         ],
-        pattern: /^image-gallery (.+)$/,
-        fromBlock: function(match) { return { images: match[1].split(","), columns: 3 }; },
-        toBlock: function(data) { return "image-gallery " + (data.images || []).join(","); },
-        toPreview: function(data) { var imgs = (data.images || []); var html = '<div style="display:grid;grid-template-columns:repeat(' + (data.columns || 3) + ',1fr);gap:8px;margin:16px 0;">'; imgs.forEach(function(img) { html += '<img src="' + img + '" style="width:100%;border-radius:8px;object-fit:cover;aspect-ratio:1;" />'; }); html += '</div>'; return html; }
+        pattern: /^image-gallery (\d+) (.+)$/,
+        fromBlock: function(match) { return { columns: parseInt(match[1], 10) || 3, images: match[2].split(",") }; },
+        toBlock: function(data) { return "image-gallery " + (data.columns || 3) + " " + (data.images || []).join(","); },
+        toPreview: function(data) {
+          var imgs = (data.images || []);
+          var html = '<div style="display:grid;grid-template-columns:repeat(' + (data.columns || 3) + ',1fr);gap:8px;margin:16px 0;">';
+          imgs.forEach(function(img, i) {
+            html += '<img src="' + img + '" style="width:100%;border-radius:8px;object-fit:cover;aspect-ratio:1;animation:cms-fade-in-scale 0.4s ease ' + (i*0.05) + 's both;" />';
+          });
+          html += '</div>';
+          return html;
+        }
       });
 
       CMS.registerEditorComponent({
@@ -79,34 +139,65 @@
           { name: "name", label: "Customer Name", widget: "string" },
           { name: "company", label: "Company", widget: "string" }
         ],
-        pattern: /^quote-block (.+?)\|(.+?)\|(.+)$/,
+        pattern: /^quote-block "([^"]*)" "([^"]*)" "([^"]*)"$/,
         fromBlock: function(match) { return { quote: match[1], name: match[2], company: match[3] }; },
-        toBlock: function(data) { return "quote-block " + data.quote + "|" + data.name + "|" + data.company; },
-        toPreview: function(data) { return '<blockquote style="border-left:3px solid #facc15;padding:16px 20px;margin:16px 0;background:#18181b;border-radius:0 8px 8px 0;"><p style="color:#e4e4e7;font-style:italic;margin:0 0 8px 0;">"' + data.quote + '"</p><cite style="color:#a1a1aa;font-style:normal;">— ' + data.name + ', ' + data.company + '</cite></blockquote>'; }
+        toBlock: function(data) { return 'quote-block "' + (data.quote || "") + '" "' + (data.name || "") + '" "' + (data.company || "") + '"'; },
+        toPreview: function(data) {
+          return '<blockquote style="border-left:3px solid #facc15;padding:16px 20px;margin:16px 0;background:#18181b;border-radius:0 8px 8px 0;animation:cms-fade-in-up 0.5s ease both;"><p style="color:#e4e4e7;font-style:italic;margin:0 0 8px 0;">"' + data.quote + '"</p><cite style="color:#a1a1aa;font-style:normal;">&mdash; ' + data.name + ', ' + data.company + '</cite></blockquote>';
+        }
       });
     })();
   </script>
+
+  <!-- Webhook auth -->
   <script src="./webhook-secret.js" onerror="window.__WEBHOOK_SECRET=''"></script>
+
+  <!-- Regenerate Index FAB -->
   <script>
-    // Regenerate Index button — calls the webhook listener to rebuild index.json from .md files
     (function() {
       var btn = document.createElement('button');
+      btn.className = 'cms-fab';
       btn.textContent = 'Regenerate Index';
-      btn.style.cssText = 'position:fixed;bottom:20px;right:20px;z-index:9999;background:#facc15;color:#09090b;border:none;padding:10px 20px;border-radius:8px;font-weight:600;cursor:pointer;font-size:14px;box-shadow:0 4px 12px rgba(0,0,0,0.3);';
+      btn.setAttribute('aria-label', 'Regenerate search index');
+      btn.title = 'Regenerate Index';
+
+      function setState(state, text) {
+        btn.className = 'cms-fab cms-fab--' + state;
+        btn.textContent = text;
+        btn.disabled = state === 'loading';
+      }
+
+      function resetState() {
+        btn.className = 'cms-fab';
+        btn.textContent = 'Regenerate Index';
+        btn.disabled = false;
+      }
+
       btn.onclick = function() {
-        btn.textContent = 'Regenerating...';
-        btn.disabled = true;
-        fetch('/webhook/regenerate', { method: 'POST', headers: { 'Authorization': 'Bearer ' + (window.__WEBHOOK_SECRET || '') } })
+        setState('loading', 'Regenerating...');
+        var secret = window.__WEBHOOK_SECRET || '';
+        var headers = {};
+        if (secret) headers['Authorization'] = 'Bearer ' + secret;
+
+        fetch('/webhook/regenerate', { method: 'POST', headers: headers })
           .then(function(r) { return r.json(); })
           .then(function(data) {
-            btn.textContent = data.success ? 'Done!' : 'Failed';
-            setTimeout(function() { btn.textContent = 'Regenerate Index'; btn.disabled = false; }, 3000);
+            if (data.success) {
+              setState('success', 'Done!');
+              if (window.CMSToast) window.CMSToast.success('Index regenerated successfully');
+            } else {
+              setState('error', 'Failed');
+              if (window.CMSToast) window.CMSToast.error('Index regeneration failed');
+            }
+            setTimeout(resetState, 3000);
           })
-          .catch(function() {
-            btn.textContent = 'Error';
-            setTimeout(function() { btn.textContent = 'Regenerate Index'; btn.disabled = false; }, 3000);
+          .catch(function(err) {
+            setState('error', 'Error');
+            if (window.CMSToast) window.CMSToast.error('Network error: ' + (err.message || 'Unknown'));
+            setTimeout(resetState, 3000);
           });
       };
+
       document.body.appendChild(btn);
     })();
   </script>

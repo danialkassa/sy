@@ -164,6 +164,36 @@ ssh "${SSH_USER}@${SSH_HOST}" '
     systemctl enable siyang-webhook
     systemctl restart siyang-webhook
     echo "  Webhook listener started on port 3099"
+
+    # Auto-register Gitea webhook (if API token is available)
+    GITEA_API_TOKEN="${GITEA_API_TOKEN:-}"
+    GITEA_BASE_URL="https://siyang.tools"
+    if [ -n "$GITEA_API_TOKEN" ]; then
+        WEBHOOK_URL="https://siyang.tools/gitea"
+        GITEA_API="$GITEA_BASE_URL/api/v1/repos/admin/b2b/hooks"
+        echo "  Checking Gitea webhook..."
+        existing=$(curl -s -H "Authorization: token $GITEA_API_TOKEN" "$GITEA_API" | grep -c "$WEBHOOK_URL" || true)
+        if [ "$existing" -eq 0 ]; then
+            curl -s -X POST "$GITEA_API" \
+                -H "Authorization: token $GITEA_API_TOKEN" \
+                -H "Content-Type: application/json" \
+                -d "{
+                    \"type\": \"gitea\",
+                    \"config\": {
+                        \"url\": \"$WEBHOOK_URL\",
+                        \"content_type\": \"json\",
+                        \"secret\": \"$WEBHOOK_SECRET\"
+                    },
+                    \"events\": [\"push\"],
+                    \"active\": true
+                }" > /dev/null
+            echo "  Gitea webhook registered: $WEBHOOK_URL"
+        else
+            echo "  Gitea webhook already exists"
+        fi
+    else
+        echo "  Skipping Gitea webhook auto-registration (set GITEA_API_TOKEN to enable)"
+    fi
 '
 
 # ============================================================

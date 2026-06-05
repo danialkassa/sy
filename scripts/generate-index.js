@@ -244,6 +244,15 @@ function generateBlogIndex(dir) {
   return { posts };
 }
 
+const CATEGORY_LABEL_MAP = {
+  "drills-drivers": "Drills & Drivers",
+  "saws": "Saws",
+  "grinders": "Grinders",
+  "sanders": "Sanders",
+  "impact-tools": "Impact Tools",
+  "combo-kits": "Combo Kits"
+};
+
 function generateProductsIndex(dir) {
   // Products are stored as .md files (source of truth)
   // Individual .json files are auto-generated for product.html
@@ -259,7 +268,7 @@ function generateProductsIndex(dir) {
       name: fm.name || "",
       sku,
       category: fm.category || "",
-      categoryLabel: fm.categoryLabel || fm.category || "",
+      categoryLabel: CATEGORY_LABEL_MAP[fm.category] || fm.categoryLabel || fm.category || "",
       price: convertPrice(fm.price),
       compareAtPrice: numOr(fm.compareAtPrice, 0),
       image: fm.image || (Array.isArray(fm.images) && fm.images[0] ? fm.images[0] : ""),

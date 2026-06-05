@@ -539,6 +539,22 @@
   };
 
   // ============================================================
+  // PAGE MARKDOWN — renders any page's CMS body into a container
+  // ============================================================
+  CMSLoader.loadPageMarkdown = function (pageName, containerId) {
+    var container = document.getElementById(containerId);
+    if (!container) return Promise.resolve();
+    return CMSLoader.loadPageSettings(pageName).then(function (data) {
+      if (!data || !data.body) return;
+      container.innerHTML = '<div class="cms-page-body">' + parseMarkdown(data.body) + '</div>';
+      if (data.title) {
+        var titleEl = document.getElementById(containerId + '-title');
+        if (titleEl) titleEl.textContent = data.title;
+      }
+    });
+  };
+
+  // ============================================================
   // COMPANY INFO
   // ============================================================
   CMSLoader.loadCompanyInfo = function () {

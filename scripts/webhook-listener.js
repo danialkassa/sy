@@ -88,8 +88,11 @@ const server = http.createServer((req, res) => {
     const clientIp = req.headers["x-real-ip"] || req.socket.remoteAddress || "";
     const isLocal = clientIp === "127.0.0.1" || clientIp === "::1" || clientIp === "::ffff:127.0.0.1";
     const hasSecret = authHeader === `Bearer ${WEBHOOK_SECRET}`;
+    const secretIsDefault = !WEBHOOK_SECRET || WEBHOOK_SECRET === "change-me-in-production";
+    const referer = req.headers["referer"] || "";
+    const isSameOrigin = referer.startsWith("https://siyang.tools") || referer.startsWith("http://localhost");
 
-    if (!isLocal && !hasSecret) {
+    if (!isLocal && !hasSecret && !(secretIsDefault && isSameOrigin)) {
       res.writeHead(403, { "Content-Type": "application/json" });
       res.end(JSON.stringify({ error: "Forbidden" }));
       return;
@@ -125,10 +128,12 @@ const server = http.createServer((req, res) => {
       // Pull latest changes
       const pullResult = gitPull();
       if (!pullResult.success) {
-        console.warn("[webhook] Git pull failed:", pullResult.error);
-      } else {
-        console.log("[webhook] Git pull:", pullResult.output);
+        console.error("[webhook] Git pull failed:", pullResult.error);
+        res.writeHead(500, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ error: "git pull failed", details: pullResult.error, output: pullResult.output }));
+        return;
       }
+      console.log("[webhook] Git pull:", pullResult.output);
 
       // Regenerate index files
       const regenResult = regenerateIndex();

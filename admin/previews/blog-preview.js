@@ -39,75 +39,173 @@
     return node;
   }
 
+  function formatDate(iso) {
+    if (!iso) return "";
+    try {
+      var d = new Date(iso);
+      if (isNaN(d.getTime())) return String(iso);
+      return d.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
+    } catch (e) {
+      return String(iso);
+    }
+  }
+
   window.BlogPreview = function(props) {
     var data = getData(props.entry);
-    var bodyNode = props.widgetFor ? props.widgetFor("body") : null;
+    var draft = !!data.draft;
+    var featured = !!data.featured;
+    var tags = Array.isArray(data.tags) ? data.tags : [];
 
-    return el("article",
-      {
+    return el("div",
+      { className: "cms-preview-root", style: { maxWidth: "720px", margin: "1.5rem auto" } },
+      el("article", {
         style: {
-          maxWidth: "860px",
-          margin: "1.5rem auto",
-          background: "#09090b",
-          color: "#e4e4e7",
+          background: "#18181b",
           border: "1px solid #27272a",
           borderRadius: "12px",
           overflow: "hidden",
+          color: "#e4e4e7",
           fontFamily: "'Source Sans 3', sans-serif"
         }
-      },
-      [
+      }, [
+        // Cover image
         data.image
-          ? el("img", {
-              src: data.image,
-              alt: text(data.title, "Blog cover image"),
-              style: { width: "100%", maxHeight: "380px", objectFit: "cover" }
-            })
+          ? el("div", { style: { position: "relative", background: "#09090b" } }, [
+              el("img", {
+                src: data.image,
+                alt: text(data.title, "Blog cover"),
+                style: { width: "100%", height: "220px", objectFit: "cover" },
+                onerror: "this.style.display='none'"
+              }),
+              draft
+                ? el("span", {
+                    style: {
+                      position: "absolute",
+                      top: "12px",
+                      right: "12px",
+                      background: "#ef4444",
+                      color: "#ffffff",
+                      fontSize: "11px",
+                      fontWeight: "700",
+                      padding: "4px 10px",
+                      borderRadius: "9999px",
+                      boxShadow: "0 2px 12px rgba(239,68,68,0.4)"
+                    }
+                  }, "DRAFT")
+                : null,
+              featured
+                ? el("span", {
+                    style: {
+                      position: "absolute",
+                      top: draft ? "40px" : "12px",
+                      left: "12px",
+                      background: "#facc15",
+                      color: "#09090b",
+                      fontSize: "11px",
+                      fontWeight: "700",
+                      padding: "4px 10px",
+                      borderRadius: "9999px",
+                      boxShadow: "0 2px 12px rgba(250,204,21,0.4)"
+                    }
+                  }, "Featured")
+                : null
+            ])
           : null,
-        el("div",
-          { style: { padding: "24px" } },
-          [
-            el("h1",
-              {
+
+        // Content
+        el("div", { style: { padding: "20px" } }, [
+          // Meta
+          el("div", { style: { marginBottom: "10px", display: "flex", flexWrap: "wrap", gap: "8px", alignItems: "center" } }, [
+            el("span", {
+              style: {
+                fontSize: "11px",
+                fontWeight: "700",
+                padding: "3px 10px",
+                borderRadius: "9999px",
+                background: "rgba(250,204,21,0.12)",
+                color: "#facc15"
+              }
+            }, text(data.category, "General")),
+            data.readTime
+              ? el("span", { style: { fontSize: "12px", color: "#71717a" } }, text(data.readTime, "") + " min read")
+              : null
+          ]),
+
+          // Title
+          el("h2", {
+            style: {
+              margin: "0 0 8px",
+              fontFamily: "'Oswald', sans-serif",
+              fontWeight: "700",
+              fontSize: "26px",
+              lineHeight: "1.2",
+              color: "#ffffff"
+            }
+          }, text(data.title, "Post Title")),
+
+          // Slug
+          data.slug
+            ? el("div", {
                 style: {
-                  margin: "0 0 10px",
-                  fontFamily: "'Oswald', sans-serif",
-                  fontWeight: "700",
-                  fontSize: "34px",
-                  lineHeight: "1.1",
-                  color: "#ffffff"
+                  fontSize: "11px",
+                  color: "#71717a",
+                  fontFamily: "monospace",
+                  marginBottom: "8px",
+                  letterSpacing: ".02em"
                 }
-              },
-              text(data.title, "Post title")
-            ),
-            el("p",
-              { style: { margin: "0 0 14px", color: "#a1a1aa", fontSize: "14px" } },
-              ["By ", text(data.author, "Ningbo Siyang Team"), " \u00B7 ", text(data.date, "No date"), " \u00B7 ", text(data.category, "General")]
-            ),
-            el("p",
-              {
+              }, "/blog/" + text(data.slug, ""))
+            : null,
+
+          // Author
+          el("div", { style: { marginBottom: "12px", fontSize: "13px", color: "#a1a1aa" } }, [
+            "By ",
+            el("span", { style: { color: "#e4e4e7", fontWeight: "600" } }, text(data.author, "Ningbo Siyang Team")),
+            data.authorRole ? el("span", { style: { color: "#71717a" } }, " — " + text(data.authorRole, "")) : null,
+            " \u00B7 ",
+            el("span", {}, formatDate(data.date))
+          ]),
+
+          // Excerpt
+          el("p", {
+            style: { margin: "0 0 14px", color: "#a1a1aa", fontSize: "14px", lineHeight: "1.6" }
+          }, text(data.excerpt, "No excerpt available.")),
+
+          // Tags
+          tags.length > 0
+            ? el("div", { style: { display: "flex", flexWrap: "wrap", gap: "6px", marginBottom: "14px" } },
+                tags.map(function(tag, i) {
+                  return el("span", {
+                    key: i,
+                    style: {
+                      fontSize: "10px",
+                      padding: "3px 8px",
+                      borderRadius: "4px",
+                      background: "#09090b",
+                      color: "#a1a1aa",
+                      border: "1px solid #27272a"
+                    }
+                  }, text(tag, ""));
+                })
+              )
+            : null,
+
+          // Body preview
+          data.body
+            ? el("div", {
                 style: {
-                  margin: "0 0 20px",
-                  color: "#d4d4d8",
-                  fontStyle: "italic",
-                  borderLeft: "3px solid #facc15",
-                  paddingLeft: "12px"
-                }
-              },
-              text(data.excerpt, "Post excerpt appears here.")
-            ),
-            el("div",
-              {
-                style: {
-                  lineHeight: "1.7",
+                  borderTop: "1px solid #27272a",
+                  paddingTop: "14px",
+                  fontSize: "13px",
+                  lineHeight: "1.6",
                   color: "#d4d4d8"
                 }
-              },
-              bodyNode || text(data.body, "Start writing your post...")
-            )
-          ]
-        )
-      ]
+              }, [
+                el("div", { style: { fontSize: "11px", color: "#71717a", textTransform: "uppercase", letterSpacing: ".06em", marginBottom: "8px" } }, "Article Preview"),
+                el("div", { style: { maxHeight: "200px", overflow: "hidden", maskImage: "linear-gradient(to bottom, black 60%, transparent 100%)" } }, text(data.body, ""))
+              ])
+            : null
+        ])
+      ])
     );
   };
 })();

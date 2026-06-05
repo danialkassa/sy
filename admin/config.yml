@@ -1668,6 +1668,55 @@ collections:
   # DATA SOURCE: content/settings/*.md
   # The cms-loader reads these files directly (no index.json).
   # ============================================================
+      - label: "Global Presence"
+        name: "global"
+        file: "content/pages/global.md"
+        fields:
+          - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "Content", name: "body", widget: "markdown"}
+
+      - label: "Payment & Trade Terms"
+        name: "payment-terms"
+        file: "content/pages/payment-terms.md"
+        fields:
+          - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "Content", name: "body", widget: "markdown"}
+
+      - label: "Company Brochure"
+        name: "brochure"
+        file: "content/pages/brochure.md"
+        fields:
+          - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "Content", name: "body", widget: "markdown"}
+
+      - label: "About Ningbo Siyang"
+        name: "about"
+        file: "content/pages/about.md"
+        fields:
+          - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "Content", name: "body", widget: "markdown"}
+
+      - label: "Contact Us"
+        name: "contact"
+        file: "content/pages/contact.md"
+        fields:
+          - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "Content", name: "body", widget: "markdown"}
+
+      - label: "Privacy Policy"
+        name: "privacy"
+        file: "content/pages/privacy.md"
+        fields:
+          - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "Content", name: "body", widget: "markdown"}
+
+      - label: "Terms of Service"
+        name: "terms"
+        file: "content/pages/terms.md"
+        fields:
+          - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "Content", name: "body", widget: "markdown"}
+
   - name: "settings"
     label: "Site Settings"
     delete: false
