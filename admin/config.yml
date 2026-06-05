@@ -58,7 +58,7 @@ collections:
     slug: "{{sku}}"
     extension: "md"
     format: "yaml-frontmatter"
-    summary: "{{name}} ({{sku}})"
+    summary: "{{sku}} · {{category}}"
     description: "Manage your complete product catalog. Each product has basic info, specifications, compliance, and trade details."
     identifier_field: "name"
     sortable_fields: ["name", "sku", "category", "brand"]
@@ -119,7 +119,7 @@ collections:
         name: "sku"
         widget: "string"
         hint: "Unique product identifier. Format: SY-TT-VV-XXX (e.g., SY-DD-20V-BL). This becomes the filename."
-      - label: "Category (URL Slug)"
+      - label: "Category"
         name: "category"
         widget: "select"
         options:
@@ -135,24 +135,7 @@ collections:
             value: "impact-tools"
           - label: "Combo Kits"
             value: "combo-kits"
-        hint: "Select the product category. Uses URL-slug format to match the website routing. Determines which product page it appears on."
-      - label: "Category Display Label"
-        name: "categoryLabel"
-        widget: "select"
-        options:
-          - label: "Drills & Drivers"
-            value: "Drills & Drivers"
-          - label: "Saws"
-            value: "Saws"
-          - label: "Grinders"
-            value: "Grinders"
-          - label: "Sanders"
-            value: "Sanders"
-          - label: "Impact Tools"
-            value: "Impact Tools"
-          - label: "Combo Kits"
-            value: "Combo Kits"
-        hint: "Human-readable category name shown on product cards and pages. Should match the Category above."
+        hint: "Select the product category. This determines the URL slug and the display label shown on product cards."
       - label: "Brand"
         name: "brand"
         widget: "select"
@@ -170,20 +153,22 @@ collections:
         hint: "A short punchy one-liner shown on product cards instead of the full description. If empty, the description is used."
       - label: "User Benefits"
         name: "userBenefits"
-        widget: "string"
-        hint: "A single compelling sentence explaining why a buyer should choose this product. Shown on product cards in the listing."
+        widget: "list"
+        field: { label: "Benefit", name: "benefit", widget: "string" }
+        required: false
+        hint: "Add 3-5 compelling bullet points. Each line becomes one benefit shown on product cards."
       # ---- Images ----
       - label: "Main Product Photo"
         name: "image"
         widget: "image"
-        media_folder: "../../images/products"
+        media_folder: "/images/products"
         public_folder: "/images/products"
         choose_url: false
         hint: "The primary product image. Use a clean, well-lit photo on a white or neutral background. Recommended: 800x800px minimum."
       - label: "Additional Images"
         name: "images"
         widget: "list"
-        field: {label: "Image", name: "img", widget: "image", media_folder: "../../images/products", public_folder: "/images/products", choose_url: false}
+        field: {label: "Image", name: "img", widget: "image", media_folder: "/images/products", public_folder: "/images/products", choose_url: false}
         hint: "Additional product photos from different angles or in use. Add 2-4 images for best results."
         required: false
       # ---- Specifications ----
@@ -328,9 +313,14 @@ collections:
       # ---- Trade Details ----
       - label: "Related Products"
         name: "relatedProducts"
-        widget: "list"
-        hint: "2-3 SKUs of related products for cross-selling on the product detail page. Type each SKU on a new line."
+        widget: "relation"
+        collection: "products"
+        value_field: "sku"
+        search_fields: ["name", "sku"]
+        display_fields: ["name", "sku"]
+        multiple: true
         required: false
+        hint: "Select 2-3 related products for cross-selling on the product detail page."
       - label: "Downloads"
         name: "downloads"
         widget: "object"
@@ -340,7 +330,7 @@ collections:
           - label: "Spec Sheet PDF"
             name: "specSheet"
             widget: "file"
-            media_folder: "../../assets/downloads"
+            media_folder: "/assets/downloads"
             public_folder: "/assets/downloads"
             choose_url: false
             required: false
@@ -348,7 +338,7 @@ collections:
           - label: "Manual PDF"
             name: "manual"
             widget: "file"
-            media_folder: "../../assets/downloads"
+            media_folder: "/assets/downloads"
             public_folder: "/assets/downloads"
             choose_url: false
             required: false
@@ -399,7 +389,7 @@ collections:
     slug: "{{slug}}"
     extension: "md"
     format: "yaml-frontmatter"
-    summary: "{{title}} — {{category}}"
+    summary: "{{category}} · {{author}}"
     description: "Write and manage blog posts for SEO, industry authority, and customer engagement."
     sortable_fields: ["title", "date", "category"]
     view_filters:
@@ -475,7 +465,7 @@ collections:
       - label: "Cover Image"
         name: "image"
         widget: "image"
-        media_folder: "../../images/blog"
+        media_folder: "/images/blog"
         public_folder: "/images/blog"
         choose_url: false
         required: false
@@ -515,7 +505,7 @@ collections:
     slug: "{{slug}}"
     extension: "md"
     format: "yaml-frontmatter"
-    summary: "{{name}} — {{company}}"
+    summary: "{{company}} · {{country}}"
     description: "Customer testimonials and reviews. These appear on the company page and homepage."
     sortable_fields: ["name", "company", "order"]
     view_filters:
@@ -558,7 +548,7 @@ collections:
       - label: "Customer Photo"
         name: "avatar"
         widget: "image"
-        media_folder: "../../images/testimonials"
+        media_folder: "/images/testimonials"
         public_folder: "/images/testimonials"
         choose_url: false
         required: false
@@ -590,7 +580,7 @@ collections:
     slug: "{{slug}}"
     extension: "md"
     format: "yaml-frontmatter"
-    summary: "{{name}} — {{title}}"
+    summary: "{{title}} · {{department}}"
     description: "Manage the team members displayed on the About > Team page."
     sortable_fields: ["name", "title", "order"]
     view_filters:
@@ -624,7 +614,7 @@ collections:
       - label: "Photo"
         name: "photo"
         widget: "image"
-        media_folder: "../../images/team"
+        media_folder: "/images/team"
         public_folder: "/images/team"
         choose_url: false
         required: false
@@ -666,7 +656,7 @@ collections:
     slug: "{{slug}}"
     extension: "md"
     format: "yaml-frontmatter"
-    summary: "{{name}} — {{issuer}} ({{year}})"
+    summary: "{{issuer}} · {{year}}"
     description: "Manage company certifications and quality marks. These appear on the Certifications page and build buyer trust."
     sortable_fields: ["name", "issuer", "year"]
     view_filters:
@@ -699,7 +689,7 @@ collections:
       - label: "Certificate Image"
         name: "image"
         widget: "image"
-        media_folder: "../../images/certificates"
+        media_folder: "/images/certificates"
         public_folder: "/images/certificates"
         choose_url: false
         required: false
@@ -741,7 +731,7 @@ collections:
     slug: "{{slug}}"
     extension: "md"
     format: "yaml-frontmatter"
-    summary: "{{category}} — {{question}}"
+    summary: "{{category}} · #{{order}}"
     description: "Manage frequently asked questions. These appear on the FAQ page grouped by category."
     sortable_fields: ["question", "category", "order"]
     view_filters:
@@ -818,7 +808,7 @@ collections:
     slug: "{{slug}}"
     extension: "md"
     format: "yaml-frontmatter"
-    summary: "{{name}}"
+    summary: "{{partnerType}} · {{country}}"
     description: "Manage partner and client logos displayed on the company page and homepage."
     sortable_fields: ["name", "order"]
     view_filters:
@@ -848,7 +838,7 @@ collections:
       - label: "Logo"
         name: "logo"
         widget: "image"
-        media_folder: "../../images/partners"
+        media_folder: "/images/partners"
         public_folder: "/images/partners"
         choose_url: false
         required: false
@@ -884,7 +874,7 @@ collections:
     slug: "{{slug}}"
     extension: "md"
     format: "yaml-frontmatter"
-    summary: "{{companyName}} — {{country}}"
+    summary: "{{country}} · {{region}}"
     description: "Manage your global distributor and agent network. Distributors appear on the Distributors page filtered by region."
     sortable_fields: ["companyName", "country", "region"]
     view_filters:
@@ -962,7 +952,7 @@ collections:
       - label: "Logo"
         name: "logo"
         widget: "image"
-        media_folder: "../../images/distributors"
+        media_folder: "/images/distributors"
         public_folder: "/images/distributors"
         choose_url: false
         required: false
@@ -994,7 +984,7 @@ collections:
     slug: "{{slug}}"
     extension: "md"
     format: "yaml-frontmatter"
-    summary: "{{title}} — {{warrantyPeriod}}"
+    summary: "{{warrantyType}} · {{warrantyPeriod}}"
     description: "Manage warranty policies and coverage information. These appear on the Warranty page."
     sortable_fields: ["title", "warrantyType", "warrantyPeriod"]
     view_filters:
@@ -1075,7 +1065,7 @@ collections:
     slug: "{{slug}}"
     extension: "md"
     format: "yaml-frontmatter"
-    summary: "{{noticeType}} — {{title}}"
+    summary: "{{severity}} · {{noticeType}}"
     description: "Manage safety advisories, recalls, and compliance updates. Critical and warning notices are prominently displayed."
     sortable_fields: ["title", "noticeType", "severity", "date"]
     view_filters:
@@ -1144,9 +1134,14 @@ collections:
         hint: "How urgent is this notice? Critical notices appear with red highlights."
       - label: "Affected Product SKUs"
         name: "affectedSkus"
-        widget: "list"
-        hint: "List the SKUs of affected products. Leave empty if it applies to all products. Type each SKU on a new line."
+        widget: "relation"
+        collection: "products"
+        value_field: "sku"
+        search_fields: ["name", "sku"]
+        display_fields: ["name", "sku"]
+        multiple: true
         required: false
+        hint: "Select affected products. Leave empty if it applies to all products."
       - label: "Description"
         name: "description"
         widget: "text"
@@ -1175,7 +1170,7 @@ collections:
     slug: "{{slug}}"
     extension: "md"
     format: "yaml-frontmatter"
-    summary: "{{title}} — {{language}}"
+    summary: "{{productSku}} · {{language}}"
     description: "Upload and manage product instruction manuals in multiple languages. Each manual is linked to a product by SKU."
     sortable_fields: ["title", "productSku", "language", "date"]
     view_filters:
@@ -1219,8 +1214,13 @@ collections:
         hint: "Name of the manual. Example: 20V Drill/Driver Instruction Manual"
       - label: "Product SKU"
         name: "productSku"
-        widget: "string"
-        hint: "The SKU of the product this manual belongs to. Must match an existing product SKU."
+        widget: "relation"
+        collection: "products"
+        value_field: "sku"
+        search_fields: ["name", "sku"]
+        display_fields: ["name", "sku"]
+        required: false
+        hint: "Link this manual to a product. Search by name or SKU."
       - label: "Language"
         name: "language"
         widget: "select"
@@ -1241,7 +1241,7 @@ collections:
       - label: "PDF File"
         name: "file"
         widget: "file"
-        media_folder: "../../assets/downloads"
+        media_folder: "/assets/downloads"
         public_folder: "/assets/downloads"
         choose_url: false
         hint: "Upload the manual PDF file."
@@ -1275,7 +1275,7 @@ collections:
     slug: "{{slug}}"
     extension: "md"
     format: "yaml-frontmatter"
-    summary: "{{category}} — {{title}}"
+    summary: "{{category}} · {{language}}"
     description: "Manage downloadable resources: product catalogs, spec sheets, certificates, and firmware updates."
     sortable_fields: ["title", "category", "language", "date"]
     view_filters:
@@ -1324,7 +1324,7 @@ collections:
       - label: "File"
         name: "file"
         widget: "file"
-        media_folder: "../../assets/downloads"
+        media_folder: "/assets/downloads"
         public_folder: "/assets/downloads"
         choose_url: false
         hint: "Upload the file. Accepted formats: PDF, ZIP, EXE (for firmware)."
@@ -1381,7 +1381,7 @@ collections:
     slug: "{{slug}}"
     extension: "md"
     format: "yaml-frontmatter"
-    summary: "{{client}} — {{title}}"
+    summary: "{{country}} · {{industry}}"
     description: "Manage success stories and case studies. These showcase your OEM/ODM capabilities and build credibility with potential buyers."
     sortable_fields: ["title", "client", "country", "date"]
     view_filters:
@@ -1461,7 +1461,7 @@ collections:
       - label: "Hero Image"
         name: "image"
         widget: "image"
-        media_folder: "../../images/case-studies"
+        media_folder: "/images/case-studies"
         public_folder: "/images/case-studies"
         choose_url: false
         required: false
@@ -1590,7 +1590,7 @@ collections:
           - label: "WeChat QR Code Image"
             name: "wechatQR"
             widget: "image"
-            media_folder: "../../images"
+            media_folder: "/images"
             public_folder: "/images"
             choose_url: false
             required: false
