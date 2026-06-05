@@ -1717,6 +1717,150 @@ collections:
           - {label: "Page Title", name: "title", widget: "string"}
           - {label: "Content", name: "body", widget: "markdown"}
 
+      - label: "Certifications"
+        name: "certifications"
+        file: "content/pages/certifications.md"
+        fields:
+          - {label: "Page Title", name: "pageTitle", widget: "string", hint: "The main heading shown at the top of the page."}
+          - {label: "Subtitle", name: "subtitle", widget: "string", required: false, hint: "A one-line description below the main heading."}
+          - {label: "Description", name: "description", widget: "text", required: false, hint: "A short paragraph describing this page."}
+          - {label: "Content", name: "body", widget: "markdown", required: false, hint: "The main body content of the page."}
+
+      - label: "Team"
+        name: "team"
+        file: "content/pages/team.md"
+        fields:
+          - {label: "Page Title", name: "pageTitle", widget: "string"}
+          - {label: "Subtitle", name: "subtitle", widget: "string", required: false}
+          - {label: "Description", name: "description", widget: "text", required: false}
+          - {label: "Content", name: "body", widget: "markdown", required: false}
+
+      - label: "Safety & Compliance"
+        name: "safety"
+        file: "content/pages/safety.md"
+        fields:
+          - {label: "Page Title", name: "pageTitle", widget: "string"}
+          - {label: "Subtitle", name: "subtitle", widget: "string", required: false}
+          - {label: "Description", name: "description", widget: "text", required: false}
+          - {label: "Content", name: "body", widget: "markdown", required: false}
+
+      - label: "Warranty"
+        name: "warranty"
+        file: "content/pages/warranty.md"
+        fields:
+          - {label: "Page Title", name: "pageTitle", widget: "string"}
+          - {label: "Subtitle", name: "subtitle", widget: "string", required: false}
+          - {label: "Description", name: "description", widget: "text", required: false}
+          - {label: "Content", name: "body", widget: "markdown", required: false}
+
+      - label: "FAQ"
+        name: "faq"
+        file: "content/pages/faq.md"
+        fields:
+          - {label: "Page Title", name: "pageTitle", widget: "string"}
+          - {label: "Subtitle", name: "subtitle", widget: "string", required: false}
+          - {label: "Description", name: "description", widget: "text", required: false}
+          - {label: "Content", name: "body", widget: "markdown", required: false}
+
+      - label: "Distributors"
+        name: "distributors"
+        file: "content/pages/distributors.md"
+        fields:
+          - {label: "Page Title", name: "pageTitle", widget: "string"}
+          - {label: "Subtitle", name: "subtitle", widget: "string", required: false}
+          - {label: "Description", name: "description", widget: "text", required: false}
+          - {label: "Content", name: "body", widget: "markdown", required: false}
+
+      - label: "Downloads"
+        name: "downloads"
+        file: "content/pages/downloads.md"
+        fields:
+          - {label: "Page Title", name: "pageTitle", widget: "string"}
+          - {label: "Subtitle", name: "subtitle", widget: "string", required: false}
+          - {label: "Description", name: "description", widget: "text", required: false}
+          - {label: "Content", name: "body", widget: "markdown", required: false}
+
+      - label: "Manuals"
+        name: "manuals"
+        file: "content/pages/manuals.md"
+        fields:
+          - {label: "Page Title", name: "pageTitle", widget: "string"}
+          - {label: "Subtitle", name: "subtitle", widget: "string", required: false}
+          - {label: "Description", name: "description", widget: "text", required: false}
+          - {label: "Content", name: "body", widget: "markdown", required: false}
+
+      - label: "Drills & Drivers"
+        name: "drills-drivers"
+        file: "content/pages/drills-drivers.md"
+        fields:
+          - {label: "Page Title", name: "pageTitle", widget: "string"}
+          - {label: "Subtitle", name: "subtitle", widget: "string", required: false}
+          - {label: "Description", name: "description", widget: "text", required: false}
+          - {label: "Content", name: "body", widget: "markdown", required: false}
+
+      - label: "Saws"
+        name: "saws"
+        file: "content/pages/saws.md"
+        fields:
+          - {label: "Page Title", name: "pageTitle", widget: "string"}
+          - {label: "Subtitle", name: "subtitle", widget: "string", required: false}
+          - {label: "Description", name: "description", widget: "text", required: false}
+          - {label: "Content", name: "body", widget: "markdown", required: false}
+
+      - label: "Grinders"
+        name: "grinders"
+        file: "content/pages/grinders.md"
+        fields:
+          - {label: "Page Title", name: "pageTitle", widget: "string"}
+          - {label: "Subtitle", name: "subtitle", widget: "string", required: false}
+          - {label: "Description", name: "description", widget: "text", required: false}
+          - {label: "Content", name: "body", widget: "markdown", required: false}
+
+      - label: "Sanders"
+        name: "sanders"
+        file: "content/pages/sanders.md"
+        fields:
+          - {label: "Page Title", name: "pageTitle", widget: "string"}
+          - {label: "Subtitle", name: "subtitle", widget: "string", required: false}
+          - {label: "Description", name: "description", widget: "text", required: false}
+          - {label: "Content", name: "body", widget: "markdown", required: false}
+
+      - label: "Impact Tools"
+        name: "impact-tools"
+        file: "content/pages/impact-tools.md"
+        fields:
+          - {label: "Page Title", name: "pageTitle", widget: "string"}
+          - {label: "Subtitle", name: "subtitle", widget: "string", required: false}
+          - {label: "Description", name: "description", widget: "text", required: false}
+          - {label: "Content", name: "body", widget: "markdown", required: false}
+
+      - label: "Combo Kits"
+        name: "combo-kits"
+        file: "content/pages/combo-kits.md"
+        fields:
+          - {label: "Page Title", name: "pageTitle", widget: "string"}
+          - {label: "Subtitle", name: "subtitle", widget: "string", required: false}
+          - {label: "Description", name: "description", widget: "text", required: false}
+          - {label: "Content", name: "body", widget: "markdown", required: false}
+
+      - label: "Products"
+        name: "products"
+        file: "content/pages/products.md"
+        fields:
+          - {label: "Page Title", name: "pageTitle", widget: "string"}
+          - {label: "Subtitle", name: "subtitle", widget: "string", required: false}
+          - {label: "Description", name: "description", widget: "text", required: false}
+          - {label: "Content", name: "body", widget: "markdown", required: false}
+
+      - label: "Blog"
+        name: "blog"
+        file: "content/pages/blog.md"
+        fields:
+          - {label: "Page Title", name: "pageTitle", widget: "string"}
+          - {label: "Subtitle", name: "subtitle", widget: "string", required: false}
+          - {label: "Description", name: "description", widget: "text", required: false}
+          - {label: "Content", name: "body", widget: "markdown", required: false}
+
   - name: "settings"
     label: "Site Settings"
     delete: false

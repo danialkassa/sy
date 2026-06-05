@@ -539,6 +539,73 @@
   };
 
   // ============================================================
+  // GENERIC PAGE CONTENT LOADER
+  // ============================================================
+  CMSLoader.loadPageContent = function () {
+    // Skip homepage — it has its own dedicated loader
+    if (document.getElementById('cms-hero-title-line1')) return;
+
+    var pageName = '';
+    var path = window.location.pathname;
+
+    // Detect page from URL
+    if (path.indexOf('/about/certifications') !== -1) pageName = 'certifications';
+    else if (path.indexOf('/about/team') !== -1) pageName = 'team';
+    else if (path.indexOf('/about/safety') !== -1) pageName = 'safety';
+    else if (path.indexOf('/about/warranty') !== -1) pageName = 'warranty';
+    else if (path.indexOf('/about/faq') !== -1) pageName = 'faq';
+    else if (path.indexOf('/about/distributors') !== -1) pageName = 'distributors';
+    else if (path.indexOf('/about/downloads') !== -1) pageName = 'downloads';
+    else if (path.indexOf('/about/manuals') !== -1) pageName = 'manuals';
+    else if (path.indexOf('/about/company') !== -1 || path.indexOf('/about/index') !== -1) pageName = 'about';
+    else if (path.indexOf('/about/oem-odm') !== -1) pageName = 'oem-odm';
+    else if (path.indexOf('/about/global') !== -1) pageName = 'global';
+    else if (path.indexOf('/about/payment-terms') !== -1) pageName = 'payment-terms';
+    else if (path.indexOf('/about/brochure') !== -1) pageName = 'brochure';
+    else if (path.indexOf('/products/drills-drivers') !== -1) pageName = 'drills-drivers';
+    else if (path.indexOf('/products/saws') !== -1) pageName = 'saws';
+    else if (path.indexOf('/products/grinders') !== -1) pageName = 'grinders';
+    else if (path.indexOf('/products/sanders') !== -1) pageName = 'sanders';
+    else if (path.indexOf('/products/impact-tools') !== -1) pageName = 'impact-tools';
+    else if (path.indexOf('/products/combo-kits') !== -1) pageName = 'combo-kits';
+    else if (path.indexOf('/products/product') !== -1) pageName = 'products';
+    else if (path.indexOf('/products/index') !== -1 || path === '/products/' || path.endsWith('/products')) pageName = 'products';
+    else if (path.indexOf('/blogs/index') !== -1 || path.indexOf('/blogs/') !== -1 && path.indexOf('/blogs/post') === -1) pageName = 'blog';
+    else if (path.indexOf('/blogs/post') !== -1) pageName = 'blog';
+    else if (path.indexOf('/contact') !== -1) pageName = 'contact';
+    else if (path.indexOf('/privacy') !== -1) pageName = 'privacy';
+    else if (path.indexOf('/terms') !== -1) pageName = 'terms';
+
+    if (!pageName) return;
+
+    return CMSLoader.loadPageSettings(pageName).then(function (data) {
+      if (!data || !Object.keys(data).length) return;
+
+      var titleEl = document.getElementById('cms-page-title');
+      var subtitleEl = document.getElementById('cms-page-subtitle');
+      var descEl = document.getElementById('cms-page-description');
+      var bodyEl = document.getElementById('cms-page-body');
+
+      if (data.pageTitle && titleEl) {
+        titleEl.textContent = data.pageTitle;
+      }
+      if (data.subtitle && subtitleEl) {
+        subtitleEl.textContent = data.subtitle;
+      }
+      if (data.description && descEl) {
+        descEl.textContent = data.description;
+      }
+      if (data.body && bodyEl) {
+        bodyEl.innerHTML = CMSLoader.parseMarkdown(data.body);
+      }
+      // Also handle title field (used by some pages like about, contact, etc.)
+      if (data.title && titleEl && !data.pageTitle) {
+        titleEl.textContent = data.title;
+      }
+    });
+  };
+
+  // ============================================================
   // PAGE MARKDOWN — renders any page's CMS body into a container
   // ============================================================
   CMSLoader.loadPageMarkdown = function (pageName, containerId) {
@@ -1254,6 +1321,7 @@
   // ============================================================
   CMSLoader.reloadContent = function () {
     CMSLoader.loadHomepage();
+    CMSLoader.loadPageContent();
     CMSLoader.loadCompanyInfo();
     CMSLoader.loadNavigation();
     CMSLoader.loadFooterFull();
@@ -1332,6 +1400,7 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     CMSLoader.loadHomepage();
+    CMSLoader.loadPageContent();
     CMSLoader.loadCompanyInfo();
     CMSLoader.loadNavigation();
     CMSLoader.loadFooterFull();
