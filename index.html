@@ -1952,58 +1952,5 @@
   </div>
 </div>
 <script src="./assets/js/search.js"></script>
-<script>
-  (function() {
-    if (typeof CMSLoader === 'undefined' || !CMSLoader.loadPageSettings) return;
-
-    CMSLoader.loadPageSettings('homepage').then(function(data) {
-      if (!data) return;
-
-      if (data.heroTitle) {
-        var words = data.heroTitle.trim().split(' ');
-        var last = words.pop() || '';
-        var first = words.join(' ');
-        var el1 = document.getElementById('cms-hero-title-line1');
-        var el2 = document.getElementById('cms-hero-title-line2');
-        if (el1 && first) el1.textContent = first;
-        if (el2 && last) el2.textContent = last;
-      }
-
-      var subEl = document.getElementById('cms-hero-subtitle');
-      if (subEl && data.heroSubtitle) subEl.textContent = data.heroSubtitle;
-
-      var ctaEl = document.getElementById('cms-hero-cta');
-      if (ctaEl && data.heroCtaText) {
-        var svg = ctaEl.querySelector('svg');
-        ctaEl.textContent = data.heroCtaText;
-        if (svg) ctaEl.appendChild(svg);
-      }
-
-      if (data.stat1Value) { var v = document.getElementById('cms-stat1-value'); if (v) { v.setAttribute('data-count-up', parseInt(data.stat1Value) || 500); v.textContent = '0'; } }
-      if (data.stat2Value) { var v = document.getElementById('cms-stat2-value'); if (v) { v.setAttribute('data-count-up', parseInt(data.stat2Value) || 45); v.textContent = '0'; } }
-      if (data.stat3Value) { var v = document.getElementById('cms-stat3-value'); if (v) { v.setAttribute('data-count-up', parseInt(data.stat3Value) || 25); v.textContent = '0'; } }
-
-      if (data.stat1Label) { var el = document.getElementById('cms-stat1-label'); if (el) el.textContent = data.stat1Label; }
-      if (data.stat2Label) { var el = document.getElementById('cms-stat2-label'); if (el) el.textContent = data.stat2Label; }
-      if (data.stat3Label) { var el = document.getElementById('cms-stat3-label'); if (el) el.textContent = data.stat3Label; }
-    });
-
-    CMSLoader.loadSiteSettings('footer').then(function(data) {
-      if (!data) return;
-      if (data.copyright) { var el = document.getElementById('cms-footer-copyright'); if (el) el.textContent = data.copyright; }
-      var badges = document.querySelectorAll('[data-cms-badge]');
-      if (data.badge1 && badges[0]) badges[0].querySelector('h3').textContent = data.badge1;
-      if (data.badge2 && badges[1]) badges[1].querySelector('h3').textContent = data.badge2;
-      if (data.badge3 && badges[2]) badges[2].querySelector('h3').textContent = data.badge3;
-      if (data.badge4 && badges[3]) badges[3].querySelector('h3').textContent = data.badge4;
-    });
-
-    CMSLoader.loadPageSettings('company').then(function(data) {
-      if (!data) return;
-      if (data.email) { var el = document.querySelector('[data-site-email]'); if (el) el.textContent = data.email; }
-      if (data.phone) { var el = document.querySelector('[data-site-phone]'); if (el) el.textContent = data.phone; }
-    });
-  })();
-</script>
 </body>
 </html>
