@@ -176,14 +176,14 @@ collections:
       - label: "Main Product Photo"
         name: "image"
         widget: "image"
-        media_folder: "/images/products"
+        media_folder: "../../images/products"
         public_folder: "/images/products"
         choose_url: false
         hint: "The primary product image. Use a clean, well-lit photo on a white or neutral background. Recommended: 800x800px minimum."
       - label: "Additional Images"
         name: "images"
         widget: "list"
-        field: {label: "Image", name: "img", widget: "image", media_folder: "/images/products", public_folder: "/images/products", choose_url: false}
+        field: {label: "Image", name: "img", widget: "image", media_folder: "../../images/products", public_folder: "/images/products", choose_url: false}
         hint: "Additional product photos from different angles or in use. Add 2-4 images for best results."
         required: false
       # ---- Specifications ----
@@ -340,7 +340,7 @@ collections:
           - label: "Spec Sheet PDF"
             name: "specSheet"
             widget: "file"
-            media_folder: "/assets/downloads"
+            media_folder: "../../assets/downloads"
             public_folder: "/assets/downloads"
             choose_url: false
             required: false
@@ -348,7 +348,7 @@ collections:
           - label: "Manual PDF"
             name: "manual"
             widget: "file"
-            media_folder: "/assets/downloads"
+            media_folder: "../../assets/downloads"
             public_folder: "/assets/downloads"
             choose_url: false
             required: false
@@ -475,7 +475,7 @@ collections:
       - label: "Cover Image"
         name: "image"
         widget: "image"
-        media_folder: "/images/blog"
+        media_folder: "../../images/blog"
         public_folder: "/images/blog"
         choose_url: false
         required: false
@@ -558,7 +558,7 @@ collections:
       - label: "Customer Photo"
         name: "avatar"
         widget: "image"
-        media_folder: "/images/testimonials"
+        media_folder: "../../images/testimonials"
         public_folder: "/images/testimonials"
         choose_url: false
         required: false
@@ -624,7 +624,7 @@ collections:
       - label: "Photo"
         name: "photo"
         widget: "image"
-        media_folder: "/images/team"
+        media_folder: "../../images/team"
         public_folder: "/images/team"
         choose_url: false
         required: false
@@ -699,7 +699,7 @@ collections:
       - label: "Certificate Image"
         name: "image"
         widget: "image"
-        media_folder: "/images/certificates"
+        media_folder: "../../images/certificates"
         public_folder: "/images/certificates"
         choose_url: false
         required: false
@@ -848,7 +848,7 @@ collections:
       - label: "Logo"
         name: "logo"
         widget: "image"
-        media_folder: "/images/partners"
+        media_folder: "../../images/partners"
         public_folder: "/images/partners"
         choose_url: false
         required: false
@@ -962,7 +962,7 @@ collections:
       - label: "Logo"
         name: "logo"
         widget: "image"
-        media_folder: "/images/distributors"
+        media_folder: "../../images/distributors"
         public_folder: "/images/distributors"
         choose_url: false
         required: false
@@ -1241,7 +1241,7 @@ collections:
       - label: "PDF File"
         name: "file"
         widget: "file"
-        media_folder: "/assets/downloads"
+        media_folder: "../../assets/downloads"
         public_folder: "/assets/downloads"
         choose_url: false
         hint: "Upload the manual PDF file."
@@ -1324,7 +1324,7 @@ collections:
       - label: "File"
         name: "file"
         widget: "file"
-        media_folder: "/assets/downloads"
+        media_folder: "../../assets/downloads"
         public_folder: "/assets/downloads"
         choose_url: false
         hint: "Upload the file. Accepted formats: PDF, ZIP, EXE (for firmware)."
@@ -1461,7 +1461,7 @@ collections:
       - label: "Hero Image"
         name: "image"
         widget: "image"
-        media_folder: "/images/case-studies"
+        media_folder: "../../images/case-studies"
         public_folder: "/images/case-studies"
         choose_url: false
         required: false
@@ -1590,7 +1590,7 @@ collections:
           - label: "WeChat QR Code Image"
             name: "wechatQR"
             widget: "image"
-            media_folder: "/images"
+            media_folder: "../../images"
             public_folder: "/images"
             choose_url: false
             required: false
