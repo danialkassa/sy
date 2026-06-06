@@ -15,6 +15,28 @@
 
   var ScrollAnimations = {};
 
+  /* ── Easing functions (Task 5) ── */
+
+  var EASING = {
+    'linear':        function(p) { return p; },
+    'ease-out':      function(p) { return 1 - Math.pow(1 - p, 3); },
+    'ease-in':       function(p) { return Math.pow(p, 3); },
+    'ease-in-out':   function(p) { return p < 0.5 ? 4*p*p*p : 1 - Math.pow(-2*p+2,3)/2; },
+    'ease-out-expo': function(p) { return p >= 1 ? 1 : 1 - Math.pow(2, -10 * p); }
+  };
+
+  function applyEasing(progress, el) {
+    var easeName = el.dataset.saEase || 'linear';
+    var fn = EASING[easeName];
+    if (!fn) fn = EASING['linear'];
+    return fn(progress);
+  }
+
+  /* ── Mobile detection (Task 3) ── */
+
+  var IS_MOBILE = window.matchMedia('(max-width: 767px)').matches;
+  var IS_TOUCH = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+
   /* ── Low-level math helpers ── */
 
   function lerp(a, b, t) {
@@ -259,7 +281,20 @@
       return;
     }
 
+    // ── Task 3: Mobile adjustments ──
+    if (IS_MOBILE) {
+      // Reduce parallax wrap height on mobile
+      document.querySelectorAll('.sa-parallax-wrap').forEach(function (el) {
+        el.style.height = '60vh';
+      });
+      // Use overflow: clip instead of hidden on mobile to prevent content clipping
+      containers.forEach(function (container) {
+        container.style.overflow = 'clip';
+      });
+    }
+
     var rafId = null;
+    var mobileFrameSkip = 0; // Task 3: skip every other rAF on touch+mobile
 
     function update() {
       containers.forEach(function (container) {
@@ -270,7 +305,21 @@
           var type = el.dataset.sa;
           var handler = handlers[type];
           if (handler) {
-            handler(el, progress);
+            // Task 5: Apply easing to progress before interpolation
+            var easedProgress = applyEasing(progress, el);
+
+            // Task 3: On mobile, reduce translate-y intensity by 50%
+            if (IS_MOBILE && type === 'translate-y') {
+              var origAttr = el.dataset.saTranslateY;
+              if (origAttr && !el._mobileScaled) {
+                var vals = origAttr.split(',').map(Number);
+                var scaled = vals.map(function (v) { return Math.round(v * 0.5); });
+                el.dataset.saTranslateY = scaled.join(',');
+                el._mobileScaled = true;
+              }
+            }
+
+            handler(el, easedProgress);
           }
         });
       });
@@ -280,6 +329,11 @@
 
     function scheduleUpdate() {
       if (rafId === null) {
+        // Task 3: On touch+mobile, skip every other frame to reduce jank
+        if (IS_TOUCH && IS_MOBILE) {
+          mobileFrameSkip++;
+          if (mobileFrameSkip % 2 === 0) return;
+        }
         rafId = requestAnimationFrame(update);
       }
     }

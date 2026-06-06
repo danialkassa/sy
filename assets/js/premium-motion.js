@@ -73,6 +73,8 @@
       this.init3DTilt();
       this.init3DCarousel();
       this.init360Viewer();
+      this.initPageTransitions();
+      this.initProductLightbox();
 
       this.enhanceHero();
       this.enhanceCards();
@@ -452,6 +454,7 @@
 
       const angle = 360 / count;
       const radius = Math.max(300, count * 50);
+      const IS_TOUCH = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
 
       items.forEach((item, i) => {
         item.style.transform = `rotateY(${angle * i}deg) translateZ(${radius}px)`;
@@ -460,29 +463,89 @@
       // Start with auto-spin
       track.classList.add('pm-carousel-auto');
 
-      // Drag-to-rotate
+      // Drag + momentum state
       let isDragging = false;
-      let startX = 0;
-      let currentRotation = 0;
       let hasInteracted = false;
+      let startX = 0;
+      let dragStartX = 0;
+      let currentRotation = 0;
+      const dragThreshold = 5; // px before drag starts
+
+      // Momentum
+      let velocity = 0;
+      let lastX = 0;
+      let lastTime = 0;
+      let momentumRafId = null;
+      const FRICTION = 0.92;
+      const SNAP_THRESHOLD = 0.3; // deg/ms — below this, snap to card
+      let rafPending = false;
+
+      function snapToNearest() {
+        const nearest = Math.round(currentRotation / angle) * angle;
+        const diff = nearest - currentRotation;
+        const duration = 400;
+        let startTime = null;
+        const startRot = currentRotation;
+
+        function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
+
+        function animateSnap(ts) {
+          if (!startTime) startTime = ts;
+          const progress = Math.min((ts - startTime) / duration, 1);
+          currentRotation = startRot + diff * easeOutCubic(progress);
+          track.style.transform = `rotateY(${currentRotation}deg)`;
+          if (progress < 1) requestAnimationFrame(animateSnap);
+        }
+        requestAnimationFrame(animateSnap);
+      }
+
+      function momentumLoop() {
+        if (Math.abs(velocity) < SNAP_THRESHOLD) {
+          velocity = 0;
+          momentumRafId = null;
+          if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) snapToNearest();
+          return;
+        }
+        velocity *= FRICTION;
+        currentRotation += velocity;
+        track.style.transform = `rotateY(${currentRotation}deg)`;
+        momentumRafId = requestAnimationFrame(momentumLoop);
+      }
+
+      function stopMomentum() {
+        if (momentumRafId) {
+          cancelAnimationFrame(momentumRafId);
+          momentumRafId = null;
+        }
+      }
 
       track.addEventListener('pointerdown', (e) => {
-        isDragging = true;
+        stopMomentum();
+        dragStartX = e.clientX;
         startX = e.clientX;
+        lastX = e.clientX;
+        lastTime = performance.now();
+        velocity = 0;
+        isDragging = false; // wait for threshold
         track.setPointerCapture(e.pointerId);
 
         // Stop auto-spin on first interaction
         if (!hasInteracted) {
           hasInteracted = true;
           track.classList.remove('pm-carousel-auto');
-          // Get current rotation from computed style
+          // Read current rotation from computed style
           const style = getComputedStyle(track);
           const matrix = style.transform;
           if (matrix && matrix !== 'none') {
-            const values = matrix.match(/matrix3d\((.+)\)/);
-            if (values) {
-              const parts = values[1].split(',').map(Number);
-              currentRotation = Math.round(Math.atan2(parts[8], parts[10]) * (180 / Math.PI));
+            try {
+              const dm = new DOMMatrix(matrix);
+              currentRotation = Math.atan2(dm.m13, dm.m33) * (180 / Math.PI);
+            } catch (ex) {
+              const values = matrix.match(/matrix3d\((.+)\)/);
+              if (values) {
+                const parts = values[1].split(',').map(Number);
+                currentRotation = Math.round(Math.atan2(parts[8], parts[10]) * (180 / Math.PI));
+              }
             }
           }
           track.style.transform = `rotateY(${currentRotation}deg)`;
@@ -494,15 +557,351 @@
       });
 
       track.addEventListener('pointermove', (e) => {
-        if (!isDragging) return;
-        const diff = e.clientX - startX;
-        currentRotation += diff * 0.5;
-        track.style.transform = `rotateY(${currentRotation}deg)`;
-        startX = e.clientX;
+        if (!hasInteracted) return;
+
+        // Threshold check
+        if (!isDragging) {
+          if (Math.abs(e.clientX - dragStartX) > dragThreshold) {
+            isDragging = true;
+            if (IS_TOUCH) e.preventDefault(); // prevent page scroll while dragging
+          } else {
+            return;
+          }
+        }
+
+        const now = performance.now();
+        let dt = now - lastTime;
+        if (dt < 1) dt = 1;
+
+        const dx = e.clientX - lastX;
+        velocity = (dx / dt) * 16; // scale to ~60fps frame
+
+        lastX = e.clientX;
+        lastTime = now;
+
+        if (!rafPending) {
+          rafPending = true;
+          const capturedDx = e.clientX - startX;
+          requestAnimationFrame(() => {
+            currentRotation += capturedDx * 0.45;
+            track.style.transform = `rotateY(${currentRotation}deg)`;
+            startX = lastX;
+            rafPending = false;
+          });
+        }
       });
 
-      track.addEventListener('pointerup', () => { isDragging = false; });
-      track.addEventListener('pointercancel', () => { isDragging = false; });
+      track.addEventListener('pointerup', () => {
+        if (!isDragging && hasInteracted) {
+          isDragging = false;
+          return;
+        }
+        isDragging = false;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { snapToNearest(); return; }
+        // Start momentum if velocity is above threshold
+        if (Math.abs(velocity) > SNAP_THRESHOLD) {
+          momentumRafId = requestAnimationFrame(momentumLoop);
+        } else {
+          snapToNearest();
+        }
+      });
+
+      track.addEventListener('pointercancel', () => {
+        isDragging = false;
+        stopMomentum();
+        snapToNearest();
+      });
+
+      // Prevent context menu on long press (mobile)
+      track.addEventListener('contextmenu', (e) => { e.preventDefault(); });
+    },
+
+    // ── Page Transitions ─────────────────────
+    initPageTransitions() {
+      const curtain = document.getElementById('pm-curtain');
+      if (!curtain) return;
+
+      const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Entry animation — if we just arrived from a transition
+      const fromTransition = sessionStorage.getItem('pm-transitioning');
+      if (fromTransition) {
+        sessionStorage.removeItem('pm-transitioning');
+        if (!REDUCED) {
+          curtain.style.clipPath = 'polygon(0 0, 100% 0, 100% 100%, 0 100%)';
+          curtain.style.display = 'block';
+          setTimeout(() => {
+            curtain.classList.add('leaving');
+            curtain.addEventListener('animationend', function handler() {
+              curtain.style.display = 'none';
+              curtain.classList.remove('leaving');
+              curtain.style.clipPath = '';
+              curtain.removeEventListener('animationend', handler);
+            });
+          }, 50);
+        }
+      }
+
+      // Intercept internal link clicks
+      document.addEventListener('click', (e) => {
+        const target = e.target.closest('a');
+        if (!target) return;
+
+        const href = target.getAttribute('href');
+        if (!href) return;
+
+        // Exclude non-navigating links
+        if (
+          href.startsWith('#') ||
+          href.startsWith('mailto:') ||
+          href.startsWith('tel:') ||
+          target.getAttribute('target') === '_blank' ||
+          target.hasAttribute('data-no-transition') ||
+          href === '' ||
+          href.startsWith('javascript:')
+        ) return;
+
+        // Only same-origin links
+        try {
+          const url = new URL(href, window.location.origin);
+          if (url.origin !== window.location.origin) return;
+        } catch (ex) { return; }
+
+        e.preventDefault();
+        if (REDUCED) { window.location.href = href; return; }
+
+        sessionStorage.setItem('pm-transitioning', '1');
+        curtain.style.display = 'block';
+        curtain.classList.add('entering');
+        curtain.addEventListener('animationend', function handler() {
+          window.location.href = href;
+          curtain.removeEventListener('animationend', handler);
+        });
+      });
+    },
+
+    // ── Product Image Lightbox ───────────────
+    initProductLightbox() {
+      // Only activate on product detail pages
+      const mainImg = document.getElementById('product-main-image');
+      if (!mainImg) return;
+
+      // Create lightbox overlay if not already in DOM
+      let overlay = document.getElementById('pm-lightbox');
+      if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.id = 'pm-lightbox';
+        overlay.className = 'pm-lightbox-overlay';
+        overlay.setAttribute('role', 'dialog');
+        overlay.setAttribute('aria-modal', 'true');
+        overlay.setAttribute('aria-label', 'Product image lightbox');
+        overlay.innerHTML =
+          '<button class="pm-lightbox-arrow pm-lightbox-prev" id="lb-prev" aria-label="Previous image">&larr;</button>' +
+          '<div class="pm-lightbox-img-wrap" id="lb-img-wrap">' +
+            '<button class="pm-lightbox-close" id="lb-close" aria-label="Close lightbox">&times;</button>' +
+            '<img id="lb-main-img" src="" alt="Product image" />' +
+            '<div class="pm-zoom-indicator" id="lb-zoom-indicator">1&times;</div>' +
+          '</div>' +
+          '<button class="pm-lightbox-arrow pm-lightbox-next" id="lb-next" aria-label="Next image">&rarr;</button>' +
+          '<div class="pm-lightbox-strip" id="lb-thumb-strip"></div>';
+        document.body.appendChild(overlay);
+      }
+
+      const lbMainImg = document.getElementById('lb-main-img');
+      const imgWrap = document.getElementById('lb-img-wrap');
+      const thumbStrip = document.getElementById('lb-thumb-strip');
+      const closeBtn = document.getElementById('lb-close');
+      const prevBtn = document.getElementById('lb-prev');
+      const nextBtn = document.getElementById('lb-next');
+      const zoomIndicator = document.getElementById('lb-zoom-indicator');
+
+      let currentIndex = 0;
+      let zoomLevel = 1;
+      const maxZoom = 3;
+      let zoomHideTimer = null;
+
+      // Collect all product images from the page
+      function getImages() {
+        const thumbs = document.querySelectorAll('.product-thumb img, #product-thumb-strip img');
+        if (thumbs.length > 0) {
+          return Array.from(thumbs).map(t => t.src || t.getAttribute('data-src'));
+        }
+        // Fallback: just the main image
+        return [mainImg.src || mainImg.getAttribute('data-src')];
+      }
+
+      function buildThumbs(images) {
+        if (!thumbStrip) return;
+        thumbStrip.innerHTML = '';
+        images.forEach((src, i) => {
+          const thumb = document.createElement('div');
+          thumb.className = 'pm-lightbox-thumb' + (i === currentIndex ? ' active' : '');
+          thumb.innerHTML = '<img src="' + src + '" alt="View ' + (i + 1) + '" loading="lazy" />';
+          thumb.addEventListener('click', () => goTo(i));
+          thumbStrip.appendChild(thumb);
+        });
+      }
+
+      function updateThumbs() {
+        if (!thumbStrip) return;
+        const thumbs = thumbStrip.querySelectorAll('.pm-lightbox-thumb');
+        thumbs.forEach((t, i) => t.classList.toggle('active', i === currentIndex));
+        const activeThumb = thumbStrip.children[currentIndex];
+        if (activeThumb) activeThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+
+      function showZoom() {
+        if (zoomIndicator) {
+          zoomIndicator.textContent = Math.round(zoomLevel * 10) / 10 + '\u00d7';
+          zoomIndicator.classList.add('visible');
+          clearTimeout(zoomHideTimer);
+          zoomHideTimer = setTimeout(() => zoomIndicator.classList.remove('visible'), 1200);
+        }
+      }
+
+      function setZoom(level) {
+        zoomLevel = Math.min(maxZoom, Math.max(1, level));
+        if (lbMainImg) lbMainImg.style.transform = 'scale(' + zoomLevel + ')';
+        showZoom();
+      }
+
+      function goTo(idx) {
+        const images = getImages();
+        currentIndex = ((idx % images.length) + images.length) % images.length;
+        zoomLevel = 1;
+        if (lbMainImg) {
+          lbMainImg.style.transform = 'scale(1)';
+          lbMainImg.style.opacity = '0';
+          lbMainImg.style.transition = 'opacity 0.2s ease';
+          setTimeout(() => {
+            lbMainImg.src = images[currentIndex];
+            lbMainImg.onload = () => { lbMainImg.style.opacity = '1'; };
+            if (lbMainImg.complete) lbMainImg.style.opacity = '1';
+          }, 80);
+        }
+        updateThumbs();
+      }
+
+      function openLightbox(idx) {
+        const images = getImages();
+        currentIndex = idx;
+        zoomLevel = 1;
+        if (lbMainImg) {
+          lbMainImg.style.transform = 'scale(1)';
+          lbMainImg.src = images[idx];
+        }
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        buildThumbs(images);
+        updateThumbs();
+      }
+
+      function closeLightbox() {
+        overlay.classList.remove('active');
+        setTimeout(() => { document.body.style.overflow = ''; }, 200);
+      }
+
+      // Open on main product image click
+      const mainWrap = mainImg.closest('.product-main-image-wrap, .overflow-hidden') || mainImg.parentElement;
+      if (mainWrap) {
+        mainWrap.style.cursor = 'zoom-in';
+        mainWrap.addEventListener('click', () => openLightbox(0));
+      }
+
+      // Close
+      closeBtn && closeBtn.addEventListener('click', closeLightbox);
+      overlay.addEventListener('click', (e) => { if (e.target === overlay) closeLightbox(); });
+      document.addEventListener('keydown', (e) => {
+        if (!overlay.classList.contains('active')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') goTo(currentIndex - 1);
+        if (e.key === 'ArrowRight') goTo(currentIndex + 1);
+      });
+
+      // Prev / Next buttons
+      prevBtn && prevBtn.addEventListener('click', () => goTo(currentIndex - 1));
+      nextBtn && nextBtn.addEventListener('click', () => goTo(currentIndex + 1));
+
+      // Scroll-wheel zoom
+      imgWrap && imgWrap.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        const delta = e.deltaY > 0 ? -0.25 : 0.25;
+        setZoom(zoomLevel + delta);
+      }, { passive: false });
+
+      // Swipe navigation with velocity tracking
+      let swipeStartX = 0, swipeLastX = 0, swipeStartTime = 0, swipeActive = false;
+
+      imgWrap && imgWrap.addEventListener('pointerdown', (e) => {
+        if (e.pointerType === 'mouse' && e.button !== 0) return;
+        swipeStartX = e.clientX;
+        swipeLastX = e.clientX;
+        swipeStartTime = performance.now();
+        swipeActive = true;
+        imgWrap.setPointerCapture(e.pointerId);
+      });
+
+      imgWrap && imgWrap.addEventListener('pointermove', (e) => {
+        if (!swipeActive) return;
+        swipeLastX = e.clientX;
+      });
+
+      imgWrap && imgWrap.addEventListener('pointerup', () => {
+        if (!swipeActive) return;
+        swipeActive = false;
+        const dx = swipeLastX - swipeStartX;
+        const dt = performance.now() - swipeStartTime;
+        const vel = Math.abs(dx / dt);
+        if ((Math.abs(dx) > 50 && vel > 0.2) || Math.abs(dx) > 120) {
+          if (dx < 0) goTo(currentIndex + 1);
+          else goTo(currentIndex - 1);
+        }
+      });
+
+      // Double-tap to zoom (touch only)
+      let lastTap = 0;
+      imgWrap && imgWrap.addEventListener('pointerdown', (e) => {
+        if (e.pointerType !== 'touch') return;
+        const now = Date.now();
+        if (now - lastTap < 300) setZoom(zoomLevel > 1 ? 1 : 2);
+        lastTap = now;
+      });
+
+      // Pinch-to-zoom
+      let pinchStartDist = 0, pinchStartZoom = 1;
+      const activeTouches = {};
+
+      overlay.addEventListener('touchstart', (e) => {
+        Array.from(e.changedTouches).forEach(t => {
+          activeTouches[t.identifier] = { x: t.clientX, y: t.clientY };
+        });
+        const keys = Object.keys(activeTouches);
+        if (keys.length === 2) {
+          const t1 = activeTouches[keys[0]], t2 = activeTouches[keys[1]];
+          pinchStartDist = Math.hypot(t2.x - t1.x, t2.y - t1.y);
+          pinchStartZoom = zoomLevel;
+        }
+      }, { passive: true });
+
+      overlay.addEventListener('touchmove', (e) => {
+        Array.from(e.changedTouches).forEach(t => {
+          if (activeTouches[t.identifier]) {
+            activeTouches[t.identifier] = { x: t.clientX, y: t.clientY };
+          }
+        });
+        const keys = Object.keys(activeTouches);
+        if (keys.length === 2 && pinchStartDist > 0) {
+          e.preventDefault();
+          const t1 = activeTouches[keys[0]], t2 = activeTouches[keys[1]];
+          const dist = Math.hypot(t2.x - t1.x, t2.y - t1.y);
+          setZoom(pinchStartZoom * (dist / pinchStartDist));
+        }
+      }, { passive: false });
+
+      overlay.addEventListener('touchend', (e) => {
+        Array.from(e.changedTouches).forEach(t => { delete activeTouches[t.identifier]; });
+        if (Object.keys(activeTouches).length < 2) pinchStartDist = 0;
+      }, { passive: true });
     },
 
     // ── 360° Image Rotation Viewer ─────────
