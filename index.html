@@ -10,10 +10,12 @@
   <meta property="og:description" content="Professional power tools manufacturer since 1998. Drills, saws, grinders, sanders and combo kits shipped worldwide."/>
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://siyang.tools/index.html"/>
+  <link rel="canonical" href="https://siyang.tools/index.html"/>
   <meta property="og:image" content="./default-og-image.png"/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
   <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image" content="./default-og-image.png"/>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -338,12 +340,11 @@
         <a data-i18n="nav.aboutTeam" href="./about/team.html" class="px-4 py-2 pl-8 text-sm font-medium text-zinc-400 hover:text-yellow-400 hover:bg-zinc-800 rounded-lg transition-colors">Our Team</a>
         <a data-i18n="nav.aboutCertifications" href="./about/certifications.html" class="px-4 py-2 pl-8 text-sm font-medium text-zinc-400 hover:text-yellow-400 hover:bg-zinc-800 rounded-lg transition-colors">Certifications</a>
         <a data-i18n="nav.aboutGlobal" href="./about/global.html" class="px-4 py-2 pl-8 text-sm font-medium text-zinc-400 hover:text-yellow-400 hover:bg-zinc-800 rounded-lg transition-colors">Global Presence</a>
-        <a href="./about/distributors.html" class="px-4 py-2 pl-8 text-sm font-medium text-zinc-400 hover:text-yellow-400 hover:bg-zinc-800 rounded-lg transition-colors">Distributors</a>
+        <a data-i18n="nav.distributors" href="./about/distributors.html" class="px-4 py-2 pl-8 text-sm font-medium text-zinc-400 hover:text-yellow-400 hover:bg-zinc-800 rounded-lg transition-colors">Distributors</a>
         <a data-i18n="nav.aboutOemOdm" href="./about/oem-odm.html" class="px-4 py-2 pl-8 text-sm font-medium text-zinc-400 hover:text-yellow-400 hover:bg-zinc-800 rounded-lg transition-colors">OEM/ODM</a>
         <a data-i18n="footer.paymentTerms" href="./about/payment-terms.html" class="px-4 py-2 pl-8 text-sm font-medium text-zinc-400 hover:text-yellow-400 hover:bg-zinc-800 rounded-lg transition-colors">Payment &amp; Trade Terms</a>
-        <a data-i18n="footer.paymentTerms" href="./about/payment-terms.html" class="px-4 py-2 pl-8 text-sm font-medium text-zinc-400 hover:text-yellow-400 hover:bg-zinc-800 rounded-lg transition-colors">Payment &amp; Trade Terms</a>
-        <a href="./about/warranty.html" class="block py-2 text-zinc-400 hover:text-yellow-400 transition-colors" data-i18n="nav.aboutWarranty">Warranty</a>
-        <a href="./about/safety.html" class="block py-2 text-zinc-400 hover:text-yellow-400 transition-colors" data-i18n="nav.aboutSafety">Safety &amp; Compliance</a>
+        <a data-i18n="nav.aboutWarranty" href="./about/warranty.html" class="px-4 py-2 pl-8 text-sm font-medium text-zinc-400 hover:text-yellow-400 hover:bg-zinc-800 rounded-lg transition-colors">Warranty</a>
+        <a data-i18n="nav.aboutSafety" href="./about/safety.html" class="px-4 py-2 pl-8 text-sm font-medium text-zinc-400 hover:text-yellow-400 hover:bg-zinc-800 rounded-lg transition-colors">Safety &amp; Compliance</a>
         <a data-i18n="nav.aboutBrochure" href="./about/brochure.html" class="px-4 py-2 pl-8 text-sm font-medium text-zinc-400 hover:text-yellow-400 hover:bg-zinc-800 rounded-lg transition-colors">Download Brochure</a>
         <div class="border-t border-zinc-800 my-1"></div>
         <a data-i18n="nav.requestQuote" href="./contact.html#quote-form" class="px-4 py-3 text-sm font-medium text-yellow-400 hover:text-yellow-300 hover:bg-zinc-800 rounded-lg transition-colors">Request Quote</a>
@@ -1450,6 +1451,7 @@
               <li><a data-i18n="nav.aboutGlobal" href="./about/global.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">Global Presence</a></li>
               <li><a href="./about/distributors.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">Distributors</a></li>
               <li><a data-i18n="nav.aboutOemOdm" href="./about/oem-odm.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">OEM/ODM</a></li>
+              <li><a data-i18n="footer.paymentTerms" href="./about/payment-terms.html" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">Payment &amp; Trade Terms</a></li>
               <li><a href="./about/warranty.html" class="text-zinc-400 hover:text-yellow-400 transition-colors" data-i18n="footer.warranty">Warranty</a></li>
               <li><a href="./about/safety.html" class="text-zinc-400 hover:text-yellow-400 transition-colors" data-i18n="footer.safety">Safety &amp; Compliance</a></li>
             </ul>
@@ -1741,7 +1743,7 @@
   <div class="container mx-auto px-4 pt-20 max-w-2xl">
     <div class="relative">
       <input type="text" id="search-input" class="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-4 py-3 text-white placeholder-zinc-500 focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 outline-none" placeholder="Search products, SKUs..." data-i18n-placeholder="search.placeholder"/>
-      <button id="search-close" class="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-white">
+      <button id="search-close" class="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-white" aria-label="Close search">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>
       </button>
     </div>
@@ -1751,3 +1753,4 @@
 <script src="./assets/js/search.js"></script>
 </body>
 </html>
+

@@ -56,6 +56,18 @@
             data[key] = arr;
             continue;
           }
+          // Nested object (indented key-value pairs)
+          if (i + 1 < lines.length && lines[i + 1].match(/^\s{2,}\w[\w-]*:\s*/)) {
+            var nestedObj = {};
+            i++;
+            while (i < lines.length && lines[i].match(/^\s{2,}\w[\w-]*:\s*/)) {
+              var nkv = lines[i].match(/^\s{2,}(\w[\w-]*):\s*(.*)/);
+              if (nkv) nestedObj[nkv[1]] = parseValue(nkv[2].trim());
+              i++;
+            }
+            data[key] = nestedObj;
+            continue;
+          }
           data[key] = '';
           i++;
           continue;
@@ -1180,6 +1192,33 @@
             }
           } catch (e) {}
         });
+      }
+
+      // ---- Scroll Animations ----
+      if (data.scrollAnimations && typeof data.scrollAnimations === 'object') {
+        var saAttrMap = {
+          galleryInset: 'data-sa-inset',
+          galleryParallaxY: 'data-sa-translate-y',
+          galleryInsetX: 'data-sa-inset-x',
+          galleryScale: 'data-sa-scale',
+          factoryInset: 'data-sa-inset',
+          qualityInset: 'data-sa-inset',
+          ctaInset: 'data-sa-inset',
+          ctaHeadingY: 'data-sa-translate-y',
+          ctaButtonY: 'data-sa-translate-y'
+        };
+        Object.keys(data.scrollAnimations).forEach(function (key) {
+          var attr = saAttrMap[key];
+          if (!attr) return;
+          var el = document.querySelector('[data-sa-cms="' + key + '"]');
+          if (el) {
+            el.setAttribute(attr, data.scrollAnimations[key]);
+          }
+        });
+        // Re-init scroll animations if the engine is loaded
+        if (window.ScrollAnimations && typeof window.ScrollAnimations.init === 'function') {
+          window.ScrollAnimations.init();
+        }
       }
     });
   };
