@@ -398,6 +398,173 @@
   animation: pm-shimmer 3s ease-in-out infinite;
 }
 
+/* ═══════════════════════════════════════════
+   11. 3D TILT EFFECT (Mouse-tracking)
+   ═══════════════════════════════════════════ */
+.pm-3d-tilt {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: transform 0.1s ease-out;
+}
+.pm-3d-tilt:hover {
+  transition: transform 0.05s ease-out;
+}
+.pm-3d-tilt .pm-tilt-inner {
+  transform: translateZ(40px);
+  transition: transform 0.1s ease-out;
+}
+.pm-3d-tilt .pm-tilt-glare {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(circle at var(--tilt-x, 50%) var(--tilt-y, 50%), rgba(250, 204, 21, 0.12) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+.pm-3d-tilt:hover .pm-tilt-glare {
+  opacity: 1;
+}
+
+/* ═══════════════════════════════════════════
+   12. 3D ROTATING CAROUSEL
+   ═══════════════════════════════════════════ */
+.pm-3d-carousel {
+  perspective: 1200px;
+  height: 400px;
+  position: relative;
+}
+.pm-3d-carousel-track {
+  position: relative;
+  width: 280px;
+  height: 360px;
+  transform-style: preserve-3d;
+  margin: 0 auto;
+  animation: pm-carousel-spin 20s linear infinite;
+}
+.pm-3d-carousel-track:hover {
+  animation-play-state: paused;
+}
+.pm-3d-carousel-item {
+  position: absolute;
+  width: 280px;
+  height: 360px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid #27272a;
+  background: #18181b;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  backface-visibility: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.pm-3d-carousel-item:hover {
+  border-color: #facc15;
+  box-shadow: 0 20px 60px rgba(250, 204, 21, 0.15);
+}
+.pm-3d-carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes pm-carousel-spin {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
+
+/* ═══════════════════════════════════════════
+   13. 360° IMAGE ROTATION VIEWER
+   ═══════════════════════════════════════════ */
+.pm-360-viewer {
+  position: relative;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #09090b;
+}
+.pm-360-viewer:active {
+  cursor: grabbing;
+}
+.pm-360-viewer img {
+  display: none;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: opacity 0.15s ease;
+}
+.pm-360-viewer img.pm-360-active {
+  display: block;
+}
+.pm-360-ring {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 4px;
+  padding: 6px 12px;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  z-index: 5;
+}
+.pm-360-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #52525b;
+  transition: all 0.2s ease;
+}
+.pm-360-dot.pm-360-dot-active {
+  background: #facc15;
+  transform: scale(1.4);
+}
+.pm-360-hint {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 8px 16px;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  color: white;
+  font-size: 13px;
+  font-weight: 500;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.pm-360-hint svg {
+  animation: pm-360-drag 1.5s ease-in-out infinite;
+}
+@keyframes pm-360-drag {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(12px); }
+}
+
+/* ═══════════════════════════════════════════
+   14. PRODUCT CARD 3D HOVER
+   ═══════════════════════════════════════════ */
+.pm-product-card-3d {
+  perspective: 800px;
+}
+.pm-product-card-3d .pm-product-card-inner {
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  transform-style: preserve-3d;
+}
+.pm-product-card-3d:hover .pm-product-card-inner {
+  transform: rotateY(-5deg) rotateX(3deg) translateZ(10px);
+  box-shadow: 15px 15px 40px rgba(0,0,0,0.4), -2px -2px 10px rgba(250, 204, 21, 0.05);
+}
+
 /* Reduced motion — respect user accessibility preferences */
 @media (prefers-reduced-motion: reduce) {
   *,

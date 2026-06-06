@@ -870,10 +870,14 @@
   // PRODUCT 3D VIEWER
   // ============================================================
   CMSLoader.loadProduct3D = function (productData) {
-    if (!productData || !productData.splineSceneUrl) return;
+    if (!productData) return;
 
     var section = document.getElementById('product-3d-section');
     if (!section) return;
+
+    var hasSpline = !!productData.splineSceneUrl;
+    var hasImages = productData.images && productData.images.length > 0;
+    if (!hasSpline && !hasImages) return;
 
     // Show the section
     section.classList.remove('hidden');
@@ -886,69 +890,125 @@
     var autoSpinLabel = document.getElementById('autospin-label');
     var explodedBtn = document.getElementById('btn-exploded');
 
-    // Create Spline viewer
-    var viewer = document.createElement('spline-viewer');
-    viewer.setAttribute('url', productData.splineSceneUrl);
-    viewer.style.width = '100%';
-    viewer.style.height = '100%';
+    if (hasSpline) {
+      // ── Spline 3D Viewer ──
+      var viewer = document.createElement('spline-viewer');
+      viewer.setAttribute('url', productData.splineSceneUrl);
+      viewer.style.width = '100%';
+      viewer.style.height = '100%';
 
-    // Auto-spin: Spline viewer doesn't have a JS API for this,
-    // but we can set the loading attribute to trigger auto-rotate
-    var autoSpin = productData.autoSpin !== false;
-    if (autoSpin) {
-      viewer.setAttribute('loading-animation', 'spin');
-    }
+      var autoSpin = productData.autoSpin !== false;
+      if (autoSpin) {
+        viewer.setAttribute('loading-animation', 'spin');
+      }
 
-    container.appendChild(viewer);
+      container.appendChild(viewer);
 
-    // Hide loading when viewer is ready
-    viewer.addEventListener('load', function() {
-      if (loading) loading.style.display = 'none';
-    });
-    // Fallback: hide loading after 5 seconds
-    setTimeout(function() {
-      if (loading) loading.style.display = 'none';
-    }, 5000);
-
-    // Hide interaction hint after 5 seconds or on first interaction
-    setTimeout(function() {
-      if (hint) hint.style.opacity = '0';
-    }, 5000);
-    container.addEventListener('pointerdown', function() {
-      if (hint) hint.style.opacity = '0';
-    }, { once: true });
-
-    // Auto-spin toggle
-    var isAutoSpin = autoSpin;
-    if (autoSpinBtn) {
-      autoSpinBtn.addEventListener('click', function() {
-        isAutoSpin = !isAutoSpin;
-        if (autoSpinLabel) {
-          autoSpinLabel.textContent = 'Auto-Spin: ' + (isAutoSpin ? 'ON' : 'OFF');
-        }
-        // Toggle Spline auto-rotate via CSS animation on the viewer
-        if (isAutoSpin) {
-          viewer.style.animation = 'pm-ambient-float 5s ease-in-out infinite';
-        } else {
-          viewer.style.animation = 'none';
-        }
+      viewer.addEventListener('load', function() {
+        if (loading) loading.style.display = 'none';
       });
-    }
+      setTimeout(function() {
+        if (loading) loading.style.display = 'none';
+      }, 5000);
 
-    // Exploded view toggle
-    var isExploded = false;
-    if (explodedBtn) {
-      explodedBtn.addEventListener('click', function() {
-        isExploded = !isExploded;
-        explodedBtn.classList.toggle('bg-yellow-400/20');
-        explodedBtn.classList.toggle('border');
-        explodedBtn.classList.toggle('border-yellow-400/50');
-        // Dispatch custom event that Spline can listen to
-        viewer.dispatchEvent(new CustomEvent('exploded-view', { detail: { exploded: isExploded } }));
-        // Visual feedback
-        if (window.CMSToast) {
-          window.CMSToast.info(isExploded ? 'Exploded view enabled' : 'Exploded view disabled');
+      setTimeout(function() {
+        if (hint) hint.style.opacity = '0';
+      }, 5000);
+      container.addEventListener('pointerdown', function() {
+        if (hint) hint.style.opacity = '0';
+      }, { once: true });
+
+      var isAutoSpin = autoSpin;
+      if (autoSpinBtn) {
+        autoSpinBtn.addEventListener('click', function() {
+          isAutoSpin = !isAutoSpin;
+          if (autoSpinLabel) {
+            autoSpinLabel.textContent = 'Auto-Spin: ' + (isAutoSpin ? 'ON' : 'OFF');
+          }
+          if (isAutoSpin) {
+            viewer.style.animation = 'pm-ambient-float 5s ease-in-out infinite';
+          } else {
+            viewer.style.animation = 'none';
+          }
+        });
+      }
+
+      var isExploded = false;
+      if (explodedBtn) {
+        explodedBtn.addEventListener('click', function() {
+          isExploded = !isExploded;
+          explodedBtn.classList.toggle('bg-yellow-400/20');
+          explodedBtn.classList.toggle('border');
+          explodedBtn.classList.toggle('border-yellow-400/50');
+          viewer.dispatchEvent(new CustomEvent('exploded-view', { detail: { exploded: isExploded } }));
+        });
+      }
+
+      // AR Quick Look
+      if (productData.arModelUrl && arBtn) {
+        arBtn.classList.remove('hidden');
+        arBtn.classList.add('flex');
+        arBtn.href = productData.arModelUrl;
+        var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+        if (!isIOS && productData.arModelUrl.endsWith('.usdz')) {
+          arBtn.classList.add('hidden');
+          arBtn.classList.remove('flex');
         }
+      }
+    } else {
+      // ── 360° Image Rotation Viewer ──
+      if (loading) loading.style.display = 'none';
+
+      // Build the 360° viewer
+      var viewer360 = document.createElement('div');
+      viewer360.className = 'pm-360-viewer w-full h-full';
+
+      // Add all images
+      var allImages = [];
+      if (productData.image) allImages.push(productData.image);
+      if (productData.images) {
+        productData.images.forEach(function(img) {
+          if (allImages.indexOf(img) === -1) allImages.push(img);
+        });
+      }
+
+      allImages.forEach(function(src, i) {
+        var img = document.createElement('img');
+        img.src = src;
+        img.alt = productData.name || 'Product angle ' + (i + 1);
+        img.loading = 'lazy';
+        if (i === 0) img.classList.add('pm-360-active');
+        viewer360.appendChild(img);
+      });
+
+      // Add dot ring
+      var ring = document.createElement('div');
+      ring.className = 'pm-360-ring';
+      viewer360.appendChild(ring);
+
+      // Add drag hint
+      var hint360 = document.createElement('div');
+      hint360.className = 'pm-360-hint';
+      hint360.innerHTML = '<svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg> Drag to rotate 360°';
+      viewer360.appendChild(hint360);
+
+      container.appendChild(viewer360);
+
+      // Hide Spline-specific controls, show 360 hint
+      if (autoSpinBtn) autoSpinBtn.style.display = 'none';
+      if (explodedBtn) explodedBtn.style.display = 'none';
+
+      // Update section description
+      var desc = section.querySelector('p');
+      if (desc) desc.textContent = 'Click & drag to rotate the product 360°. See every angle.';
+
+      // Initialize the 360° viewer (premium-motion.js handles it)
+      setTimeout(function() {
+        if (window.ENGINE && window.ENGINE.init360Viewer) {
+          window.ENGINE.init360Viewer();
+        }
+      }, 100);
+    }
       });
     }
 

@@ -442,26 +442,37 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
         <div class="text-center mb-8">
           <h2 id="cms-3d-heading" class="font-oswald text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-            EXPLORE IN <span class="pm-gradient-text">3D</span>
+            EXPLORE OUR <span class="pm-gradient-text">TOOLS</span>
           </h2>
           <p id="cms-3d-desc" class="text-zinc-400 text-lg max-w-2xl mx-auto">
-            Rotate and inspect our tools from every angle. Click and drag to explore.
+            Our products in 360°. Hover to pause, or add a Spline scene URL for full interactivity.
           </p>
         </div>
         <div class="relative mx-auto max-w-4xl aspect-[16/10] rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900 shadow-2xl">
           <!-- Spline 3D Viewer Container -->
           <div id="cms-spline-container" class="w-full h-full flex items-center justify-center">
-            <!-- Fallback shown when no Spline scene URL is configured -->
-            <div id="cms-spline-fallback" class="text-center p-8">
-              <div class="w-24 h-24 mx-auto mb-6 rounded-full bg-zinc-800 flex items-center justify-center">
-                <svg class="w-12 h-12 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"/>
-                </svg>
+            <!-- 3D Rotating Product Carousel (works without Spline) -->
+            <div class="pm-3d-carousel w-full h-full flex items-center justify-center">
+              <div class="pm-3d-carousel-track">
+                <div class="pm-3d-carousel-item">
+                  <img src="/images/unsplach/drill-closeup/10072.jpeg" alt="Power Drill" loading="lazy"/>
+                </div>
+                <div class="pm-3d-carousel-item">
+                  <img src="/images/istock/10001.jpg" alt="Circular Saw" loading="lazy"/>
+                </div>
+                <div class="pm-3d-carousel-item">
+                  <img src="/images/istock/10009.jpg" alt="Orbital Sander" loading="lazy"/>
+                </div>
+                <div class="pm-3d-carousel-item">
+                  <img src="/images/istock/10017.jpg" alt="Angle Grinder" loading="lazy"/>
+                </div>
+                <div class="pm-3d-carousel-item">
+                  <img src="/images/unsplach/drill-closeup/10080.jpeg" alt="Impact Driver" loading="lazy"/>
+                </div>
+                <div class="pm-3d-carousel-item">
+                  <img src="/images/unsplach/red-drill/10001.jpeg" alt="Combo Kit" loading="lazy"/>
+                </div>
               </div>
-              <h3 class="font-oswald text-xl font-bold text-white mb-2">3D Viewer Loading...</h3>
-              <p class="text-zinc-500 text-sm">Interactive 3D product showcase will appear here.</p>
-              <p class="text-zinc-600 text-xs mt-2">Configure a Spline scene URL in CMS to activate.</p>
             </div>
           </div>
           <!-- Interaction hint overlay (fades out after first interaction) -->

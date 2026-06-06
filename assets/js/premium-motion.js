@@ -70,6 +70,9 @@
       this.enhanceSectionReveals();
       this.enhanceCounters();
       this.enhanceHeroGradient();
+      this.init3DTilt();
+      this.init3DCarousel();
+      this.init360Viewer();
 
       this.enhanceHero();
       this.enhanceCards();
@@ -373,6 +376,173 @@
         yellowSpan.classList.remove('text-yellow-400', 'text-amber-400');
         yellowSpan.classList.add('pm-gradient-text');
       }
+    },
+
+    // ── 3D Tilt Effect ──────────────────────
+    init3DTilt() {
+      document.querySelectorAll('.pm-3d-tilt').forEach(card => {
+        const glare = card.querySelector('.pm-tilt-glare') || document.createElement('div');
+        if (!glare.classList.contains('pm-tilt-glare')) {
+          glare.classList.add('pm-tilt-glare');
+          card.appendChild(glare);
+        }
+
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = (e.clientX - rect.left) / rect.width;
+          const y = (e.clientY - rect.top) / rect.height;
+          const rotateX = (0.5 - y) * 20;
+          const rotateY = (x - 0.5) * 20;
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+          card.style.setProperty('--tilt-x', (x * 100) + '%');
+          card.style.setProperty('--tilt-y', (y * 100) + '%');
+        });
+
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+        });
+      });
+
+      // Also apply tilt to dynamically loaded product cards
+      const observer = new MutationObserver((mutations) => {
+        mutations.forEach(mutation => {
+          mutation.addedNodes.forEach(node => {
+            if (node.nodeType === 1) {
+              const cards = node.matches?.('.pm-product-card-3d') ? [node] :
+                           (node.querySelectorAll ? node.querySelectorAll('.pm-product-card-3d') : []);
+              cards.forEach(card => {
+                if (!card.dataset.tiltInit) {
+                  card.dataset.tiltInit = 'true';
+                  const glare = document.createElement('div');
+                  glare.classList.add('pm-tilt-glare');
+                  card.classList.add('pm-3d-tilt');
+                  card.appendChild(glare);
+
+                  card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = (e.clientX - rect.left) / rect.width;
+                    const y = (e.clientY - rect.top) / rect.height;
+                    const rotateX = (0.5 - y) * 15;
+                    const rotateY = (x - 0.5) * 15;
+                    card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.03, 1.03, 1.03)`;
+                    card.style.setProperty('--tilt-x', (x * 100) + '%');
+                    card.style.setProperty('--tilt-y', (y * 100) + '%');
+                  });
+
+                  card.addEventListener('mouseleave', () => {
+                    card.style.transform = '';
+                  });
+                }
+              });
+            }
+          });
+        });
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
+    },
+
+    // ── 3D Carousel ─────────────────────────
+    init3DCarousel() {
+      const track = document.querySelector('.pm-3d-carousel-track');
+      if (!track) return;
+
+      const items = track.querySelectorAll('.pm-3d-carousel-item');
+      const count = items.length;
+      if (count === 0) return;
+
+      const angle = 360 / count;
+      const radius = Math.max(300, count * 50);
+
+      items.forEach((item, i) => {
+        item.style.transform = `rotateY(${angle * i}deg) translateZ(${radius}px)`;
+      });
+
+      // Pause on hover
+      const carousel = track.closest('.pm-3d-carousel');
+      if (carousel) {
+        carousel.addEventListener('mouseenter', () => {
+          track.style.animationPlayState = 'paused';
+        });
+        carousel.addEventListener('mouseleave', () => {
+          track.style.animationPlayState = 'running';
+        });
+      }
+    },
+
+    // ── 360° Image Rotation Viewer ─────────
+    init360Viewer() {
+      document.querySelectorAll('.pm-360-viewer').forEach(viewer => {
+        const images = viewer.querySelectorAll('img');
+        if (images.length < 2) return;
+
+        let currentIndex = 0;
+        let isDragging = false;
+        let startX = 0;
+        let hasInteracted = false;
+
+        // Show first image
+        images[0].classList.add('pm-360-active');
+
+        // Create dot indicators
+        const ring = viewer.querySelector('.pm-360-ring');
+        if (ring) {
+          images.forEach((_, i) => {
+            const dot = document.createElement('div');
+            dot.classList.add('pm-360-dot');
+            if (i === 0) dot.classList.add('pm-360-dot-active');
+            ring.appendChild(dot);
+          });
+        }
+
+        function showFrame(index) {
+          images.forEach(img => img.classList.remove('pm-360-active'));
+          images[index].classList.add('pm-360-active');
+          currentIndex = index;
+
+          // Update dots
+          const dots = viewer.querySelectorAll('.pm-360-dot');
+          dots.forEach((d, i) => d.classList.toggle('pm-360-dot-active', i === index));
+        }
+
+        viewer.addEventListener('pointerdown', (e) => {
+          isDragging = true;
+          startX = e.clientX;
+          viewer.setPointerCapture(e.pointerId);
+
+          // Hide hint
+          if (!hasInteracted) {
+            hasInteracted = true;
+            const hint = viewer.querySelector('.pm-360-hint');
+            if (hint) hint.style.opacity = '0';
+          }
+        });
+
+        viewer.addEventListener('pointermove', (e) => {
+          if (!isDragging) return;
+          const diff = e.clientX - startX;
+          if (Math.abs(diff) > 30) {
+            const direction = diff > 0 ? 1 : -1;
+            const nextIndex = (currentIndex + direction + images.length) % images.length;
+            showFrame(nextIndex);
+            startX = e.clientX;
+          }
+        });
+
+        viewer.addEventListener('pointerup', () => { isDragging = false; });
+        viewer.addEventListener('pointercancel', () => { isDragging = false; });
+
+        // Auto-rotate slowly
+        let autoInterval = setInterval(() => {
+          if (!isDragging && !hasInteracted) {
+            showFrame((currentIndex + 1) % images.length);
+          }
+        }, 2000);
+
+        // Stop auto-rotate on first interaction
+        viewer.addEventListener('pointerdown', () => {
+          clearInterval(autoInterval);
+        }, { once: true });
+      });
     }
   };
 
