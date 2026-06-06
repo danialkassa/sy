@@ -713,6 +713,39 @@
         if (fnd) fnd.textContent = data.footerNewsletterDesc;
       }
 
+      // ---- 3D Product Showcase ----
+      if (data.viewer3dHeading) {
+        var v3H = document.getElementById('cms-3d-heading');
+        if (v3H) v3H.textContent = data.viewer3dHeading;
+      }
+      if (data.viewer3dDesc) {
+        var v3D = document.getElementById('cms-3d-desc');
+        if (v3D) v3D.textContent = data.viewer3dDesc;
+      }
+      if (data.splineSceneUrl) {
+        var splineContainer = document.getElementById('cms-spline-container');
+        var splineFallback = document.getElementById('cms-spline-fallback');
+        if (splineContainer && splineFallback) {
+          // Remove fallback
+          splineFallback.remove();
+          // Create Spline viewer element
+          var viewer = document.createElement('spline-viewer');
+          viewer.setAttribute('url', data.splineSceneUrl);
+          viewer.style.width = '100%';
+          viewer.style.height = '100%';
+          splineContainer.appendChild(viewer);
+          // Hide interaction hint after 5 seconds
+          var hint = document.getElementById('cms-spline-hint');
+          if (hint) {
+            setTimeout(function() { hint.style.opacity = '0'; }, 5000);
+            // Also hide on first interaction
+            splineContainer.addEventListener('pointerdown', function() {
+              if (hint) hint.style.opacity = '0';
+            }, { once: true });
+          }
+        }
+      }
+
       // ---- Trust Badges ----
       for (var i = 1; i <= 6; i++) {
         var titleKey = 'trustBadge' + i + 'Title';

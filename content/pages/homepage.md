@@ -118,4 +118,7 @@ finalCtaButtonText: "Request a Quote"
 footerBrandDesc: "Premium power tools for professionals and serious DIY enthusiasts. Quality engineering, reliable performance, built to last."
 footerNewsletterHeading: "Trade Resources"
 footerNewsletterDesc: "Get product alerts, trade pricing updates, and catalog downloads."
+viewer3dHeading: "EXPLORE IN 3D"
+viewer3dDesc: "Rotate and inspect our tools from every angle. Click and drag to explore."
+splineSceneUrl: ""
 ---

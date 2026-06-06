@@ -1649,6 +1649,10 @@ collections:
           - {label: "Footer Brand Description", name: "footerBrandDesc", widget: "string", required: false, default: "Premium power tools for professionals and serious DIY enthusiasts. Quality engineering, reliable performance, built to last."}
           - {label: "Footer Newsletter Heading", name: "footerNewsletterHeading", widget: "string", required: false, default: "Trade Resources"}
           - {label: "Footer Newsletter Description", name: "footerNewsletterDesc", widget: "string", required: false, default: "Get product alerts, trade pricing updates, and catalog downloads."}
+          # ---- 3D Product Showcase ----
+          - {label: "3D Viewer Heading", name: "viewer3dHeading", widget: "string", required: false, default: "EXPLORE IN 3D", hint: "Heading for the interactive 3D product viewer section."}
+          - {label: "3D Viewer Description", name: "viewer3dDesc", widget: "string", required: false, default: "Rotate and inspect our tools from every angle. Click and drag to explore.", hint: "Description below the 3D viewer heading."}
+          - {label: "3D Viewer Spline Scene URL", name: "splineSceneUrl", widget: "string", required: false, hint: "Spline scene URL for the interactive 3D product viewer. Example: https://prod.spline.design/xxxxx/scene.splinecode. Leave blank to show placeholder."}
           # ---- Additional Stats ----
           - {label: "Statistic 4 — Value", name: "stat4Value", widget: "string", required: false, default: "99%", hint: "The big number for stat 4. Include suffix."}
           - {label: "Statistic 4 — Label", name: "stat4Label", widget: "string", required: false, default: "Quality Rating"}

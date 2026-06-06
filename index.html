@@ -434,6 +434,49 @@
       </div>
     </section>
 
+    <!-- ═══════════════════════════════════════════
+         INTERACTIVE 3D PRODUCT SHOWCASE
+         Spline-powered 360° product rotation
+         ═══════════════════════════════════════════ -->
+    <section id="product-3d-showcase" class="relative bg-zinc-950 overflow-hidden" aria-labelledby="cms-3d-heading">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+        <div class="text-center mb-8">
+          <h2 id="cms-3d-heading" class="font-oswald text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+            EXPLORE IN <span class="pm-gradient-text">3D</span>
+          </h2>
+          <p id="cms-3d-desc" class="text-zinc-400 text-lg max-w-2xl mx-auto">
+            Rotate and inspect our tools from every angle. Click and drag to explore.
+          </p>
+        </div>
+        <div class="relative mx-auto max-w-4xl aspect-[16/10] rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900 shadow-2xl">
+          <!-- Spline 3D Viewer Container -->
+          <div id="cms-spline-container" class="w-full h-full flex items-center justify-center">
+            <!-- Fallback shown when no Spline scene URL is configured -->
+            <div id="cms-spline-fallback" class="text-center p-8">
+              <div class="w-24 h-24 mx-auto mb-6 rounded-full bg-zinc-800 flex items-center justify-center">
+                <svg class="w-12 h-12 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"/>
+                </svg>
+              </div>
+              <h3 class="font-oswald text-xl font-bold text-white mb-2">3D Viewer Loading...</h3>
+              <p class="text-zinc-500 text-sm">Interactive 3D product showcase will appear here.</p>
+              <p class="text-zinc-600 text-xs mt-2">Configure a Spline scene URL in CMS to activate.</p>
+            </div>
+          </div>
+          <!-- Interaction hint overlay (fades out after first interaction) -->
+          <div id="cms-spline-hint" class="absolute inset-0 flex items-center justify-center pointer-events-none z-10 transition-opacity duration-700" style="opacity:1;">
+            <div class="bg-black/60 backdrop-blur-sm rounded-xl px-6 py-3 flex items-center gap-3">
+              <svg class="w-5 h-5 text-yellow-400 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"/>
+              </svg>
+              <span class="text-white text-sm font-medium">Click &amp; drag to rotate</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <div id="cms-page-body" class="hidden"></div>
 
     <!-- TRUST BADGES -->
@@ -1644,6 +1687,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" crossorigin="anonymous" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js" crossorigin="anonymous" defer></script>
   <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.28/build/spline-viewer.js"></script>
   <script src="./assets/js/premium-motion.js" defer></script>
   <script src="./assets/js/gsap-animations.js" defer></script>
   <script src="./assets/js/animations.js" defer></script>
