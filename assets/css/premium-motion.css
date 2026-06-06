@@ -572,6 +572,79 @@
   box-shadow: 15px 15px 40px rgba(0,0,0,0.4), -2px -2px 10px rgba(250, 204, 21, 0.05);
 }
 
+/* ────────────────────────────────────────────────────────────
+   §15 SCROLL-TRIGGER ANIMATIONS
+   Parallax gallery, peephole reveals, scroll-driven clip-path
+   ──────────────────────────────────────────────────────────── */
+[data-sa-container] {
+  position: relative;
+  overflow: hidden;
+}
+[data-sa-container] .sa-spacer {
+  width: 100%;
+  height: 24rem;
+}
+[data-sa] {
+  will-change: clip-path, transform, opacity, border-radius;
+}
+.sa-parallax-wrap {
+  height: 100vh;
+  position: relative;
+}
+.sa-parallax-inner {
+  height: 100%;
+  position: relative;
+}
+.sa-parallax-scale {
+  display: flex;
+  gap: 0.5rem;
+  overflow: hidden;
+  padding: 0 1.5rem;
+}
+.sa-parallax-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+.sa-parallax-col img {
+  aspect-ratio: 4 / 2.5;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  border-radius: 0.5rem;
+}
+.sa-parallax-col:nth-child(2) {
+  margin-top: -20%;
+}
+@media (max-width: 767px) {
+  .sa-parallax-col:nth-child(3) {
+    display: none;
+  }
+}
+
+/* Peephole reveal for sections */
+.sa-peephole {
+  clip-path: inset(45% 45% 45% 45% round 9999px);
+  transition: none;
+}
+
+/* Cinematic CTA reveal */
+.sa-cinematic {
+  clip-path: inset(40% 30% 40% 30% round 32px);
+}
+
+/* Lens focus effect */
+.sa-lens {
+  clip-path: inset(30% 30% 30% 30% round 9999px);
+}
+
+/* Stats vertical reveal */
+.sa-vreveal {
+  clip-path: inset(48px 0px);
+}
+
 /* Reduced motion — respect user accessibility preferences */
 @media (prefers-reduced-motion: reduce) {
   *,
