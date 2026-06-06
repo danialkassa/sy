@@ -454,7 +454,6 @@
 
       const angle = 360 / count;
       const radius = Math.max(300, count * 50);
-      const IS_TOUCH = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
 
       items.forEach((item, i) => {
         item.style.transform = `rotateY(${angle * i}deg) translateZ(${radius}px)`;
@@ -477,8 +476,27 @@
       let lastTime = 0;
       let momentumRafId = null;
       const FRICTION = 0.92;
-      const SNAP_THRESHOLD = 0.3; // deg/ms — below this, snap to card
+      const SNAP_THRESHOLD = 0.25; // deg/ms — below this, snap to card
       let rafPending = false;
+
+      function captureAutoAngle() {
+        track.classList.remove('pm-carousel-auto');
+        const style = getComputedStyle(track);
+        const matrix = style.transform;
+        if (matrix && matrix !== 'none') {
+          try {
+            const dm = new DOMMatrix(matrix);
+            currentRotation = Math.atan2(dm.m13, dm.m33) * (180 / Math.PI);
+          } catch (ex) {
+            const values = matrix.match(/matrix3d\((.+)\)/);
+            if (values) {
+              const parts = values[1].split(',').map(Number);
+              currentRotation = Math.round(Math.atan2(parts[8], parts[10]) * (180 / Math.PI));
+            }
+          }
+        }
+        track.style.transform = `rotateY(${currentRotation}deg)`;
+      }
 
       function snapToNearest() {
         const nearest = Math.round(currentRotation / angle) * angle;
@@ -532,23 +550,7 @@
         // Stop auto-spin on first interaction
         if (!hasInteracted) {
           hasInteracted = true;
-          track.classList.remove('pm-carousel-auto');
-          // Read current rotation from computed style
-          const style = getComputedStyle(track);
-          const matrix = style.transform;
-          if (matrix && matrix !== 'none') {
-            try {
-              const dm = new DOMMatrix(matrix);
-              currentRotation = Math.atan2(dm.m13, dm.m33) * (180 / Math.PI);
-            } catch (ex) {
-              const values = matrix.match(/matrix3d\((.+)\)/);
-              if (values) {
-                const parts = values[1].split(',').map(Number);
-                currentRotation = Math.round(Math.atan2(parts[8], parts[10]) * (180 / Math.PI));
-              }
-            }
-          }
-          track.style.transform = `rotateY(${currentRotation}deg)`;
+          captureAutoAngle();
         }
 
         // Hide hint
@@ -563,7 +565,7 @@
         if (!isDragging) {
           if (Math.abs(e.clientX - dragStartX) > dragThreshold) {
             isDragging = true;
-            if (IS_TOUCH) e.preventDefault(); // prevent page scroll while dragging
+            if (e.pointerType === 'touch') e.preventDefault(); // prevent page scroll while dragging
           } else {
             return;
           }
@@ -573,8 +575,7 @@
         let dt = now - lastTime;
         if (dt < 1) dt = 1;
 
-        const dx = e.clientX - lastX;
-        velocity = (dx / dt) * 16; // scale to ~60fps frame
+        velocity = ((e.clientX - lastX) / dt) * 16 * 0.45; // scale to ~60fps frame with friction
 
         lastX = e.clientX;
         lastTime = now;
@@ -630,7 +631,7 @@
         if (!REDUCED) {
           curtain.style.clipPath = 'polygon(0 0, 100% 0, 100% 100%, 0 100%)';
           curtain.style.display = 'block';
-          setTimeout(() => {
+          requestAnimationFrame(() => requestAnimationFrame(() => {
             curtain.classList.add('leaving');
             curtain.addEventListener('animationend', function handler() {
               curtain.style.display = 'none';
@@ -638,7 +639,7 @@
               curtain.style.clipPath = '';
               curtain.removeEventListener('animationend', handler);
             });
-          }, 50);
+          }));
         }
       }
 
@@ -803,10 +804,22 @@
 
       // Open on main product image click
       const mainWrap = mainImg.closest('.product-main-image-wrap, .overflow-hidden') || mainImg.parentElement;
-      if (mainWrap) {
+      if (mainWrap && !mainWrap.dataset.lbBound) {
+        mainWrap.dataset.lbBound = '1';
         mainWrap.style.cursor = 'zoom-in';
         mainWrap.addEventListener('click', () => openLightbox(0));
       }
+
+      // Watch for CMS-injected content
+      const observer = new MutationObserver(() => {
+        const mainProductImg = document.getElementById('product-main-image');
+        if (mainProductImg && !mainProductImg.dataset.lbBound) {
+          mainProductImg.dataset.lbBound = '1';
+          mainProductImg.style.cursor = 'zoom-in';
+          mainProductImg.addEventListener('click', () => openLightbox(0));
+        }
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
 
       // Close
       closeBtn && closeBtn.addEventListener('click', closeLightbox);
@@ -867,41 +880,33 @@
         lastTap = now;
       });
 
-      // Pinch-to-zoom
-      let pinchStartDist = 0, pinchStartZoom = 1;
-      const activeTouches = {};
+      // Pinch-to-zoom (pointer events)
+      const pointers = new Map();
+      let pinchDist0 = 0, pinchZoom0 = 1;
 
-      overlay.addEventListener('touchstart', (e) => {
-        Array.from(e.changedTouches).forEach(t => {
-          activeTouches[t.identifier] = { x: t.clientX, y: t.clientY };
-        });
-        const keys = Object.keys(activeTouches);
-        if (keys.length === 2) {
-          const t1 = activeTouches[keys[0]], t2 = activeTouches[keys[1]];
-          pinchStartDist = Math.hypot(t2.x - t1.x, t2.y - t1.y);
-          pinchStartZoom = zoomLevel;
+      overlay.addEventListener('pointerdown', (e) => {
+        pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      });
+
+      overlay.addEventListener('pointermove', (e) => {
+        pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+        if (pointers.size === 2) {
+          const [a, b] = [...pointers.values()];
+          const dist = Math.hypot(b.x - a.x, b.y - a.y);
+          if (pinchDist0 === 0) { pinchDist0 = dist; pinchZoom0 = zoomLevel; return; }
+          setZoom(pinchZoom0 * (dist / pinchDist0));
         }
-      }, { passive: true });
+      });
 
-      overlay.addEventListener('touchmove', (e) => {
-        Array.from(e.changedTouches).forEach(t => {
-          if (activeTouches[t.identifier]) {
-            activeTouches[t.identifier] = { x: t.clientX, y: t.clientY };
-          }
-        });
-        const keys = Object.keys(activeTouches);
-        if (keys.length === 2 && pinchStartDist > 0) {
-          e.preventDefault();
-          const t1 = activeTouches[keys[0]], t2 = activeTouches[keys[1]];
-          const dist = Math.hypot(t2.x - t1.x, t2.y - t1.y);
-          setZoom(pinchStartZoom * (dist / pinchStartDist));
-        }
-      }, { passive: false });
+      overlay.addEventListener('pointerup', (e) => {
+        pointers.delete(e.pointerId);
+        if (pointers.size < 2) pinchDist0 = 0;
+      });
 
-      overlay.addEventListener('touchend', (e) => {
-        Array.from(e.changedTouches).forEach(t => { delete activeTouches[t.identifier]; });
-        if (Object.keys(activeTouches).length < 2) pinchStartDist = 0;
-      }, { passive: true });
+      overlay.addEventListener('pointercancel', (e) => {
+        pointers.delete(e.pointerId);
+        if (pointers.size < 2) pinchDist0 = 0;
+      });
     },
 
     // ── 360° Image Rotation Viewer ─────────
