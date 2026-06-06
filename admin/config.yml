@@ -1491,6 +1491,8 @@ collections:
         name: "homepage"
         file: "content/pages/homepage.md"
         fields:
+          - {label: "SEO Page Title", name: "pageTitle", widget: "string", required: false, hint: "Overrides the HTML <title> tag. Leave blank to use the default Title field."}
+          - {label: "SEO Meta Description", name: "description", widget: "text", required: false, hint: "Brief description for search engines. Keep under 160 characters."}
           - label: "Main Headline"
             name: "heroTitle"
             widget: "string"
@@ -1598,6 +1600,8 @@ collections:
         name: "company"
         file: "content/pages/company.md"
         fields:
+          - {label: "SEO Page Title", name: "pageTitle", widget: "string", required: false, hint: "Overrides the HTML <title> tag. Leave blank to use the default Title field."}
+          - {label: "SEO Meta Description", name: "description", widget: "text", required: false, hint: "Brief description for search engines. Keep under 160 characters."}
           - label: "Company Full Name"
             name: "companyName"
             widget: "string"
@@ -1619,6 +1623,23 @@ collections:
             widget: "string"
             default: "Ningbo Industrial Zone, Zhejiang, China 315000"
             hint: "The company's physical address."
+          - label: "Business Hours"
+            name: "businessHours"
+            widget: "string"
+            default: "Mon-Fri 08:00-17:00"
+            hint: "Business operating hours. Example: Mon-Fri 08:00-17:00"
+          - label: "Latitude"
+            name: "latitude"
+            widget: "string"
+            default: "29.8683"
+            required: false
+            hint: "GPS latitude for Google Maps. Used in structured data."
+          - label: "Longitude"
+            name: "longitude"
+            widget: "string"
+            default: "121.544"
+            required: false
+            hint: "GPS longitude for Google Maps. Used in structured data."
           - label: "Year Founded"
             name: "founded"
             widget: "string"
@@ -1673,6 +1694,7 @@ collections:
             widget: "string"
             default: "OEM/ODM Capabilities"
             hint: "The main heading shown at the top of the OEM/ODM page."
+          - {label: "SEO Meta Description", name: "description", widget: "text", required: false, hint: "Brief description for search engines. Keep under 160 characters."}
           - label: "Subtitle"
             name: "subtitle"
             widget: "string"
@@ -1710,6 +1732,8 @@ collections:
         file: "content/pages/global.md"
         fields:
           - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "SEO Page Title", name: "pageTitle", widget: "string", required: false, hint: "Overrides the HTML <title> tag. Leave blank to use the default Title field."}
+          - {label: "SEO Meta Description", name: "description", widget: "text", required: false, hint: "Brief description for search engines. Keep under 160 characters."}
           - {label: "Content", name: "body", widget: "markdown"}
 
       - label: "Payment & Trade Terms"
@@ -1717,6 +1741,8 @@ collections:
         file: "content/pages/payment-terms.md"
         fields:
           - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "SEO Page Title", name: "pageTitle", widget: "string", required: false, hint: "Overrides the HTML <title> tag. Leave blank to use the default Title field."}
+          - {label: "SEO Meta Description", name: "description", widget: "text", required: false, hint: "Brief description for search engines. Keep under 160 characters."}
           - {label: "Content", name: "body", widget: "markdown"}
 
       - label: "Company Brochure"
@@ -1724,6 +1750,8 @@ collections:
         file: "content/pages/brochure.md"
         fields:
           - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "SEO Page Title", name: "pageTitle", widget: "string", required: false, hint: "Overrides the HTML <title> tag. Leave blank to use the default Title field."}
+          - {label: "SEO Meta Description", name: "description", widget: "text", required: false, hint: "Brief description for search engines. Keep under 160 characters."}
           - {label: "Content", name: "body", widget: "markdown"}
 
       - label: "About Ningbo Siyang"
@@ -1731,6 +1759,8 @@ collections:
         file: "content/pages/about.md"
         fields:
           - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "SEO Page Title", name: "pageTitle", widget: "string", required: false, hint: "Overrides the HTML <title> tag. Leave blank to use the default Title field."}
+          - {label: "SEO Meta Description", name: "description", widget: "text", required: false, hint: "Brief description for search engines. Keep under 160 characters."}
           - {label: "Content", name: "body", widget: "markdown"}
 
       - label: "Contact Us"
@@ -1738,6 +1768,8 @@ collections:
         file: "content/pages/contact.md"
         fields:
           - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "SEO Page Title", name: "pageTitle", widget: "string", required: false, hint: "Overrides the HTML <title> tag. Leave blank to use the default Title field."}
+          - {label: "SEO Meta Description", name: "description", widget: "text", required: false, hint: "Brief description for search engines. Keep under 160 characters."}
           - {label: "Content", name: "body", widget: "markdown"}
 
       - label: "Privacy Policy"
@@ -1745,6 +1777,8 @@ collections:
         file: "content/pages/privacy.md"
         fields:
           - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "SEO Page Title", name: "pageTitle", widget: "string", required: false, hint: "Overrides the HTML <title> tag. Leave blank to use the default Title field."}
+          - {label: "SEO Meta Description", name: "description", widget: "text", required: false, hint: "Brief description for search engines. Keep under 160 characters."}
           - {label: "Content", name: "body", widget: "markdown"}
 
       - label: "Terms of Service"
@@ -1752,6 +1786,8 @@ collections:
         file: "content/pages/terms.md"
         fields:
           - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "SEO Page Title", name: "pageTitle", widget: "string", required: false, hint: "Overrides the HTML <title> tag. Leave blank to use the default Title field."}
+          - {label: "SEO Meta Description", name: "description", widget: "text", required: false, hint: "Brief description for search engines. Keep under 160 characters."}
           - {label: "Content", name: "body", widget: "markdown"}
 
       - label: "Certifications"

@@ -675,6 +675,27 @@
       if (data.title && titleEl && !data.pageTitle) {
         titleEl.textContent = data.title;
       }
+
+      // Update SEO meta tags
+      if (data.pageTitle || data.title) {
+        document.title = (data.pageTitle || data.title) + ' – Ningbo Siyang';
+      }
+      if (data.description) {
+        var metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', data.description);
+        var ogDesc = document.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', data.description);
+        var twDesc = document.querySelector('meta[name="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', data.description);
+      }
+      var ogTitle = document.querySelector('meta[property="og:title"]');
+      if (ogTitle && (data.pageTitle || data.title)) {
+        ogTitle.setAttribute('content', (data.pageTitle || data.title) + ' – Ningbo Siyang');
+      }
+      var twTitle = document.querySelector('meta[name="twitter:title"]');
+      if (twTitle && (data.pageTitle || data.title)) {
+        twTitle.setAttribute('content', (data.pageTitle || data.title) + ' – Ningbo Siyang');
+      }
     });
   };
 
@@ -731,6 +752,67 @@
           });
         }
       });
+      // Update JSON-LD structured data
+      CMSLoader.updateStructuredData(data);
+    });
+  };
+
+  // ============================================================
+  // STRUCTURED DATA — update JSON-LD from CMS company data
+  // ============================================================
+  CMSLoader.updateStructuredData = function (companyData) {
+    if (!companyData) return;
+    var scripts = document.querySelectorAll('script[type="application/ld+json"]');
+    scripts.forEach(function (script) {
+      try {
+        var data = JSON.parse(script.textContent);
+        if (!data || !data['@graph']) return;
+        data['@graph'].forEach(function (item) {
+          if (item['@type'] === 'Organization' || item['@type'] === 'LocalBusiness') {
+            if (companyData.companyName) item.name = companyData.companyName;
+            if (companyData.email) {
+              if (item.contactPoint) {
+                item.contactPoint.email = companyData.email;
+              }
+              if (item.email) item.email = companyData.email;
+            }
+            if (companyData.phone) {
+              if (item.contactPoint) {
+                item.contactPoint.telephone = companyData.phone;
+              }
+              if (item.telephone) item.telephone = companyData.phone;
+            }
+            if (companyData.address && item.address) {
+              item.address.streetAddress = companyData.address;
+            }
+            if (companyData.youtube || companyData.linkedin) {
+              var sameAs = [];
+              if (companyData.youtube) sameAs.push(companyData.youtube);
+              if (companyData.linkedin) sameAs.push(companyData.linkedin);
+              item.sameAs = sameAs;
+            }
+            // Business hours
+            if (companyData.businessHours && item.openingHoursSpecification) {
+              var parts = companyData.businessHours.match(/(\w+-\w+)\s+(\d+:\d+)-(\d+:\d+)/);
+              if (parts) {
+                var days = parts[1].split('-');
+                var dayMap = { Mon: 'Monday', Tue: 'Tuesday', Wed: 'Wednesday', Thu: 'Thursday', Fri: 'Friday', Sat: 'Saturday', Sun: 'Sunday' };
+                item.openingHoursSpecification[0].dayOfWeek = days.map(function (d) { return dayMap[d] || d; });
+                item.openingHoursSpecification[0].opens = parts[2];
+                item.openingHoursSpecification[0].closes = parts[3];
+              }
+            }
+            // Geo coordinates
+            if (companyData.latitude && companyData.longitude && item.geo) {
+              item.geo.latitude = parseFloat(companyData.latitude);
+              item.geo.longitude = parseFloat(companyData.longitude);
+            }
+          }
+        });
+        script.textContent = JSON.stringify(data);
+      } catch (e) {
+        // Skip malformed JSON-LD
+      }
     });
   };
 
