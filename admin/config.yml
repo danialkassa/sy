@@ -165,6 +165,9 @@ collections:
         public_folder: "/images/products"
         choose_url: false
         hint: "The primary product image. Use a clean, well-lit photo on a white or neutral background. Recommended: 800x800px minimum."
+      - {label: "3D Viewer Scene URL", name: "splineSceneUrl", widget: "string", required: false, hint: "Spline 3D scene URL for interactive product viewer. Example: https://prod.spline.design/xxxxx/scene.splinecode"}
+      - {label: "AR Model URL (USDZ/GLB)", name: "arModelUrl", widget: "string", required: false, hint: "URL to USDZ (iOS) or GLB (Android) file for AR Quick Look. View product in your real space via camera."}
+      - {label: "3D Viewer Auto-Spin", name: "autoSpin", widget: "boolean", default: true, required: false, hint: "Automatically rotate the 3D model when the viewer loads. User can click to take manual control."}
       - label: "Additional Images"
         name: "images"
         widget: "list"

@@ -867,6 +867,123 @@
   };
 
   // ============================================================
+  // PRODUCT 3D VIEWER
+  // ============================================================
+  CMSLoader.loadProduct3D = function (productData) {
+    if (!productData || !productData.splineSceneUrl) return;
+
+    var section = document.getElementById('product-3d-section');
+    if (!section) return;
+
+    // Show the section
+    section.classList.remove('hidden');
+
+    var container = document.getElementById('product-spline-container');
+    var loading = document.getElementById('product-3d-loading');
+    var hint = document.getElementById('product-3d-hint');
+    var arBtn = document.getElementById('btn-ar');
+    var autoSpinBtn = document.getElementById('btn-autospin');
+    var autoSpinLabel = document.getElementById('autospin-label');
+    var explodedBtn = document.getElementById('btn-exploded');
+
+    // Create Spline viewer
+    var viewer = document.createElement('spline-viewer');
+    viewer.setAttribute('url', productData.splineSceneUrl);
+    viewer.style.width = '100%';
+    viewer.style.height = '100%';
+
+    // Auto-spin: Spline viewer doesn't have a JS API for this,
+    // but we can set the loading attribute to trigger auto-rotate
+    var autoSpin = productData.autoSpin !== false;
+    if (autoSpin) {
+      viewer.setAttribute('loading-animation', 'spin');
+    }
+
+    container.appendChild(viewer);
+
+    // Hide loading when viewer is ready
+    viewer.addEventListener('load', function() {
+      if (loading) loading.style.display = 'none';
+    });
+    // Fallback: hide loading after 5 seconds
+    setTimeout(function() {
+      if (loading) loading.style.display = 'none';
+    }, 5000);
+
+    // Hide interaction hint after 5 seconds or on first interaction
+    setTimeout(function() {
+      if (hint) hint.style.opacity = '0';
+    }, 5000);
+    container.addEventListener('pointerdown', function() {
+      if (hint) hint.style.opacity = '0';
+    }, { once: true });
+
+    // Auto-spin toggle
+    var isAutoSpin = autoSpin;
+    if (autoSpinBtn) {
+      autoSpinBtn.addEventListener('click', function() {
+        isAutoSpin = !isAutoSpin;
+        if (autoSpinLabel) {
+          autoSpinLabel.textContent = 'Auto-Spin: ' + (isAutoSpin ? 'ON' : 'OFF');
+        }
+        // Toggle Spline auto-rotate via CSS animation on the viewer
+        if (isAutoSpin) {
+          viewer.style.animation = 'pm-ambient-float 5s ease-in-out infinite';
+        } else {
+          viewer.style.animation = 'none';
+        }
+      });
+    }
+
+    // Exploded view toggle
+    var isExploded = false;
+    if (explodedBtn) {
+      explodedBtn.addEventListener('click', function() {
+        isExploded = !isExploded;
+        explodedBtn.classList.toggle('bg-yellow-400/20');
+        explodedBtn.classList.toggle('border');
+        explodedBtn.classList.toggle('border-yellow-400/50');
+        // Dispatch custom event that Spline can listen to
+        viewer.dispatchEvent(new CustomEvent('exploded-view', { detail: { exploded: isExploded } }));
+        // Visual feedback
+        if (window.CMSToast) {
+          window.CMSToast.info(isExploded ? 'Exploded view enabled' : 'Exploded view disabled');
+        }
+      });
+    }
+
+    // AR Quick Look
+    if (productData.arModelUrl && arBtn) {
+      arBtn.classList.remove('hidden');
+      arBtn.classList.add('flex');
+      arBtn.href = productData.arModelUrl;
+      // iOS AR Quick Look requires rel="ar" and a USDZ file
+      // Android requires a GLB file with intent:// URL scheme
+      var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+      if (!isIOS && productData.arModelUrl.endsWith('.usdz')) {
+        // Android can't use USDZ — hide AR button
+        arBtn.classList.add('hidden');
+        arBtn.classList.remove('flex');
+      }
+    }
+
+    // Feature hotspots
+    if (productData.features && productData.features.length) {
+      var featuresGrid = document.getElementById('product-3d-features');
+      if (featuresGrid) {
+        productData.features.forEach(function(feature, i) {
+          var card = document.createElement('div');
+          card.className = 'bg-zinc-900 border border-zinc-800 rounded-xl p-4 text-center animate-fade-in-up';
+          card.style.animationDelay = (i * 0.1) + 's';
+          card.innerHTML = '<div class="text-yellow-400 font-oswald text-lg font-bold mb-1">' + (feature.title || '') + '</div>' +
+                           '<div class="text-zinc-400 text-xs">' + (feature.description || '') + '</div>';
+          featuresGrid.appendChild(card);
+        });
+      }
+    }
+  };
+
+  // ============================================================
   // PAGE MARKDOWN — renders any page's CMS body into a container
   // ============================================================
   CMSLoader.loadPageMarkdown = function (pageName, containerId) {
@@ -1696,6 +1813,16 @@
         CMSLoader.loadRelatedProducts(currentSku, '#cms-related-products-grid');
       }
     }
+    // Product detail page — load 3D viewer
+    if (window.location.pathname.indexOf('/products/product') !== -1) {
+      var productSlug = new URLSearchParams(window.location.search).get('sku') ||
+                        new URLSearchParams(window.location.search).get('product');
+      if (productSlug) {
+        CMSLoader.loadPageSettings(productSlug).then(function(data) {
+          if (data) CMSLoader.loadProduct3D(data);
+        });
+      }
+    }
   };
 
   window.CMSLoader = CMSLoader;
@@ -1773,6 +1900,16 @@
       var currentSku = new URLSearchParams(window.location.search).get('sku') || '';
       if (currentSku) {
         CMSLoader.loadRelatedProducts(currentSku, '#cms-related-products-grid');
+      }
+    }
+    // Product detail page — load 3D viewer
+    if (window.location.pathname.indexOf('/products/product') !== -1) {
+      var productSlug = new URLSearchParams(window.location.search).get('sku') ||
+                        new URLSearchParams(window.location.search).get('product');
+      if (productSlug) {
+        CMSLoader.loadPageSettings(productSlug).then(function(data) {
+          if (data) CMSLoader.loadProduct3D(data);
+        });
       }
     }
   });

@@ -373,6 +373,78 @@
       </div>
     </div>
 
+    <!-- ═══════════════════════════════════════════
+         INTERACTIVE 3D PRODUCT VIEWER
+         Rotate, inspect, explode, and view in AR
+         ═══════════════════════════════════════════ -->
+    <section id="product-3d-section" class="bg-zinc-950 py-12 lg:py-16 hidden" aria-label="Interactive 3D Product Viewer">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-8">
+          <h2 class="font-oswald text-2xl md:text-3xl font-bold text-white mb-2">
+            INTERACTIVE <span class="pm-gradient-text">3D VIEWER</span>
+          </h2>
+          <p class="text-zinc-400 text-sm">Click &amp; drag to rotate. Scroll to zoom. Double-click to reset.</p>
+        </div>
+
+        <!-- 3D Viewer Container -->
+        <div class="relative mx-auto max-w-3xl aspect-square rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900 shadow-2xl">
+          <!-- Spline Viewer -->
+          <div id="product-spline-container" class="w-full h-full"></div>
+
+          <!-- Loading State -->
+          <div id="product-3d-loading" class="absolute inset-0 flex items-center justify-center bg-zinc-900 z-10">
+            <div class="text-center">
+              <div class="w-16 h-16 mx-auto mb-4 rounded-full border-2 border-yellow-400/30 border-t-yellow-400 animate-spin"></div>
+              <p class="text-zinc-400 text-sm">Loading 3D Model...</p>
+            </div>
+          </div>
+
+          <!-- Interaction Hint (fades out) -->
+          <div id="product-3d-hint" class="absolute inset-0 flex items-center justify-center pointer-events-none z-20 transition-opacity duration-700" style="opacity:1;">
+            <div class="bg-black/60 backdrop-blur-sm rounded-xl px-5 py-2.5 flex items-center gap-2.5">
+              <svg class="w-5 h-5 text-yellow-400 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"/>
+              </svg>
+              <span class="text-white text-sm font-medium">Click &amp; drag to rotate</span>
+            </div>
+          </div>
+
+          <!-- Viewer Controls -->
+          <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between z-30">
+            <!-- Left: Auto-spin toggle -->
+            <button id="btn-autospin" class="flex items-center gap-2 bg-zinc-800/80 backdrop-blur-sm hover:bg-zinc-700/80 text-white text-xs font-medium px-3 py-2 rounded-lg transition-colors" title="Toggle auto-rotation">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+              </svg>
+              <span id="autospin-label">Auto-Spin: ON</span>
+            </button>
+
+            <!-- Right: AR + Exploded View -->
+            <div class="flex items-center gap-2">
+              <button id="btn-exploded" class="flex items-center gap-2 bg-zinc-800/80 backdrop-blur-sm hover:bg-zinc-700/80 text-white text-xs font-medium px-3 py-2 rounded-lg transition-colors" title="Toggle exploded view">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                </svg>
+                Exploded View
+              </button>
+              <a id="btn-ar" href="#" rel="ar" class="hidden items-center gap-2 bg-yellow-400/90 hover:bg-yellow-300 text-zinc-900 text-xs font-bold px-4 py-2 rounded-lg transition-colors" title="View in your space (AR)">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                </svg>
+                View in AR
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature Hotspots (below the viewer) -->
+        <div id="product-3d-features" class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+          <!-- Populated by cms-loader from product data -->
+        </div>
+      </div>
+    </section>
+
     <div class="mt-16 border-t border-zinc-800 pt-12">
       <h2 class="font-oswald text-2xl md:text-3xl font-bold text-white mb-6" data-i18n="products.productDescription">PRODUCT <span class="text-yellow-400">DESCRIPTION</span></h2>
       <p id="product-description" class="text-zinc-400 leading-relaxed max-w-3xl text-base">Loading product description...</p>
@@ -862,4 +934,5 @@ function sendQuickInquiry() {
   </div>
 </div>
 <script src="../assets/js/search.js"></script>
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.28/build/spline-viewer.js"></script>
 </body></html>
