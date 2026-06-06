@@ -1576,6 +1576,79 @@ collections:
           - {label: "Final CTA Heading", name: "finalCtaHeading", widget: "string", required: false, default: "Ready to Power Your Business?", hint: "Heading for the final call-to-action section."}
           - {label: "Final CTA Description", name: "finalCtaDescription", widget: "text", required: false, default: "Join thousands of professionals who trust Ningbo Siyang for their power tool needs. Get a custom quote today.", hint: "Description below the final CTA heading."}
           - {label: "Final CTA Button Text", name: "finalCtaButtonText", widget: "string", required: false, default: "Request a Quote", hint: "Text on the final CTA button."}
+          # ---- Brand Showcase Achievements ----
+          - {label: "Achievement 1 Title", name: "achievement1Title", widget: "string", required: false, default: "Global Leader"}
+          - {label: "Achievement 1 Description", name: "achievement1Desc", widget: "string", required: false, default: "Serving contractors in 45+ countries worldwide"}
+          - {label: "Achievement 2 Title", name: "achievement2Title", widget: "string", required: false, default: "Trusted by Professionals"}
+          - {label: "Achievement 2 Description", name: "achievement2Desc", widget: "string", required: false, default: "500,000+ satisfied customers globally"}
+          - {label: "Achievement 3 Title", name: "achievement3Title", widget: "string", required: false, default: "Innovation First"}
+          - {label: "Achievement 3 Description", name: "achievement3Desc", widget: "string", required: false, default: "25+ years of continuous product development"}
+          - {label: "Achievement 4 Title", name: "achievement4Title", widget: "string", required: false, default: "Quality Guaranteed"}
+          - {label: "Achievement 4 Description", name: "achievement4Desc", widget: "string", required: false, default: "Rigorous testing on every single tool"}
+          # ---- Certifications Section ----
+          - {label: "Certifications Heading", name: "certificationsHeading", widget: "string", required: false, default: "Certifications & Standards"}
+          - {label: "Certification 1 Title", name: "cert1Title", widget: "string", required: false, default: "ISO 9001:2015"}
+          - {label: "Certification 1 Description", name: "cert1Desc", widget: "string", required: false, default: "Quality Management Certified"}
+          - {label: "Certification 2 Title", name: "cert2Title", widget: "string", required: false, default: "CE Marked"}
+          - {label: "Certification 2 Description", name: "cert2Desc", widget: "string", required: false, default: "European Safety Standards"}
+          - {label: "Certification 3 Title", name: "cert3Title", widget: "string", required: false, default: "UL Certified"}
+          - {label: "Certification 3 Description", name: "cert3Desc", widget: "string", required: false, default: "Electrical Safety Certified"}
+          - {label: "Certification 4 Title", name: "cert4Title", widget: "string", required: false, default: "SGS Verified"}
+          - {label: "Certification 4 Description", name: "cert4Desc", widget: "string", required: false, default: "Third-Party Quality Tested"}
+          - {label: "Certification 5 Title", name: "cert5Title", widget: "string", required: false, default: "RoHS Compliant"}
+          - {label: "Certification 5 Description", name: "cert5Desc", widget: "string", required: false, default: "Hazardous Substances Free"}
+          - {label: "Certification 6 Title", name: "cert6Title", widget: "string", required: false, default: "CE Declaration"}
+          - {label: "Certification 6 Description", name: "cert6Desc", widget: "string", required: false, default: "Machinery Directive Compliant"}
+          # ---- Brand CTA ----
+          - {label: "Brand CTA Title", name: "brandCtaTitle", widget: "string", required: false, default: "Quality You Can Trust"}
+          - {label: "Brand CTA Description", name: "brandCtaDescription", widget: "text", required: false, default: "Every Ningbo Siyang tool undergoes rigorous quality testing and comes with our industry-leading warranty and support."}
+          # ---- Trust Indicators ----
+          - {label: "Trust Indicator 1 Title", name: "trustInd1Title", widget: "string", required: false, default: "Industry Leading"}
+          - {label: "Trust Indicator 1 Description", name: "trustInd1Desc", widget: "string", required: false, default: "Recognition from industry bodies and certifications proving our commitment to quality and safety standards."}
+          - {label: "Trust Indicator 2 Title", name: "trustInd2Title", widget: "string", required: false, default: "Customer Focused"}
+          - {label: "Trust Indicator 2 Description", name: "trustInd2Desc", widget: "string", required: false, default: "Dedicated support team ensuring every customer receives expert guidance and rapid problem resolution."}
+          - {label: "Trust Indicator 3 Title", name: "trustInd3Title", widget: "string", required: false, default: "Continuously Improving"}
+          - {label: "Trust Indicator 3 Description", name: "trustInd3Desc", widget: "string", required: false, default: "Innovation-driven approach with regular product updates and new solutions based on customer feedback."}
+          # ---- Use Cases ----
+          - {label: "Use Case 1 Title", name: "useCase1Title", widget: "string", required: false, default: "Construction & Framing"}
+          - {label: "Use Case 1 Description", name: "useCase1Desc", widget: "string", required: false, default: "Heavy-duty tools for construction professionals. Drills, saws, and power drivers built for demanding jobsites."}
+          - {label: "Use Case 2 Title", name: "useCase2Title", widget: "string", required: false, default: "Woodworking & Carpentry"}
+          - {label: "Use Case 2 Description", name: "useCase2Desc", widget: "string", required: false, default: "Precision tools for master craftsmen. Sanders, routers, and specialized equipment for fine woodworking."}
+          - {label: "Use Case 3 Title", name: "useCase3Title", widget: "string", required: false, default: "Metal Fabrication"}
+          - {label: "Use Case 3 Description", name: "useCase3Desc", widget: "string", required: false, default: "Industrial-grade grinding, cutting, and finishing tools for metal work and fabrication shops."}
+          - {label: "Use Case 4 Title", name: "useCase4Title", widget: "string", required: false, default: "Plumbing & Installation"}
+          - {label: "Use Case 4 Description", name: "useCase4Desc", widget: "string", required: false, default: "Compact and reliable tools for installation professionals. Designed for on-site performance and portability."}
+          - {label: "Use Case 5 Title", name: "useCase5Title", widget: "string", required: false, default: "Home Renovation"}
+          - {label: "Use Case 5 Description", name: "useCase5Desc", widget: "string", required: false, default: "All-purpose tools for DIY enthusiasts and home renovation professionals. Quality and affordability combined."}
+          - {label: "Use Case 6 Title", name: "useCase6Title", widget: "string", required: false, default: "Maintenance & Repair"}
+          - {label: "Use Case 6 Description", name: "useCase6Desc", widget: "string", required: false, default: "Versatile tools for facilities and maintenance teams. Durable equipment for everyday professional use."}
+          # ---- Video Tutorials ----
+          - {label: "Video Tutorials Heading", name: "videoTutorialsHeading", widget: "string", required: false, default: "Industry Knowledge"}
+          - {label: "Video Tutorials Description", name: "videoTutorialsDesc", widget: "string", required: false, default: "Technical guides, application expertise, and product selection resources"}
+          # ---- B2B Benefits ----
+          - {label: "B2B Heading", name: "b2bHeading", widget: "string", required: false, default: "Build Your Business With Us"}
+          - {label: "B2B Description", name: "b2bDescription", widget: "text", required: false, default: "Ningbo Siyang offers comprehensive bulk ordering solutions designed for contractors, distributors, and business partners. Get special pricing, dedicated support, and streamlined procurement."}
+          - {label: "B2B Benefit 1 Title", name: "b2bBenefit1Title", widget: "string", required: false, default: "Volume Pricing"}
+          - {label: "B2B Benefit 1 Description", name: "b2bBenefit1Desc", widget: "string", required: false, default: "Competitive rates for bulk and container orders"}
+          - {label: "B2B Benefit 2 Title", name: "b2bBenefit2Title", widget: "string", required: false, default: "Dedicated Account Manager"}
+          - {label: "B2B Benefit 2 Description", name: "b2bBenefit2Desc", widget: "string", required: false, default: "Personal support for your procurement needs"}
+          - {label: "B2B Benefit 3 Title", name: "b2bBenefit3Title", widget: "string", required: false, default: "Flexible Delivery"}
+          - {label: "B2B Benefit 3 Description", name: "b2bBenefit3Desc", widget: "string", required: false, default: "Custom scheduling for large orders"}
+          - {label: "B2B Benefit 4 Title", name: "b2bBenefit4Title", widget: "string", required: false, default: "Custom Quotes"}
+          - {label: "B2B Benefit 4 Description", name: "b2bBenefit4Desc", widget: "string", required: false, default: "Tailored pricing for your exact requirements"}
+          - {label: "B2B Benefit 5 Title", name: "b2bBenefit5Title", widget: "string", required: false, default: "Priority Support"}
+          - {label: "B2B Benefit 5 Description", name: "b2bBenefit5Desc", widget: "string", required: false, default: "24/7 dedicated technical support line"}
+          - {label: "B2B Benefit 6 Title", name: "b2bBenefit6Title", widget: "string", required: false, default: "Easy Reordering"}
+          - {label: "B2B Benefit 6 Description", name: "b2bBenefit6Desc", widget: "string", required: false, default: "Streamlined procurement process"}
+          # ---- FAQ Section ----
+          - {label: "FAQ Section Heading", name: "faqHeading", widget: "string", required: false, default: "We're Here to Help"}
+          - {label: "FAQ Section Description", name: "faqDescription", widget: "string", required: false, default: "Find answers to common questions about our products and services"}
+          - {label: "FAQ CTA Heading", name: "faqCtaHeading", widget: "string", required: false, default: "Didn't find what you're looking for?"}
+          - {label: "FAQ CTA Description", name: "faqCtaDescription", widget: "string", required: false, default: "Our dedicated support team is ready to help. Reach out to us and we'll get back to you within 24 hours."}
+          # ---- Footer ----
+          - {label: "Footer Brand Description", name: "footerBrandDesc", widget: "string", required: false, default: "Premium power tools for professionals and serious DIY enthusiasts. Quality engineering, reliable performance, built to last."}
+          - {label: "Footer Newsletter Heading", name: "footerNewsletterHeading", widget: "string", required: false, default: "Trade Resources"}
+          - {label: "Footer Newsletter Description", name: "footerNewsletterDesc", widget: "string", required: false, default: "Get product alerts, trade pricing updates, and catalog downloads."}
           # ---- Additional Stats ----
           - {label: "Statistic 4 — Value", name: "stat4Value", widget: "string", required: false, default: "99%", hint: "The big number for stat 4. Include suffix."}
           - {label: "Statistic 4 — Label", name: "stat4Label", widget: "string", required: false, default: "Quality Rating"}

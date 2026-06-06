@@ -579,6 +579,140 @@
         if (ctaBtn) ctaBtn.textContent = data.finalCtaButtonText;
       }
 
+      // ---- Brand Showcase Achievements ----
+      for (var ai = 1; ai <= 4; ai++) {
+        var aTitleKey = 'achievement' + ai + 'Title';
+        var aDescKey = 'achievement' + ai + 'Desc';
+        if (data[aTitleKey]) {
+          var aTitleEl = document.getElementById('cms-achievement' + ai + '-title');
+          if (aTitleEl) aTitleEl.textContent = data[aTitleKey];
+        }
+        if (data[aDescKey]) {
+          var aDescEl = document.getElementById('cms-achievement' + ai + '-desc');
+          if (aDescEl) aDescEl.textContent = data[aDescKey];
+        }
+      }
+
+      // ---- Certifications ----
+      if (data.certificationsHeading) {
+        var certH = document.getElementById('cms-certifications-heading');
+        if (certH) certH.textContent = data.certificationsHeading;
+      }
+      for (var ci = 1; ci <= 6; ci++) {
+        var cTitleKey = 'cert' + ci + 'Title';
+        var cDescKey = 'cert' + ci + 'Desc';
+        if (data[cTitleKey]) {
+          var cTitleEl = document.getElementById('cms-cert' + ci + '-title');
+          if (cTitleEl) cTitleEl.textContent = data[cTitleKey];
+        }
+        if (data[cDescKey]) {
+          var cDescEl = document.getElementById('cms-cert' + ci + '-desc');
+          if (cDescEl) cDescEl.textContent = data[cDescKey];
+        }
+      }
+
+      // ---- Brand CTA ----
+      if (data.brandCtaTitle) {
+        var bCtaH = document.getElementById('cms-brand-cta-title');
+        if (bCtaH) bCtaH.textContent = data.brandCtaTitle;
+      }
+      if (data.brandCtaDescription) {
+        var bCtaD = document.getElementById('cms-brand-cta-desc');
+        if (bCtaD) bCtaD.textContent = data.brandCtaDescription;
+      }
+
+      // ---- Trust Indicators ----
+      for (var ti = 1; ti <= 3; ti++) {
+        var tTitleKey = 'trustInd' + ti + 'Title';
+        var tDescKey = 'trustInd' + ti + 'Desc';
+        if (data[tTitleKey]) {
+          var tTitleEl = document.getElementById('cms-trust-ind' + ti + '-title');
+          if (tTitleEl) tTitleEl.textContent = data[tTitleKey];
+        }
+        if (data[tDescKey]) {
+          var tDescEl = document.getElementById('cms-trust-ind' + ti + '-desc');
+          if (tDescEl) tDescEl.textContent = data[tDescKey];
+        }
+      }
+
+      // ---- Use Cases ----
+      for (var ui = 1; ui <= 6; ui++) {
+        var uTitleKey = 'useCase' + ui + 'Title';
+        var uDescKey = 'useCase' + ui + 'Desc';
+        if (data[uTitleKey]) {
+          var uTitleEl = document.getElementById('cms-use-case' + ui + '-title');
+          if (uTitleEl) uTitleEl.textContent = data[uTitleKey];
+        }
+        if (data[uDescKey]) {
+          var uDescEl = document.getElementById('cms-use-case' + ui + '-desc');
+          if (uDescEl) uDescEl.textContent = data[uDescKey];
+        }
+      }
+
+      // ---- Video Tutorials ----
+      if (data.videoTutorialsHeading) {
+        var vtH = document.getElementById('cms-video-tutorials-heading');
+        if (vtH) vtH.textContent = data.videoTutorialsHeading;
+      }
+      if (data.videoTutorialsDesc) {
+        var vtD = document.getElementById('cms-video-tutorials-desc');
+        if (vtD) vtD.textContent = data.videoTutorialsDesc;
+      }
+
+      // ---- B2B Section ----
+      if (data.b2bHeading) {
+        var b2bH = document.getElementById('cms-b2b-heading');
+        if (b2bH) b2bH.textContent = data.b2bHeading;
+      }
+      if (data.b2bDescription) {
+        var b2bD = document.getElementById('cms-b2b-desc');
+        if (b2bD) b2bD.textContent = data.b2bDescription;
+      }
+      for (var bi = 1; bi <= 6; bi++) {
+        var bTitleKey = 'b2bBenefit' + bi + 'Title';
+        var bDescKey = 'b2bBenefit' + bi + 'Desc';
+        if (data[bTitleKey]) {
+          var bTitleEl = document.getElementById('cms-b2b-benefit' + bi + '-title');
+          if (bTitleEl) bTitleEl.textContent = data[bTitleKey];
+        }
+        if (data[bDescKey]) {
+          var bDescEl = document.getElementById('cms-b2b-benefit' + bi + '-desc');
+          if (bDescEl) bDescEl.textContent = data[bDescKey];
+        }
+      }
+
+      // ---- FAQ Section ----
+      if (data.faqHeading) {
+        var faqH = document.getElementById('cms-faq-heading');
+        if (faqH) faqH.textContent = data.faqHeading;
+      }
+      if (data.faqDescription) {
+        var faqD = document.getElementById('cms-faq-desc');
+        if (faqD) faqD.textContent = data.faqDescription;
+      }
+      if (data.faqCtaHeading) {
+        var faqCtaH = document.getElementById('cms-faq-cta-heading');
+        if (faqCtaH) faqCtaH.textContent = data.faqCtaHeading;
+      }
+      if (data.faqCtaDescription) {
+        var faqCtaD = document.getElementById('cms-faq-cta-desc');
+        if (faqCtaD) faqCtaD.textContent = data.faqCtaDescription;
+      }
+
+      // ---- Footer Brand & Newsletter ----
+      if (data.footerBrandDesc) {
+        var fbd = document.getElementById('cms-footer-brand-desc');
+        if (fbd) fbd.textContent = data.footerBrandDesc;
+      }
+      if (data.footerNewsletterHeading) {
+        var fnh = document.getElementById('cms-footer-newsletter-heading');
+        if (fnh) fnh.textContent = data.footerNewsletterHeading;
+      }
+      if (data.footerNewsletterDesc) {
+        var fnd = document.getElementById('cms-footer-newsletter-desc');
+        if (fnd) fnd.textContent = data.footerNewsletterDesc;
+      }
+
       // ---- Trust Badges ----
       for (var i = 1; i <= 6; i++) {
         var titleKey = 'trustBadge' + i + 'Title';
