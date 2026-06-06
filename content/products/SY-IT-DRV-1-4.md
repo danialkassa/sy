@@ -4,11 +4,7 @@ sku: "SY-IT-DRV-1/4"
 category: "impact-tools"
 categoryLabel: "Impact Tools"
 brand: "Ningbo Siyang"
-images:
-
-  - "../images/istock/10028.jpg"
-  - "../images/istock/10028-2.jpg"
-  - "../images/istock/10028-3.jpg"
+image: "/images/unsplach/drill-home/10061.jpg"
 description: "Compact 1/4 inch hex impact driver with 3-speed settings delivering 1500 in-lbs of max torque. Features a compact 4.8 inch head length for tight spaces and an ergonomic grip for comfortable all-day use. Ideal for general fastening and light-duty applications."
 userBenefits:
 

@@ -4,11 +4,12 @@ sku: "SY-GR-ANG-7IN"
 category: "grinders"
 categoryLabel: "Grinders"
 brand: "Ningbo Siyang Pro"
+image: "/images/istock/10023.jpg"
 images:
 
-  - "../images/istock/10014.jpg"
-  - "../images/istock/10014-2.jpg"
-  - "../images/istock/10014-3.jpg"
+  - "/images/istock/10023-2.jpg"
+
+  - "/images/istock/10023-3.jpg"
 description: "Heavy-duty 7 inch angle grinder with 15 Amp motor and electronic speed control for consistent performance under load. Delivers 8500 RPM for aggressive material removal in metal fabrication and construction applications. Features overload protection and soft start."
 userBenefits:
 

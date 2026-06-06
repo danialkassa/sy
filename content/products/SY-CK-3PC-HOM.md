@@ -4,11 +4,12 @@ sku: "SY-CK-3PC-HOM"
 category: "combo-kits"
 categoryLabel: "Combo Kits"
 brand: "Ningbo Siyang"
+image: "/images/istock/10027.jpg"
 images:
 
-  - "../images/istock/10035.jpg"
-  - "../images/istock/10035-2.jpg"
-  - "../images/istock/10035-3.jpg"
+  - "/images/istock/10027-2.jpg"
+
+  - "/images/istock/10027-3.jpg"
 description: "Affordable 3-tool starter kit for homeowners including drill/driver, impact driver, and LED work light. Comes with 2× 1.5Ah compact batteries, charger, and carrying bag. Perfect for home improvement projects and DIY tasks around the house."
 userBenefits:
 

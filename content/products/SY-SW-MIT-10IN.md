@@ -4,11 +4,12 @@ sku: "SY-SW-MIT-10IN"
 category: "saws"
 categoryLabel: "Saws"
 brand: "Ningbo Siyang Pro"
+image: "/images/istock/10004.jpg"
 images:
 
-  - "../images/istock/10010.jpg"
-  - "../images/istock/10010-2.jpg"
-  - "../images/istock/10010-3.jpg"
+  - "/images/istock/10004-2.jpg"
+
+  - "/images/istock/10004-3.jpg"
 description: "Professional 10 inch sliding compound miter saw with 15 Amp motor and dual bevel capability. Features sliding rails for extended crosscut capacity and precise miter and bevel adjustments. Ideal for crown molding, framing, and precision woodworking applications."
 userBenefits:
 

@@ -4,11 +4,12 @@ sku: "SY-SA-DTL-2.4"
 category: "sanders"
 categoryLabel: "Sanders"
 brand: "Ningbo Siyang"
+image: "/images/istock/10012.jpg"
 images:
 
-  - "../images/istock/10021.jpg"
-  - "../images/istock/10021-2.jpg"
-  - "../images/istock/10021-3.jpg"
+  - "/images/istock/10012-2.jpg"
+
+  - "/images/istock/10012-3.jpg"
 description: "Compact detail and trim sander with 2.4 Amp motor and quick-change pad system. Includes 3 sanding bases for versatile application in corners, edges, and tight spaces. Ideal for furniture refinishing, trim work, and detail sanding projects."
 userBenefits:
 

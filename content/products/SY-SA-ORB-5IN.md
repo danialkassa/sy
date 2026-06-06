@@ -4,11 +4,12 @@ sku: "SY-SA-ORB-5IN"
 category: "sanders"
 categoryLabel: "Sanders"
 brand: "Ningbo Siyang"
+image: "/images/istock/10013.jpg"
 images:
 
-  - "../images/istock/10019.jpg"
-  - "../images/istock/10019-2.jpg"
-  - "../images/istock/10019-3.jpg"
+  - "/images/istock/10013-2.jpg"
+
+  - "/images/istock/10013-3.jpg"
 description: "5 inch random orbital sander with 3.0 Amp motor and variable speed control. Features a dust-sealed switch for extended tool life and a dust collection bag for cleaner operation. Ideal for fine finishing, sanding, and polishing on wood, metal, and plastic surfaces."
 userBenefits:
 

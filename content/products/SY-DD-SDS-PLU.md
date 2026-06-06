@@ -4,11 +4,12 @@ sku: "SY-DD-SDS-PLU"
 category: "drills-drivers"
 categoryLabel: "Drills & Drivers"
 brand: "Ningbo Siyang Pro"
+image: "/images/unsplach/drill-closeup/10074.jpeg"
 images:
 
-  - "../images/istock/10002.jpg"
-  - "../images/istock/10002-2.jpg"
-  - "../images/istock/10002-3.jpg"
+  - "/images/unsplach/drill-closeup/10074-2.jpeg"
+
+  - "/images/unsplach/drill-closeup/10074-3.jpeg"
 description: "Heavy-duty SDS-Plus rotary hammer with 3-mode operation for drilling, hammer drilling, and chiseling. Features an active vibration control system and 7.5 Amp motor for reliable performance in concrete and masonry applications. Ideal for professional construction and renovation projects."
 userBenefits:
 

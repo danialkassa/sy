@@ -4,11 +4,12 @@ sku: "SY-GR-BCH-6IN"
 category: "grinders"
 categoryLabel: "Grinders"
 brand: "Ningbo Siyang"
+image: "/images/istock/10022.jpg"
 images:
 
-  - "../images/istock/10015.jpg"
-  - "../images/istock/10015-2.jpg"
-  - "../images/istock/10015-3.jpg"
+  - "/images/istock/10022-2.jpg"
+
+  - "/images/istock/10022-3.jpg"
 description: "6 inch bench grinder with 5/8 HP motor, dual grinding wheels, spark guards, and eye shields. Designed for sharpening, shaping, and deburring in workshop environments. Features cast iron base for stability and adjustable tool rests for precision work."
 userBenefits:
 

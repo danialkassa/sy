@@ -4,11 +4,7 @@ sku: "SY-CK-5PC-ELE"
 category: "combo-kits"
 categoryLabel: "Combo Kits"
 brand: "Ningbo Siyang Pro"
-images:
-
-  - "../images/unsplach/drill-home/10057.jpg"
-  - "../images/unsplach/drill-home/10057-2.jpg"
-  - "../images/unsplach/drill-home/10057-3.jpg"
+image: "/images/unsplach/red-drill/10003.webp"
 description: "Specialized 5-tool electrician combo kit including drill/driver, impact driver, reciprocating saw, LED work light, and Bluetooth radio. Comes with 2 batteries and charger. Designed for electrical contractors who need reliable cordless tools for daily use."
 userBenefits:
 

@@ -4,11 +4,7 @@ sku: "SY-CK-8PC-PRO"
 category: "combo-kits"
 categoryLabel: "Combo Kits"
 brand: "Ningbo Siyang Pro"
-images:
-
-  - "../images/istock/10034.webp"
-  - "../images/istock/10034-2.webp"
-  - "../images/istock/10034-3.webp"
+image: "/images/unsplach/red-drill/10001.jpeg"
 description: "Ultimate 8-tool professional combo kit with every essential cordless tool. Includes drill/driver, impact driver, circular saw, reciprocating saw, oscillating tool, sander, LED light, and Bluetooth speaker. Comes with 4× 4.0Ah batteries, 2 chargers, and rolling bag."
 userBenefits:
 

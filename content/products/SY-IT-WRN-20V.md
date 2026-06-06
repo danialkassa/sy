@@ -4,11 +4,12 @@ sku: "SY-IT-WRN-20V"
 category: "impact-tools"
 categoryLabel: "Impact Tools"
 brand: "Ningbo Siyang Pro"
+image: "/images/unsplach/drill-home/10056.jpg"
 images:
 
-  - "../images/istock/10026.jpg"
-  - "../images/istock/10026-2.jpg"
-  - "../images/istock/10026-3.jpg"
+  - "/images/unsplach/drill-home/10056-2.jpg"
+
+  - "/images/unsplach/drill-home/10056-3.jpg"
 description: "Compact 20V impact wrench with 1/2 inch anvil delivering 330 ft-lbs of max torque. Features a compact design for access in tight spaces and a built-in LED light. Ideal for automotive, mechanical, and heavy-duty fastening applications."
 userBenefits:
 

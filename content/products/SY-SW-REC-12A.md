@@ -4,11 +4,12 @@ sku: "SY-SW-REC-12A"
 category: "saws"
 categoryLabel: "Saws"
 brand: "Ningbo Siyang Pro"
+image: "/images/istock/10002.jpg"
 images:
 
-  - "../images/istock/10009.jpg"
-  - "../images/istock/10009-2.jpg"
-  - "../images/istock/10009-3.jpg"
+  - "/images/istock/10002-2.jpg"
+
+  - "/images/istock/10002-3.jpg"
 description: "Powerful 12 Amp reciprocating saw with variable speed trigger and pivoting shoe for stability during cutting. Designed for demolition, remodeling, and heavy-duty cutting in wood, metal, and nail-embedded wood. The tool-free blade clamp allows quick blade changes."
 userBenefits:
 

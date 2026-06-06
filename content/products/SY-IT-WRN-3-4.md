@@ -4,11 +4,12 @@ sku: "SY-IT-WRN-3/4"
 category: "impact-tools"
 categoryLabel: "Impact Tools"
 brand: "Ningbo Siyang Pro"
+image: "/images/unsplach/drill-home/10055.jpeg"
 images:
 
-  - "../images/istock/10027.jpg"
-  - "../images/istock/10027-2.jpg"
-  - "../images/istock/10027-3.jpg"
+  - "/images/unsplach/drill-home/10055-2.jpeg"
+
+  - "/images/unsplach/drill-home/10055-3.jpeg"
 description: "Heavy-duty 3/4 inch impact wrench delivering 800 ft-lbs of max torque with pin detent anvil for secure socket retention. Designed for the most demanding bolting applications in construction, mining, and heavy equipment maintenance."
 userBenefits:
 

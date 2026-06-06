@@ -4,11 +4,12 @@ sku: "SY-DD-MIX-KIT"
 category: "drills-drivers"
 categoryLabel: "Drills & Drivers"
 brand: "Ningbo Siyang Pro"
+image: "/images/unsplach/drill-closeup/10082.jpeg"
 images:
 
-  - "../images/istock/10006.jpg"
-  - "../images/istock/10006-2.jpg"
-  - "../images/istock/10006-3.jpg"
+  - "/images/unsplach/drill-closeup/10082-2.jpeg"
+
+  - "/images/unsplach/drill-closeup/10082-3.jpeg"
 description: "Complete 2-tool combo set featuring a 20V MAX drill/driver and impact driver. Includes two 2.0Ah batteries, a fast charger, and a carrying bag. Both tools feature brushless motors for extended runtime and professional-grade performance."
 userBenefits:
 

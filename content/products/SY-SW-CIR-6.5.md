@@ -4,11 +4,12 @@ sku: "SY-SW-CIR-6.5"
 category: "saws"
 categoryLabel: "Saws"
 brand: "Ningbo Siyang"
+image: "/images/istock/10007.jpg"
 images:
 
-  - "../images/unsplach/drill-home/10053.jpeg"
-  - "../images/unsplach/drill-home/10053-2.jpeg"
-  - "../images/unsplach/drill-home/10053-3.jpeg"
+  - "/images/istock/10007-2.jpg"
+
+  - "/images/istock/10007-3.jpg"
 description: "Cordless 6-1/2 inch circular saw powered by 20V MAX battery system. Delivers 4750 RPM for fast cutting through lumber and sheet goods. Lightweight and portable design ideal for framing and remodeling applications where cordless convenience is essential."
 userBenefits:
 

@@ -4,11 +4,12 @@ sku: "SY-DD-CRD-HMR"
 category: "drills-drivers"
 categoryLabel: "Drills & Drivers"
 brand: "Ningbo Siyang"
+image: "/images/unsplach/drill-closeup/10083.jpeg"
 images:
 
-  - "../images/istock/10004.jpg"
-  - "../images/istock/10004-2.jpg"
-  - "../images/istock/10004-3.jpg"
+  - "/images/unsplach/drill-closeup/10083-2.jpeg"
+
+  - "/images/unsplach/drill-closeup/10083-3.jpeg"
 description: "Versatile corded hammer drill with 7.5A motor and 1/2 inch metal chuck. Features anti-vibration handle and variable speed trigger for precision control in masonry, wood, and metal drilling applications. The dual-mode selector allows easy switching between drilling and hammer drilling."
 userBenefits:
 

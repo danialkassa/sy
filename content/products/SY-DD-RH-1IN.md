@@ -4,11 +4,12 @@ sku: "SY-DD-RH-1IN"
 category: "drills-drivers"
 categoryLabel: "Drills & Drivers"
 brand: "Ningbo Siyang"
+image: "/images/unsplach/drill-closeup/10081.jpeg"
 images:
 
-  - "../images/unsplach/drill-closeup/10072.jpeg"
-  - "../images/unsplach/drill-closeup/10072-2.jpeg"
-  - "../images/unsplach/drill-closeup/10072-3.jpeg"
+  - "/images/unsplach/drill-closeup/10081-2.jpeg"
+
+  - "/images/unsplach/drill-closeup/10081-3.jpeg"
 description: "Professional SDS-Plus rotary hammer with electronic clutch and vibration control. Delivers 5.5 Ft-lbs of impact energy for efficient drilling in concrete and masonry. The variable speed dial provides precise control for different materials and applications."
 userBenefits:
 

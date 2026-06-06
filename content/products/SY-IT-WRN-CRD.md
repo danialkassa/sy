@@ -4,11 +4,12 @@ sku: "SY-IT-WRN-CRD"
 category: "impact-tools"
 categoryLabel: "Impact Tools"
 brand: "Ningbo Siyang"
+image: "/images/unsplach/drill-home/10054.jpeg"
 images:
 
-  - "../images/istock/10029.jpg"
-  - "../images/istock/10029-2.jpg"
-  - "../images/istock/10029-3.jpg"
+  - "/images/unsplach/drill-home/10054-2.jpeg"
+
+  - "/images/unsplach/drill-home/10054-3.jpeg"
 description: "Corded 7.5 Amp impact wrench with 1/2 inch anvil delivering 330 ft-lbs of max torque. Features forward/reverse control and a rocker switch for easy one-hand operation. Ideal for automotive repair, equipment maintenance, and heavy-duty bolting applications."
 userBenefits:
 

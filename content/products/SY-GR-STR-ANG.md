@@ -4,11 +4,12 @@ sku: "SY-GR-STR-ANG"
 category: "grinders"
 categoryLabel: "Grinders"
 brand: "Ningbo Siyang"
+image: "/images/istock/10017.jpg"
 images:
 
-  - "../images/istock/10017.jpg"
-  - "../images/istock/10017-2.jpg"
-  - "../images/istock/10017-3.jpg"
+  - "/images/istock/10017-2.jpg"
+
+  - "/images/istock/10017-3.jpg"
 description: "4-1/2 inch angle grinder with 7.5 Amp motor, trigger switch, and restart protection for enhanced safety. Features a slim body design for comfortable grip and control during extended use. Suitable for cutting, grinding, and surface preparation in metal and masonry."
 userBenefits:
 

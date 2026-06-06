@@ -4,11 +4,12 @@ sku: "SY-SA-SHT-1/4"
 category: "sanders"
 categoryLabel: "Sanders"
 brand: "Ningbo Siyang"
+image: "/images/istock/10009.jpg"
 images:
 
-  - "../images/istock/10022.jpg"
-  - "../images/istock/10022-2.jpg"
-  - "../images/istock/10022-3.jpg"
+  - "/images/istock/10009-2.jpg"
+
+  - "/images/istock/10009-3.jpg"
 description: "1/4-sheet finishing sander with 2.0 Amp motor delivering 14,000 OPM for smooth finishing results. Features a dust-sealed switch and comfortable rubber overmold grip. Ideal for fine sanding and finishing on wood, metal, and painted surfaces."
 userBenefits:
 

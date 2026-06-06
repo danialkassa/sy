@@ -4,11 +4,12 @@ sku: "SY-DD-RH-DEM"
 category: "drills-drivers"
 categoryLabel: "Drills & Drivers"
 brand: "Ningbo Siyang Pro"
+image: "/images/unsplach/drill-closeup/10080.jpeg"
 images:
 
-  - "../images/istock/10003.jpg"
-  - "../images/istock/10003-2.jpg"
-  - "../images/istock/10003-3.jpg"
+  - "/images/unsplach/drill-closeup/10080-2.jpeg"
+
+  - "/images/unsplach/drill-closeup/10080-3.jpeg"
 description: "Industrial demolition rotary hammer with Active Vibration Control delivering 12.5 Ft-lbs of impact energy. The 10 Amp motor provides maximum power for heavy-duty concrete breaking and chiseling. Designed for extended use with anti-vibration handle and variable speed trigger."
 userBenefits:
 

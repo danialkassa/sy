@@ -4,11 +4,12 @@ sku: "SY-GR-ANG-4.5"
 category: "grinders"
 categoryLabel: "Grinders"
 brand: "Ningbo Siyang"
+image: "/images/istock/10024.jpg"
 images:
 
-  - "../images/istock/10013.jpg"
-  - "../images/istock/10013-2.jpg"
-  - "../images/istock/10013-3.jpg"
+  - "/images/istock/10024-2.jpg"
+
+  - "/images/istock/10024-3.jpg"
 description: "Professional 4-1/2 inch angle grinder with 11 Amp motor and paddle switch for safe operation. Delivers 11,000 RPM no-load speed for cutting, grinding, and surface preparation. Features a lightweight design with vibration-reducing handle for comfortable extended use."
 userBenefits:
 

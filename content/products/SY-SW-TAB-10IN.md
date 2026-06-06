@@ -4,11 +4,7 @@ sku: "SY-SW-TAB-10IN"
 category: "saws"
 categoryLabel: "Saws"
 brand: "Ningbo Siyang Pro"
-images:
-
-  - "../images/istock/10011.jpg"
-  - "../images/istock/10011-2.jpg"
-  - "../images/istock/10011-3.jpg"
+image: "/images/istock/10001.jpg"
 description: "Heavy-duty 10 inch table saw with 15 Amp motor and rack & pinion fence system for precise adjustments. Features a cast aluminum table top and on-board storage for accessories. Designed for professional woodworking, rip cutting, and crosscutting applications."
 userBenefits:
 

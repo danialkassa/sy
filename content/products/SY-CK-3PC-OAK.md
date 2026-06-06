@@ -4,11 +4,12 @@ sku: "SY-CK-3PC-OAK"
 category: "combo-kits"
 categoryLabel: "Combo Kits"
 brand: "Ningbo Siyang Pro"
+image: "/images/istock/10026.jpg"
 images:
 
-  - "../images/unsplach/drill-closeup/10083.jpeg"
-  - "../images/unsplach/drill-closeup/10083-2.jpeg"
-  - "../images/unsplach/drill-closeup/10083-3.jpeg"
+  - "/images/istock/10026-2.jpg"
+
+  - "/images/istock/10026-3.jpg"
 description: "Specialized 3-tool woodworking combo kit including drill/driver, circular saw, and random orbital sander. Comes with 2× 3.0Ah batteries and charger. Designed for woodworkers and carpenters who need essential cordless tools for cutting, drilling, and finishing."
 userBenefits:
 

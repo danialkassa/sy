@@ -4,11 +4,12 @@ sku: "SY-GR-POL-6IN"
 category: "grinders"
 categoryLabel: "Grinders"
 brand: "Ningbo Siyang Pro"
+image: "/images/istock/10018.jpg"
 images:
 
-  - "../images/istock/10018.jpg"
-  - "../images/istock/10018-2.jpg"
-  - "../images/istock/10018-3.jpg"
+  - "/images/istock/10018-2.jpg"
+
+  - "/images/istock/10018-3.jpg"
 description: "Professional 6 inch variable speed polisher/grinder with 6 Amp motor and soft start feature. Delivers 2500-6800 OPM for polishing, sanding, and grinding applications. Ideal for automotive detailing, marine finishing, and industrial surface treatment."
 userBenefits:
 

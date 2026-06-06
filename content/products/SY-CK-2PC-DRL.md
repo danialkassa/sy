@@ -4,11 +4,12 @@ sku: "SY-CK-2PC-DRL"
 category: "combo-kits"
 categoryLabel: "Combo Kits"
 brand: "Ningbo Siyang"
+image: "/images/istock/10029.jpg"
 images:
 
-  - "../images/istock/10032.jpg"
-  - "../images/istock/10032-2.jpg"
-  - "../images/istock/10032-3.jpg"
+  - "/images/istock/10029-2.jpg"
+
+  - "/images/istock/10029-3.jpg"
 description: "Essential 2-tool kit featuring a 20V drill/driver and impact driver. Includes 2× 2.0Ah batteries, charger, and soft carrying bag. Perfect starter set for homeowners and light professional use covering drilling and fastening applications."
 userBenefits:
 

@@ -4,11 +4,12 @@ sku: "SY-DD-20V-BL"
 category: "drills-drivers"
 categoryLabel: "Drills & Drivers"
 brand: "Ningbo Siyang Pro"
+image: "/images/unsplach/drill-home/10053.jpeg"
 images:
 
-  - "../images/istock/10001.jpg"
-  - "../images/istock/10002.jpg"
-  - "../images/istock/10003.jpg"
+  - "/images/unsplach/drill-home/10053-2.jpeg"
+
+  - "/images/unsplach/drill-home/10053-3.jpeg"
 description: "Professional-grade brushless drill driver with 2-speed gearbox and 1/2 inch metal chuck. Delivers 530 in-lbs of max torque for demanding industrial applications. The brushless motor provides up to 57% more runtime over brushed motors, while the all-metal transmission and gear case ensure maximum durability on the jobsite."
 userBenefits:
 

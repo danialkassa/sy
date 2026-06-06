@@ -4,11 +4,12 @@ sku: "SY-SW-OSC-MUL"
 category: "saws"
 categoryLabel: "Saws"
 brand: "Ningbo Siyang"
+image: "/images/istock/10003.jpg"
 images:
 
-  - "../images/unsplach/drill-home/10054.jpeg"
-  - "../images/unsplach/drill-home/10054-2.jpeg"
-  - "../images/unsplach/drill-home/10054-3.jpeg"
+  - "/images/istock/10003-2.jpg"
+
+  - "/images/istock/10003-3.jpg"
 description: "Versatile oscillating multi-tool with 3.0 Amp motor and 28-piece accessory kit. Features tool-free accessory change system for quick blade and attachment swaps. Ideal for cutting, sanding, scraping, and grinding in tight spaces and detail work."
 userBenefits:
 

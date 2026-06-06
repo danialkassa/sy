@@ -4,11 +4,7 @@ sku: "SY-IT-DRV-20V"
 category: "impact-tools"
 categoryLabel: "Impact Tools"
 brand: "Ningbo Siyang Pro"
-images:
-
-  - "../images/istock/10025.jpg"
-  - "../images/istock/10025-2.jpg"
-  - "../images/istock/10025-3.jpg"
+image: "/images/unsplach/drill-home/10060.jpg"
 description: "Professional 20V MAX impact driver delivering 1650 in-lbs of max torque with 3-speed settings and 4-mode drive control for precision fastening. Features a brushless motor for extended runtime and an LED work light for improved visibility in dark work areas."
 userBenefits:
 

@@ -4,11 +4,12 @@ sku: "SY-SW-JIG-VAR"
 category: "saws"
 categoryLabel: "Saws"
 brand: "Ningbo Siyang"
+image: "/images/istock/10005.jpg"
 images:
 
-  - "../images/istock/10008.jpg"
-  - "../images/istock/10008-2.jpg"
-  - "../images/istock/10008-3.jpg"
+  - "/images/istock/10005-2.jpg"
+
+  - "/images/istock/10005-3.jpg"
 description: "Versatile variable speed jigsaw with 7 Amp motor, orbital action, and tool-free blade change. Features an integrated LED light for improved visibility and a dust blower to keep the cut line clear. Suitable for curved and straight cuts in wood, metal, and plastic."
 userBenefits:
 

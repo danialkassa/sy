@@ -4,11 +4,12 @@ sku: "SY-SW-BAND-9IN"
 category: "saws"
 categoryLabel: "Saws"
 brand: "Ningbo Siyang"
+image: "/images/istock/10008.jpg"
 images:
 
-  - "../images/istock/10012.jpg"
-  - "../images/istock/10012-2.jpg"
-  - "../images/istock/10012-3.jpg"
+  - "/images/istock/10008-2.jpg"
+
+  - "/images/istock/10008-3.jpg"
 description: "Compact 9 inch band saw with 2.5 Amp motor and variable speed control. Features a cast aluminum table with tilt adjustment for angled cuts. Ideal for curve cutting, resawing, and detailed woodworking in the workshop or jobsite."
 userBenefits:
 

@@ -4,11 +4,12 @@ sku: "SY-GR-BCH-8IN"
 category: "grinders"
 categoryLabel: "Grinders"
 brand: "Ningbo Siyang Pro"
+image: "/images/istock/10021.jpg"
 images:
 
-  - "../images/unsplach/drill-home/10055.jpeg"
-  - "../images/unsplach/drill-home/10055-2.jpeg"
-  - "../images/unsplach/drill-home/10055-3.jpeg"
+  - "/images/istock/10021-2.jpg"
+
+  - "/images/istock/10021-3.jpg"
 description: "Heavy-duty 8 inch bench grinder with 3/4 HP motor and 1750 RPM low-speed operation. Features cast iron wheels for smooth, vibration-free performance. Ideal for precision sharpening of chisels, plane blades, and other cutting tools in professional workshops."
 userBenefits:
 

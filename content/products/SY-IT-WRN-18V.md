@@ -4,11 +4,12 @@ sku: "SY-IT-WRN-18V"
 category: "impact-tools"
 categoryLabel: "Impact Tools"
 brand: "Ningbo Siyang"
+image: "/images/unsplach/drill-home/10057.jpg"
 images:
 
-  - "../images/istock/10030.jpg"
-  - "../images/istock/10030-2.jpg"
-  - "../images/istock/10030-3.jpg"
+  - "/images/unsplach/drill-home/10057-2.jpg"
+
+  - "/images/unsplach/drill-home/10057-3.jpg"
 description: "Compact 18V impact wrench with 3/8 inch anvil delivering 135 ft-lbs of max torque. Lightweight and ergonomic design ideal for automotive and mechanical applications where portability and precision are essential."
 userBenefits:
 

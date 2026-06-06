@@ -4,11 +4,12 @@ sku: "SY-SA-DSK-5IN"
 category: "sanders"
 categoryLabel: "Sanders"
 brand: "Ningbo Siyang"
+image: "/images/istock/10014.jpg"
 images:
 
-  - "../images/unsplach/drill-home/10056.jpg"
-  - "../images/unsplach/drill-home/10056-2.jpg"
-  - "../images/unsplach/drill-home/10056-3.jpg"
+  - "/images/istock/10014-2.jpg"
+
+  - "/images/istock/10014-3.jpg"
 description: "Versatile disc and belt sander combo with 4.3 Amp motor. Features a 5 inch disc and 4×24 inch belt with cast iron table for stable, precise sanding. Ideal for workshop applications requiring both belt and disc sanding capabilities."
 userBenefits:
 

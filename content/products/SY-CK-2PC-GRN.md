@@ -4,11 +4,12 @@ sku: "SY-CK-2PC-GRN"
 category: "combo-kits"
 categoryLabel: "Combo Kits"
 brand: "Ningbo Siyang"
+image: "/images/istock/10028.jpg"
 images:
 
-  - "../images/unsplach/drill-closeup/10082.jpeg"
-  - "../images/unsplach/drill-closeup/10082-2.jpeg"
-  - "../images/unsplach/drill-closeup/10082-3.jpeg"
+  - "/images/istock/10028-2.jpg"
+
+  - "/images/istock/10028-3.jpg"
 description: "Practical 2-tool combo kit featuring a 20V angle grinder and drill/driver. Includes 2 batteries and charger. Ideal for metal fabrication, construction, and maintenance applications where both drilling and grinding capabilities are needed."
 userBenefits:
 

@@ -4,11 +4,12 @@ sku: "SY-SA-ORB-6IN"
 category: "sanders"
 categoryLabel: "Sanders"
 brand: "Ningbo Siyang Pro"
+image: "/images/istock/10011.jpg"
 images:
 
-  - "../images/istock/10024.jpg"
-  - "../images/istock/10024-2.jpg"
-  - "../images/istock/10024-3.jpg"
+  - "/images/istock/10011-2.jpg"
+
+  - "/images/istock/10011-3.jpg"
 description: "Professional 6 inch random orbital sander with 5 Amp motor, dual action, and variable speed control. Features 21mm throw for aggressive material removal and a comfortable ergonomic design. Ideal for automotive body work, woodworking, and industrial surface finishing."
 userBenefits:
 

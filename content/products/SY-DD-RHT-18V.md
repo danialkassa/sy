@@ -4,11 +4,12 @@ sku: "SY-DD-RHT-18V"
 category: "drills-drivers"
 categoryLabel: "Drills & Drivers"
 brand: "Ningbo Siyang"
+image: "/images/unsplach/drill-closeup/10077.jpeg"
 images:
 
-  - "../images/istock/10005.jpg"
-  - "../images/istock/10005-2.jpg"
-  - "../images/istock/10005-3.jpg"
+  - "/images/unsplach/drill-closeup/10077-2.jpeg"
+
+  - "/images/unsplach/drill-closeup/10077-3.jpeg"
 description: "Compact 18V brushless drill/driver with a short 6.9 inch head length for tight spaces. Features 13 clutch settings for precise torque control and a 2-speed gearbox for versatile drilling and fastening. Lightweight design ideal for all-day professional use."
 userBenefits:
 

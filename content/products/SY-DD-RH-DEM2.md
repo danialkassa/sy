@@ -4,11 +4,12 @@ sku: "SY-DD-RH-DEM2"
 category: "drills-drivers"
 categoryLabel: "Drills & Drivers"
 brand: "Ningbo Siyang"
+image: "/images/unsplach/drill-closeup/10079.jpeg"
 images:
 
-  - "../images/unsplach/drill-closeup/10074.jpeg"
-  - "../images/unsplach/drill-closeup/10074-2.jpeg"
-  - "../images/unsplach/drill-closeup/10074-3.jpeg"
+  - "/images/unsplach/drill-closeup/10079-2.jpeg"
+
+  - "/images/unsplach/drill-closeup/10079-3.jpeg"
 description: "Heavy-duty right angle drill with 7.5 Amp motor and 360° adjustable auxiliary handle. Designed for drilling in tight spaces where standard drills cannot reach. Features variable speed control and all-metal gear construction for maximum durability."
 userBenefits:
 

@@ -4,11 +4,12 @@ sku: "SY-CK-4PC-CON"
 category: "combo-kits"
 categoryLabel: "Combo Kits"
 brand: "Ningbo Siyang Pro"
+image: "/images/istock/10025.jpg"
 images:
 
-  - "../images/istock/10033.jpg"
-  - "../images/istock/10033-2.jpg"
-  - "../images/istock/10033-3.jpg"
+  - "/images/istock/10025-2.jpg"
+
+  - "/images/istock/10025-3.jpg"
 description: "Professional 4-tool contractor combo kit including drill/driver, circular saw, reciprocating saw, and LED work light. Comes with 2 batteries and charger. Designed for professional contractors who need versatile cordless power on the jobsite."
 userBenefits:
 

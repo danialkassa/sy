@@ -4,11 +4,12 @@ sku: "SY-SA-CRD-ORB"
 category: "sanders"
 categoryLabel: "Sanders"
 brand: "Ningbo Siyang Pro"
+image: "/images/istock/10016.jpg"
 images:
 
-  - "../images/unsplach/drill-closeup/10079.jpeg"
-  - "../images/unsplach/drill-closeup/10079-2.jpeg"
-  - "../images/unsplach/drill-closeup/10079-3.jpeg"
+  - "/images/istock/10016-2.jpg"
+
+  - "/images/istock/10016-3.jpg"
 description: "Cordless 20V MAX random orbital sander with 5 inch hook & loop pad. Delivers 8,000-12,000 OPM for professional finishing results without the constraint of a power cord. Ideal for on-site sanding, surface preparation, and finishing work."
 userBenefits:
 

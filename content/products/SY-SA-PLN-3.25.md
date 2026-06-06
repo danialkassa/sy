@@ -4,11 +4,12 @@ sku: "SY-SA-PLN-3.25"
 category: "sanders"
 categoryLabel: "Sanders"
 brand: "Ningbo Siyang Pro"
+image: "/images/istock/10010.jpg"
 images:
 
-  - "../images/istock/10023.jpg"
-  - "../images/istock/10023-2.jpg"
-  - "../images/istock/10023-3.jpg"
+  - "/images/istock/10010-2.jpg"
+
+  - "/images/istock/10010-3.jpg"
 description: "Professional 3-1/4 inch electric hand planer with 6.0 Amp motor delivering 34,000 RPM for fast, smooth planing. Includes a parallel fence for consistent results and a depth adjustment knob for precise control. Ideal for door fitting, joist planing, and surface leveling."
 userBenefits:
 

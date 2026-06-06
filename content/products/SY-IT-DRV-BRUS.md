@@ -4,11 +4,7 @@ sku: "SY-IT-DRV-BRUS"
 category: "impact-tools"
 categoryLabel: "Impact Tools"
 brand: "Ningbo Siyang Pro"
-images:
-
-  - "../images/unsplach/drill-closeup/10081.jpeg"
-  - "../images/unsplach/drill-closeup/10081-2.jpeg"
-  - "../images/unsplach/drill-closeup/10081-3.jpeg"
+image: "/images/unsplach/drill-home/10059.jpg"
 description: "Complete 20V brushless impact driver kit including 2× 4.0Ah batteries, charger, and kit bag. Delivers professional-grade performance with brushless motor technology for maximum runtime and durability. Ideal for heavy-duty fastening in construction and remodeling."
 userBenefits:
 
