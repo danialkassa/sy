@@ -283,6 +283,121 @@
   to { transform: scale(1); opacity: 0; }
 }
 
+/* ═══════════════════════════════════════════
+   5. ANIMATED GRADIENT TEXT
+   ═══════════════════════════════════════════ */
+@keyframes pm-gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.pm-gradient-text {
+  background: linear-gradient(270deg, #facc15, #f59e0b, #eab308, #fbbf24, #facc15);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: pm-gradient-shift 6s ease infinite;
+}
+
+/* ═══════════════════════════════════════════
+   6. CLIP-PATH SECTION REVEALS
+   ═══════════════════════════════════════════ */
+@keyframes pm-clip-reveal {
+  from {
+    clip-path: inset(8% 8% 8% 8% round 16px);
+    opacity: 0.7;
+  }
+  to {
+    clip-path: inset(0% 0% 0% 0% round 0px);
+    opacity: 1;
+  }
+}
+.pm-clip-reveal {
+  animation: pm-clip-reveal 1.4s var(--pm-ease-in-out-quart) forwards;
+  animation-play-state: paused;
+}
+.pm-clip-reveal.is-visible {
+  animation-play-state: running;
+}
+
+/* ═══════════════════════════════════════════
+   7. STAGGERED SCALE REVEAL
+   ═══════════════════════════════════════════ */
+@keyframes pm-scale-reveal {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(20px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+.pm-scale-reveal {
+  animation: pm-scale-reveal 0.9s var(--pm-ease-out-expo) forwards;
+  animation-play-state: paused;
+}
+.pm-scale-reveal.is-visible {
+  animation-play-state: running;
+}
+
+/* ═══════════════════════════════════════════
+   8. HORIZONTAL SLIDE REVEAL
+   ═══════════════════════════════════════════ */
+@keyframes pm-slide-left {
+  from { opacity: 0; transform: translateX(-60px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes pm-slide-right {
+  from { opacity: 0; transform: translateX(60px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.pm-slide-left {
+  animation: pm-slide-left 0.9s var(--pm-ease-out-expo) forwards;
+  animation-play-state: paused;
+}
+.pm-slide-right {
+  animation: pm-slide-right 0.9s var(--pm-ease-out-expo) forwards;
+  animation-play-state: paused;
+}
+.pm-slide-left.is-visible,
+.pm-slide-right.is-visible {
+  animation-play-state: running;
+}
+
+/* ═══════════════════════════════════════════
+   9. COUNTER ANIMATION GLOW
+   ═══════════════════════════════════════════ */
+@keyframes pm-counter-glow {
+  0%, 100% { text-shadow: 0 0 20px rgba(250, 204, 21, 0.3); }
+  50% { text-shadow: 0 0 40px rgba(250, 204, 21, 0.6), 0 0 80px rgba(250, 204, 21, 0.2); }
+}
+.pm-counter-glow {
+  animation: pm-counter-glow 3s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════
+   10. SHIMMER LOADING EFFECT
+   ═══════════════════════════════════════════ */
+@keyframes pm-shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+.pm-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.pm-shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+  animation: pm-shimmer 3s ease-in-out infinite;
+}
+
 /* Reduced motion — respect user accessibility preferences */
 @media (prefers-reduced-motion: reduce) {
   *,

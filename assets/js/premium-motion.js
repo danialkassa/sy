@@ -32,6 +32,45 @@
 
     /* ── BOOT ───────────────────────────────── */
     init() {
+      // ── Lenis Smooth Scroll ─────────────────
+      if (typeof Lenis !== 'undefined') {
+        const lenis = new Lenis({
+          duration: 1.2,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          orientation: 'vertical',
+          gestureOrientation: 'vertical',
+          smoothWheel: true,
+          wheelMultiplier: 1,
+          touchMultiplier: 2,
+        });
+        function raf(time) {
+          lenis.raf(time);
+          requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+        // Expose globally so other scripts can use lenis.scrollTo()
+        window.__lenis = lenis;
+        console.log('%c[Premium Motion] Lenis smooth scroll active', 'color: #facc15;');
+      }
+
+      // ── Scroll Progress Bar ─────────────────
+      const progressBar = document.getElementById('scroll-progress-bar');
+      if (progressBar) {
+        const updateProgress = () => {
+          const scrollTop = window.scrollY;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+          progressBar.style.width = progress + '%';
+        };
+        window.addEventListener('scroll', updateProgress, { passive: true });
+        updateProgress();
+      }
+
+      // ── Additional Auto-Enhancements ────────
+      this.enhanceSectionReveals();
+      this.enhanceCounters();
+      this.enhanceHeroGradient();
+
       this.enhanceHero();
       this.enhanceCards();
       this.enhanceButtons();
@@ -261,7 +300,7 @@
         rootMargin: this.config.revealRootMargin
       });
 
-      document.querySelectorAll('.pm-kinetic-line, .pm-mask-reveal, .pm-blur-reveal').forEach(el => {
+      document.querySelectorAll('.pm-kinetic-line, .pm-mask-reveal, .pm-blur-reveal, .pm-clip-reveal, .pm-scale-reveal, .pm-slide-left, .pm-slide-right').forEach(el => {
         obs.observe(el);
       });
     },
@@ -289,6 +328,51 @@
           setTimeout(() => { btn.style.transition = ''; }, 600);
         });
       });
+    },
+
+    /* ── 6. SECTION REVEAL ENHANCEMENTS ────── */
+
+    enhanceSectionReveals() {
+      // Apply clip-path reveal to major sections
+      document.querySelectorAll('section').forEach((section, i) => {
+        // Skip hero and tiny sections
+        if (section.id === 'hero' || section.offsetHeight < 200) return;
+        // Alternate between clip-reveal and scale-reveal for variety
+        const animClass = i % 3 === 0 ? 'pm-clip-reveal' : 'pm-scale-reveal';
+        section.classList.add(animClass);
+      });
+
+      // Observe them
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+      document.querySelectorAll('.pm-clip-reveal, .pm-scale-reveal').forEach(el => {
+        obs.observe(el);
+      });
+    },
+
+    enhanceCounters() {
+      // Add glow effect to stat counters
+      document.querySelectorAll('[data-count-up]').forEach(counter => {
+        counter.classList.add('pm-counter-glow');
+      });
+    },
+
+    enhanceHeroGradient() {
+      // Apply animated gradient to hero headline's yellow/accent text
+      const heroH1 = document.querySelector('#hero h1');
+      if (!heroH1) return;
+      const yellowSpan = heroH1.querySelector('.text-yellow-400, .text-amber-400');
+      if (yellowSpan) {
+        yellowSpan.classList.remove('text-yellow-400', 'text-amber-400');
+        yellowSpan.classList.add('pm-gradient-text');
+      }
     }
   };
 

@@ -71,6 +71,11 @@
 </head>
 <body class="min-h-screen flex flex-col bg-zinc-950 text-white font-sans">
 
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress" class="fixed top-0 left-0 w-full h-[3px] z-[9999] pointer-events-none">
+      <div id="scroll-progress-bar" class="h-full bg-gradient-to-r from-yellow-400 via-amber-500 to-yellow-400 transition-none" style="width:0%;transform-origin:left;"></div>
+    </div>
+
   <!-- HEADER -->
   <header class="sticky top-0 z-50 w-full border-b border-zinc-800 bg-zinc-950/95 backdrop-blur supports-[backdrop-filter]:bg-zinc-950/80">
     <!-- Top bar -->
@@ -1638,6 +1643,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" crossorigin="anonymous" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js" crossorigin="anonymous" defer></script>
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
   <script src="./assets/js/premium-motion.js" defer></script>
   <script src="./assets/js/gsap-animations.js" defer></script>
   <script src="./assets/js/animations.js" defer></script>
