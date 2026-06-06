@@ -4,99 +4,237 @@
  *           ContainerScrollScale, ContainerScrollTranslate, ContainerScrollRadius
  *
  * Usage: Add data-sa-* attributes to HTML elements. Call ScrollAnimations.init()
+ *
+ * Multi-stop interpolation (v2):
+ *   - data-sa-scale="1.3,1.1,1"          three evenly-spaced stops
+ *   - data-sa-input="0,0.3,0.7,1"        custom input range (optional)
+ *   - All two-value attributes work exactly as before (fully backwards compatible)
  */
 (function () {
   'use strict';
 
   var ScrollAnimations = {};
 
-  // ── Utility: linear interpolation ──
+  /* ── Low-level math helpers ── */
+
   function lerp(a, b, t) {
     return a + (b - a) * t;
   }
 
-  // ── Utility: clamp ──
   function clamp(val, min, max) {
     return Math.min(Math.max(val, min), max);
   }
 
-  // ── Utility: map value from input range to output range ──
+  // Map a single value from one numeric range to another (2-stop only)
   function mapRange(value, inMin, inMax, outMin, outMax) {
     var t = clamp((value - inMin) / (inMax - inMin), 0, 1);
     return lerp(outMin, outMax, t);
   }
 
-  // ── Utility: parse a range like "0,1" or "45,0" into number array ──
+  /* ── Parsing helpers ── */
+
+  // Parse "0,1" or "45,0" into number array (original, kept for compatibility)
   function parseRange(str) {
     if (!str) return null;
     return str.split(',').map(Number);
+  }
+
+  // Parse range of any length with fallback and NaN guard
+  function parseRangeMulti(str, fallback) {
+    if (!str) return fallback;
+    var parsed = str.split(',').map(Number);
+    for (var i = 0; i < parsed.length; i++) {
+      if (isNaN(parsed[i])) return fallback;
+    }
+    return parsed;
+  }
+
+  // Read optional data-sa-input attribute, or generate evenly-spaced stops
+  // 2 values → [0, 1], 3 values → [0, 0.5, 1], 4 values → [0, 0.33, 0.67, 1]
+  function parseInputRange(el, outputLength) {
+    var raw = el.dataset.saInput;
+
+    if (raw) {
+      var parsed = raw.split(',').map(Number);
+      var valid =
+        parsed.length === outputLength &&
+        parsed[0] === 0 &&
+        parsed[parsed.length - 1] === 1;
+
+      if (valid) {
+        for (var i = 1; i < parsed.length; i++) {
+          if (parsed[i] <= parsed[i - 1] || isNaN(parsed[i])) {
+            valid = false;
+            break;
+          }
+        }
+      }
+
+      if (valid) return parsed;
+
+      console.warn(
+        '[ScrollAnimations] Invalid data-sa-input "' + raw + '" on element:',
+        el,
+        '— falling back to evenly-spaced stops.'
+      );
+    }
+
+    // Auto-generate evenly-spaced stops
+    var stops = [];
+    for (var j = 0; j < outputLength; j++) {
+      stops.push(Math.round((j / (outputLength - 1)) * 10000) / 10000);
+    }
+    return stops;
+  }
+
+  /* ── Core interpolation engine ── */
+
+  // Multi-stop interpolation (mirrors Framer Motion useTransform with arrays)
+  // For two-value arrays it calls mapRange directly — identical output to original
+  function interpolateMulti(progress, outputValues, inputRange) {
+    var n = outputValues.length;
+
+    // Fast path: original 2-stop behaviour (no new overhead)
+    if (n === 2) {
+      return mapRange(progress, inputRange[0], inputRange[1], outputValues[0], outputValues[1]);
+    }
+
+    var p = clamp(progress, 0, 1);
+
+    // Edge: progress at or beyond last stop
+    if (p >= inputRange[n - 1]) return outputValues[n - 1];
+
+    // Edge: progress at or before first stop
+    if (p <= inputRange[0]) return outputValues[0];
+
+    // Find the segment that contains progress
+    var segIndex = 0;
+    for (var i = 0; i < n - 1; i++) {
+      if (p <= inputRange[i + 1]) {
+        segIndex = i;
+        break;
+      }
+    }
+
+    return mapRange(
+      p,
+      inputRange[segIndex],
+      inputRange[segIndex + 1],
+      outputValues[segIndex],
+      outputValues[segIndex + 1]
+    );
+  }
+
+  /* ── Inset-specific helper ── */
+
+  // Parse pipe-delimited inset string with multi-stop support
+  // "40,20,0|40,20,0|9999,128,16" → { yRange, xRange, radiusRange }
+  function parseInsetAttribute(raw) {
+    var parts = (raw || '45,0|45,0|16,16').split('|');
+    return {
+      yRange:      parseRangeMulti(parts[0], [45, 0]),
+      xRange:      parseRangeMulti(parts[1], [45, 0]),
+      radiusRange: parseRangeMulti(parts[2], [16, 16])
+    };
   }
 
   // ── Core: compute scroll progress for a container (0 to 1) ──
   function getScrollProgress(container) {
     var rect = container.getBoundingClientRect();
     var windowHeight = window.innerHeight;
-    // Progress 0 when container top enters viewport bottom
-    // Progress 1 when container bottom exits viewport top
     var totalTravel = windowHeight + rect.height;
     var traveled = windowHeight - rect.top;
     return clamp(traveled / totalTravel, 0, 1);
   }
 
-  // ── Animation handlers mapped by data attribute ──
+  // ── Animation handlers ──
   var handlers = {
-    // data-sa-inset="insetYStart,insetYEnd|insetXStart,insetXEnd|radiusStart,radiusEnd"
+
+    // data-sa="inset"
+    // data-sa-inset="insetYStops|insetXStops|radiusStops"
+    // data-sa-input="0,0.5,1" (optional)
+    // Original:  data-sa-inset="45,0|45,0|16,16"
+    // 3-stop:    data-sa-inset="40,20,0|40,20,0|9999,128,16"
     inset: function (el, progress) {
-      var parts = (el.dataset.saInset || '45,0|45,0|16,16').split('|');
-      var yRange = parseRange(parts[0]) || [45, 0];
-      var xRange = parseRange(parts[1]) || [45, 0];
-      var radiusRange = parseRange(parts[2]) || [16, 16];
-      var y = mapRange(progress, 0, 1, yRange[0], yRange[1]);
-      var x = mapRange(progress, 0, 1, xRange[0], xRange[1]);
-      var r = mapRange(progress, 0, 1, radiusRange[0], radiusRange[1]);
-      el.style.clipPath = 'inset(' + y + '% ' + x + '% ' + y + '% ' + x + '% round ' + r + 'px)';
+      var parsed      = parseInsetAttribute(el.dataset.saInset);
+      var yRange      = parsed.yRange;
+      var xRange      = parsed.xRange;
+      var radiusRange = parsed.radiusRange;
+
+      var stops = Math.max(yRange.length, xRange.length, radiusRange.length);
+      var inputRange = parseInputRange(el, stops);
+
+      var y = interpolateMulti(progress, yRange, inputRange);
+      var x = interpolateMulti(progress, xRange, inputRange);
+      var r = interpolateMulti(progress, radiusRange, inputRange);
+
+      el.style.clipPath =
+        'inset(' + y + '% ' + x + '% ' + y + '% ' + x + '% round ' + r + 'px)';
     },
 
-    // data-sa-inset-x="start,end"
+    // data-sa="inset-x"
+    // data-sa-inset-x="48,0" or "48,24,0"
+    // data-sa-input="0,0.4,1" (optional)
     'inset-x': function (el, progress) {
-      var range = parseRange(el.dataset.saInsetX) || [48, 0];
-      var val = mapRange(progress, 0, 1, range[0], range[1]);
+      var range      = parseRangeMulti(el.dataset.saInsetX, [48, 0]);
+      var inputRange = parseInputRange(el, range.length);
+      var val        = interpolateMulti(progress, range, inputRange);
+
       el.style.clipPath = 'inset(0px ' + val + 'px)';
     },
 
-    // data-sa-inset-y="start,end"
+    // data-sa="inset-y"
+    // data-sa-inset-y="48,0" or "48,24,0"
     'inset-y': function (el, progress) {
-      var range = parseRange(el.dataset.saInsetY) || [48, 0];
-      var val = mapRange(progress, 0, 1, range[0], range[1]);
+      var range      = parseRangeMulti(el.dataset.saInsetY, [48, 0]);
+      var inputRange = parseInputRange(el, range.length);
+      var val        = interpolateMulti(progress, range, inputRange);
+
       el.style.clipPath = 'inset(' + val + 'px 0px)';
     },
 
-    // data-sa-scale="start,end"
+    // data-sa="scale"
+    // data-sa-scale="1.2,1" or "1.3,1.1,1"
+    // data-sa-input="0,0.3,1" (optional)
     scale: function (el, progress) {
-      var range = parseRange(el.dataset.saScale) || [1.2, 1];
-      var val = mapRange(progress, 0, 1, range[0], range[1]);
+      var range      = parseRangeMulti(el.dataset.saScale, [1.2, 1]);
+      var inputRange = parseInputRange(el, range.length);
+      var val        = interpolateMulti(progress, range, inputRange);
+
       el.style.transform = 'scale(' + val + ')';
     },
 
-    // data-sa-translate-y="start,end" (in px or %)
+    // data-sa="translate-y"
+    // data-sa-translate-y="0,-384" or "0,-200,-384"
+    // data-sa-translate-unit="px" or "%"
+    // data-sa-input="0,0.6,1" (optional)
     'translate-y': function (el, progress) {
-      var range = parseRange(el.dataset.saTranslateY) || [0, -384];
-      var unit = el.dataset.saTranslateUnit || 'px';
-      var val = mapRange(progress, 0, 1, range[0], range[1]);
+      var range      = parseRangeMulti(el.dataset.saTranslateY, [0, -384]);
+      var inputRange = parseInputRange(el, range.length);
+      var unit       = el.dataset.saTranslateUnit || 'px';
+      var val        = interpolateMulti(progress, range, inputRange);
+
       el.style.transform = 'translateY(' + val + unit + ')';
     },
 
-    // data-sa-radius="start,end"
+    // data-sa="radius"
+    // data-sa-radius="9999,16" or "9999,64,16"
     radius: function (el, progress) {
-      var range = parseRange(el.dataset.saRadius) || [9999, 16];
-      var val = mapRange(progress, 0, 1, range[0], range[1]);
+      var range      = parseRangeMulti(el.dataset.saRadius, [9999, 16]);
+      var inputRange = parseInputRange(el, range.length);
+      var val        = interpolateMulti(progress, range, inputRange);
+
       el.style.borderRadius = val + 'px';
     },
 
-    // data-sa-opacity="start,end"
+    // data-sa="opacity"
+    // data-sa-opacity="0,1" or "0,0.5,1"
+    // data-sa-input="0,0.2,1" (optional — fast fade in, then slow)
     opacity: function (el, progress) {
-      var range = parseRange(el.dataset.saOpacity) || [0, 1];
-      var val = mapRange(progress, 0, 1, range[0], range[1]);
+      var range      = parseRangeMulti(el.dataset.saOpacity, [0, 1]);
+      var inputRange = parseInputRange(el, range.length);
+      var val        = interpolateMulti(progress, range, inputRange);
+
       el.style.opacity = val;
     }
   };
@@ -107,7 +245,7 @@
 
     if (!containers.length) return;
 
-    // Reduced motion check
+    // Reduced motion: remove all animation side-effects
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       containers.forEach(function (container) {
         var children = container.querySelectorAll('[data-sa]');
@@ -146,11 +284,9 @@
       }
     }
 
-    // Listen to scroll (Lenis already fires native scroll events via rAF)
     window.addEventListener('scroll', scheduleUpdate, { passive: true });
     window.addEventListener('resize', scheduleUpdate, { passive: true });
 
-    // Initial update
     update();
   };
 
