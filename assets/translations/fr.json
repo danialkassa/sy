@@ -70,6 +70,27 @@
     "easyReordering": "Réapprovisionnement facile",
     "easyReorderingDesc": "Processus d'approvisionnement simplifié"
   },
+  "useCases": {
+    "title": "Outils pour Chaque Métier",
+    "description": "Solutions spécialisées pour différents secteurs et applications",
+    "construction": "Construction et Ossature",
+    "constructionDesc": "Perceuses et outils à percussion lourds pour la productivité sur chantier",
+    "woodworking": "Menuiserie et Ébénisterie",
+    "woodworkingDesc": "Scies et ponceuses de précision pour un travail fin",
+    "metalFabrication": "Fabrication Métallique",
+    "metalFabricationDesc": "Meuleuses d'angle et outils de coupe pour la métallurgie",
+    "plumbing": "Plomberie et Installation",
+    "plumbingDesc": "Perceuses et clés compactes pour les espaces restreints",
+    "homeRenovation": "Rénovation Maison",
+    "homeRenovationDesc": "Kits combinés polyvalents pour le bricolage et la rénovation",
+    "maintenance": "Entretien et Réparation",
+    "maintenanceDesc": "Outils fiables pour l'entretien continu des installations"
+  },
+  "faq": {
+    "title": "Nous Sommes Là pour Vous Aider",
+    "description": "Trouvez des réponses aux questions courantes sur nos produits et services",
+    "badge": "QUESTIONS FRÉQUENTES"
+  },
   "stats": {
     "subtitle": "Des indicateurs de confiance qui témoignent de notre engagement envers l'excellence",
     "customers": "Clients dans le monde",

@@ -70,6 +70,27 @@
     "easyReordering": "便捷复购",
     "easyReorderingDesc": "简化的采购流程"
   },
+  "useCases": {
+    "title": "各行业专业工具",
+    "description": "针对不同行业和应用的专业解决方案",
+    "construction": "建筑与框架",
+    "constructionDesc": "适用于工地生产力的大功率电钻和冲击工具",
+    "woodworking": "木工与细木工",
+    "woodworkingDesc": "精密锯和砂光机，打造精细工艺",
+    "metalFabrication": "金属加工",
+    "metalFabricationDesc": "角磨机和切割工具，适用于金属加工",
+    "plumbing": "管道与安装",
+    "plumbingDesc": "紧凑型电钻和扳手，适用于狭小空间",
+    "homeRenovation": "家庭装修",
+    "homeRenovationDesc": "适用于DIY和改造的多功能组合套件",
+    "maintenance": "维护与修理",
+    "maintenanceDesc": "用于持续设施维护的可靠工具"
+  },
+  "faq": {
+    "title": "我们随时为您服务",
+    "description": "查找有关我们产品和服务的常见问题解答",
+    "badge": "常见问题"
+  },
   "stats": {
     "subtitle": "展示我们追求卓越承诺的可信数据",
     "customers": "全球客户",

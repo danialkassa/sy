@@ -70,6 +70,27 @@
     "easyReordering": "Easy Reordering",
     "easyReorderingDesc": "Streamlined procurement process"
   },
+  "useCases": {
+    "title": "Tools for Every Trade",
+    "description": "Specialized solutions for different industries and applications",
+    "construction": "Construction & Framing",
+    "constructionDesc": "Heavy-duty drills and impact tools for job site productivity",
+    "woodworking": "Woodworking & Carpentry",
+    "woodworkingDesc": "Precision saws and sanders for fine craftsmanship",
+    "metalFabrication": "Metal Fabrication",
+    "metalFabricationDesc": "Angle grinders and cutting tools for metalworking",
+    "plumbing": "Plumbing & Installation",
+    "plumbingDesc": "Compact drills and wrenches for tight spaces",
+    "homeRenovation": "Home Renovation",
+    "homeRenovationDesc": "Versatile combo kits for DIY and remodeling",
+    "maintenance": "Maintenance & Repair",
+    "maintenanceDesc": "Reliable tools for ongoing facility upkeep"
+  },
+  "faq": {
+    "title": "We're Here to Help",
+    "description": "Find answers to common questions about our products and services",
+    "badge": "FREQUENTLY ASKED QUESTIONS"
+  },
   "stats": {
     "subtitle": "Trusted metrics that showcase our commitment to excellence",
     "customers": "Customers Worldwide",

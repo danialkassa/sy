@@ -441,9 +441,16 @@
   height: 360px;
   transform-style: preserve-3d;
   margin: 0 auto;
+  cursor: grab;
+  transition: none;
+}
+.pm-3d-carousel-track:active {
+  cursor: grabbing;
+}
+.pm-3d-carousel-track.pm-carousel-auto {
   animation: pm-carousel-spin 20s linear infinite;
 }
-.pm-3d-carousel-track:hover {
+.pm-3d-carousel-track.pm-carousel-auto:hover {
   animation-play-state: paused;
 }
 .pm-3d-carousel-item {

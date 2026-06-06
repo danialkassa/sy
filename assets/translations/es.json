@@ -70,6 +70,27 @@
     "easyReordering": "Recompra fácil",
     "easyReorderingDesc": "Proceso de compra simplificado"
   },
+  "useCases": {
+    "title": "Herramientas para Cada Oficio",
+    "description": "Soluciones especializadas para diferentes industrias y aplicaciones",
+    "construction": "Construcción y Estructuración",
+    "constructionDesc": "Taladros y herramientas de impacto pesadas para productividad en obra",
+    "woodworking": "Carpintería y Ebanistería",
+    "woodworkingDesc": "Sierras y lijadoras de precisión para artesanía fina",
+    "metalFabrication": "Fabricación de Metales",
+    "metalFabricationDesc": "Amoladoras angulares y herramientas de corte para metalurgia",
+    "plumbing": "Fontanería e Instalación",
+    "plumbingDesc": "Taladros y llaves compactas para espacios reducidos",
+    "homeRenovation": "Renovación del Hogar",
+    "homeRenovationDesc": "Kits combinados versátiles para bricolaje y remodelación",
+    "maintenance": "Mantenimiento y Reparación",
+    "maintenanceDesc": "Herramientas confiables para el mantenimiento continuo de instalaciones"
+  },
+  "faq": {
+    "title": "Estamos Aquí para Ayudarle",
+    "description": "Encuentre respuestas a las preguntas más frecuentes sobre nuestros productos y servicios",
+    "badge": "PREGUNTAS FRECUENTES"
+  },
   "stats": {
     "subtitle": "Métricas confiables que muestran nuestro compromiso con la excelencia",
     "customers": "Clientes en todo el mundo",

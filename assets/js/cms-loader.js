@@ -168,10 +168,31 @@
     return './';
   }
 
+  var CACHE_TTL = 5 * 60 * 1000; // 5 minutes
+
+  function cacheGet(key) {
+    try {
+      var raw = localStorage.getItem('cms-cache:' + key);
+      if (!raw) return null;
+      var entry = JSON.parse(raw);
+      if (Date.now() - entry.t > CACHE_TTL) { localStorage.removeItem('cms-cache:' + key); return null; }
+      return entry.d;
+    } catch (e) { return null; }
+  }
+
+  function cacheSet(key, data) {
+    try { localStorage.setItem('cms-cache:' + key, JSON.stringify({ t: Date.now(), d: data })); } catch (e) {}
+  }
+
   function fetchText(url) {
+    var cached = cacheGet(url);
+    if (cached !== null) return Promise.resolve(cached);
     return fetch(url).then(function (res) {
       if (!res.ok) throw new Error('HTTP ' + res.status);
       return res.text();
+    }).then(function (text) {
+      cacheSet(url, text);
+      return text;
     });
   }
 
@@ -188,8 +209,15 @@
   var currentLang = detectCurrentLang();
 
   function loadJSONWithLangFallback(primaryPath, lang) {
+    var cacheKey = primaryPath + (lang ? ':' + lang : '');
+    var cached = cacheGet(cacheKey);
+    if (cached !== null) return Promise.resolve(cached);
+
     if (!lang || lang === 'en') {
-      return fetch(primaryPath).then(function (r) { return r.json(); });
+      return fetch(primaryPath).then(function (r) { return r.json(); }).then(function (data) {
+        cacheSet(cacheKey, data);
+        return data;
+      });
     }
 
     var langPath = primaryPath.replace(/(\.\w+)$/, '.' + lang + '$1');
@@ -199,8 +227,15 @@
         if (!r.ok) throw new Error('Not found');
         return r.json();
       })
+      .then(function (data) {
+        cacheSet(cacheKey, data);
+        return data;
+      })
       .catch(function () {
-        return fetch(primaryPath).then(function (r) { return r.json(); });
+        return fetch(primaryPath).then(function (r) { return r.json(); }).then(function (data) {
+          cacheSet(cacheKey, data);
+          return data;
+        });
       });
   }
 
@@ -408,7 +443,7 @@
           badges += '<span class="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">-' + discount + '%</span>';
         }
         if (product.isFeatured) {
-          badges += '<span class="bg-yellow-400 text-zinc-900 text-xs font-bold px-2 py-1 rounded">' + _t('cms.featured','Featured') + '</span>';
+          badges += '<span class="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">' + _t('cms.featured','Featured') + '</span>';
         }
         var badgeContainer = badges ? '<div class="absolute top-3 left-3 flex flex-col gap-1.5">' + badges + '</div>' : '';
 

@@ -457,16 +457,52 @@
         item.style.transform = `rotateY(${angle * i}deg) translateZ(${radius}px)`;
       });
 
-      // Pause on hover
-      const carousel = track.closest('.pm-3d-carousel');
-      if (carousel) {
-        carousel.addEventListener('mouseenter', () => {
-          track.style.animationPlayState = 'paused';
-        });
-        carousel.addEventListener('mouseleave', () => {
-          track.style.animationPlayState = 'running';
-        });
-      }
+      // Start with auto-spin
+      track.classList.add('pm-carousel-auto');
+
+      // Drag-to-rotate
+      let isDragging = false;
+      let startX = 0;
+      let currentRotation = 0;
+      let hasInteracted = false;
+
+      track.addEventListener('pointerdown', (e) => {
+        isDragging = true;
+        startX = e.clientX;
+        track.setPointerCapture(e.pointerId);
+
+        // Stop auto-spin on first interaction
+        if (!hasInteracted) {
+          hasInteracted = true;
+          track.classList.remove('pm-carousel-auto');
+          // Get current rotation from computed style
+          const style = getComputedStyle(track);
+          const matrix = style.transform;
+          if (matrix && matrix !== 'none') {
+            const values = matrix.match(/matrix3d\((.+)\)/);
+            if (values) {
+              const parts = values[1].split(',').map(Number);
+              currentRotation = Math.round(Math.atan2(parts[8], parts[10]) * (180 / Math.PI));
+            }
+          }
+          track.style.transform = `rotateY(${currentRotation}deg)`;
+        }
+
+        // Hide hint
+        const hint = document.getElementById('cms-spline-hint');
+        if (hint) hint.style.opacity = '0';
+      });
+
+      track.addEventListener('pointermove', (e) => {
+        if (!isDragging) return;
+        const diff = e.clientX - startX;
+        currentRotation += diff * 0.5;
+        track.style.transform = `rotateY(${currentRotation}deg)`;
+        startX = e.clientX;
+      });
+
+      track.addEventListener('pointerup', () => { isDragging = false; });
+      track.addEventListener('pointercancel', () => { isDragging = false; });
     },
 
     // ── 360° Image Rotation Viewer ─────────
