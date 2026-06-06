@@ -495,6 +495,7 @@
     return CMSLoader.loadPageSettings('homepage').then(function (data) {
       if (!data || !Object.keys(data).length) return;
 
+      // ---- Hero ----
       var heroLine1 = document.getElementById('cms-hero-title-line1');
       var heroLine2 = document.getElementById('cms-hero-title-line2');
       if (data.heroTitle && heroLine1 && heroLine2) {
@@ -508,10 +509,23 @@
         }
       }
 
+      var heroSubtitle = document.getElementById('cms-hero-subtitle');
+      if (data.heroSubtitle && heroSubtitle) heroSubtitle.textContent = data.heroSubtitle;
+
+      var heroCta = document.getElementById('cms-hero-cta');
+      if (heroCta) {
+        if (data.heroCtaText) heroCta.childNodes[0].textContent = data.heroCtaText + ' ';
+        if (data.heroCtaLink) heroCta.setAttribute('onclick', "window.location.href='" + data.heroCtaLink + "'");
+      }
+
+      // ---- Stats 1-6 ----
       var statMap = [
         { valueId: 'cms-stat1-value', labelId: 'cms-stat1-label', valueKey: 'stat1Value', labelKey: 'stat1Label' },
         { valueId: 'cms-stat2-value', labelId: 'cms-stat2-label', valueKey: 'stat2Value', labelKey: 'stat2Label' },
-        { valueId: 'cms-stat3-value', labelId: 'cms-stat3-label', valueKey: 'stat3Value', labelKey: 'stat3Label' }
+        { valueId: 'cms-stat3-value', labelId: 'cms-stat3-label', valueKey: 'stat3Value', labelKey: 'stat3Label' },
+        { valueId: 'cms-stat4-value', labelId: 'cms-stat4-label', valueKey: 'stat4Value', labelKey: 'stat4Label' },
+        { valueId: 'cms-stat5-value', labelId: 'cms-stat5-label', valueKey: 'stat5Value', labelKey: 'stat5Label' },
+        { valueId: 'cms-stat6-value', labelId: 'cms-stat6-label', valueKey: 'stat6Value', labelKey: 'stat6Label' }
       ];
 
       statMap.forEach(function (stat) {
@@ -534,6 +548,65 @@
 
       if (typeof window.initCountUp === 'function') {
         window.initCountUp();
+      }
+
+      // ---- Section Headings & Descriptions ----
+      var sectionMap = [
+        { headingId: 'cms-trust-badges-heading', headingKey: 'trustBadgesHeading' },
+        { headingId: 'cms-featured-products-heading', headingKey: 'featuredProductsHeading', descId: 'cms-featured-products-desc', descKey: 'featuredProductsDescription' },
+        { headingId: 'cms-category-grid-heading', headingKey: 'categoryGridHeading', descId: 'cms-category-grid-desc', descKey: 'categoryGridDescription' },
+        { headingId: 'cms-brand-showcase-heading', headingKey: 'brandShowcaseHeading', descId: 'cms-brand-showcase-desc', descKey: 'brandShowcaseDescription' },
+        { headingId: 'cms-stats-heading', headingKey: 'statsHeading', descId: 'cms-stats-desc', descKey: 'statsDescription' },
+        { headingId: 'cms-testimonials-heading', headingKey: 'testimonialsHeading', descId: 'cms-testimonials-desc', descKey: 'testimonialsDescription' },
+        { headingId: 'cms-use-cases-heading', headingKey: 'useCasesHeading', descId: 'cms-use-cases-desc', descKey: 'useCasesDescription' },
+        { headingId: 'cms-final-cta-heading', headingKey: 'finalCtaHeading', descId: 'cms-final-cta-desc', descKey: 'finalCtaDescription' }
+      ];
+
+      sectionMap.forEach(function (sec) {
+        if (data[sec.headingKey]) {
+          var h = document.getElementById(sec.headingId);
+          if (h) h.textContent = data[sec.headingKey];
+        }
+        if (sec.descKey && data[sec.descKey]) {
+          var d = document.getElementById(sec.descId);
+          if (d) d.textContent = data[sec.descKey];
+        }
+      });
+
+      // ---- Final CTA Button ----
+      if (data.finalCtaButtonText) {
+        var ctaBtn = document.getElementById('cms-final-cta-button');
+        if (ctaBtn) ctaBtn.textContent = data.finalCtaButtonText;
+      }
+
+      // ---- Trust Badges ----
+      for (var i = 1; i <= 6; i++) {
+        var titleKey = 'trustBadge' + i + 'Title';
+        var descKey = 'trustBadge' + i + 'Desc';
+        if (data[titleKey]) {
+          var titleEl = document.getElementById('cms-trust-badge' + i + '-title');
+          if (titleEl) titleEl.textContent = data[titleKey];
+        }
+        if (data[descKey]) {
+          var descEl = document.getElementById('cms-trust-badge' + i + '-desc');
+          if (descEl) descEl.textContent = data[descKey];
+        }
+      }
+
+      // ---- Product Selector ----
+      if (data.productSelectorHeading) {
+        var psH = document.getElementById('cms-product-selector-heading');
+        if (psH) psH.textContent = data.productSelectorHeading;
+      }
+      if (data.productSelectorDesc) {
+        var psD = document.getElementById('cms-product-selector-desc');
+        if (psD) psD.textContent = data.productSelectorDesc;
+      }
+
+      // ---- Case Studies Heading ----
+      if (data.caseStudiesHeading) {
+        var csH = document.getElementById('cms-case-studies-heading');
+        if (csH) csH.textContent = data.caseStudiesHeading;
       }
     });
   };

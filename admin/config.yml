@@ -1557,6 +1557,43 @@ collections:
             widget: "boolean"
             default: true
             hint: "Toggle ON to show the certifications section on the homepage."
+          # ---- Section Headings & Descriptions ----
+          - {label: "Trust Badges Heading", name: "trustBadgesHeading", widget: "string", required: false, default: "What We Promise", hint: "Heading for the trust badges section below the hero."}
+          - {label: "Featured Products Heading", name: "featuredProductsHeading", widget: "string", required: false, default: "FEATURED TOOLS", hint: "Heading for the featured products section."}
+          - {label: "Featured Products Description", name: "featuredProductsDescription", widget: "text", required: false, default: "Our most popular professional-grade power tools, trusted by contractors worldwide.", hint: "Description below the featured products heading."}
+          - {label: "Category Grid Heading", name: "categoryGridHeading", widget: "string", required: false, default: "SHOP BY CATEGORY", hint: "Heading for the product category grid."}
+          - {label: "Category Grid Description", name: "categoryGridDescription", widget: "text", required: false, default: "Find the right tool for every job. Browse our comprehensive selection of professional-grade power tools.", hint: "Description below the category grid heading."}
+          - {label: "Brand Showcase Heading", name: "brandShowcaseHeading", widget: "string", required: false, default: "Ningbo Siyang: 25 Years of Excellence", hint: "Heading for the brand showcase / about section."}
+          - {label: "Brand Showcase Description", name: "brandShowcaseDescription", widget: "text", required: false, default: "From humble beginnings as a small workshop to becoming a global leader in professional power tools, our journey is built on trust, quality, and innovation. Every tool we craft reflects our commitment to empowering professionals worldwide.", hint: "Description below the brand showcase heading."}
+          - {label: "Stats Section Heading", name: "statsHeading", widget: "string", required: false, default: "By the Numbers", hint: "Heading for the statistics section."}
+          - {label: "Stats Section Description", name: "statsDescription", widget: "text", required: false, default: "Trusted metrics that showcase our commitment to excellence", hint: "Description below the stats heading."}
+          - {label: "Testimonials Heading", name: "testimonialsHeading", widget: "string", required: false, default: "Trusted by Industry Leaders", hint: "Heading for the testimonials section."}
+          - {label: "Testimonials Description", name: "testimonialsDescription", widget: "text", required: false, default: "Real success stories from contractors and professionals worldwide", hint: "Description below the testimonials heading."}
+          - {label: "Use Cases Heading", name: "useCasesHeading", widget: "string", required: false, default: "Tools for Every Trade", hint: "Heading for the use case / industry showcase section."}
+          - {label: "Use Cases Description", name: "useCasesDescription", widget: "text", required: false, default: "Specialized solutions for different industries and applications", hint: "Description below the use cases heading."}
+          - {label: "Final CTA Heading", name: "finalCtaHeading", widget: "string", required: false, default: "Ready to Power Your Business?", hint: "Heading for the final call-to-action section."}
+          - {label: "Final CTA Description", name: "finalCtaDescription", widget: "text", required: false, default: "Join thousands of professionals who trust Ningbo Siyang for their power tool needs. Get a custom quote today.", hint: "Description below the final CTA heading."}
+          - {label: "Final CTA Button Text", name: "finalCtaButtonText", widget: "string", required: false, default: "Request a Quote", hint: "Text on the final CTA button."}
+          # ---- Additional Stats ----
+          - {label: "Statistic 4 — Value", name: "stat4Value", widget: "string", required: false, default: "99%", hint: "The big number for stat 4. Include suffix."}
+          - {label: "Statistic 4 — Label", name: "stat4Label", widget: "string", required: false, default: "Quality Rating"}
+          - {label: "Statistic 5 — Value", name: "stat5Value", widget: "string", required: false, default: "24/7", hint: "The big number for stat 5."}
+          - {label: "Statistic 5 — Label", name: "stat5Label", widget: "string", required: false, default: "Hour Support"}
+          - {label: "Statistic 6 — Value", name: "stat6Value", widget: "string", required: false, default: "98%", hint: "The big number for stat 6."}
+          - {label: "Statistic 6 — Label", name: "stat6Label", widget: "string", required: false, default: "On-Time Delivery"}
+          # ---- Trust Badges (6 items) ----
+          - {label: "Trust Badge 1 Title", name: "trustBadge1Title", widget: "string", required: false, default: "2-Year Warranty"}
+          - {label: "Trust Badge 1 Description", name: "trustBadge1Desc", widget: "string", required: false, default: "Full coverage on all power tools"}
+          - {label: "Trust Badge 2 Title", name: "trustBadge2Title", widget: "string", required: false, default: "Global Shipping"}
+          - {label: "Trust Badge 2 Description", name: "trustBadge2Desc", widget: "string", required: false, default: "FOB/CIF terms available"}
+          - {label: "Trust Badge 3 Title", name: "trustBadge3Title", widget: "string", required: false, default: "Fast Delivery"}
+          - {label: "Trust Badge 3 Description", name: "trustBadge3Desc", widget: "string", required: false, default: "30-45 days production lead time"}
+          - {label: "Trust Badge 4 Title", name: "trustBadge4Title", widget: "string", required: false, default: "Quality Certified"}
+          - {label: "Trust Badge 4 Description", name: "trustBadge4Desc", widget: "string", required: false, default: "ISO 9001 certified products"}
+          - {label: "Trust Badge 5 Title", name: "trustBadge5Title", widget: "string", required: false, default: "24/7 Support"}
+          - {label: "Trust Badge 5 Description", name: "trustBadge5Desc", widget: "string", required: false, default: "Expert help when you need it"}
+          - {label: "Trust Badge 6 Title", name: "trustBadge6Title", widget: "string", required: false, default: "30-Day Returns"}
+          - {label: "Trust Badge 6 Description", name: "trustBadge6Desc", widget: "string", required: false, default: "Hassle-free return policy"}
       - label: "Company Information"
         name: "company"
         file: "content/pages/company.md"
