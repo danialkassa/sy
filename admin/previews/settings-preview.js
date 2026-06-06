@@ -43,7 +43,7 @@
     if (!href) return "#";
     var h = String(href).trim();
     if (/^(https?:|mailto:|tel:|\/|#)/i.test(h)) return h;
-    if (/^[a-zA-Z0-9_-]+$/.test(h) && !h.includes(" ")) return "/" + h;
+    if (/^[a-zA-Z0-9_\-\.]+$/.test(h) && !h.includes(" ")) return "/" + h;
     return "#";
   }
 

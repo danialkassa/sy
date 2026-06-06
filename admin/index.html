@@ -39,6 +39,7 @@
   <script src="./previews/company-preview.js"></script>
   <script src="./previews/oem-odm-preview.js"></script>
   <script src="./previews/settings-preview.js"></script>
+  <script src="./previews/page-preview.js"></script>
 
   <!-- Custom widgets (unused — registered but not referenced in config.yml) -->
   <!-- <script src="./widgets/color-swatch.js"></script> -->
@@ -73,11 +74,23 @@
       CMS.registerPreviewTemplate('warranty',       window.WarrantyPreview);
       CMS.registerPreviewTemplate('manuals',        window.ManualsPreview);
 
+      /* ── Generic Page Previews (simple content pages) ── */
+      var pagePreviewNames = ['global','payment-terms','brochure','about','contact','privacy','terms',
+                              'drills-drivers','saws','grinders','sanders','impact-tools','combo-kits'];
+      pagePreviewNames.forEach(function(name) {
+        CMS.registerPreviewTemplate(name, window.PagePreview);
+      });
+
       /* ── Custom Widgets (currently unused in config.yml) ── */
       /* CMS.registerWidget('color-swatch', window.ColorSwatchControl, window.ColorSwatchPreview); */
       /* CMS.registerWidget('product-card', window.ProductCardControl, window.ProductCardPreview); */
 
       /* ── Editor Components ─────────────────────────── */
+
+      function escapeHtml(str) {
+        return String(str || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+      }
+
       CMS.registerEditorComponent({
         id: "product-callout",
         label: "Product Callout",
@@ -88,7 +101,7 @@
         fromBlock: function(match) { return { product: match[1] }; },
         toBlock: function(data) { return "product-callout " + data.product; },
         toPreview: function(data) {
-          return '<div style="background:#18181b;border:1px solid #27272a;border-radius:8px;padding:16px;margin:16px 0;animation:cms-fade-in-up 0.4s ease both;"><strong style="color:#facc15;">Product: ' + data.product + '</strong></div>';
+          return '<div style="background:#18181b;border:1px solid #27272a;border-radius:8px;padding:16px;margin:16px 0;animation:cms-fade-in-up 0.4s ease both;"><strong style="color:#facc15;">Product: ' + escapeHtml(data.product) + '</strong></div>';
         }
       });
 
@@ -106,7 +119,7 @@
         toPreview: function(data) {
           var bg = data.style === "secondary" ? "#27272a" : "#facc15";
           var color = data.style === "secondary" ? "#e4e4e7" : "#09090b";
-          return '<a href="' + data.url + '" style="display:inline-block;background:' + bg + ';color:' + color + ';padding:10px 24px;border-radius:8px;font-weight:600;text-decoration:none;margin:8px 0;animation:cms-fade-in-up 0.4s ease both;">' + data.text + '</a>';
+          return '<a href="' + escapeHtml(data.url) + '" style="display:inline-block;background:' + bg + ';color:' + color + ';padding:10px 24px;border-radius:8px;font-weight:600;text-decoration:none;margin:8px 0;animation:cms-fade-in-up 0.4s ease both;">' + escapeHtml(data.text) + '</a>';
         }
       });
 
@@ -124,7 +137,7 @@
           var imgs = (data.images || []);
           var html = '<div style="display:grid;grid-template-columns:repeat(' + (data.columns || 3) + ',1fr);gap:8px;margin:16px 0;">';
           imgs.forEach(function(img, i) {
-            html += '<img src="' + img + '" style="width:100%;border-radius:8px;object-fit:cover;aspect-ratio:1;animation:cms-fade-in-scale 0.4s ease ' + (i*0.05) + 's both;" />';
+            html += '<img src="' + escapeHtml(img) + '" style="width:100%;border-radius:8px;object-fit:cover;aspect-ratio:1;animation:cms-fade-in-scale 0.4s ease ' + (i*0.05) + 's both;" />';
           });
           html += '</div>';
           return html;
@@ -143,7 +156,7 @@
         fromBlock: function(match) { return { quote: match[1], name: match[2], company: match[3] }; },
         toBlock: function(data) { return 'quote-block "' + (data.quote || "") + '" "' + (data.name || "") + '" "' + (data.company || "") + '"'; },
         toPreview: function(data) {
-          return '<blockquote style="border-left:3px solid #facc15;padding:16px 20px;margin:16px 0;background:#18181b;border-radius:0 8px 8px 0;animation:cms-fade-in-up 0.5s ease both;"><p style="color:#e4e4e7;font-style:italic;margin:0 0 8px 0;">"' + data.quote + '"</p><cite style="color:#a1a1aa;font-style:normal;">&mdash; ' + data.name + ', ' + data.company + '</cite></blockquote>';
+          return '<blockquote style="border-left:3px solid #facc15;padding:16px 20px;margin:16px 0;background:#18181b;border-radius:0 8px 8px 0;animation:cms-fade-in-up 0.5s ease both;"><p style="color:#e4e4e7;font-style:italic;margin:0 0 8px 0;">"' + escapeHtml(data.quote) + '"</p><cite style="color:#a1a1aa;font-style:normal;">&mdash; ' + escapeHtml(data.name) + ', ' + escapeHtml(data.company) + '</cite></blockquote>';
         }
       });
     })();

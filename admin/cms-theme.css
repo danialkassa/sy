@@ -64,6 +64,7 @@
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
   --radius-xl: 1rem;
+  --radius-full: 9999px;
 
   /* ── Easing (synced with premium-motion.css) ─────────── */
   --ease-out-quint: cubic-bezier(0.23, 1, 0.32, 1);
@@ -646,7 +647,7 @@ main,
 [class*='EmptyState'],
 [class*='emptyState'] {
   text-align: center !important;
-  padding: 80px 24px !important;
+  padding: 48px 24px !important;
 }
 
 [class*='EmptyState'] [class*='icon'],
@@ -657,6 +658,7 @@ main,
   color: var(--ns-primary) !important;
   opacity: 0.3 !important;
   margin-bottom: 20px !important;
+  animation: cms-float var(--dur-ambient) ease-in-out infinite;
 }
 
 [class*='EmptyState'] [class*='heading'],
@@ -1216,24 +1218,7 @@ button[class*='secondaryButton']:hover {
 }
 
 /* ═══════════════════════════════════════════════════════════
-  17. EMPTY STATES
-   ═══════════════════════════════════════════════════════════ */
-
-[class*='EmptyState'],
-[class*='emptyState'] {
-  text-align: center;
-  padding: 48px 24px !important;
-}
-
-[class*='EmptyState'] svg,
-[class*='emptyState'] svg,
-[class*='EmptyState'] [class*='Icon'],
-[class*='emptyState'] [class*='icon'] {
-  animation: cms-float var(--dur-ambient) ease-in-out infinite;
-}
-
-/* ═══════════════════════════════════════════════════════════
-  18. FOCUS VISIBLE
+  17. FOCUS VISIBLE
    ═══════════════════════════════════════════════════════════ */
 
 :focus-visible {
@@ -1253,7 +1238,7 @@ select:focus-visible {
 }
 
 /* ═══════════════════════════════════════════════════════════
-  19. REDUCED MOTION
+  18. REDUCED MOTION
    ═══════════════════════════════════════════════════════════ */
 
 @media (prefers-reduced-motion: reduce) {
@@ -1271,7 +1256,7 @@ select:focus-visible {
 }
 
 /* ═══════════════════════════════════════════════════════════
-  20. ANIMATION UTILITY CLASSES (injected by JS)
+  19. ANIMATION UTILITY CLASSES (injected by JS)
    ═══════════════════════════════════════════════════════════ */
 
 .cms-animate-entry {
@@ -1314,7 +1299,7 @@ select:focus-visible {
 .cms-delay-10 { animation-delay: 0.40s; }
 
 /* ═══════════════════════════════════════════════════════════
-  21. EDITOR TOOLBAR SPECIFICS
+  20. EDITOR TOOLBAR SPECIFICS
    ═══════════════════════════════════════════════════════════ */
 
 [class*='EditorToolbar'],
@@ -1324,7 +1309,7 @@ select:focus-visible {
 }
 
 /* ═══════════════════════════════════════════════════════════
-  22. PREVIEW TEMPLATE ANIMATION BASES
+  21. PREVIEW TEMPLATE ANIMATION BASES
    ═══════════════════════════════════════════════════════════ */
 
 /* Applied to preview root containers */
@@ -1347,7 +1332,7 @@ select:focus-visible {
 }
 
 /* ═══════════════════════════════════════════════════════════
-  23. TOAST NOTIFICATIONS
+  22. TOAST NOTIFICATIONS
    ═══════════════════════════════════════════════════════════ */
 
 .cms-toast {
@@ -1401,7 +1386,7 @@ select:focus-visible {
 }
 
 /* ═══════════════════════════════════════════════════════════
-  24. REGENERATE FAB BUTTON
+  23. REGENERATE FAB BUTTON
    ═══════════════════════════════════════════════════════════ */
 
 .cms-fab {

@@ -78,6 +78,7 @@ const requiredFiles = [
   'admin/previews/company-preview.js',
   'admin/previews/oem-odm-preview.js',
   'admin/previews/settings-preview.js',
+  'admin/previews/page-preview.js',
 ];
 
 requiredFiles.forEach(f => {
@@ -404,6 +405,19 @@ const previewMap = {
   'oem-odm': 'OemOdmPreview',
   'navigation': 'NavigationPreview',
   'footer': 'FooterPreview',
+  'global': 'PagePreview',
+  'payment-terms': 'PagePreview',
+  'brochure': 'PagePreview',
+  'about': 'PagePreview',
+  'contact': 'PagePreview',
+  'privacy': 'PagePreview',
+  'terms': 'PagePreview',
+  'drills-drivers': 'PagePreview',
+  'saws': 'PagePreview',
+  'grinders': 'PagePreview',
+  'sanders': 'PagePreview',
+  'impact-tools': 'PagePreview',
+  'combo-kits': 'PagePreview',
 };
 
 Object.entries(previewMap).forEach(([collection, previewName]) => {
@@ -453,6 +467,10 @@ previewFiles.forEach(f => {
   if (content.includes('eval(')) err(f + ' — contains eval()');
   if (content.includes('new Function(')) err(f + ' — contains new Function()');
 });
+
+// Editor components use escapeHtml
+if (html.includes('function escapeHtml(')) ok('Editor components have escapeHtml()');
+else wrn('Editor components may lack HTML escaping');
 
 // ═══════════════════════════════════════════════════════════
 // 9. PERFORMANCE CHECKS
