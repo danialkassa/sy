@@ -480,7 +480,7 @@
           '</a>' +
           '<div class="p-4 flex flex-col flex-1">' +
           '<a href="' + getBasePath() + 'products/product.html?sku=' + (product.sku || '') + '" class="block">' +
-          '<p class="text-xs text-yellow-400/80 uppercase tracking-wider mb-1 font-semibold">' + escapeHtml(product.brand || '') + '</p>' +
+          '<p class="text-xs text-red-400 uppercase tracking-wider mb-1 font-semibold">' + escapeHtml(product.brand || '') + '</p>' +
           '<h3 class="font-oswald font-semibold text-white group-hover:text-yellow-400 transition-colors line-clamp-2 mb-1.5 leading-snug">' + escapeHtml(product.name || '') + '</h3>' +
           '<p class="text-xs text-zinc-500 mb-2.5 line-clamp-2 leading-relaxed">' + escapeHtml(product.tagline || product.description || '') + '</p>' +
           '</a>' +
@@ -1877,7 +1877,7 @@
           '<img src="' + (product.image || (product.images && product.images[0]) || '') + '" alt="' + escapeHtml(product.name || '') + '" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy"/>' +
           '</div>' +
           '<div class="p-4">' +
-          '<p class="text-xs text-yellow-400/80 uppercase tracking-wider mb-1 font-semibold">' + escapeHtml(product.brand || '') + '</p>' +
+          '<p class="text-xs text-red-400 uppercase tracking-wider mb-1 font-semibold">' + escapeHtml(product.brand || '') + '</p>' +
           '<h3 class="font-oswald font-semibold text-white group-hover:text-yellow-400 transition-colors line-clamp-2 mb-2 leading-snug">' + escapeHtml(product.name || '') + '</h3>' +
           '<div class="flex items-center gap-2 mb-2">' + priceHtml + '</div>' +
           '<a href="' + getBasePath() + 'products/product.html?sku=' + (product.sku || '') + '" class="inline-flex items-center gap-2 px-4 py-2 bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm rounded-md transition-colors">' + _t('cms.viewProduct', 'View Product') + '</a>' +
