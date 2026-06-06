@@ -1,5 +1,8 @@
 ---
 layout: company
+logoDark: "/sy-logo-dark.svg"
+logoLight: "/sy-logo-light.svg"
+logoAlt: "SY - Siyang Power Tools"
 companyName: "Ningbo Siyang Power Tools Co., Ltd."
 email: "sales@ningbosiyang.com"
 phone: "+86 574 8888 8888"

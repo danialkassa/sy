@@ -17,7 +17,7 @@ backend:
 
 publish_mode: simple
 
-logo_url: /ningbo-siyang-logo-dark.svg
+logo_url: /sy-logo-dark.svg
 site_url: https://siyang.tools
 display_url: https://siyang.tools
 show_preview_links: true
@@ -1682,6 +1682,28 @@ collections:
         fields:
           - {label: "SEO Page Title", name: "pageTitle", widget: "string", required: false, hint: "Overrides the HTML <title> tag. Leave blank to use the default Title field."}
           - {label: "SEO Meta Description", name: "description", widget: "text", required: false, hint: "Brief description for search engines. Keep under 160 characters."}
+          - label: "Logo (Dark Background)"
+            name: "logoDark"
+            widget: "image"
+            media_folder: "/images"
+            public_folder: "/images"
+            choose_url: false
+            required: false
+            hint: "Company logo for dark backgrounds (header). Upload an SVG or PNG with transparent background."
+          - label: "Logo (Light Background)"
+            name: "logoLight"
+            widget: "image"
+            media_folder: "/images"
+            public_folder: "/images"
+            choose_url: false
+            required: false
+            hint: "Company logo for light backgrounds. Upload an SVG or PNG with transparent background."
+          - label: "Logo Alt Text"
+            name: "logoAlt"
+            widget: "string"
+            default: "SY - Siyang Power Tools"
+            required: false
+            hint: "Alt text for the logo image. Also used as the title tooltip on hover."
           - label: "Company Full Name"
             name: "companyName"
             widget: "string"

@@ -1098,6 +1098,54 @@
       });
       // Update JSON-LD structured data
       CMSLoader.updateStructuredData(data);
+
+      // ---- Logo ----
+      if (data.logoDark) {
+        var logoLinks = document.querySelectorAll('.cms-company-logo-link');
+        logoLinks.forEach(function (link) {
+          var img = link.querySelector('img.cms-company-logo-img');
+          if (!img) {
+            // Replace the inline SY badge with an <img>
+            var badgeDiv = link.querySelector('.relative.w-11');
+            var textDiv = link.querySelector('.hidden.sm\\:block');
+            if (badgeDiv) {
+              img = document.createElement('img');
+              img.className = 'cms-company-logo-img h-10 w-auto';
+              img.alt = data.logoAlt || 'SY';
+              img.src = data.logoDark;
+              badgeDiv.replaceWith(img);
+            }
+            if (textDiv) textDiv.style.display = 'none';
+          } else {
+            img.src = data.logoDark;
+            if (data.logoAlt) img.alt = data.logoAlt;
+          }
+        });
+      }
+      if (data.logoAlt) {
+        var logoTexts = document.querySelectorAll('.cms-company-logo-text');
+        logoTexts.forEach(function (el) {
+          el.textContent = data.logoAlt.split(' - ')[0] || data.logoAlt;
+        });
+      }
+      if (data.logoDark) {
+        // Update JSON-LD logo references
+        var ldScripts = document.querySelectorAll('script[type="application/ld+json"]');
+        ldScripts.forEach(function (script) {
+          try {
+            var ld = JSON.parse(script.textContent);
+            if (ld && ld['@graph']) {
+              ld['@graph'].forEach(function (item) {
+                if (item['@type'] === 'Organization' || item['@type'] === 'LocalBusiness') {
+                  if (data.logoDark) item.logo = data.logoDark;
+                  if (data.logoDark) item.image = data.logoDark;
+                }
+              });
+              script.textContent = JSON.stringify(ld);
+            }
+          } catch (e) {}
+        });
+      }
     });
   };
 

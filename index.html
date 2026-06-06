@@ -9,7 +9,7 @@
   <meta property="og:title" content="Ningbo Siyang – Professional Power Tools"/>
   <meta property="og:description" content="Professional power tools manufacturer since 1998. Drills, saws, grinders, sanders and combo kits shipped worldwide."/>
   <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://ningbosiyang.com/index.html"/>
+  <meta property="og:url" content="https://siyang.tools/index.html"/>
   <meta property="og:image" content="./default-og-image.png"/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
@@ -20,7 +20,7 @@
     "@type": "Organization",
     "name": "Ningbo Siyang",
     "url": "https://ningbosiyang.com",
-    "logo": "https://ningbosiyang.com/ningbo-siyang-logo-dark.svg",
+    "logo": "https://ningbosiyang.com/sy-logo-dark.svg",
     "description": "Professional power tools manufacturer since 1998. Drills, saws, grinders, sanders and combo kits shipped worldwide.",
     "foundingDate": "1998",
     "address": {
@@ -62,8 +62,8 @@
     .hero-slide-visible { transform: rotateY(0deg); opacity: 1; }
     .hero-slide-left { transform: rotateY(-90deg); opacity: 0; }
     .bg-gradient-radial { background: radial-gradient(circle at center, var(--tw-gradient-from), var(--tw-gradient-via), var(--tw-gradient-to)); }
-    .dropdown-panel { transition: opacity 0.2s, transform 0.2s; }
-    .group:hover .dropdown-panel, .group:focus-within .dropdown-panel { display: block; }
+    .dropdown-panel { transition: opacity 0.2s, transform 0.2s; display: none; }
+    .group:hover > .dropdown-panel, .group:focus-within > .dropdown-panel { display: block; }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
   </style>
 
@@ -112,19 +112,16 @@
     <div class="container mx-auto px-4">
       <div class="flex h-16 items-center justify-between gap-4">
         <!-- Logo -->
-        <a href="./index.html" class="flex items-center gap-3 shrink-0 group">
+        <a href="./index.html" class="flex items-center gap-3 shrink-0 group cms-company-logo-link">
           <div class="relative w-11 h-11 group-hover:scale-105 transition-transform duration-300">
-            <div class="absolute inset-0 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-lg rotate-45 group-hover:rotate-[50deg] transition-transform duration-300"></div>
-            <div class="absolute inset-[2px] bg-zinc-950 rounded-lg rotate-45"></div>
+            <div class="absolute inset-0 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-lg group-hover:rounded-xl transition-all duration-300"></div>
+            <div class="absolute inset-[2px] bg-zinc-950 rounded-lg group-hover:rounded-xl transition-all duration-300"></div>
             <div class="absolute inset-0 flex items-center justify-center">
-              <svg viewBox="0 0 40 40" class="w-7 h-7 text-yellow-400" fill="currentColor">
-                <path d="M8 12 C8 10.9 8.9 10 10 10 L14 10 C15.1 10 16 10.9 16 12 L16 14 L14 14 L14 12 L10 12 L10 18 L14 18 C15.1 18 16 18.9 16 20 L16 28 C16 29.1 15.1 30 14 30 L10 30 C8.9 30 8 29.1 8 28 L8 26 L10 26 L10 28 L14 28 L14 20 L10 20 C8.9 20 8 19.1 8 18 Z"/>
-                <path d="M24 10 L26 10 L30 18 L28 18 L25 14 L22 18 L20 18 L24 10 Z M23 24 L23 30 L25 30 L25 24 L23 24 Z"/>
-              </svg>
+              <span class="font-oswald text-lg font-bold text-yellow-400 leading-none">SY</span>
             </div>
           </div>
           <div class="hidden sm:block">
-            <span class="font-oswald text-xl font-bold text-white tracking-tight group-hover:text-yellow-400 transition-colors">NINGBO SIYANG</span>
+            <span class="font-oswald text-xl font-bold text-white tracking-tight group-hover:text-yellow-400 transition-colors cms-company-logo-text">SIYANG</span>
             <span class="block text-xs text-zinc-500 uppercase tracking-widest -mt-1">Professional Tools</span>
           </div>
         </a>
@@ -881,7 +878,7 @@
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div class="group relative overflow-hidden rounded-lg border border-orange-500/30 bg-gradient-to-br from-orange-500/20 to-red-500/10 hover:border-yellow-400/50 transition-all duration-300 animate-fade-in-up">
             <div class="absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity duration-300">
-              <img src="./images/unsplach/drill-home/10053.jpeg" alt="" class="w-full h-full object-cover" loading="lazy"/>
+              <img src="./images/unsplach/drill-home/10053.jpeg" alt="Construction and framing power tools" class="w-full h-full object-cover" loading="lazy"/>
             </div>
             <div class="relative p-8 bg-black/40 backdrop-blur-sm h-full flex flex-col">
               <div class="flex items-center gap-3 mb-4">
@@ -904,7 +901,7 @@
           </div>
           <div class="group relative overflow-hidden rounded-lg border border-amber-500/30 bg-gradient-to-br from-amber-500/20 to-yellow-500/10 hover:border-yellow-400/50 transition-all duration-300 animate-fade-in-up" style="animation-delay:0.1s">
             <div class="absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity duration-300">
-              <img src="./images/unsplach/drill-home/10054.jpeg" alt="" class="w-full h-full object-cover" loading="lazy"/>
+              <img src="./images/unsplach/drill-home/10054.jpeg" alt="Woodworking and carpentry tools" class="w-full h-full object-cover" loading="lazy"/>
             </div>
             <div class="relative p-8 bg-black/40 backdrop-blur-sm h-full flex flex-col">
               <div class="flex items-center gap-3 mb-4">
@@ -927,7 +924,7 @@
           </div>
           <div class="group relative overflow-hidden rounded-lg border border-blue-500/30 bg-gradient-to-br from-blue-500/20 to-indigo-500/10 hover:border-yellow-400/50 transition-all duration-300 animate-fade-in-up" style="animation-delay:0.2s">
             <div class="absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity duration-300">
-              <img src="./images/unsplach/drill-home/10055.jpeg" alt="" class="w-full h-full object-cover" loading="lazy"/>
+              <img src="./images/unsplach/drill-home/10055.jpeg" alt="Metal fabrication tools" class="w-full h-full object-cover" loading="lazy"/>
             </div>
             <div class="relative p-8 bg-black/40 backdrop-blur-sm h-full flex flex-col">
               <div class="flex items-center gap-3 mb-4">
@@ -950,7 +947,7 @@
           </div>
           <div class="group relative overflow-hidden rounded-lg border border-teal-500/30 bg-gradient-to-br from-teal-500/20 to-cyan-500/10 hover:border-yellow-400/50 transition-all duration-300 animate-fade-in-up" style="animation-delay:0.3s">
             <div class="absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity duration-300">
-              <img src="./images/istock/10001.jpg" alt="" class="w-full h-full object-cover" loading="lazy"/>
+              <img src="./images/istock/10001.jpg" alt="Plumbing and installation tools" class="w-full h-full object-cover" loading="lazy"/>
             </div>
             <div class="relative p-8 bg-black/40 backdrop-blur-sm h-full flex flex-col">
               <div class="flex items-center gap-3 mb-4">
@@ -973,7 +970,7 @@
           </div>
           <div class="group relative overflow-hidden rounded-lg border border-pink-500/30 bg-gradient-to-br from-pink-500/20 to-rose-500/10 hover:border-yellow-400/50 transition-all duration-300 animate-fade-in-up" style="animation-delay:0.4s">
             <div class="absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity duration-300">
-              <img src="./images/istock/10019.jpg" alt="" class="w-full h-full object-cover" loading="lazy"/>
+              <img src="./images/istock/10019.jpg" alt="Home renovation power tools" class="w-full h-full object-cover" loading="lazy"/>
             </div>
             <div class="relative p-8 bg-black/40 backdrop-blur-sm h-full flex flex-col">
               <div class="flex items-center gap-3 mb-4">
@@ -996,7 +993,7 @@
           </div>
           <div class="group relative overflow-hidden rounded-lg border border-purple-500/30 bg-gradient-to-br from-purple-500/20 to-violet-500/10 hover:border-yellow-400/50 transition-all duration-300 animate-fade-in-up" style="animation-delay:0.5s">
             <div class="absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity duration-300">
-              <img src="./images/istock/10025.jpg" alt="" class="w-full h-full object-cover" loading="lazy"/>
+              <img src="./images/istock/10025.jpg" alt="Maintenance and repair tools" class="w-full h-full object-cover" loading="lazy"/>
             </div>
             <div class="relative p-8 bg-black/40 backdrop-blur-sm h-full flex flex-col">
               <div class="flex items-center gap-3 mb-4">
@@ -1406,7 +1403,7 @@
                 </svg>
               </div>
             </div>
-            <span class="font-oswald text-lg font-bold text-white">NINGBO SIYANG</span>
+            <span class="font-oswald text-lg font-bold text-white cms-company-logo-text">SIYANG</span>
           </div>
           <p id="cms-footer-brand-desc" class="text-zinc-400 text-sm mb-6 leading-relaxed">Premium power tools for professionals and serious DIY enthusiasts. Quality engineering, reliable performance, built to last.</p>
           <div class="space-y-3">
