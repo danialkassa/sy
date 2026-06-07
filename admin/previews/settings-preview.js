@@ -186,7 +186,9 @@
     var data = getData(props.entry);
     var columns = Array.isArray(data.columns) ? data.columns : [];
     var socialLinks = Array.isArray(data.socialLinks) ? data.socialLinks : [];
-    var badges = [data.badge1, data.badge2, data.badge3, data.badge4].filter(Boolean);
+    var badges = Array.isArray(data.trustBadges) ? data.trustBadges.map(function(b) {
+      return typeof b === 'string' ? b : (b.text || (b.badge ? b.badge.text : ''));
+    }).filter(Boolean) : [];
 
     return el("section", {
       className: "cms-preview-root",

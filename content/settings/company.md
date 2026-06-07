@@ -1,5 +1,4 @@
 ---
-layout: company
 logoDark: "/sy-logo-dark.svg"
 logoLight: "/sy-logo-light.svg"
 logoAlt: "SY - Siyang Power Tools"

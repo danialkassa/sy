@@ -172,7 +172,7 @@
               }, text(data.heroCtaText, "Request a Quote"))
             : null,
 
-          // Stats
+          // Stats (from list)
           el("div", {
             style: {
               marginTop: "22px",
@@ -180,11 +180,10 @@
               gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
               gap: "10px"
             }
-          }, [
-            stat(data.stat1Label, data.stat1Value),
-            stat(data.stat2Label, data.stat2Value),
-            stat(data.stat3Label, data.stat3Value)
-          ]),
+          }, (Array.isArray(data.stats) ? data.stats : []).slice(0, 6).map(function(item, i) {
+            var s = item.stat || item;
+            return stat(text(s.label, "Stat"), text(s.value, "0"));
+          })),
 
           // Featured Categories
           featuredCategories.length > 0

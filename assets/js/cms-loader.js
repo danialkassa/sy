@@ -650,33 +650,26 @@
         if (data.heroCtaLink) heroCta.setAttribute('onclick', "window.location.href='" + data.heroCtaLink + "'");
       }
 
-      // ---- Stats 1-6 ----
-      var statMap = [
-        { valueId: 'cms-stat1-value', labelId: 'cms-stat1-label', valueKey: 'stat1Value', labelKey: 'stat1Label' },
-        { valueId: 'cms-stat2-value', labelId: 'cms-stat2-label', valueKey: 'stat2Value', labelKey: 'stat2Label' },
-        { valueId: 'cms-stat3-value', labelId: 'cms-stat3-label', valueKey: 'stat3Value', labelKey: 'stat3Label' },
-        { valueId: 'cms-stat4-value', labelId: 'cms-stat4-label', valueKey: 'stat4Value', labelKey: 'stat4Label' },
-        { valueId: 'cms-stat5-value', labelId: 'cms-stat5-label', valueKey: 'stat5Value', labelKey: 'stat5Label' },
-        { valueId: 'cms-stat6-value', labelId: 'cms-stat6-label', valueKey: 'stat6Value', labelKey: 'stat6Label' }
-      ];
-
-      statMap.forEach(function (stat) {
-        var valueEl = document.getElementById(stat.valueId);
-        var labelEl = document.getElementById(stat.labelId);
-        if (data[stat.valueKey] && valueEl) {
-          var rawVal = data[stat.valueKey];
-          var suffix = rawVal.replace(/[\d.]/g, '');
-          var numVal = parseInt(rawVal.replace(/[^\d]/g, ''), 10);
-          if (!isNaN(numVal)) {
-            valueEl.setAttribute('data-count-up', String(numVal));
-            valueEl.setAttribute('data-count-suffix', suffix || '');
+      // ---- Stats (from list) ----
+      if (Array.isArray(data.stats)) {
+        data.stats.forEach(function (item, idx) {
+          var s = item.stat || item;
+          var valueEl = document.getElementById('cms-stat' + (idx + 1) + '-value');
+          var labelEl = document.getElementById('cms-stat' + (idx + 1) + '-label');
+          if (s.value && valueEl) {
+            var suffix = s.value.replace(/[\d.]/g, '');
+            var numVal = parseInt(s.value.replace(/[^\d]/g, ''), 10);
+            if (!isNaN(numVal)) {
+              valueEl.setAttribute('data-count-up', String(numVal));
+              valueEl.setAttribute('data-count-suffix', suffix || '');
+            }
+            valueEl.textContent = '0';
           }
-          valueEl.textContent = '0';
-        }
-        if (data[stat.labelKey] && labelEl) {
-          labelEl.textContent = data[stat.labelKey];
-        }
-      });
+          if (s.label && labelEl) {
+            labelEl.textContent = s.label;
+          }
+        });
+      }
 
       if (typeof window.initCountUp === 'function') {
         window.initCountUp();
@@ -711,36 +704,34 @@
         if (ctaBtn) ctaBtn.textContent = data.finalCtaButtonText;
       }
 
-      // ---- Brand Showcase Achievements ----
-      for (var ai = 1; ai <= 4; ai++) {
-        var aTitleKey = 'achievement' + ai + 'Title';
-        var aDescKey = 'achievement' + ai + 'Desc';
-        if (data[aTitleKey]) {
-          var aTitleEl = document.getElementById('cms-achievement' + ai + '-title');
-          if (aTitleEl) aTitleEl.textContent = data[aTitleKey];
-        }
-        if (data[aDescKey]) {
-          var aDescEl = document.getElementById('cms-achievement' + ai + '-desc');
-          if (aDescEl) aDescEl.textContent = data[aDescKey];
-        }
+      // ---- Brand Showcase Achievements (from list) ----
+      if (Array.isArray(data.achievements)) {
+        data.achievements.forEach(function (item, idx) {
+          var a = item.item || item;
+          if (a.title) {
+            var aTitleEl = document.getElementById('cms-achievement' + (idx + 1) + '-title');
+            if (aTitleEl) aTitleEl.textContent = a.title;
+          }
+          if (a.description) {
+            var aDescEl = document.getElementById('cms-achievement' + (idx + 1) + '-desc');
+            if (aDescEl) aDescEl.textContent = a.description;
+          }
+        });
       }
 
-      // ---- Certifications ----
-      if (data.certificationsHeading) {
-        var certH = document.getElementById('cms-certifications-heading');
-        if (certH) certH.textContent = data.certificationsHeading;
-      }
-      for (var ci = 1; ci <= 6; ci++) {
-        var cTitleKey = 'cert' + ci + 'Title';
-        var cDescKey = 'cert' + ci + 'Desc';
-        if (data[cTitleKey]) {
-          var cTitleEl = document.getElementById('cms-cert' + ci + '-title');
-          if (cTitleEl) cTitleEl.textContent = data[cTitleKey];
-        }
-        if (data[cDescKey]) {
-          var cDescEl = document.getElementById('cms-cert' + ci + '-desc');
-          if (cDescEl) cDescEl.textContent = data[cDescKey];
-        }
+      // ---- Certifications (from list) ----
+      if (Array.isArray(data.certifications)) {
+        data.certifications.forEach(function (item, idx) {
+          var c = item.cert || item;
+          if (c.title) {
+            var cTitleEl = document.getElementById('cms-cert' + (idx + 1) + '-title');
+            if (cTitleEl) cTitleEl.textContent = c.title;
+          }
+          if (c.description) {
+            var cDescEl = document.getElementById('cms-cert' + (idx + 1) + '-desc');
+            if (cDescEl) cDescEl.textContent = c.description;
+          }
+        });
       }
 
       // ---- Brand CTA ----
@@ -753,32 +744,34 @@
         if (bCtaD) bCtaD.textContent = data.brandCtaDescription;
       }
 
-      // ---- Trust Indicators ----
-      for (var ti = 1; ti <= 3; ti++) {
-        var tTitleKey = 'trustInd' + ti + 'Title';
-        var tDescKey = 'trustInd' + ti + 'Desc';
-        if (data[tTitleKey]) {
-          var tTitleEl = document.getElementById('cms-trust-ind' + ti + '-title');
-          if (tTitleEl) tTitleEl.textContent = data[tTitleKey];
-        }
-        if (data[tDescKey]) {
-          var tDescEl = document.getElementById('cms-trust-ind' + ti + '-desc');
-          if (tDescEl) tDescEl.textContent = data[tDescKey];
-        }
+      // ---- Trust Indicators (from list) ----
+      if (Array.isArray(data.trustIndicators)) {
+        data.trustIndicators.forEach(function (item, idx) {
+          var t = item.indicator || item;
+          if (t.title) {
+            var tTitleEl = document.getElementById('cms-trust-ind' + (idx + 1) + '-title');
+            if (tTitleEl) tTitleEl.textContent = t.title;
+          }
+          if (t.description) {
+            var tDescEl = document.getElementById('cms-trust-ind' + (idx + 1) + '-desc');
+            if (tDescEl) tDescEl.textContent = t.description;
+          }
+        });
       }
 
-      // ---- Use Cases ----
-      for (var ui = 1; ui <= 6; ui++) {
-        var uTitleKey = 'useCase' + ui + 'Title';
-        var uDescKey = 'useCase' + ui + 'Desc';
-        if (data[uTitleKey]) {
-          var uTitleEl = document.getElementById('cms-use-case' + ui + '-title');
-          if (uTitleEl) uTitleEl.textContent = data[uTitleKey];
-        }
-        if (data[uDescKey]) {
-          var uDescEl = document.getElementById('cms-use-case' + ui + '-desc');
-          if (uDescEl) uDescEl.textContent = data[uDescKey];
-        }
+      // ---- Use Cases (from list) ----
+      if (Array.isArray(data.useCases)) {
+        data.useCases.forEach(function (item, idx) {
+          var u = item.useCase || item;
+          if (u.title) {
+            var uTitleEl = document.getElementById('cms-use-case' + (idx + 1) + '-title');
+            if (uTitleEl) uTitleEl.textContent = u.title;
+          }
+          if (u.description) {
+            var uDescEl = document.getElementById('cms-use-case' + (idx + 1) + '-desc');
+            if (uDescEl) uDescEl.textContent = u.description;
+          }
+        });
       }
 
       // ---- Video Tutorials ----
@@ -800,17 +793,19 @@
         var b2bD = document.getElementById('cms-b2b-desc');
         if (b2bD) b2bD.textContent = data.b2bDescription;
       }
-      for (var bi = 1; bi <= 6; bi++) {
-        var bTitleKey = 'b2bBenefit' + bi + 'Title';
-        var bDescKey = 'b2bBenefit' + bi + 'Desc';
-        if (data[bTitleKey]) {
-          var bTitleEl = document.getElementById('cms-b2b-benefit' + bi + '-title');
-          if (bTitleEl) bTitleEl.textContent = data[bTitleKey];
-        }
-        if (data[bDescKey]) {
-          var bDescEl = document.getElementById('cms-b2b-benefit' + bi + '-desc');
-          if (bDescEl) bDescEl.textContent = data[bDescKey];
-        }
+      // ---- B2B Benefits (from list) ----
+      if (Array.isArray(data.b2bBenefits)) {
+        data.b2bBenefits.forEach(function (item, idx) {
+          var b = item.benefit || item;
+          if (b.title) {
+            var bTitleEl = document.getElementById('cms-b2b-benefit' + (idx + 1) + '-title');
+            if (bTitleEl) bTitleEl.textContent = b.title;
+          }
+          if (b.description) {
+            var bDescEl = document.getElementById('cms-b2b-benefit' + (idx + 1) + '-desc');
+            if (bDescEl) bDescEl.textContent = b.description;
+          }
+        });
       }
 
       // ---- FAQ Section ----
@@ -878,18 +873,19 @@
         }
       }
 
-      // ---- Trust Badges ----
-      for (var i = 1; i <= 6; i++) {
-        var titleKey = 'trustBadge' + i + 'Title';
-        var descKey = 'trustBadge' + i + 'Desc';
-        if (data[titleKey]) {
-          var titleEl = document.getElementById('cms-trust-badge' + i + '-title');
-          if (titleEl) titleEl.textContent = data[titleKey];
-        }
-        if (data[descKey]) {
-          var descEl = document.getElementById('cms-trust-badge' + i + '-desc');
-          if (descEl) descEl.textContent = data[descKey];
-        }
+      // ---- Trust Badges (from list) ----
+      if (Array.isArray(data.trustBadges)) {
+        data.trustBadges.forEach(function (item, idx) {
+          var tb = item.badge || item;
+          if (tb.title) {
+            var titleEl = document.getElementById('cms-trust-badge' + (idx + 1) + '-title');
+            if (titleEl) titleEl.textContent = tb.title;
+          }
+          if (tb.description) {
+            var descEl = document.getElementById('cms-trust-badge' + (idx + 1) + '-desc');
+            if (descEl) descEl.textContent = tb.description;
+          }
+        });
       }
 
       // ---- Product Selector ----
@@ -1163,7 +1159,7 @@
   // COMPANY INFO
   // ============================================================
   CMSLoader.loadCompanyInfo = function () {
-    return CMSLoader.loadPageSettings('company').then(function (data) {
+    return CMSLoader.loadSiteSettings('company').then(function (data) {
       if (!data || !Object.keys(data).length) return;
 
       var selectors = {
@@ -1749,11 +1745,14 @@
       var copyright = document.getElementById('cms-footer-copyright');
       if (data.copyright && copyright) copyright.textContent = data.copyright;
 
-      // Badges
-      ['badge1', 'badge2', 'badge3', 'badge4'].forEach(function (key) {
-        var el = document.getElementById('cms-footer-' + key);
-        if (data[key] && el) el.textContent = data[key];
-      });
+      // Badges (from list)
+      if (Array.isArray(data.trustBadges)) {
+        data.trustBadges.forEach(function (item, idx) {
+          var text = item.text || (item.badge ? item.badge.text : '');
+          var el = document.getElementById('cms-footer-badge' + (idx + 1));
+          if (text && el) el.textContent = text;
+        });
+      }
 
       // Footer columns
       var columnsContainer = document.getElementById('cms-footer-columns');

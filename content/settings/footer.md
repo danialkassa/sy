@@ -1,9 +1,10 @@
 ---
 copyright: "© 2026 Ningbo Siyang Power Tools Co., Ltd."
-badge1: "2-Year Warranty"
-badge2: "ISO 9001 Certified"
-badge3: "SGS Verified"
-badge4: "CE Certified"
+trustBadges:
+  - text: "2-Year Warranty"
+  - text: "ISO 9001 Certified"
+  - text: "SGS Verified"
+  - text: "CE Certified"
 columns:
   - title: "Products"
     links:
