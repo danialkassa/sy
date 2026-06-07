@@ -1,0 +1,1 @@
+import{ho as e}from"./index-_6UXJP5l.js";import{t}from"./permission-group-form-dialog-aYtLhV1L.js";var n=e();function r({children:e}){return(0,n.jsx)(t,{mode:`create`,children:e})}export{r as t};

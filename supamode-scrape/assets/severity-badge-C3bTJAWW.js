@@ -1,0 +1,1 @@
+import{ho as e}from"./index-_6UXJP5l.js";import{t}from"./badge-C_lpu2ff.js";var n=e();function r({severity:e}){return(0,n.jsx)(t,{variant:i(e),children:e.toUpperCase()})}function i(e){switch(e){case`error`:return`destructive`;case`warning`:return`warning`;case`info`:return`default`;default:return`outline`}}export{r as t};

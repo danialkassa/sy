@@ -1,0 +1,1 @@
+import"./hooks-BIU5MN9Q.js";function e(){return(e,t)=>e.replace(/{([^}]+)}/g,(e,n)=>{let r=n.split(`||`).map(e=>e.trim());for(let e of r){let n=t[e];if(n!=null&&n!==``)return String(n)}return``})}var t=e();function n(e){return e==null||e===``?``:String(e).replace(/-/g,` `).replace(/_/g,` `).replace(/\b\w/g,e=>e.toUpperCase())}export{t as n,n as t};
