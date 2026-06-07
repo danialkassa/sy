@@ -12,71 +12,150 @@
     if (!match) return result;
     result.body = text.slice(match[0].length);
     var raw = match[1];
-    var data = {};
     var lines = raw.split(/\r?\n/);
-    var i = 0;
-    while (i < lines.length) {
-      var line = lines[i];
-      var kvMatch = line.match(/^(\w[\w-]*):\s*(.*)/);
-      if (kvMatch) {
+
+    function getIndent(line) {
+      var m = line.match(/^(\s*)/);
+      return m ? m[1].length : 0;
+    }
+
+    function parseLines(lines, startIdx, baseIndent) {
+      var obj = {};
+      var i = startIdx;
+
+      while (i < lines.length) {
+        var line = lines[i];
+        if (line.trim() === '') { i++; continue; }
+
+        var indent = getIndent(line);
+        if (indent < baseIndent) break;
+
+        var trimmed = line.trim();
+
+        // Block scalar: key: | or key: >
+        var bsMatch = trimmed.match(/^([\w][\w-]*):\s*([|>])\s*$/);
+        if (bsMatch) {
+          var bsKey = bsMatch[1];
+          var multiLines = [];
+          i++;
+          while (i < lines.length) {
+            var bsLine = lines[i];
+            if (bsLine.trim() === '') { multiLines.push(''); i++; continue; }
+            if (getIndent(bsLine) <= indent) break;
+            multiLines.push(bsLine.replace(/^\s{2,}/, '').replace(/^  /, ''));
+            i++;
+          }
+          obj[bsKey] = multiLines.join('\n').replace(/\n+$/, '');
+          continue;
+        }
+
+        // Sequence item: starts with "- "
+        if (trimmed.charAt(0) === '-' && (trimmed.charAt(1) === ' ' || trimmed.length === 1)) {
+          // Caller handles sequences; break if we hit one unexpectedly at root
+          break;
+        }
+
+        // Key-value pair
+        var kvMatch = trimmed.match(/^([\w][\w-]*):\s*(.*)/);
+        if (!kvMatch) { i++; continue; }
+
         var key = kvMatch[1];
         var val = kvMatch[2].trim();
-        if (val === '' || val === '|' || val === '>') {
-          if (val === '|' || val === '>') {
-            var multiline = [];
-            i++;
-            while (i < lines.length && (lines[i].match(/^\s{2,}/) || lines[i] === '')) {
-              multiline.push(lines[i].replace(/^\s{2,}/, ''));
-              i++;
-            }
-            data[key] = multiline.join('\n').trim();
-            continue;
-          }
-          if (i + 1 < lines.length && lines[i + 1].match(/^\s*-\s/)) {
-            var arr = [];
-            i++;
-            while (i < lines.length && lines[i].match(/^\s*-\s/)) {
-              var itemLine = lines[i].replace(/^\s*-\s*/, '');
-              var objMatch = itemLine.match(/^(\w[\w-]*):\s*(.*)/);
-              if (objMatch) {
-                var obj = {};
-                obj[objMatch[1]] = parseValue(objMatch[2].trim());
-                i++;
-                while (i < lines.length && lines[i].match(/^\s{2,}(\w[\w-]*):\s*(.*)/)) {
-                  var nestedMatch = lines[i].match(/^\s{2,}(\w[\w-]*):\s*(.*)/);
-                  obj[nestedMatch[1]] = parseValue(nestedMatch[2].trim());
+
+        if (val === '') {
+          // Peek at next non-empty line
+          var peekIdx = i + 1;
+          while (peekIdx < lines.length && lines[peekIdx].trim() === '') peekIdx++;
+
+          if (peekIdx < lines.length) {
+            var peekLine = lines[peekIdx];
+            var peekIndent = getIndent(peekLine);
+            var peekTrimmed = peekLine.trim();
+
+            if (peekIndent > indent && peekTrimmed.charAt(0) === '-') {
+              // Array
+              var arr = [];
+              i = peekIdx;
+              while (i < lines.length) {
+                var arrLine = lines[i];
+                if (arrLine.trim() === '') { i++; continue; }
+                if (getIndent(arrLine) < peekIndent) break;
+                var arrTrimmed = arrLine.trim();
+                if (arrTrimmed.charAt(0) !== '-') break;
+
+                var itemContent = arrTrimmed.slice(1).trim();
+                var itemKvMatch = itemContent.match(/^([\w][\w-]*):\s*(.*)/);
+
+                if (itemKvMatch) {
+                  // Object item — collect indented sub-keys
+                  var itemObj = {};
+                  itemObj[itemKvMatch[1]] = parseValue(itemKvMatch[2].trim());
+                  var itemIndent = getIndent(arrLine) + 2;
+                  i++;
+                  while (i < lines.length) {
+                    var subLine = lines[i];
+                    if (subLine.trim() === '') { i++; continue; }
+                    if (getIndent(subLine) < itemIndent) break;
+                    var subMatch = subLine.trim().match(/^([\w][\w-]*):\s*(.*)/);
+                    if (subMatch) {
+                      var subVal = subMatch[2].trim();
+                      if (subVal === '') {
+                        // nested object inside array item
+                        var subPeekIdx = i + 1;
+                        while (subPeekIdx < lines.length && lines[subPeekIdx].trim() === '') subPeekIdx++;
+                        if (subPeekIdx < lines.length && getIndent(lines[subPeekIdx]) > getIndent(subLine)) {
+                          var subResult = parseLines(lines, subPeekIdx, getIndent(lines[subPeekIdx]));
+                          itemObj[subMatch[1]] = subResult.obj;
+                          i = subResult.nextIdx;
+                          continue;
+                        }
+                        itemObj[subMatch[1]] = '';
+                      } else {
+                        itemObj[subMatch[1]] = parseValue(subVal);
+                      }
+                    }
+                    i++;
+                  }
+                  arr.push(itemObj);
+                } else if (itemContent === '') {
+                  // bare "-" — nested object on next lines
+                  var nestedItemIndent = getIndent(arrLine) + 2;
+                  i++;
+                  var nestedResult = parseLines(lines, i, nestedItemIndent);
+                  arr.push(nestedResult.obj);
+                  i = nestedResult.nextIdx;
+                } else {
+                  arr.push(parseValue(itemContent));
                   i++;
                 }
-                arr.push(obj);
-              } else {
-                arr.push(parseValue(itemLine));
-                i++;
               }
+              obj[key] = arr;
+              continue;
+            } else if (peekIndent > indent) {
+              // Nested object
+              var nestedObjResult = parseLines(lines, peekIdx, peekIndent);
+              obj[key] = nestedObjResult.obj;
+              i = nestedObjResult.nextIdx;
+              continue;
+            } else {
+              obj[key] = '';
             }
-            data[key] = arr;
-            continue;
+          } else {
+            obj[key] = '';
           }
-          // Nested object (indented key-value pairs)
-          if (i + 1 < lines.length && lines[i + 1].match(/^\s{2,}\w[\w-]*:\s*/)) {
-            var nestedObj = {};
-            i++;
-            while (i < lines.length && lines[i].match(/^\s{2,}\w[\w-]*:\s*/)) {
-              var nkv = lines[i].match(/^\s{2,}(\w[\w-]*):\s*(.*)/);
-              if (nkv) nestedObj[nkv[1]] = parseValue(nkv[2].trim());
-              i++;
-            }
-            data[key] = nestedObj;
-            continue;
-          }
-          data[key] = '';
           i++;
           continue;
         }
-        data[key] = parseValue(val);
+
+        obj[key] = parseValue(val);
+        i++;
       }
-      i++;
+
+      return { obj: obj, nextIdx: i };
     }
-    result.data = data;
+
+    var parsed = parseLines(lines, 0, 0);
+    result.data = parsed.obj;
     return result;
   }
 
@@ -509,6 +588,12 @@
         container.innerHTML = html;
         if (typeof window.initQuoteCart === 'function') {
           window.initQuoteCart();
+        }
+        if (typeof window.attachCompareCheckbox === 'function') {
+          products.forEach(function (product) {
+            var cardEl = container.querySelector('[data-id="' + (product.sku || '') + '"]');
+            if (cardEl) window.attachCompareCheckbox(cardEl, product);
+          });
         }
       }
     }).catch(function () {
@@ -1055,38 +1140,6 @@
           window.ENGINE.init360Viewer();
         }
       }, 100);
-    }
-      });
-    }
-
-    // AR Quick Look
-    if (productData.arModelUrl && arBtn) {
-      arBtn.classList.remove('hidden');
-      arBtn.classList.add('flex');
-      arBtn.href = productData.arModelUrl;
-      // iOS AR Quick Look requires rel="ar" and a USDZ file
-      // Android requires a GLB file with intent:// URL scheme
-      var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-      if (!isIOS && productData.arModelUrl.endsWith('.usdz')) {
-        // Android can't use USDZ — hide AR button
-        arBtn.classList.add('hidden');
-        arBtn.classList.remove('flex');
-      }
-    }
-
-    // Feature hotspots
-    if (productData.features && productData.features.length) {
-      var featuresGrid = document.getElementById('product-3d-features');
-      if (featuresGrid) {
-        productData.features.forEach(function(feature, i) {
-          var card = document.createElement('div');
-          card.className = 'bg-zinc-900 border border-zinc-800 rounded-xl p-4 text-center animate-fade-in-up';
-          card.style.animationDelay = (i * 0.1) + 's';
-          card.innerHTML = '<div class="text-yellow-400 font-oswald text-lg font-bold mb-1">' + (feature.title || '') + '</div>' +
-                           '<div class="text-zinc-400 text-xs">' + (feature.description || '') + '</div>';
-          featuresGrid.appendChild(card);
-        });
-      }
     }
   };
 

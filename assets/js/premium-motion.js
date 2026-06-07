@@ -43,15 +43,17 @@
           wheelMultiplier: 1,
           touchMultiplier: 2,
         });
-        function raf(time) {
-          lenis.raf(time);
-          requestAnimationFrame(raf);
-        }
-        requestAnimationFrame(raf);
+        /* Lenis is driven by the unified startLoop() rAF below. */
         // Expose globally so other scripts can use lenis.scrollTo()
         window.__lenis = lenis;
         console.log('%c[Premium Motion] Lenis smooth scroll active', 'color: #facc15;');
       }
+
+      // ── Mobile performance guard ─────────────
+      var IS_COARSE = window.matchMedia('(pointer: coarse)').matches;
+      var IS_SMALL = window.innerWidth < 768;
+      var IS_SLOW_MOBILE = IS_COARSE && IS_SMALL;
+      window.__isMobile = IS_SLOW_MOBILE;
 
       // ── Scroll Progress Bar ─────────────────
       const progressBar = document.getElementById('scroll-progress-bar');
@@ -70,10 +72,13 @@
       this.enhanceSectionReveals();
       this.enhanceCounters();
       this.enhanceHeroGradient();
-      this.init3DTilt();
-      this.init3DCarousel();
-      this.init360Viewer();
+      if (!IS_SLOW_MOBILE) {
+        this.init3DTilt();
+        this.init3DCarousel();
+        this.init360Viewer();
+      }
       this.initPageTransitions();
+      this.initCompareTable();
       this.initProductLightbox();
 
       this.enhanceHero();
@@ -266,16 +271,14 @@
     },
 
     startLoop() {
-      /* If no parallax items exist, don't burn rAF cycles. */
-      if (!this.parallaxItems.length) return;
-
-      const tick = () => {
-        /* Lerp = linear interpolation. We don't snap to the exact scroll
-           position; we chase it. This creates inertia — the visual layer
-           feels like it has mass and momentum, not like it's mechanically
-           locked to the scrollbar. */
-        this.state.scrollY += (this.state.targetScrollY - this.state.scrollY) * this.config.parallaxSmoothing;
-        this.updateParallax();
+      /* Unified rAF loop — drives both Lenis and parallax from a single
+         requestAnimationFrame callback to avoid two concurrent loops. */
+      const tick = (time) => {
+        if (window.__lenis) window.__lenis.raf(time);
+        if (this.parallaxItems.length) {
+          this.state.scrollY += (this.state.targetScrollY - this.state.scrollY) * this.config.parallaxSmoothing;
+          this.updateParallax();
+        }
         this.state.raf = requestAnimationFrame(tick);
       };
       this.state.raf = requestAnimationFrame(tick);
@@ -405,42 +408,44 @@
         });
       });
 
-      // Also apply tilt to dynamically loaded product cards
-      const observer = new MutationObserver((mutations) => {
-        mutations.forEach(mutation => {
-          mutation.addedNodes.forEach(node => {
-            if (node.nodeType === 1) {
-              const cards = node.matches?.('.pm-product-card-3d') ? [node] :
-                           (node.querySelectorAll ? node.querySelectorAll('.pm-product-card-3d') : []);
-              cards.forEach(card => {
-                if (!card.dataset.tiltInit) {
-                  card.dataset.tiltInit = 'true';
-                  const glare = document.createElement('div');
-                  glare.classList.add('pm-tilt-glare');
-                  card.classList.add('pm-3d-tilt');
-                  card.appendChild(glare);
+      // Also apply tilt to dynamically loaded product cards (desktop only)
+      if (!window.matchMedia('(pointer: coarse)').matches) {
+        const observer = new MutationObserver((mutations) => {
+          mutations.forEach(mutation => {
+            mutation.addedNodes.forEach(node => {
+              if (node.nodeType === 1) {
+                const cards = node.matches?.('.pm-product-card-3d') ? [node] :
+                             (node.querySelectorAll ? node.querySelectorAll('.pm-product-card-3d') : []);
+                cards.forEach(card => {
+                  if (!card.dataset.tiltInit) {
+                    card.dataset.tiltInit = 'true';
+                    const glare = document.createElement('div');
+                    glare.classList.add('pm-tilt-glare');
+                    card.classList.add('pm-3d-tilt');
+                    card.appendChild(glare);
 
-                  card.addEventListener('mousemove', (e) => {
-                    const rect = card.getBoundingClientRect();
-                    const x = (e.clientX - rect.left) / rect.width;
-                    const y = (e.clientY - rect.top) / rect.height;
-                    const rotateX = (0.5 - y) * 15;
-                    const rotateY = (x - 0.5) * 15;
-                    card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.03, 1.03, 1.03)`;
-                    card.style.setProperty('--tilt-x', (x * 100) + '%');
-                    card.style.setProperty('--tilt-y', (y * 100) + '%');
-                  });
+                    card.addEventListener('mousemove', (e) => {
+                      const rect = card.getBoundingClientRect();
+                      const x = (e.clientX - rect.left) / rect.width;
+                      const y = (e.clientY - rect.top) / rect.height;
+                      const rotateX = (0.5 - y) * 15;
+                      const rotateY = (x - 0.5) * 15;
+                      card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.03, 1.03, 1.03)`;
+                      card.style.setProperty('--tilt-x', (x * 100) + '%');
+                      card.style.setProperty('--tilt-y', (y * 100) + '%');
+                    });
 
-                  card.addEventListener('mouseleave', () => {
-                    card.style.transform = '';
-                  });
-                }
-              });
-            }
+                    card.addEventListener('mouseleave', () => {
+                      card.style.transform = '';
+                    });
+                  }
+                });
+              }
+            });
           });
         });
-      });
-      observer.observe(document.body, { childList: true, subtree: true });
+        observer.observe(document.body, { childList: true, subtree: true });
+      }
     },
 
     // ── 3D Carousel ─────────────────────────
@@ -623,22 +628,49 @@
       if (!curtain) return;
 
       const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let isTransitioning = false;
+
+      function resetCurtain() {
+        curtain.classList.remove('entering', 'leaving');
+        curtain.style.display = 'none';
+        curtain.style.clipPath = '';
+      }
+
+      // Restore from bfcache: clear any stale curtain state left from the exit animation
+      window.addEventListener('pageshow', function(e) {
+        if (e.persisted) {
+          sessionStorage.removeItem('pm-transitioning');
+          resetCurtain();
+          isTransitioning = false;
+          if (window.__lenis) window.__lenis.start();
+        }
+      });
 
       // Entry animation — if we just arrived from a transition
       const fromTransition = sessionStorage.getItem('pm-transitioning');
       if (fromTransition) {
         sessionStorage.removeItem('pm-transitioning');
-        if (!REDUCED) {
+        if (REDUCED) {
+          resetCurtain();
+          window.scrollTo(0, 0);
+        } else {
           curtain.style.clipPath = 'polygon(0 0, 100% 0, 100% 100%, 0 100%)';
           curtain.style.display = 'block';
           requestAnimationFrame(() => requestAnimationFrame(() => {
+            curtain.classList.remove('entering', 'leaving');
             curtain.classList.add('leaving');
-            curtain.addEventListener('animationend', function handler() {
+            let done = false;
+            const finishReveal = function() {
+              if (done) return;
+              done = true;
               curtain.style.display = 'none';
               curtain.classList.remove('leaving');
               curtain.style.clipPath = '';
-              curtain.removeEventListener('animationend', handler);
-            });
+              window.scrollTo(0, 0);
+              if (window.__lenis) window.__lenis.start();
+            };
+            curtain.addEventListener('animationend', finishReveal, { once: true });
+            setTimeout(finishReveal, 500);
           }));
         }
       }
@@ -669,15 +701,25 @@
         } catch (ex) { return; }
 
         e.preventDefault();
+        if (isTransitioning) return;
+        isTransitioning = true;
+
         if (REDUCED) { window.location.href = href; return; }
 
         sessionStorage.setItem('pm-transitioning', '1');
+        if (window.__lenis) window.__lenis.stop();
         curtain.style.display = 'block';
+        curtain.classList.remove('entering', 'leaving');
         curtain.classList.add('entering');
-        curtain.addEventListener('animationend', function handler() {
+
+        let done = false;
+        const finishNavigate = function() {
+          if (done) return;
+          done = true;
           window.location.href = href;
-          curtain.removeEventListener('animationend', handler);
-        });
+        };
+        curtain.addEventListener('animationend', finishNavigate, { once: true });
+        setTimeout(finishNavigate, 500);
       });
     },
 
@@ -983,6 +1025,28 @@
           clearInterval(autoInterval);
         }, { once: true });
       });
+    },
+
+    initCompareTable() {
+      if (typeof window.__compareLoaded === 'undefined') return;
+      /* Comparison feature is initialized by product-compare.js.
+         This hook re-attaches checkboxes after CMS-dynamic card injection. */
+      const observer = new MutationObserver((mutations) => {
+        if (typeof window.attachCompareCheckbox !== 'function') return;
+        mutations.forEach(mutation => {
+          mutation.addedNodes.forEach(node => {
+            if (node.nodeType !== 1) return;
+            const cards = node.matches?.('[data-id]') ? [node] :
+                         (node.querySelectorAll ? Array.from(node.querySelectorAll('[data-id]')) : []);
+            cards.forEach(card => {
+              const sku = card.dataset.id;
+              if (!sku || card.querySelector('[data-compare-sku]')) return;
+              window.attachCompareCheckbox(card, { sku: sku, name: card.querySelector('h3')?.textContent || sku });
+            });
+          });
+        });
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
     }
   };
 
@@ -993,3 +1057,4 @@
     ENGINE.init();
   }
 })();
+

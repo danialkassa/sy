@@ -62,167 +62,46 @@
         </a>
         <nav class="hidden lg:flex items-center gap-1">
           <a data-i18n="nav.home" href="../index.html" class="px-4 py-2 text-sm font-medium text-zinc-300 hover:text-yellow-400 transition-colors">Home</a>
+          <!-- Products dropdown -->
           <div class="relative group">
             <button data-i18n="nav.products" class="flex items-center gap-1 px-4 py-2 text-sm font-medium text-zinc-300 hover:text-yellow-400 transition-colors" aria-haspopup="true" aria-expanded="false">
               Products
               <svg class="w-4 h-4 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
             </button>
-            <div class="dropdown-panel absolute top-full left-0 mt-1 w-[720px] bg-zinc-900 border border-zinc-800 rounded-xl shadow-2xl shadow-black/50 overflow-hidden z-50">
-              <div class="p-4 border-b border-zinc-800">
-                <a href="../products/index.html" class="group flex items-center justify-between hover:text-yellow-400 transition-colors">
-                  <div>
-                    <h3 data-i18n="nav.productsAll" class="text-base font-semibold text-white group-hover:text-yellow-400 transition-colors">All Products</h3>
-                    <p data-i18n="nav.productsAllDesc" class="text-sm text-zinc-500">Browse our complete catalog</p>
-                  </div>
-                  <svg class="w-5 h-5 -rotate-90 text-zinc-600 group-hover:text-yellow-400 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
-                </a>
-              </div>
-              <div id="cms-nav-categories" class="grid grid-cols-3 gap-3 p-4">
-                <a href="../products/drills-drivers.html" class="group flex flex-col justify-center rounded-lg border border-zinc-800 bg-zinc-900/50 hover:border-yellow-400/50 hover:bg-zinc-800/50 transition-all duration-300 p-4">
-                  <h4 data-i18n="nav.drillsDrivers" class="text-sm font-semibold text-white group-hover:text-yellow-400 transition-colors mb-0.5">Drills &amp; Drivers</h4>
-                  <p data-i18n="nav.drillsDriversDesc" class="text-xs text-zinc-400">Cordless &amp; corded drills</p>
-                </a>
-                <a href="../products/saws.html" class="group flex flex-col justify-center rounded-lg border border-zinc-800 bg-zinc-900/50 hover:border-yellow-400/50 hover:bg-zinc-800/50 transition-all duration-300 p-4">
-                  <h4 data-i18n="nav.saws" class="text-sm font-semibold text-white group-hover:text-yellow-400 transition-colors mb-0.5">Saws</h4>
-                  <p data-i18n="nav.sawsDesc" class="text-xs text-zinc-400">Circular, miter &amp; jigsaws</p>
-                </a>
-                <a href="../products/grinders.html" class="group flex flex-col justify-center rounded-lg border border-zinc-800 bg-zinc-900/50 hover:border-yellow-400/50 hover:bg-zinc-800/50 transition-all duration-300 p-4">
-                  <h4 data-i18n="nav.grinders" class="text-sm font-semibold text-white group-hover:text-yellow-400 transition-colors mb-0.5">Grinders</h4>
-                  <p data-i18n="nav.grindersDesc" class="text-xs text-zinc-400">Angle &amp; bench grinders</p>
-                </a>
-                <a href="../products/sanders.html" class="group flex flex-col justify-center rounded-lg border border-zinc-800 bg-zinc-900/50 hover:border-yellow-400/50 hover:bg-zinc-800/50 transition-all duration-300 p-4">
-                  <h4 data-i18n="nav.sanders" class="text-sm font-semibold text-white group-hover:text-yellow-400 transition-colors mb-0.5">Sanders</h4>
-                  <p data-i18n="nav.sandersDesc" class="text-xs text-zinc-400">Orbital &amp; belt sanders</p>
-                </a>
-                <a href="../products/impact-tools.html" class="group flex flex-col justify-center rounded-lg border border-zinc-800 bg-zinc-900/50 hover:border-yellow-400/50 hover:bg-zinc-800/50 transition-all duration-300 p-4">
-                  <h4 data-i18n="nav.impactTools" class="text-sm font-semibold text-white group-hover:text-yellow-400 transition-colors mb-0.5">Impact Tools</h4>
-                  <p data-i18n="nav.impactToolsDesc" class="text-xs text-zinc-400">Impact drivers &amp; wrenches</p>
-                </a>
-                <a href="../products/combo-kits.html" class="group flex flex-col justify-center rounded-lg border border-zinc-800 bg-zinc-900/50 hover:border-yellow-400/50 hover:bg-zinc-800/50 transition-all duration-300 p-4">
-                  <h4 data-i18n="nav.comboKits" class="text-sm font-semibold text-white group-hover:text-yellow-400 transition-colors mb-0.5">Combo Kits</h4>
-                  <p data-i18n="nav.comboKitsDesc" class="text-xs text-zinc-400">Complete tool sets</p>
-                </a>
-              </div>
-              <div class="p-4 border-t border-zinc-800 bg-zinc-900/50">
-                <div class="flex items-center justify-between text-sm">
-                  <span class="text-zinc-500" data-i18n="common.needHelpChoosing">Need help choosing? Contact our experts</span>
-                  <a href="../contact.html" class="text-yellow-400 hover:text-yellow-300 font-medium transition-colors">Get Support &rarr;</a>
-                </div>
-              </div>
+            <div class="dropdown-panel absolute top-full left-0 mt-1 w-56 bg-zinc-900 border border-zinc-800 rounded-lg shadow-2xl shadow-black/50 overflow-hidden z-50 py-1">
+              <a href="../products/index.html" data-i18n="nav.productsAll" class="block px-4 py-2 text-sm font-medium text-yellow-400 hover:bg-zinc-800 transition-colors">All Products</a>
+              <div class="border-t border-zinc-800 my-1"></div>
+              <a href="../products/drills-drivers.html" data-i18n="nav.drillsDrivers" class="block px-4 py-2 text-sm text-zinc-300 hover:text-yellow-400 hover:bg-zinc-800 transition-colors">Drills &amp; Drivers</a>
+              <a href="../products/saws.html" data-i18n="nav.saws" class="block px-4 py-2 text-sm text-zinc-300 hover:text-yellow-400 hover:bg-zinc-800 transition-colors">Saws</a>
+              <a href="../products/grinders.html" data-i18n="nav.grinders" class="block px-4 py-2 text-sm text-zinc-300 hover:text-yellow-400 hover:bg-zinc-800 transition-colors">Grinders</a>
+              <a href="../products/sanders.html" data-i18n="nav.sanders" class="block px-4 py-2 text-sm text-zinc-300 hover:text-yellow-400 hover:bg-zinc-800 transition-colors">Sanders</a>
+              <a href="../products/impact-tools.html" data-i18n="nav.impactTools" class="block px-4 py-2 text-sm text-zinc-300 hover:text-yellow-400 hover:bg-zinc-800 transition-colors">Impact Tools</a>
+              <a href="../products/combo-kits.html" data-i18n="nav.comboKits" class="block px-4 py-2 text-sm text-zinc-300 hover:text-yellow-400 hover:bg-zinc-800 transition-colors">Combo Kits</a>
             </div>
           </div>
+          <!-- About dropdown -->
           <div class="relative group">
             <button data-i18n="nav.about" class="flex items-center gap-1 px-4 py-2 text-sm font-medium text-zinc-300 hover:text-yellow-400 transition-colors" aria-haspopup="true" aria-expanded="false">
               About Us
               <svg class="w-4 h-4 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
             </button>
-            <div class="dropdown-panel absolute top-full left-0 mt-1 w-[400px] bg-zinc-900 border border-zinc-800 rounded-xl shadow-2xl shadow-black/50 overflow-hidden z-50">
-              <div class="p-4 border-b border-zinc-800">
-                <a href="./index.html" class="group flex items-center justify-between hover:text-yellow-400 transition-colors">
-                  <div>
-                    <h3 data-i18n="nav.about" class="text-base font-semibold text-white group-hover:text-yellow-400 transition-colors">About Ningbo Siyang</h3>
-                    <p data-i18n="nav.aboutDesc" class="text-sm text-zinc-500">Professional power tools manufacturer since 1998</p>
-                  </div>
-                  <svg class="w-5 h-5 -rotate-90 text-zinc-600 group-hover:text-yellow-400 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
-                </a>
-              </div>
-              <div class="p-2">
-                <a href="./company.html" class="flex items-start gap-3 p-3 rounded-lg hover:bg-zinc-800 transition-colors group">
-                  <div class="w-10 h-10 bg-zinc-800 group-hover:bg-yellow-400/20 rounded-lg flex items-center justify-center shrink-0 transition-colors">
-                    <svg class="w-5 h-5 text-yellow-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-                  </div>
-                  <div>
-                    <h4 data-i18n="nav.aboutCompany" class="text-sm font-medium text-white group-hover:text-yellow-400 transition-colors">Company Profile</h4>
-                    <p data-i18n="nav.aboutCompanyDesc" class="text-xs text-zinc-500">Learn about our history and mission</p>
-                  </div>
-                </a>
-                <a href="./team.html" class="flex items-start gap-3 p-3 rounded-lg hover:bg-zinc-800 transition-colors group">
-                  <div class="w-10 h-10 bg-zinc-800 group-hover:bg-yellow-400/20 rounded-lg flex items-center justify-center shrink-0 transition-colors">
-                    <svg class="w-5 h-5 text-yellow-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                  </div>
-                  <div>
-                    <h4 data-i18n="nav.aboutTeam" class="text-sm font-medium text-white group-hover:text-yellow-400 transition-colors">Our Team</h4>
-                    <p data-i18n="nav.aboutTeamDesc" class="text-xs text-zinc-500">Meet the experts behind our products</p>
-                  </div>
-                </a>
-                <a href="./certifications.html" class="flex items-start gap-3 p-3 rounded-lg hover:bg-zinc-800 transition-colors group">
-                  <div class="w-10 h-10 bg-zinc-800 group-hover:bg-yellow-400/20 rounded-lg flex items-center justify-center shrink-0 transition-colors">
-                    <svg class="w-5 h-5 text-yellow-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                  </div>
-                  <div>
-                    <h4 data-i18n="nav.aboutCertifications" class="text-sm font-medium text-white group-hover:text-yellow-400 transition-colors">Certifications</h4>
-                    <p data-i18n="nav.aboutCertificationsDesc" class="text-xs text-zinc-500">Quality standards and certifications</p>
-                  </div>
-                </a>
-                <a href="./global.html" class="flex items-start gap-3 p-3 rounded-lg hover:bg-zinc-800 transition-colors group">
-                  <div class="w-10 h-10 bg-zinc-800 group-hover:bg-yellow-400/20 rounded-lg flex items-center justify-center shrink-0 transition-colors">
-                    <svg class="w-5 h-5 text-yellow-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                  </div>
-                  <div>
-                    <h4 data-i18n="nav.aboutGlobal" class="text-sm font-medium text-white group-hover:text-yellow-400 transition-colors">Global Presence</h4>
-                    <p data-i18n="nav.aboutGlobalDesc" class="text-xs text-zinc-500">Our worldwide operations</p>
-                  </div>
-                </a>
-                <a data-i18n="nav.distributors" href="./distributors.html" class="flex items-start gap-3 p-3 rounded-lg hover:bg-zinc-800 transition-colors group">
-                  <div class="w-10 h-10 bg-zinc-800 group-hover:bg-yellow-400/20 rounded-lg flex items-center justify-center shrink-0 transition-colors">
-                    <svg class="w-5 h-5 text-yellow-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                  </div>
-                  <div>
-                    <h4 class="text-sm font-medium text-white group-hover:text-yellow-400 transition-colors" data-i18n="nav.distributors">Distributors</h4>
-                    <p class="text-xs text-zinc-500" data-i18n="nav.distributorsDesc">Find a distributor near you</p>
-                  </div>
-                </a>
-                <a href="./oem-odm.html" class="flex items-start gap-3 p-3 rounded-lg hover:bg-zinc-800 transition-colors group">
-                  <div class="w-10 h-10 bg-zinc-800 group-hover:bg-yellow-400/20 rounded-lg flex items-center justify-center shrink-0 transition-colors">
-                    <svg class="w-5 h-5 text-yellow-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-                  </div>
-                  <div>
-                    <h4 data-i18n="nav.aboutOemOdm" class="text-sm font-medium text-white group-hover:text-yellow-400 transition-colors">OEM/ODM</h4>
-                    <p data-i18n="nav.aboutOemOdmDesc" class="text-xs text-zinc-500">Custom manufacturing solutions</p>
-                  </div>
-                </a>
-                <a href="./payment-terms.html" class="flex items-start gap-3 p-3 rounded-lg hover:bg-zinc-800 transition-colors group">
-                  <div class="w-10 h-10 bg-zinc-800 group-hover:bg-yellow-400/20 rounded-lg flex items-center justify-center shrink-0 transition-colors">
-                    <svg class="w-5 h-5 text-yellow-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
-                  </div>
-                  <div>
-                    <h4 data-i18n="nav.aboutPaymentTerms" class="text-sm font-medium text-white group-hover:text-yellow-400 transition-colors">Payment &amp; Trade Terms</h4>
-                    <p data-i18n="warranty.securePayment" class="text-xs text-zinc-500">Secure payment methods and trade terms</p>
-                  </div>
-                </a>
-                <a href="./warranty.html" class="flex items-start gap-3 p-3 rounded-lg hover:bg-zinc-800 transition-colors group">
-                  <div class="w-10 h-10 bg-zinc-800 group-hover:bg-yellow-400/20 rounded-lg flex items-center justify-center shrink-0 transition-colors">
-                    <svg class="w-5 h-5 text-yellow-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-                  </div>
-                  <div>
-                    <h4 data-i18n="nav.aboutWarranty" class="text-sm font-medium text-white group-hover:text-yellow-400 transition-colors">Warranty</h4>
-                    <p data-i18n="nav.aboutWarrantyDesc" class="text-xs text-zinc-500">Warranty coverage and claims</p>
-                  </div>
-                </a>
-                <a href="./brochure.html" class="flex items-start gap-3 p-3 rounded-lg hover:bg-zinc-800 transition-colors group">
-                  <div class="w-10 h-10 bg-zinc-800 group-hover:bg-yellow-400/20 rounded-lg flex items-center justify-center shrink-0 transition-colors">
-                    <svg class="w-5 h-5 text-yellow-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
-                  </div>
-                  <div>
-                    <h4 data-i18n="nav.aboutBrochure" class="text-sm font-medium text-white group-hover:text-yellow-400 transition-colors">Download Brochure</h4>
-                    <p data-i18n="nav.aboutBrochureDesc" class="text-xs text-zinc-500">Get our PDF catalog</p>
-                  </div>
-                </a>
-              </div>
-              <div class="p-4 border-t border-zinc-800 bg-zinc-900/50">
-                <a href="./brochure.html" class="flex items-center gap-3 group">
-                  <div class="w-10 h-10 bg-yellow-400/20 rounded-lg flex items-center justify-center">
-                    <svg class="w-5 h-5 text-yellow-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
-                  </div>
-                  <div class="flex-1">
-                    <p data-i18n="warranty.downloadBrochure" class="text-sm text-zinc-300 group-hover:text-yellow-400 transition-colors">Download our company brochure</p>
-                    <span class="text-xs text-yellow-400 group-hover:text-yellow-300">Request PDF &rarr;</span>
-                  </div>
-                </a>
-              </div>
+            <div class="dropdown-panel absolute top-full left-0 mt-1 w-56 bg-zinc-900 border border-zinc-800 rounded-lg shadow-2xl shadow-black/50 overflow-hidden z-50 py-1">
+              <a href="./index.html" data-i18n="nav.about" class="block px-4 py-2 text-sm font-medium text-yellow-400 hover:bg-zinc-800 transition-colors">About Ningbo Siyang</a>
+              <div class="border-t border-zinc-800 my-1"></div>
+              <a href="./company.html" data-i18n="nav.aboutCompany" class="block px-4 py-2 text-sm text-zinc-300 hover:text-yellow-400 hover:bg-zinc-800 transition-colors">Company Profile</a>
+              <a href="./team.html" data-i18n="nav.aboutTeam" class="block px-4 py-2 text-sm text-zinc-300 hover:text-yellow-400 hover:bg-zinc-800 transition-colors">Our Team</a>
+              <a href="./certifications.html" data-i18n="nav.aboutCertifications" class="block px-4 py-2 text-sm text-zinc-300 hover:text-yellow-400 hover:bg-zinc-800 transition-colors">Certifications</a>
+              <a href="./global.html" data-i18n="nav.aboutGlobal" class="block px-4 py-2 text-sm text-zinc-300 hover:text-yellow-400 hover:bg-zinc-800 transition-colors">Global Presence</a>
+              <a href="./distributors.html" class="block px-4 py-2 text-sm text-zinc-300 hover:text-yellow-400 hover:bg-zinc-800 transition-colors">Distributors</a>
+              <a href="./oem-odm.html" data-i18n="nav.aboutOemOdm" class="block px-4 py-2 text-sm text-zinc-300 hover:text-yellow-400 hover:bg-zinc-800 transition-colors">OEM/ODM</a>
+              <a href="./payment-terms.html" data-i18n="nav.aboutPaymentTerms" class="block px-4 py-2 text-sm text-zinc-300 hover:text-yellow-400 hover:bg-zinc-800 transition-colors">Payment &amp; Trade Terms</a>
+              <a href="./warranty.html" data-i18n="nav.aboutWarranty" class="block px-4 py-2 text-sm text-zinc-300 hover:text-yellow-400 hover:bg-zinc-800 transition-colors">Warranty</a>
+              <a href="./safety.html" data-i18n="nav.aboutSafety" class="block px-4 py-2 text-sm text-zinc-300 hover:text-yellow-400 hover:bg-zinc-800 transition-colors">Safety &amp; Compliance</a>
+              <a href="./brochure.html" data-i18n="nav.aboutBrochure" class="block px-4 py-2 text-sm text-zinc-300 hover:text-yellow-400 hover:bg-zinc-800 transition-colors">Download Brochure</a>
             </div>
           </div>
-          <a href="../contact.html" class="px-4 py-2 text-sm font-medium text-zinc-300 hover:text-yellow-400 transition-colors">Contact</a>
+          <a data-i18n="nav.blog" href="../blogs/index.html" class="px-4 py-2 text-sm font-medium text-zinc-300 hover:text-yellow-400 transition-colors">Blog</a>
+          <a data-i18n="nav.contact" href="../contact.html" class="px-4 py-2 text-sm font-medium text-zinc-300 hover:text-yellow-400 transition-colors">Contact</a>
         </nav>
         <form class="hidden md:flex flex-1 max-w-md mx-4" action="../products/index.html" method="get">
           <div class="relative w-full" role="search">

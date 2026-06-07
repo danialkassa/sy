@@ -376,6 +376,21 @@ collections:
         widget: "string"
         required: false
         hint: "Internal use only. Which warehouse stores this product. Not displayed on the website."
+      - label: "Compare Fields (visible in comparison table)"
+        name: "compareFields"
+        widget: "object"
+        required: false
+        collapsed: true
+        hint: "Fill in the values shown in the product comparison table. Leave blank to hide a row."
+        fields:
+          - {label: "Power (W)", name: "power", widget: "string", required: false}
+          - {label: "Voltage", name: "voltage", widget: "string", required: false}
+          - {label: "RPM (No-Load Speed)", name: "noLoadSpeed", widget: "string", required: false}
+          - {label: "Disc / Blade Size", name: "discSize", widget: "string", required: false}
+          - {label: "Weight", name: "weightToolOnly", widget: "string", required: false}
+          - {label: "Price Range", name: "priceRange", widget: "string", required: false, hint: "e.g., $45-$65 USD"}
+          - {label: "Certifications", name: "certifications", widget: "string", required: false, hint: "e.g., CE, RoHS, ISO 9001"}
+          - {label: "MOQ (Min. Order Qty)", name: "moq", widget: "string", required: false, hint: "e.g., 50 units"}
 
   # ============================================================
   # 2. BLOG POSTS

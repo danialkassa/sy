@@ -32,10 +32,21 @@
     return fn(progress);
   }
 
-  /* ── Mobile detection (Task 3) ── */
+  function getEaseFn(el) {
+    var easeName = el.dataset.saEase;
+    if (!easeName || easeName === 'linear') return null;
+    return EASING[easeName] || null;
+  }
+
+  /* ── Mobile detection ── */
 
   var IS_MOBILE = window.matchMedia('(max-width: 767px)').matches;
   var IS_TOUCH = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+  var IS_SLOW_CONNECTION = (function() {
+    var conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    if (!conn) return false;
+    return conn.saveData === true || conn.effectiveType === 'slow-2g' || conn.effectiveType === '2g';
+  })();
 
   /* ── Low-level math helpers ── */
 
@@ -113,11 +124,15 @@
 
   // Multi-stop interpolation (mirrors Framer Motion useTransform with arrays)
   // For two-value arrays it calls mapRange directly — identical output to original
-  function interpolateMulti(progress, outputValues, inputRange) {
+  function interpolateMulti(progress, outputValues, inputRange, easeFn) {
     var n = outputValues.length;
 
     // Fast path: original 2-stop behaviour (no new overhead)
     if (n === 2) {
+      if (easeFn) {
+        var t2 = clamp((progress - inputRange[0]) / (inputRange[1] - inputRange[0]), 0, 1);
+        return lerp(outputValues[0], outputValues[1], easeFn(t2));
+      }
       return mapRange(progress, inputRange[0], inputRange[1], outputValues[0], outputValues[1]);
     }
 
@@ -138,13 +153,11 @@
       }
     }
 
-    return mapRange(
-      p,
-      inputRange[segIndex],
-      inputRange[segIndex + 1],
-      outputValues[segIndex],
-      outputValues[segIndex + 1]
-    );
+    var segIn0 = inputRange[segIndex];
+    var segIn1 = inputRange[segIndex + 1];
+    var segT = clamp((p - segIn0) / (segIn1 - segIn0), 0, 1);
+    if (easeFn) segT = easeFn(segT);
+    return lerp(outputValues[segIndex], outputValues[segIndex + 1], segT);
   }
 
   /* ── Inset-specific helper ── */
@@ -185,10 +198,11 @@
 
       var stops = Math.max(yRange.length, xRange.length, radiusRange.length);
       var inputRange = parseInputRange(el, stops);
+      var easeFn = getEaseFn(el);
 
-      var y = interpolateMulti(progress, yRange, inputRange);
-      var x = interpolateMulti(progress, xRange, inputRange);
-      var r = interpolateMulti(progress, radiusRange, inputRange);
+      var y = interpolateMulti(progress, yRange, inputRange, easeFn);
+      var x = interpolateMulti(progress, xRange, inputRange, easeFn);
+      var r = interpolateMulti(progress, radiusRange, inputRange, easeFn);
 
       el.style.clipPath =
         'inset(' + y + '% ' + x + '% ' + y + '% ' + x + '% round ' + r + 'px)';
@@ -200,7 +214,7 @@
     'inset-x': function (el, progress) {
       var range      = parseRangeMulti(el.dataset.saInsetX, [48, 0]);
       var inputRange = parseInputRange(el, range.length);
-      var val        = interpolateMulti(progress, range, inputRange);
+      var val        = interpolateMulti(progress, range, inputRange, getEaseFn(el));
 
       el.style.clipPath = 'inset(0px ' + val + 'px)';
     },
@@ -210,7 +224,7 @@
     'inset-y': function (el, progress) {
       var range      = parseRangeMulti(el.dataset.saInsetY, [48, 0]);
       var inputRange = parseInputRange(el, range.length);
-      var val        = interpolateMulti(progress, range, inputRange);
+      var val        = interpolateMulti(progress, range, inputRange, getEaseFn(el));
 
       el.style.clipPath = 'inset(' + val + 'px 0px)';
     },
@@ -221,7 +235,7 @@
     scale: function (el, progress) {
       var range      = parseRangeMulti(el.dataset.saScale, [1.2, 1]);
       var inputRange = parseInputRange(el, range.length);
-      var val        = interpolateMulti(progress, range, inputRange);
+      var val        = interpolateMulti(progress, range, inputRange, getEaseFn(el));
 
       el.style.transform = 'scale(' + val + ')';
     },
@@ -234,7 +248,7 @@
       var range      = parseRangeMulti(el.dataset.saTranslateY, [0, -384]);
       var inputRange = parseInputRange(el, range.length);
       var unit       = el.dataset.saTranslateUnit || 'px';
-      var val        = interpolateMulti(progress, range, inputRange);
+      var val        = interpolateMulti(progress, range, inputRange, getEaseFn(el));
 
       el.style.transform = 'translateY(' + val + unit + ')';
     },
@@ -244,7 +258,7 @@
     radius: function (el, progress) {
       var range      = parseRangeMulti(el.dataset.saRadius, [9999, 16]);
       var inputRange = parseInputRange(el, range.length);
-      var val        = interpolateMulti(progress, range, inputRange);
+      var val        = interpolateMulti(progress, range, inputRange, getEaseFn(el));
 
       el.style.borderRadius = val + 'px';
     },
@@ -255,7 +269,7 @@
     opacity: function (el, progress) {
       var range      = parseRangeMulti(el.dataset.saOpacity, [0, 1]);
       var inputRange = parseInputRange(el, range.length);
-      var val        = interpolateMulti(progress, range, inputRange);
+      var val        = interpolateMulti(progress, range, inputRange, getEaseFn(el));
 
       el.style.opacity = val;
     }
@@ -267,8 +281,8 @@
 
     if (!containers.length) return;
 
-    // Reduced motion: remove all animation side-effects
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    // Reduced motion or save-data: remove all animation side-effects
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || IS_SLOW_CONNECTION) {
       containers.forEach(function (container) {
         var children = container.querySelectorAll('[data-sa]');
         children.forEach(function (el) {
@@ -281,7 +295,7 @@
       return;
     }
 
-    // ── Task 3: Mobile adjustments ──
+    // ── Mobile adjustments ──
     if (IS_MOBILE) {
       // Reduce parallax wrap height on mobile
       document.querySelectorAll('.sa-parallax-wrap').forEach(function (el) {
@@ -305,10 +319,7 @@
           var type = el.dataset.sa;
           var handler = handlers[type];
           if (handler) {
-            // Task 5: Apply easing to progress before interpolation
-            var easedProgress = applyEasing(progress, el);
-
-            // Task 3: On mobile, reduce translate-y intensity by 50%
+            // On mobile, reduce translate-y intensity by 50%
             if (IS_MOBILE && type === 'translate-y') {
               var origAttr = el.dataset.saTranslateY;
               if (origAttr && !el._mobileScaled) {
@@ -319,7 +330,7 @@
               }
             }
 
-            handler(el, easedProgress);
+            handler(el, progress);
           }
         });
       });
@@ -329,10 +340,14 @@
 
     function scheduleUpdate() {
       if (rafId === null) {
-        // Task 3: On touch+mobile, skip every other frame to reduce jank
         if (IS_TOUCH && IS_MOBILE) {
           mobileFrameSkip++;
-          if (mobileFrameSkip % 2 === 0) return;
+          if (mobileFrameSkip % 2 === 0) {
+            rafId = requestAnimationFrame(function() {
+              rafId = null;
+            });
+            return;
+          }
         }
         rafId = requestAnimationFrame(update);
       }

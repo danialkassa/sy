@@ -1,251 +1,269 @@
-(function() {
+(function () {
   'use strict';
-  var STORAGE_KEY = 'ns-compare';
-  var MAX_ITEMS = 3;
-  var _t = function(key, fallback) {
-    if (typeof i18n !== 'undefined' && i18n.t) { var val = i18n.t(key); return val && val !== key ? val : fallback; }
-    return fallback;
+
+  if (window.__compareLoaded) return;
+  window.__compareLoaded = true;
+
+  var MAX_COMPARE = 3;
+  var STORAGE_KEY = 'pm-compare-items';
+
+  var COMPARE_FIELDS = [
+    { key: 'power',          label: 'Power (W)' },
+    { key: 'voltage',        label: 'Voltage' },
+    { key: 'noLoadSpeed',    label: 'RPM' },
+    { key: 'discSize',       label: 'Disc Size' },
+    { key: 'weightToolOnly', label: 'Weight' },
+    { key: 'priceRange',     label: 'Price Range' },
+    { key: 'certifications', label: 'Certifications' },
+    { key: 'moq',            label: 'MOQ' }
+  ];
+
+  function loadItems() {
+    try {
+      return JSON.parse(sessionStorage.getItem(STORAGE_KEY) || '[]');
+    } catch (e) { return []; }
+  }
+
+  function saveItems(items) {
+    try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify(items)); } catch (e) {}
+  }
+
+  function isSelected(sku) {
+    return loadItems().some(function (p) { return p.sku === sku; });
+  }
+
+  function addItem(product) {
+    var items = loadItems();
+    if (items.length >= MAX_COMPARE) return false;
+    if (items.some(function (p) { return p.sku === product.sku; })) return false;
+    items.push(product);
+    saveItems(items);
+    return true;
+  }
+
+  function removeItem(sku) {
+    var items = loadItems().filter(function (p) { return p.sku !== sku; });
+    saveItems(items);
+  }
+
+  /* ── Bar HTML ── */
+  function renderBar() {
+    var bar = document.getElementById('pm-compare-bar');
+    if (!bar) return;
+    var items = loadItems();
+    if (items.length === 0) {
+      bar.style.transform = 'translateY(100%)';
+      return;
+    }
+    bar.style.transform = 'translateY(0)';
+
+    var slots = '';
+    for (var i = 0; i < MAX_COMPARE; i++) {
+      var p = items[i];
+      if (p) {
+        slots += '<div class="flex items-center gap-2 bg-zinc-800 rounded-lg px-3 py-2">' +
+          '<img src="' + (p.image || '') + '" alt="" class="w-10 h-10 object-cover rounded"/>' +
+          '<span class="text-xs font-medium text-white max-w-[80px] truncate">' + (p.name || p.sku) + '</span>' +
+          '<button data-remove-sku="' + p.sku + '" class="text-zinc-400 hover:text-red-400 transition-colors ml-1 text-lg leading-none">&times;</button>' +
+          '</div>';
+      } else {
+        slots += '<div class="flex items-center justify-center w-24 h-14 border border-dashed border-zinc-600 rounded-lg">' +
+          '<span class="text-xs text-zinc-600">Empty</span>' +
+          '</div>';
+      }
+    }
+
+    document.getElementById('pm-compare-slots').innerHTML = slots;
+    var countEl = document.getElementById('pm-compare-count');
+    if (countEl) countEl.textContent = items.length + ' / ' + MAX_COMPARE;
+
+    var btn = document.getElementById('pm-compare-now');
+    if (btn) {
+      btn.disabled = items.length < 2;
+      btn.className = items.length >= 2
+        ? 'px-4 py-2 bg-yellow-400 hover:bg-yellow-300 text-zinc-900 font-bold text-sm rounded-lg transition-colors cursor-pointer'
+        : 'px-4 py-2 bg-zinc-700 text-zinc-500 font-bold text-sm rounded-lg cursor-not-allowed';
+    }
+  }
+
+  /* ── Modal HTML ── */
+  function openModal() {
+    var items = loadItems();
+    if (items.length < 2) return;
+
+    var modal = document.getElementById('pm-compare-modal');
+    if (!modal) return;
+
+    var cols = items.map(function (p) {
+      return '<th class="sticky top-0 bg-zinc-900 z-10 px-4 py-3 text-left min-w-[160px]">' +
+        '<div class="flex flex-col gap-1">' +
+        '<img src="' + (p.image || '') + '" alt="" class="w-full h-28 object-cover rounded-lg mb-1"/>' +
+        '<span class="text-xs font-semibold text-yellow-400">' + (p.brand || '') + '</span>' +
+        '<span class="text-sm font-bold text-white leading-snug">' + (p.name || p.sku) + '</span>' +
+        '<a href="product.html?sku=' + p.sku + '" class="text-xs text-zinc-400 hover:text-yellow-400 mt-1 transition-colors">View Details &rarr;</a>' +
+        '</div>' +
+        '</th>';
+    }).join('');
+
+    var rows = COMPARE_FIELDS.map(function (field) {
+      var cells = items.map(function (p) {
+        var specVal = (p.specs && p.specs[field.key]) ? p.specs[field.key] : (p[field.key] || '—');
+        return '<td class="px-4 py-3 text-sm text-zinc-300 border-b border-zinc-800">' + specVal + '</td>';
+      }).join('');
+      return '<tr class="hover:bg-zinc-800/50 transition-colors">' +
+        '<td class="sticky left-0 bg-zinc-900 px-4 py-3 text-sm font-medium text-zinc-400 border-b border-zinc-800 whitespace-nowrap">' + field.label + '</td>' +
+        cells +
+        '</tr>';
+    }).join('');
+
+    document.getElementById('pm-compare-table-head').innerHTML = '<tr><th class="sticky left-0 top-0 bg-zinc-900 z-20 px-4 py-3 text-left text-xs text-zinc-500 uppercase">Spec</th>' + cols + '</tr>';
+    document.getElementById('pm-compare-table-body').innerHTML = rows;
+
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    var modal = document.getElementById('pm-compare-modal');
+    if (!modal) return;
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+
+  /* ── Inject compare bar and modal into DOM ── */
+  function injectUI() {
+    if (document.getElementById('pm-compare-bar')) return;
+
+    var bar = document.createElement('div');
+    bar.id = 'pm-compare-bar';
+    bar.style.cssText = 'position:fixed;bottom:0;left:0;right:0;z-index:9000;transform:translateY(100%);transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);background:#18181b;border-top:1px solid #3f3f46;padding:12px 16px;';
+    bar.innerHTML =
+      '<div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">' +
+      '<div style="display:flex;align-items:center;gap:8px;flex:1;min-width:0;">' +
+      '<span style="font-size:13px;font-weight:600;color:#facc15;white-space:nowrap;">Compare</span>' +
+      '<span id="pm-compare-count" style="font-size:12px;color:#71717a;"></span>' +
+      '<div id="pm-compare-slots" style="display:flex;gap:8px;flex-wrap:wrap;"></div>' +
+      '</div>' +
+      '<div style="display:flex;gap:8px;align-items:center;">' +
+      '<button id="pm-compare-now" disabled style="padding:8px 16px;background:#3f3f46;color:#71717a;font-weight:700;font-size:13px;border-radius:8px;border:none;cursor:not-allowed;">Compare Now</button>' +
+      '<button id="pm-compare-clear" style="padding:8px 12px;background:transparent;color:#71717a;font-size:13px;border-radius:8px;border:1px solid #3f3f46;cursor:pointer;">Clear</button>' +
+      '</div>' +
+      '</div>';
+    document.body.appendChild(bar);
+
+    var modal = document.createElement('div');
+    modal.id = 'pm-compare-modal';
+    modal.className = 'hidden';
+    modal.style.cssText = 'position:fixed;inset:0;z-index:9100;background:rgba(0,0,0,0.85);align-items:center;justify-content:center;padding:16px;';
+    modal.innerHTML =
+      '<div style="background:#18181b;border:1px solid #3f3f46;border-radius:16px;width:100%;max-width:900px;max-height:90vh;display:flex;flex-direction:column;overflow:hidden;">' +
+      '<div style="display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid #3f3f46;">' +
+      '<h2 style="font-family:Oswald,sans-serif;font-size:20px;font-weight:700;color:#fff;">Product Comparison</h2>' +
+      '<button id="pm-compare-modal-close" style="font-size:24px;color:#71717a;background:none;border:none;cursor:pointer;line-height:1;">&times;</button>' +
+      '</div>' +
+      '<div style="overflow:auto;flex:1;">' +
+      '<table style="width:100%;border-collapse:collapse;">' +
+      '<thead id="pm-compare-table-head"></thead>' +
+      '<tbody id="pm-compare-table-body"></tbody>' +
+      '</table>' +
+      '</div>' +
+      '</div>';
+    document.body.appendChild(modal);
+
+    document.getElementById('pm-compare-now').addEventListener('click', openModal);
+    document.getElementById('pm-compare-clear').addEventListener('click', function () {
+      saveItems([]);
+      updateAllCheckboxes();
+      renderBar();
+    });
+    document.getElementById('pm-compare-modal-close').addEventListener('click', closeModal);
+    modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    bar.addEventListener('click', function (e) {
+      var sku = e.target.dataset.removeSku;
+      if (sku) {
+        removeItem(sku);
+        updateAllCheckboxes();
+        renderBar();
+      }
+    });
+  }
+
+  function updateAllCheckboxes() {
+    document.querySelectorAll('[data-compare-sku]').forEach(function (cb) {
+      cb.checked = isSelected(cb.dataset.compareSku);
+    });
+  }
+
+  /* ── Public: attach to a product card ── */
+  window.attachCompareCheckbox = function (cardEl, product) {
+    if (!product || !product.sku) return;
+    if (cardEl.querySelector('[data-compare-sku]')) return;
+
+    var wrapper = document.createElement('div');
+    wrapper.style.cssText = 'position:absolute;top:8px;right:8px;z-index:10;';
+
+    var label = document.createElement('label');
+    label.style.cssText = 'display:flex;align-items:center;gap:4px;cursor:pointer;background:rgba(24,24,27,0.85);border:1px solid #3f3f46;border-radius:6px;padding:4px 8px;backdrop-filter:blur(4px);';
+    label.title = 'Add to Compare';
+
+    var cb = document.createElement('input');
+    cb.type = 'checkbox';
+    cb.dataset.compareSku = product.sku;
+    cb.checked = isSelected(product.sku);
+    cb.style.cssText = 'accent-color:#facc15;width:14px;height:14px;cursor:pointer;';
+
+    var span = document.createElement('span');
+    span.style.cssText = 'font-size:11px;font-weight:600;color:#a1a1aa;white-space:nowrap;';
+    span.textContent = 'Compare';
+
+    label.appendChild(cb);
+    label.appendChild(span);
+    wrapper.appendChild(label);
+
+    var imgContainer = cardEl.querySelector('.relative.aspect-square, .relative.overflow-hidden');
+    if (imgContainer) {
+      if (getComputedStyle(imgContainer).position === 'static') {
+        imgContainer.style.position = 'relative';
+      }
+      imgContainer.appendChild(wrapper);
+    } else {
+      cardEl.style.position = 'relative';
+      cardEl.appendChild(wrapper);
+    }
+
+    cb.addEventListener('change', function () {
+      if (cb.checked) {
+        var added = addItem(product);
+        if (!added) {
+          cb.checked = false;
+          var msg = document.createElement('div');
+          msg.style.cssText = 'position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#ef4444;color:#fff;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:600;z-index:9999;';
+          msg.textContent = 'Maximum 3 products can be compared.';
+          document.body.appendChild(msg);
+          setTimeout(function () { document.body.removeChild(msg); }, 2000);
+        }
+      } else {
+        removeItem(product.sku);
+      }
+      renderBar();
+    });
   };
 
-  function getCompareList() {
-    try {
-      return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-    } catch (e) {
-      return [];
-    }
+  /* ── Init ── */
+  function init() {
+    injectUI();
+    renderBar();
   }
 
-  function saveCompareList(list) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
   }
-
-  function renderFab() {
-    var list = getCompareList();
-    var fab = document.getElementById('compare-fab');
-    var countEl = document.getElementById('compare-count');
-    if (!fab || !countEl) return;
-    if (list.length >= 2) {
-      fab.classList.remove('hidden');
-      countEl.textContent = list.length;
-    } else {
-      fab.classList.add('hidden');
-    }
-  }
-
-  function updateCheckboxes() {
-    var list = getCompareList();
-    var cbs = document.querySelectorAll('.compare-checkbox');
-    for (var i = 0; i < cbs.length; i++) {
-      var sku = cbs[i].getAttribute('data-compare-sku') || '';
-      cbs[i].checked = list.indexOf(sku) >= 0;
-    }
-  }
-
-  function toggleCompareItem(sku) {
-    if (!sku) return;
-    var list = getCompareList();
-    var idx = list.indexOf(sku);
-    if (idx >= 0) {
-      list.splice(idx, 1);
-    } else {
-      if (list.length >= MAX_ITEMS) {
-        list.shift();
-      }
-      list.push(sku);
-    }
-    saveCompareList(list);
-    updateCheckboxes();
-    renderFab();
-  }
-
-  function clearCompare() {
-    localStorage.removeItem(STORAGE_KEY);
-    updateCheckboxes();
-    renderFab();
-  }
-
-  function escapeHtml(str) {
-    if (!str) return '';
-    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-  }
-
-  function openCompareOverlay() {
-    var overlay = document.getElementById('compare-overlay');
-    if (!overlay) return;
-    var list = getCompareList();
-    if (list.length < 2) return;
-
-    var content = document.getElementById('compare-content');
-    if (!content) return;
-
-    content.innerHTML = '<div class="text-center py-10"><div class="animate-spin w-8 h-8 border-2 border-yellow-400 border-t-transparent rounded-full mx-auto mb-4"></div><p class="text-zinc-400">' + _t("compare.loadingComparison","Loading comparison...") + '</p></div>';
-    overlay.classList.remove('hidden');
-
-    var base = window.location.pathname.indexOf('/products/') >= 0 ? '../' : '';
-    var promises = list.map(function(sku) {
-      var safeSku = sku.replace(/\//g, '-');
-      return fetch(base + 'content/products/' + safeSku + '.json')
-        .then(function(r) { return r.json(); })
-        .catch(function() { return null; });
-    });
-
-    Promise.all(promises).then(function(products) {
-      var valid = products.filter(Boolean);
-      if (valid.length < 2) {
-        content.innerHTML = '<div class="text-center py-10 text-zinc-400">' + _t("compare.notEnoughData","Not enough products with data to compare.") + '</div>';
-        return;
-      }
-
-      var allSpecKeys = [];
-      valid.forEach(function(p) {
-        if (p.specs) {
-          Object.keys(p.specs).forEach(function(k) {
-            if (allSpecKeys.indexOf(k) < 0) allSpecKeys.push(k);
-          });
-        }
-      });
-
-      var colWidth = valid.length === 2 ? 'md:w-1/2' : 'md:w-1/3';
-      var html = '<div class="flex flex-col md:flex-row gap-4 overflow-x-auto">';
-
-      valid.forEach(function(p, colIdx) {
-        html += '<div class="' + colWidth + ' min-w-[280px] bg-zinc-900 border border-zinc-800 rounded-xl p-5">';
-        html += '<div class="flex items-center justify-between mb-3">';
-        html += '<h3 class="font-oswald text-lg font-bold text-white">' + escapeHtml(p.name || '') + '</h3>';
-        html += '<button type="button" class="compare-remove text-zinc-500 hover:text-red-400 text-sm" data-sku="' + escapeHtml(p.sku || '') + '">&#10005; ' + _t("compare.remove","Remove") + '</button>';
-        html += '</div>';
-        html += '<img src="' + (p.images && p.images[0] ? p.images[0] : '../images/placeholder.jpg') + '" alt="' + escapeHtml(p.name || '') + '" class="w-full aspect-square object-cover rounded-lg mb-3"/>';
-        html += '<p class="text-xs text-yellow-400/80 uppercase tracking-wider font-semibold mb-1">' + escapeHtml(p.brand || '') + '</p>';
-        html += '<p class="text-xs text-zinc-500 mb-1">' + _t("cms.sku","SKU") + ': ' + escapeHtml(p.sku || '') + '</p>';
-        html += '<p class="text-xs text-zinc-500 mb-1">' + _t("cms.category","Category") + ': ' + escapeHtml(p.categoryLabel || p.category || '') + '</p>';
-        html += '<p class="text-xs text-zinc-500 mb-2">' + _t("cms.moq","MOQ") + ': ' + escapeHtml(p.moq || '') + ' | ' + _t("cms.leadTime","Lead Time") + ': ' + escapeHtml(p.leadTime || '') + '</p>';
-        if (p.userBenefits && p.userBenefits.length) {
-          html += '<div class="mt-3"><p class="text-xs font-semibold text-zinc-300 mb-1">' + _t("compare.benefits","Benefits") + '</p><ul class="text-xs text-zinc-400 space-y-1">';
-          p.userBenefits.forEach(function(b) { html += '<li class="flex items-start gap-1"><span class="text-green-400">&#10003;</span> ' + escapeHtml(b) + '</li>'; });
-          html += '</ul></div>';
-        }
-        html += '</div>';
-      });
-
-      html += '</div>';
-
-      if (allSpecKeys.length) {
-        html += '<div class="mt-6 bg-zinc-900 border border-zinc-800 rounded-xl p-5 overflow-x-auto">';
-        html += '<h3 class="font-oswald text-lg font-bold text-white mb-4">' + _t("compare.specificationsComparison","Specifications Comparison") + '</h3>';
-        html += '<table class="compare-table w-full min-w-[500px]">';
-        html += '<thead><tr><th class="text-left text-zinc-400 text-xs uppercase tracking-wider py-2 pr-4">Spec</th>';
-        valid.forEach(function(p) {
-          html += '<th class="text-left text-white text-xs font-semibold py-2 pr-4">' + escapeHtml(p.name || '').substring(0, 30) + '</th>';
-        });
-        html += '</tr></thead><tbody>';
-
-        allSpecKeys.forEach(function(key) {
-          var values = valid.map(function(p) { return p.specs && p.specs[key] ? p.specs[key] : '-'; });
-          var allSame = values.every(function(v, i) { return i === 0 || v === values[0]; });
-          html += '<tr class="border-b border-zinc-800' + (allSame ? '' : ' bg-yellow-400/5') + '">';
-          html += '<td class="py-2 pr-4 text-zinc-400 text-xs">' + escapeHtml(key) + '</td>';
-          values.forEach(function(v) {
-            html += '<td class="py-2 pr-4 text-white text-xs font-medium">' + escapeHtml(v) + '</td>';
-          });
-          html += '</tr>';
-        });
-
-        html += '</tbody></table></div>';
-      }
-
-      content.innerHTML = html;
-
-      var removeBtns = content.querySelectorAll('.compare-remove');
-      for (var i = 0; i < removeBtns.length; i++) {
-        removeBtns[i].addEventListener('click', function() {
-          var sku = this.getAttribute('data-sku');
-          toggleCompareItem(sku);
-          openCompareOverlay();
-        });
-      }
-    });
-  }
-
-  function closeCompareOverlay() {
-    var overlay = document.getElementById('compare-overlay');
-    if (overlay) overlay.classList.add('hidden');
-  }
-
-  document.addEventListener('DOMContentLoaded', function() {
-    var cards = document.querySelectorAll('[data-quote-sku]');
-    cards.forEach(function(card) {
-      if (card.querySelector('.compare-card-checkbox')) return;
-      var sku = card.getAttribute('data-quote-sku') || '';
-      if (!sku) return;
-      var label = document.createElement('label');
-      label.className = 'compare-card-checkbox absolute top-3 left-3 z-10 flex items-center gap-1.5 text-xs font-medium text-zinc-400 bg-zinc-900/80 backdrop-blur-sm rounded-md px-2 py-1 cursor-pointer';
-      label.innerHTML = '<input type="checkbox" class="compare-checkbox" data-compare-sku="' + sku + '"/> <span>' + _t("compare.compare","Compare") + '</span>';
-      var imageContainer = card.querySelector('.aspect-square');
-      if (imageContainer) {
-        imageContainer.style.position = 'relative';
-        imageContainer.appendChild(label);
-      }
-    });
-    updateCheckboxes();
-
-    var overlayHTML = '<div id="compare-overlay" class="fixed inset-0 z-[100] bg-zinc-950/98 hidden overflow-y-auto">' +
-      '<div class="container mx-auto px-4 py-8">' +
-        '<div class="flex justify-between items-center mb-6">' +
-          '<h2 class="font-oswald text-2xl font-bold text-white">' + _t("compare.title","Product Comparison") + '</h2>' +
-          '<div class="flex gap-3">' +
-            '<button id="compare-clear" class="text-sm text-zinc-400 hover:text-yellow-400">' + _t("compare.clearAll","Clear All") + '</button>' +
-            '<button id="compare-close" class="text-zinc-400 hover:text-white">' +
-              '<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>' +
-            '</button>' +
-          '</div>' +
-        '</div>' +
-        '<div id="compare-content" class="overflow-x-auto"></div>' +
-      '</div>' +
-    '</div>';
-
-    var fabHTML = '<div id="compare-fab" class="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 hidden" style="z-index:80">' +
-      '<button type="button" class="flex items-center gap-2 bg-yellow-400 text-zinc-950 px-6 py-3 rounded-full font-semibold shadow-lg hover:bg-yellow-500 transition-colors">' +
-        '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6m6 0V9a2 2 0 012-2h2a2 2 0 012 2v10m6 0v-4a2 2 0 00-2-2h-2a2 2 0 00-2 2v4"/></svg>' +
-        _t("compare.compare","Compare") + ' (<span id="compare-count">0</span>)' +
-      '</button>' +
-    '</div>';
-
-    var temp = document.createElement('div');
-    temp.innerHTML = overlayHTML + fabHTML;
-    while (temp.firstChild) {
-      document.body.appendChild(temp.firstChild);
-    }
-
-    updateCheckboxes();
-
-    document.body.addEventListener('change', function(e) {
-      if (e.target && e.target.classList.contains('compare-checkbox')) {
-        toggleCompareItem(e.target.getAttribute('data-compare-sku'));
-      }
-    });
-
-    var fabBtn = document.querySelector('#compare-fab button');
-    if (fabBtn) fabBtn.addEventListener('click', openCompareOverlay);
-
-    var clearBtn = document.getElementById('compare-clear');
-    if (clearBtn) clearBtn.addEventListener('click', function() { clearCompare(); closeCompareOverlay(); });
-
-    var closeBtn = document.getElementById('compare-close');
-    if (closeBtn) closeBtn.addEventListener('click', closeCompareOverlay);
-
-    var overlay = document.getElementById('compare-overlay');
-    if (overlay) {
-      overlay.addEventListener('click', function(e) {
-        if (e.target === overlay) closeCompareOverlay();
-      });
-    }
-
-    if (typeof i18n !== 'undefined' && i18n.applyTranslations) i18n.applyTranslations();
-
-    document.addEventListener('languageChanged', function() {
-      if (typeof i18n !== 'undefined' && i18n.applyTranslations) i18n.applyTranslations();
-      var overlay = document.getElementById('compare-overlay');
-      if (overlay && !overlay.classList.contains('hidden')) openCompareOverlay();
-    });
-  });
 })();
