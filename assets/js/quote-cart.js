@@ -164,7 +164,7 @@
           '</div>' +
           '<h3 class="text-lg font-semibold text-white mb-2">' + _t("quote.empty","Your quote cart is empty") + '</h3>' +
           '<p class="text-sm text-zinc-500 mb-6">' + _t("quote.emptyDesc","Browse our products and add items to request a quote.") + '</p>' +
-          '<a href="' + (window.location.pathname.includes('/products/') ? 'index.html' : 'products/index.html') + '" onclick="quoteCart.close()" class="inline-flex items-center justify-center h-10 px-6 bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold rounded-md transition-colors">' + _t("quote.browseProducts","Browse Products") + '</a>' +
+          '<a href="/products/index.html" onclick="quoteCart.close()" class="inline-flex items-center justify-center h-10 px-6 bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold rounded-md transition-colors">' + _t("quote.browseProducts","Browse Products") + '</a>' +
         '</div>';
       footer.innerHTML = '';
       return;

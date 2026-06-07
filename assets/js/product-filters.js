@@ -4,6 +4,7 @@ var ProductFilters = (function() {
     return fallback;
   };
   var activeFilters = {};
+  var searchQuery = '';
 
   function init() {
     var filterBar = document.getElementById('product-filter-bar');
@@ -196,6 +197,14 @@ var ProductFilters = (function() {
         }
       }
 
+      if (show && searchQuery) {
+        var text = (card.textContent || '').toLowerCase();
+        var sku = (card.getAttribute('data-id') || '').toLowerCase();
+        if (text.indexOf(searchQuery) === -1 && sku.indexOf(searchQuery) === -1) {
+          show = false;
+        }
+      }
+
       if (show) {
         card.style.display = '';
         visible++;
@@ -224,7 +233,11 @@ var ProductFilters = (function() {
   function restoreFromURL() {
     var params = new URLSearchParams(window.location.search);
     params.forEach(function(value, key) {
-      activeFilters[key] = value;
+      if (key === 'q') {
+        searchQuery = value.toLowerCase().trim();
+      } else {
+        activeFilters[key] = value;
+      }
     });
     updateToggleLabels();
   }
