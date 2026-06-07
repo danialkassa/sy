@@ -75,7 +75,7 @@
               Products
               <svg class="w-4 h-4 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
             </button>
-            <div class="dropdown-panel absolute top-full left-0 mt-1 w-56 bg-zinc-900 border border-zinc-800 rounded-lg shadow-2xl shadow-black/50 overflow-hidden z-50 py-1">
+            <div class="dropdown-panel absolute top-full left-0 mt-1 w-56 bg-zinc-900 border border-zinc-800 rounded-lg shadow-2xl shadow-black/50 overflow-hidden z-50 py-1 hidden group-hover:block">
               <a href="../products/index.html" data-i18n="nav.productsAll" class="block px-4 py-2 text-sm font-medium text-yellow-400 hover:bg-zinc-800 transition-colors">All Products</a>
               <div class="border-t border-zinc-800 my-1"></div>
               <a href="../products/drills-drivers.html" data-i18n="nav.drillsDrivers" class="block px-4 py-2 text-sm text-zinc-300 hover:text-yellow-400 hover:bg-zinc-800 transition-colors">Drills &amp; Drivers</a>
@@ -92,7 +92,7 @@
               About Us
               <svg class="w-4 h-4 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
             </button>
-            <div class="dropdown-panel absolute top-full left-0 mt-1 w-56 bg-zinc-900 border border-zinc-800 rounded-lg shadow-2xl shadow-black/50 overflow-hidden z-50 py-1">
+            <div class="dropdown-panel absolute top-full left-0 mt-1 w-56 bg-zinc-900 border border-zinc-800 rounded-lg shadow-2xl shadow-black/50 overflow-hidden z-50 py-1 hidden group-hover:block">
               <a href="../about/index.html" data-i18n="nav.about" class="block px-4 py-2 text-sm font-medium text-yellow-400 hover:bg-zinc-800 transition-colors">About Ningbo Siyang</a>
               <div class="border-t border-zinc-800 my-1"></div>
               <a href="../about/company.html" data-i18n="nav.aboutCompany" class="block px-4 py-2 text-sm text-zinc-300 hover:text-yellow-400 hover:bg-zinc-800 transition-colors">Company Profile</a>
@@ -121,15 +121,8 @@
         <!-- Right actions -->
         <div class="flex items-center gap-2">
           <div class="hidden sm:flex items-center gap-2">
-            <a href="../contact.html" class="inline-flex items-center justify-center h-11 px-4 text-sm font-medium text-zinc-300 hover:text-yellow-400 hover:bg-zinc-800 rounded-md transition-colors">Contact</a>
             <button data-i18n-aria="nav.quoteCart" onclick="quoteCart.toggle()" aria-label="Open quote cart" class="relative inline-flex items-center justify-center h-11 w-11 rounded-md bg-zinc-800 text-zinc-300 hover:text-yellow-400 hover:bg-zinc-700 transition-colors"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span id="quote-header-badge" class="absolute -top-1 -right-1 w-4 h-4 bg-yellow-400 text-zinc-900 text-[10px] font-bold rounded-full flex items-center justify-center hidden">0</span></button>
-              <button data-search-open class="p-2 text-zinc-400 hover:text-yellow-400 transition-colors" aria-label="Search products" data-i18n-aria="search.openSearch">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-              </button>
-              <a href="../contact.html" class="relative inline-flex items-center justify-center gap-2 h-11 px-5 text-sm font-semibold bg-yellow-400 text-zinc-900 hover:bg-yellow-300 rounded-md shadow-lg shadow-yellow-400/20 transition-all hover:scale-105 active:scale-95">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
-              Get Quote
-            </a>
+            <a data-i18n="nav.requestQuote" href="../contact.html#quote-form" class="relative inline-flex items-center justify-center gap-2 h-11 px-5 text-sm font-semibold bg-yellow-400 text-zinc-900 hover:bg-yellow-300 rounded-md shadow-lg shadow-yellow-400/20 transition-all hover:scale-105 active:scale-95">Request Quote</a>
           </div>
           <!-- Mobile menu button -->
 <button data-mobile-menu-toggle class="lg:hidden inline-flex items-center justify-center h-11 w-11 rounded-md text-zinc-300 hover:text-yellow-400 hover:bg-zinc-800 transition-colors" aria-label="Open navigation menu">
@@ -185,17 +178,17 @@
     <div class="container mx-auto px-4 py-12">
       <!-- Category Filter -->
       <div class="flex flex-wrap gap-2 mb-10">
-        <a href="./index.html" class="px-4 py-3 text-sm font-medium rounded-full bg-yellow-400 text-zinc-900">All</a>
-        <a href="#" onclick="return false" class="px-4 py-3 text-sm font-medium rounded-full bg-zinc-800 text-zinc-300 hover:bg-zinc-700 transition-colors">Company News</a>
-        <a href="#" onclick="return false" class="px-4 py-3 text-sm font-medium rounded-full bg-zinc-800 text-zinc-300 hover:bg-zinc-700 transition-colors">Product Guides</a>
-        <a href="#" onclick="return false" class="px-4 py-3 text-sm font-medium rounded-full bg-zinc-800 text-zinc-300 hover:bg-zinc-700 transition-colors">B2B Insights</a>
-        <a href="#" onclick="return false" class="px-4 py-3 text-sm font-medium rounded-full bg-zinc-800 text-zinc-300 hover:bg-zinc-700 transition-colors">Industry Trends</a>
+        <button data-blog-filter="all" class="px-4 py-3 text-sm font-medium rounded-full bg-yellow-400 text-zinc-900">All</button>
+        <button data-blog-filter="company-news" class="px-4 py-3 text-sm font-medium rounded-full bg-zinc-800 text-zinc-300 hover:bg-zinc-700 transition-colors">Company News</button>
+        <button data-blog-filter="product-guides" class="px-4 py-3 text-sm font-medium rounded-full bg-zinc-800 text-zinc-300 hover:bg-zinc-700 transition-colors">Product Guides</button>
+        <button data-blog-filter="b2b-insights" class="px-4 py-3 text-sm font-medium rounded-full bg-zinc-800 text-zinc-300 hover:bg-zinc-700 transition-colors">B2B Insights</button>
+        <button data-blog-filter="industry-trends" class="px-4 py-3 text-sm font-medium rounded-full bg-zinc-800 text-zinc-300 hover:bg-zinc-700 transition-colors">Industry Trends</button>
       </div>
 
       <!-- Blog Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Post 1 -->
-        <article class="bg-zinc-900 rounded-xl border border-zinc-800 overflow-hidden hover:border-yellow-400/30 transition-colors group">
+        <article data-category="product-guides" class="bg-zinc-900 rounded-xl border border-zinc-800 overflow-hidden hover:border-yellow-400/30 transition-colors group">
           <a href="./post.html?slug=angle-grinder-guide" class="block">
             <div class="aspect-[16/10] overflow-hidden">
               <img src="../images/istock/10001.jpg" alt="Angle grinder in use" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy"/>
@@ -219,7 +212,7 @@
         </article>
 
         <!-- Post 2 -->
-        <article class="bg-zinc-900 rounded-xl border border-zinc-800 overflow-hidden hover:border-yellow-400/30 transition-colors group">
+        <article data-category="company-news" class="bg-zinc-900 rounded-xl border border-zinc-800 overflow-hidden hover:border-yellow-400/30 transition-colors group">
           <a href="./post.html?slug=distribution-expansion-sea" class="block">
             <div class="aspect-[16/10] overflow-hidden">
               <img src="../images/istock/10003.jpg" alt="Business team meeting" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy"/>
@@ -243,7 +236,7 @@
         </article>
 
         <!-- Post 3 -->
-        <article class="bg-zinc-900 rounded-xl border border-zinc-800 overflow-hidden hover:border-yellow-400/30 transition-colors group">
+        <article data-category="b2b-insights" class="bg-zinc-900 rounded-xl border border-zinc-800 overflow-hidden hover:border-yellow-400/30 transition-colors group">
           <a href="./post.html?slug=bulk-ordering-benefits" class="block">
             <div class="aspect-[16/10] overflow-hidden">
               <img src="../images/istock/10010.jpg" alt="Construction site with power tools" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy"/>
@@ -267,7 +260,7 @@
         </article>
 
         <!-- Post 4 -->
-        <article class="bg-zinc-900 rounded-xl border border-zinc-800 overflow-hidden hover:border-yellow-400/30 transition-colors group">
+        <article data-category="product-guides" class="bg-zinc-900 rounded-xl border border-zinc-800 overflow-hidden hover:border-yellow-400/30 transition-colors group">
           <a href="./post.html?slug=ip-ratings-explained" class="block">
             <div class="aspect-[16/10] overflow-hidden">
               <img src="../images/istock/10005.jpg" alt="Power tool safety rating label" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy"/>
@@ -291,7 +284,7 @@
         </article>
 
         <!-- Post 5 -->
-        <article class="bg-zinc-900 rounded-xl border border-zinc-800 overflow-hidden hover:border-yellow-400/30 transition-colors group">
+        <article data-category="industry-trends" class="bg-zinc-900 rounded-xl border border-zinc-800 overflow-hidden hover:border-yellow-400/30 transition-colors group">
           <a href="./post.html?slug=cordless-future-lithium-brushless" class="block">
             <div class="aspect-[16/10] overflow-hidden">
               <img src="../images/unsplach/drill-closeup/10072.jpeg" alt="Cordless drill battery technology" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy"/>
@@ -315,7 +308,7 @@
         </article>
 
         <!-- Post 6 -->
-        <article class="bg-zinc-900 rounded-xl border border-zinc-800 overflow-hidden hover:border-yellow-400/30 transition-colors group">
+        <article data-category="company-news" class="bg-zinc-900 rounded-xl border border-zinc-800 overflow-hidden hover:border-yellow-400/30 transition-colors group">
           <a href="./post.html?slug=iso-9001-supply-chain" class="block">
             <div class="aspect-[16/10] overflow-hidden">
               <img src="../images/istock/10015.jpg" alt="Quality certification documents" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy"/>
@@ -341,15 +334,6 @@
 
       <!-- CMS Blog Posts -->
       <div id="cms-blog-index" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-
-      <!-- Pagination -->
-      <div class="flex items-center justify-center gap-2 mt-12">
-        <span class="px-4 py-3 text-sm font-medium rounded-lg bg-zinc-800 text-zinc-400 cursor-not-allowed">Prev</span>
-        <span class="px-4 py-3 text-sm font-medium rounded-lg bg-yellow-400 text-zinc-900">1</span>
-        <a href="#" onclick="return false" class="px-4 py-3 text-sm font-medium rounded-lg bg-zinc-800 text-zinc-300 hover:bg-zinc-700 transition-colors">2</a>
-        <a href="#" onclick="return false" class="px-4 py-3 text-sm font-medium rounded-lg bg-zinc-800 text-zinc-300 hover:bg-zinc-700 transition-colors">3</a>
-        <a href="#" onclick="return false" class="px-4 py-3 text-sm font-medium rounded-lg bg-zinc-800 text-zinc-300 hover:bg-zinc-700 transition-colors">Next</a>
-      </div>
     </div>
   </div>
 
@@ -552,4 +536,26 @@
   </div>
 </div>
 <script src="../assets/js/search.js"></script>
+<script>
+(function() {
+  var filterBtns = document.querySelectorAll('[data-blog-filter]');
+  var articles = document.querySelectorAll('article[data-category]');
+  filterBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var cat = btn.getAttribute('data-blog-filter');
+      filterBtns.forEach(function(b) {
+        b.className = 'px-4 py-3 text-sm font-medium rounded-full bg-zinc-800 text-zinc-300 hover:bg-zinc-700 transition-colors';
+      });
+      btn.className = 'px-4 py-3 text-sm font-medium rounded-full bg-yellow-400 text-zinc-900';
+      articles.forEach(function(a) {
+        if (cat === 'all' || a.getAttribute('data-category') === cat) {
+          a.style.display = '';
+        } else {
+          a.style.display = 'none';
+        }
+      });
+    });
+  });
+})();
+</script>
 </body></html>

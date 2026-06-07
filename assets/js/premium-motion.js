@@ -704,6 +704,9 @@
         if (isTransitioning) return;
         isTransitioning = true;
 
+        // Safety: reset isTransitioning after 2s in case navigation stalls
+        setTimeout(() => { isTransitioning = false; }, 2000);
+
         if (REDUCED) { window.location.href = href; return; }
 
         sessionStorage.setItem('pm-transitioning', '1');

@@ -1190,7 +1190,7 @@
             }
             if (key === 'wechatQR' && el.tagName === 'IMG') {
               el.src = data[key];
-            } else if (key !== 'wechatQR') {
+            } else if (key !== 'wechatQR' && key !== 'whatsapp' && key !== 'youtube') {
               el.textContent = data[key];
             }
           });

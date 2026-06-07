@@ -71,7 +71,7 @@
               Products
               <svg class="w-4 h-4 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
             </button>
-            <div class="dropdown-panel absolute top-full left-0 mt-1 w-56 bg-zinc-900 border border-zinc-800 rounded-lg shadow-2xl shadow-black/50 overflow-hidden z-50 py-1">
+            <div class="dropdown-panel absolute top-full left-0 mt-1 w-56 bg-zinc-900 border border-zinc-800 rounded-lg shadow-2xl shadow-black/50 overflow-hidden z-50 py-1 hidden group-hover:block">
               <a href="../products/index.html" data-i18n="nav.productsAll" class="block px-4 py-2 text-sm font-medium text-yellow-400 hover:bg-zinc-800 transition-colors">All Products</a>
               <div class="border-t border-zinc-800 my-1"></div>
               <a href="../products/drills-drivers.html" data-i18n="nav.drillsDrivers" class="block px-4 py-2 text-sm text-zinc-300 hover:text-yellow-400 hover:bg-zinc-800 transition-colors">Drills &amp; Drivers</a>
@@ -88,7 +88,7 @@
               About Us
               <svg class="w-4 h-4 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
             </button>
-            <div class="dropdown-panel absolute top-full left-0 mt-1 w-56 bg-zinc-900 border border-zinc-800 rounded-lg shadow-2xl shadow-black/50 overflow-hidden z-50 py-1">
+            <div class="dropdown-panel absolute top-full left-0 mt-1 w-56 bg-zinc-900 border border-zinc-800 rounded-lg shadow-2xl shadow-black/50 overflow-hidden z-50 py-1 hidden group-hover:block">
               <a href="./index.html" data-i18n="nav.about" class="block px-4 py-2 text-sm font-medium text-yellow-400 hover:bg-zinc-800 transition-colors">About Ningbo Siyang</a>
               <div class="border-t border-zinc-800 my-1"></div>
               <a href="./company.html" data-i18n="nav.aboutCompany" class="block px-4 py-2 text-sm text-zinc-300 hover:text-yellow-400 hover:bg-zinc-800 transition-colors">Company Profile</a>
@@ -119,9 +119,6 @@
           <div class="hidden sm:flex items-center gap-2">
             <a href="../contact.html" class="inline-flex items-center justify-center h-11 px-4 text-sm font-medium text-zinc-300 hover:text-yellow-400 hover:bg-zinc-800 rounded-md transition-colors">Contact</a>
             <button data-i18n-aria="nav.quoteCart" onclick="quoteCart.toggle()" aria-label="Open quote cart" class="relative inline-flex items-center justify-center h-11 w-11 rounded-md bg-zinc-800 text-zinc-300 hover:text-yellow-400 hover:bg-zinc-700 transition-colors"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span id="quote-header-badge" class="absolute -top-1 -right-1 w-4 h-4 bg-yellow-400 text-zinc-900 text-[10px] font-bold rounded-full flex items-center justify-center hidden">0</span></button>
-              <button data-search-open class="p-2 text-zinc-400 hover:text-yellow-400 transition-colors" aria-label="Search products" data-i18n-aria="search.openSearch">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-              </button>
               <a href="../contact.html" class="relative inline-flex items-center justify-center gap-2 h-11 px-5 text-sm font-semibold bg-yellow-400 text-zinc-900 hover:bg-yellow-300 rounded-md shadow-lg shadow-yellow-400/20 transition-all hover:scale-105 active:scale-95">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
               Get Quote
