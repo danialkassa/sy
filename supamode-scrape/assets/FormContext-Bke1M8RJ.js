@@ -1,1 +1,0 @@
-import{Po as e,ja as t,jo as n}from"./index-_6UXJP5l.js";var r=e(n()),i=r.createContext({formRef:{current:{fields:new Map}},errors:{},clearErrors:t,validationMode:`onSubmit`,submitAttemptedRef:{current:!1}});function a(){return r.useContext(i)}export{a as t};

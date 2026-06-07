@@ -1,1 +1,0 @@
-var e=`supamode_last_dashboard_id`,t={getLastDashboard(){if(typeof window>`u`)return null;try{return sessionStorage.getItem(e)}catch{return null}},setLastDashboard(t){if(!(typeof window>`u`))try{sessionStorage.setItem(e,t)}catch{}},clearLastDashboard(){if(!(typeof window>`u`))try{sessionStorage.removeItem(e)}catch{}}};export{t};

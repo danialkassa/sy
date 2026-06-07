@@ -1,1 +1,0 @@
-import{Po as e,jo as t}from"./index-_6UXJP5l.js";var n=e(t()),r=n.createContext({disabled:!1});function i(){return n.useContext(r)}export{i as t};
