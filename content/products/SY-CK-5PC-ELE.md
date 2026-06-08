@@ -1,79 +1,89 @@
 ---
-name: "5-Tool Electrician Combo Kit"
-sku: "SY-CK-5PC-ELE"
-category: "combo-kits"
-categoryLabel: "Combo Kits"
-brand: "Ningbo Siyang Pro"
-image: "/images/unsplach/red-drill/10003.webp"
-description: "Specialized 5-tool electrician combo kit including drill/driver, impact driver, reciprocating saw, LED work light, and Bluetooth radio. Comes with 2 batteries and charger. Designed for electrical contractors who need reliable cordless tools for daily use."
+name: 5-Tool Electrician Combo Kit
+sku: SY-CK-5PC-ELE
+category: combo-kits
+categoryLabel: Combo Kits
+price: 0
+compareAtPrice: 0
+image: ../images/unsplach/drill-home/10057.jpg
+images:
+  - ../images/unsplach/drill-home/10057.jpg
+  - ../images/unsplach/drill-home/10057-2.jpg
+  - ../images/unsplach/drill-home/10057-3.jpg
+brand: Ningbo Siyang Pro
+tagline: Specialized 5-tool electrician combo kit including drill/driver, impact driver, reciprocating saw, LED work light, and Bluetooth radio. Comes with 2 batteries and charger. Designed for electrical contractors who need reliable cordless tools for daily use.
+description: Specialized 5-tool electrician combo kit including drill/driver, impact driver, reciprocating saw, LED work light, and Bluetooth radio. Comes with 2 batteries and charger. Designed for electrical contractors who need reliable cordless tools for daily use.
 userBenefits:
-
-  - "Tailored for electricians — impact driver drives conduit straps and panel screws without cam-out"
-  - "Reciprocating saw cuts EMT conduit, MC cable, and wall openings faster than hand saws"
-  - "Bluetooth radio powered by the same 20V batteries keeps your crew connected on the jobsite"
-  - "LED work light illuminates dark panel boxes, crawl spaces, and ceiling plenums safely"
-  - "Brushless motors across all power tools deliver professional-grade durability for daily use"
+  - Tailored for electricians — impact driver drives conduit straps and panel screws without cam-out
+  - Reciprocating saw cuts EMT conduit, MC cable, and wall openings faster than hand saws
+  - Bluetooth radio powered by the same 20V batteries keeps your crew connected on the jobsite
+  - LED work light illuminates dark panel boxes, crawl spaces, and ceiling plenums safely
+  - Brushless motors across all power tools deliver professional-grade durability for daily use
 specs:
-  voltage: "20V MAX"
-  motorType: "Brushless"
+  voltage: 20V MAX
+  motorType: Brushless
   toolsIncluded:
-
-    - "Drill/Driver"
-    - "Impact Driver"
-    - "Reciprocating Saw"
-    - "LED Work Light"
-    - "Bluetooth Radio"
+    - Drill/Driver
+    - Impact Driver
+    - Reciprocating Saw
+    - LED Work Light
+    - Bluetooth Radio
   toolsCount: 5
-  batteriesIncluded: "2× 4.0Ah"
+  batteriesIncluded: 2× 4.0Ah
   chargerIncluded: true
-  caseType: "Hard carrying case"
-  totalWeight: "28.0 lbs (12.7 kg)"
-  batteryPlatform: "20V MAX"
-  warrantyPeriod: "3 year limited"
+  caseType: Hard carrying case
+  totalWeight: 28.0 lbs (12.7 kg)
+  batteryPlatform: 20V MAX
+  warrantyPeriod: 3 year limited
   tool1Specs:
-    name: "Drill/Driver"
-    maxTorque: "450 in-lbs"
-    noLoadSpeed: "0-550/0-1800 RPM"
+    name: Drill/Driver
+    maxTorque: 450 in-lbs
+    noLoadSpeed: 0-550/0-1800 RPM
     chuckSize: "1/2\" keyless"
   tool2Specs:
-    name: "Impact Driver"
-    maxTorque: "1600 in-lbs"
-    noLoadSpeed: "0-2600 RPM"
-    ipm: "0-3400"
+    name: Impact Driver
+    maxTorque: 1600 in-lbs
+    noLoadSpeed: 0-2600 RPM
+    ipm: 0-3400
     chuckType: "1/4\" hex"
   tool3Specs:
-    name: "Reciprocating Saw"
+    name: Reciprocating Saw
     strokeLength: "1-1/8\""
-    spm: "0-3000"
-    bladeType: "Tool-free blade change"
+    spm: 0-3000
+    bladeType: Tool-free blade change
   tool4Specs:
-    name: "LED Work Light"
-    lumens: "300 lm"
-    runtime: "6 hours on 4.0Ah battery"
+    name: LED Work Light
+    lumens: 300 lm
+    runtime: 6 hours on 4.0Ah battery
   tool5Specs:
-    name: "Bluetooth Radio"
-    bluetoothRange: "30 ft"
-    speakerPower: "5W"
-    runtime: "8 hours on 4.0Ah battery"
-  chargerType: "30-minute rapid charger"
-  caseMaterial: "Blow-molded polypropylene"
-  batteryChemistry: "Lithium-ion"
+    name: Bluetooth Radio
+    bluetoothRange: 30 ft
+    speakerPower: 5W
+    runtime: 8 hours on 4.0Ah battery
+  chargerType: 30-minute rapid charger
+  caseMaterial: Blow-molded polypropylene
+  batteryChemistry: Lithium-ion
 compliance:
   ce: true
   rohs: true
   gs: false
   ul: true
   eec: true
+stock: 50
 inStock: true
-moq: "200 units"
-leadTime: "35-50 days"
-warranty: "3 year limited kit warranty"
+rating: 4
+reviewCount: 0
+isFeatured: false
+isTopProduct: false
 featured: false
+moq: 200 units
+leadTime: 35-50 days
+warranty: 3 year limited kit warranty
 relatedProducts:
-
-  - "SY-CK-4PC-CON"
-  - "SY-IT-DRV-20V"
+  - SY-CK-4PC-CON
+  - SY-IT-DRV-20V
 downloads:
-  specSheet: "/downloads/spec-sheets/SY-CK-5PC-ELE.pdf"
-  manual: "/downloads/manuals/SY-CK-5PC-ELE.pdf"
+  specSheet: /downloads/spec-sheets/SY-CK-5PC-ELE.pdf
+  manual: /downloads/manuals/SY-CK-5PC-ELE.pdf
+slug: SY-CK-5PC-ELE
 ---

@@ -4,9 +4,11 @@
     "category": "Catalog",
     "language": "en",
     "file": "",
-    "version": "3.0",
+    "version": 3,
     "fileSize": "",
     "date": "2025-01-01",
-    "description": "Complete product catalog featuring all Siyang power tool models, specifications, and ordering information."
+    "description": "Complete product catalog featuring all Siyang power tool models, specifications, and ordering information.",
+    "slug": "product-catalog",
+    "sku": "product-catalog"
   }
 ]

@@ -8,7 +8,8 @@
       "excerpt": "Everything you need to know about sourcing power tools for your business, from quality assurance to bulk pricing strategies.",
       "image": "../images/istock/10005.jpg",
       "author": "Li Ming",
-      "readTime": 6
+      "readTime": 6,
+      "sku": "b2b-power-tools-procurement"
     },
     {
       "title": "Choosing the Right Power Drill for Your Projects",
@@ -18,7 +19,8 @@
       "excerpt": "A comprehensive guide to selecting the perfect power drill for any project, from DIY home repairs to professional construction work.",
       "image": "../images/istock/10001.jpg",
       "author": "Chen Wei",
-      "readTime": 8
+      "readTime": 8,
+      "sku": "choosing-the-right-power-drill"
     },
     {
       "title": "Safety Standards Every Power Tool Buyer Should Know",
@@ -28,7 +30,8 @@
       "excerpt": "Understanding international safety certifications and standards for power tools, including CE, UL, and GS marks.",
       "image": "../images/istock/10010.jpg",
       "author": "Zhang Hui",
-      "readTime": 7
+      "readTime": 7,
+      "sku": "safety-standards"
     }
   ]
 }

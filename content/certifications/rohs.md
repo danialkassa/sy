@@ -1,7 +1,7 @@
 ---
-name: "RoHS Compliance"
-issuer: "SGS"
-cert_number: "ROHS-2024-SY"
+name: RoHS Compliance
+issuer: SGS
 image: ""
 year: "2024"
+slug: rohs
 ---

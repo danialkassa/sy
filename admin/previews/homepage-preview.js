@@ -181,8 +181,7 @@
               gap: "10px"
             }
           }, (Array.isArray(data.stats) ? data.stats : []).slice(0, 6).map(function(item, i) {
-            var s = item.stat || item;
-            return stat(text(s.label, "Stat"), text(s.value, "0"));
+            return stat(text(item.label, "Stat"), text(item.value, "0"));
           })),
 
           // Featured Categories

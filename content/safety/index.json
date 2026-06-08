@@ -5,7 +5,9 @@
     "severity": "warning",
     "description": "Always use Siyang-approved chargers and batteries with our 20V MAX platform tools. Third-party batteries may not have proper overcurrent protection and could pose a safety risk. Store batteries in a cool, dry place between 5°C and 25°C.",
     "resolution": "",
-    "affectedSkus": [],
-    "date": "2025-01-15"
+    "affectedSkus": {},
+    "date": "2025-01-15",
+    "slug": "battery-safety",
+    "sku": "battery-safety"
   }
 ]

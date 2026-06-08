@@ -1,10 +1,11 @@
 ---
-title: "The Complete Guide to B2B Power Tools Procurement"
-date: 2024-12-10T10:00:00Z
-author: "Li Ming"
-category: "B2B Insights"
-image: "../images/istock/10005.jpg"
-excerpt: "Everything you need to know about sourcing power tools for your business, from quality assurance to bulk pricing strategies."
+title: The Complete Guide to B2B Power Tools Procurement
+slug: b2b-power-tools-procurement
+date: "2024-12-10T10:00:00Z"
+category: B2B Insights
+excerpt: Everything you need to know about sourcing power tools for your business, from quality assurance to bulk pricing strategies.
+image: ../images/istock/10005.jpg
+author: Li Ming
 readTime: 6
 ---
 

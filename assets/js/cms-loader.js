@@ -6,173 +6,32 @@
 
   var CMSLoader = {};
 
+  var jsYaml = null;
+  function loadJsYaml() {
+    if (jsYaml) return Promise.resolve(jsYaml);
+    return new Promise(function(resolve, reject) {
+      var script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js';
+      script.onload = function() { jsYaml = window.jsyaml; resolve(jsYaml); };
+      script.onerror = function() { reject(new Error('Failed to load js-yaml')); };
+      document.head.appendChild(script);
+    });
+  }
+
   function parseFrontmatter(text) {
     var result = { data: {}, body: text };
     var match = text.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?/);
     if (!match) return result;
     result.body = text.slice(match[0].length);
     var raw = match[1];
-    var lines = raw.split(/\r?\n/);
-
-    function getIndent(line) {
-      var m = line.match(/^(\s*)/);
-      return m ? m[1].length : 0;
-    }
-
-    function parseLines(lines, startIdx, baseIndent) {
-      var obj = {};
-      var i = startIdx;
-
-      while (i < lines.length) {
-        var line = lines[i];
-        if (line.trim() === '') { i++; continue; }
-
-        var indent = getIndent(line);
-        if (indent < baseIndent) break;
-
-        var trimmed = line.trim();
-
-        // Block scalar: key: | or key: >
-        var bsMatch = trimmed.match(/^([\w][\w-]*):\s*([|>])\s*$/);
-        if (bsMatch) {
-          var bsKey = bsMatch[1];
-          var multiLines = [];
-          i++;
-          while (i < lines.length) {
-            var bsLine = lines[i];
-            if (bsLine.trim() === '') { multiLines.push(''); i++; continue; }
-            if (getIndent(bsLine) <= indent) break;
-            multiLines.push(bsLine.replace(/^\s{2,}/, '').replace(/^  /, ''));
-            i++;
-          }
-          obj[bsKey] = multiLines.join('\n').replace(/\n+$/, '');
-          continue;
-        }
-
-        // Sequence item: starts with "- "
-        if (trimmed.charAt(0) === '-' && (trimmed.charAt(1) === ' ' || trimmed.length === 1)) {
-          // Caller handles sequences; break if we hit one unexpectedly at root
-          break;
-        }
-
-        // Key-value pair
-        var kvMatch = trimmed.match(/^([\w][\w-]*):\s*(.*)/);
-        if (!kvMatch) { i++; continue; }
-
-        var key = kvMatch[1];
-        var val = kvMatch[2].trim();
-
-        if (val === '') {
-          // Peek at next non-empty line
-          var peekIdx = i + 1;
-          while (peekIdx < lines.length && lines[peekIdx].trim() === '') peekIdx++;
-
-          if (peekIdx < lines.length) {
-            var peekLine = lines[peekIdx];
-            var peekIndent = getIndent(peekLine);
-            var peekTrimmed = peekLine.trim();
-
-            if (peekIndent > indent && peekTrimmed.charAt(0) === '-') {
-              // Array
-              var arr = [];
-              i = peekIdx;
-              while (i < lines.length) {
-                var arrLine = lines[i];
-                if (arrLine.trim() === '') { i++; continue; }
-                if (getIndent(arrLine) < peekIndent) break;
-                var arrTrimmed = arrLine.trim();
-                if (arrTrimmed.charAt(0) !== '-') break;
-
-                var itemContent = arrTrimmed.slice(1).trim();
-                var itemKvMatch = itemContent.match(/^([\w][\w-]*):\s*(.*)/);
-
-                if (itemKvMatch) {
-                  // Object item — collect indented sub-keys
-                  var itemObj = {};
-                  itemObj[itemKvMatch[1]] = parseValue(itemKvMatch[2].trim());
-                  var itemIndent = getIndent(arrLine) + 2;
-                  i++;
-                  while (i < lines.length) {
-                    var subLine = lines[i];
-                    if (subLine.trim() === '') { i++; continue; }
-                    if (getIndent(subLine) < itemIndent) break;
-                    var subMatch = subLine.trim().match(/^([\w][\w-]*):\s*(.*)/);
-                    if (subMatch) {
-                      var subVal = subMatch[2].trim();
-                      if (subVal === '') {
-                        // nested object inside array item
-                        var subPeekIdx = i + 1;
-                        while (subPeekIdx < lines.length && lines[subPeekIdx].trim() === '') subPeekIdx++;
-                        if (subPeekIdx < lines.length && getIndent(lines[subPeekIdx]) > getIndent(subLine)) {
-                          var subResult = parseLines(lines, subPeekIdx, getIndent(lines[subPeekIdx]));
-                          itemObj[subMatch[1]] = subResult.obj;
-                          i = subResult.nextIdx;
-                          continue;
-                        }
-                        itemObj[subMatch[1]] = '';
-                      } else {
-                        itemObj[subMatch[1]] = parseValue(subVal);
-                      }
-                    }
-                    i++;
-                  }
-                  arr.push(itemObj);
-                } else if (itemContent === '') {
-                  // bare "-" — nested object on next lines
-                  var nestedItemIndent = getIndent(arrLine) + 2;
-                  i++;
-                  var nestedResult = parseLines(lines, i, nestedItemIndent);
-                  arr.push(nestedResult.obj);
-                  i = nestedResult.nextIdx;
-                } else {
-                  arr.push(parseValue(itemContent));
-                  i++;
-                }
-              }
-              obj[key] = arr;
-              continue;
-            } else if (peekIndent > indent) {
-              // Nested object
-              var nestedObjResult = parseLines(lines, peekIdx, peekIndent);
-              obj[key] = nestedObjResult.obj;
-              i = nestedObjResult.nextIdx;
-              continue;
-            } else {
-              obj[key] = '';
-            }
-          } else {
-            obj[key] = '';
-          }
-          i++;
-          continue;
-        }
-
-        obj[key] = parseValue(val);
-        i++;
+    if (jsYaml) {
+      try {
+        result.data = jsYaml.load(raw) || {};
+      } catch (e) {
+        result.data = {};
       }
-
-      return { obj: obj, nextIdx: i };
     }
-
-    var parsed = parseLines(lines, 0, 0);
-    result.data = parsed.obj;
     return result;
-  }
-
-  function parseValue(val) {
-    if (typeof val !== 'string') return val;
-    if (val === 'true') return true;
-    if (val === 'false') return false;
-    if (val === 'null') return null;
-    if (/^-?\d+$/.test(val)) return parseInt(val, 10);
-    if (/^-?\d+\.\d+$/.test(val)) return parseFloat(val);
-    if (/^["']/.test(val) && /["']$/.test(val)) return val.slice(1, -1);
-    if (/^\[.*\]$/.test(val)) {
-      var inner = val.slice(1, -1).trim();
-      if (inner === '') return [];
-      return inner.split(',').map(function (s) { return parseValue(s.trim()); });
-    }
-    return val;
   }
 
   function parseMarkdown(text) {
@@ -331,26 +190,94 @@
   }
 
   // ============================================================
-  // loadCollectionFromMD — reads all .md files from a collection
-  // folder by fetching index.json for the slug list, then
-  // parsing each .md file's frontmatter.
+  // loadCollectionFromMD — reads .md files from a collection
+  // folder. Uses index.json to discover which items exist (via
+  // slug/sku/id fields), then fetches each .md file and parses
+  // its frontmatter.
   //
   // This is the BRIDGE: CMS writes .md, website reads .md.
-  // Falls back to index.json if .md files aren't available.
+  // Falls back to index.json data if .md files aren't available.
+  //
+  // IMPORTANT: Run `node scripts/build-index.cjs` after CMS edits
+  // to regenerate index.json with slug fields from .md files.
   // ============================================================
+
+  function getSlugsFromIndex(index, arrayKey) {
+    var items;
+    if (Array.isArray(index)) {
+      items = index;
+    } else {
+      items = index[arrayKey] || [];
+    }
+    var slugs = [];
+    for (var i = 0; i < items.length; i++) {
+      var item = items[i];
+      // Try common slug/filename fields
+      var slug = item.slug || item.sku || item.id || '';
+      if (slug) { slugs.push(slug); continue; }
+      // Can't determine slug from JSON data alone
+      return null;
+    }
+    if (slugs.length > 0) return slugs;
+    return null;
+  }
+
   function loadCollectionFromMD(folder, arrayKey, sortFn) {
     var basePath = getBasePath() + folder;
     var indexPath = basePath + '/index.json';
 
     return loadJSONWithLangFallback(indexPath, currentLang).then(function (index) {
-      var items;
+      var jsonItems;
       if (Array.isArray(index)) {
-        items = index;
+        jsonItems = index;
       } else {
-        items = index[arrayKey] || [];
+        jsonItems = index[arrayKey] || [];
       }
-      if (sortFn) items.sort(sortFn);
-      return items;
+
+      // Try to get slugs from the index data
+      var slugs = getSlugsFromIndex(index, arrayKey);
+
+      // If we have slugs, try to fetch .md files
+      if (slugs && slugs.length > 0) {
+        var mdPromises = slugs.map(function (slug) {
+          var mdPath = basePath + '/' + slug + '.md';
+          return fetchText(mdPath).then(function (text) {
+            var parsed = parseFrontmatter(text);
+            parsed.data.slug = parsed.data.slug || slug;
+            parsed.data.sku = parsed.data.sku || slug;
+            return parsed.data;
+          }).catch(function () {
+            // .md file not found — use JSON data for this slug
+            return null;
+          });
+        });
+
+        return Promise.all(mdPromises).then(function (mdItems) {
+          // Merge: JSON data as base, .md data overrides on top
+          // This preserves fields like price/rating that exist in
+          // index.json but not in .md frontmatter.
+          var items = [];
+          for (var i = 0; i < slugs.length; i++) {
+            if (mdItems[i] && i < jsonItems.length) {
+              // Merge: start with JSON, overlay .md data
+              var merged = {};
+              for (var k in jsonItems[i]) merged[k] = jsonItems[i][k];
+              for (var m in mdItems[i]) merged[m] = mdItems[i][m];
+              items.push(merged);
+            } else if (mdItems[i]) {
+              items.push(mdItems[i]);
+            } else if (i < jsonItems.length) {
+              items.push(jsonItems[i]);
+            }
+          }
+          if (sortFn) items.sort(sortFn);
+          return items;
+        });
+      }
+
+      // No slugs available — just use JSON data
+      if (sortFn) jsonItems.sort(sortFn);
+      return jsonItems;
     }).catch(function () {
       return [];
     });
@@ -375,10 +302,7 @@
     var container = document.querySelector(containerSelector);
     if (!container) return Promise.resolve();
 
-    var indexPath = getBasePath() + 'content/blog/index.json';
-
-    return loadJSONWithLangFallback(indexPath, currentLang).then(function (index) {
-      var posts = index.posts || [];
+    return loadCollectionFromMD('content/blog', 'posts').then(function (posts) {
       posts.sort(function (a, b) { return new Date(b.date) - new Date(a.date); });
 
       var html = posts.map(function (post) {
@@ -517,10 +441,7 @@
     var container = document.querySelector(containerSelector);
     if (!container) return Promise.resolve();
 
-    var indexPath = getBasePath() + 'content/products/index.json';
-
-    return loadJSONWithLangFallback(indexPath, currentLang).then(function (index) {
-      var products = index.products || [];
+    return loadCollectionFromMD('content/products', 'products').then(function (products) {
       if (category) {
         products = products.filter(function (p) {
           return p.category && p.category.toLowerCase().replace(/\s+/g, '-') === category.toLowerCase().replace(/\s+/g, '-');
@@ -653,20 +574,19 @@
       // ---- Stats (from list) ----
       if (Array.isArray(data.stats)) {
         data.stats.forEach(function (item, idx) {
-          var s = item.stat || item;
           var valueEl = document.getElementById('cms-stat' + (idx + 1) + '-value');
           var labelEl = document.getElementById('cms-stat' + (idx + 1) + '-label');
-          if (s.value && valueEl) {
-            var suffix = s.value.replace(/[\d.]/g, '');
-            var numVal = parseInt(s.value.replace(/[^\d]/g, ''), 10);
+          if (item.value && valueEl) {
+            var suffix = item.value.replace(/[\d.]/g, '');
+            var numVal = parseInt(item.value.replace(/[^\d]/g, ''), 10);
             if (!isNaN(numVal)) {
               valueEl.setAttribute('data-count-up', String(numVal));
               valueEl.setAttribute('data-count-suffix', suffix || '');
             }
             valueEl.textContent = '0';
           }
-          if (s.label && labelEl) {
-            labelEl.textContent = s.label;
+          if (item.label && labelEl) {
+            labelEl.textContent = item.label;
           }
         });
       }
@@ -707,14 +627,13 @@
       // ---- Brand Showcase Achievements (from list) ----
       if (Array.isArray(data.achievements)) {
         data.achievements.forEach(function (item, idx) {
-          var a = item.item || item;
-          if (a.title) {
+          if (item.title) {
             var aTitleEl = document.getElementById('cms-achievement' + (idx + 1) + '-title');
-            if (aTitleEl) aTitleEl.textContent = a.title;
+            if (aTitleEl) aTitleEl.textContent = item.title;
           }
-          if (a.description) {
+          if (item.description) {
             var aDescEl = document.getElementById('cms-achievement' + (idx + 1) + '-desc');
-            if (aDescEl) aDescEl.textContent = a.description;
+            if (aDescEl) aDescEl.textContent = item.description;
           }
         });
       }
@@ -722,14 +641,13 @@
       // ---- Certifications (from list) ----
       if (Array.isArray(data.certifications)) {
         data.certifications.forEach(function (item, idx) {
-          var c = item.cert || item;
-          if (c.title) {
+          if (item.title) {
             var cTitleEl = document.getElementById('cms-cert' + (idx + 1) + '-title');
-            if (cTitleEl) cTitleEl.textContent = c.title;
+            if (cTitleEl) cTitleEl.textContent = item.title;
           }
-          if (c.description) {
+          if (item.description) {
             var cDescEl = document.getElementById('cms-cert' + (idx + 1) + '-desc');
-            if (cDescEl) cDescEl.textContent = c.description;
+            if (cDescEl) cDescEl.textContent = item.description;
           }
         });
       }
@@ -747,14 +665,13 @@
       // ---- Trust Indicators (from list) ----
       if (Array.isArray(data.trustIndicators)) {
         data.trustIndicators.forEach(function (item, idx) {
-          var t = item.indicator || item;
-          if (t.title) {
+          if (item.title) {
             var tTitleEl = document.getElementById('cms-trust-ind' + (idx + 1) + '-title');
-            if (tTitleEl) tTitleEl.textContent = t.title;
+            if (tTitleEl) tTitleEl.textContent = item.title;
           }
-          if (t.description) {
+          if (item.description) {
             var tDescEl = document.getElementById('cms-trust-ind' + (idx + 1) + '-desc');
-            if (tDescEl) tDescEl.textContent = t.description;
+            if (tDescEl) tDescEl.textContent = item.description;
           }
         });
       }
@@ -762,14 +679,13 @@
       // ---- Use Cases (from list) ----
       if (Array.isArray(data.useCases)) {
         data.useCases.forEach(function (item, idx) {
-          var u = item.useCase || item;
-          if (u.title) {
+          if (item.title) {
             var uTitleEl = document.getElementById('cms-use-case' + (idx + 1) + '-title');
-            if (uTitleEl) uTitleEl.textContent = u.title;
+            if (uTitleEl) uTitleEl.textContent = item.title;
           }
-          if (u.description) {
+          if (item.description) {
             var uDescEl = document.getElementById('cms-use-case' + (idx + 1) + '-desc');
-            if (uDescEl) uDescEl.textContent = u.description;
+            if (uDescEl) uDescEl.textContent = item.description;
           }
         });
       }
@@ -796,14 +712,13 @@
       // ---- B2B Benefits (from list) ----
       if (Array.isArray(data.b2bBenefits)) {
         data.b2bBenefits.forEach(function (item, idx) {
-          var b = item.benefit || item;
-          if (b.title) {
+          if (item.title) {
             var bTitleEl = document.getElementById('cms-b2b-benefit' + (idx + 1) + '-title');
-            if (bTitleEl) bTitleEl.textContent = b.title;
+            if (bTitleEl) bTitleEl.textContent = item.title;
           }
-          if (b.description) {
+          if (item.description) {
             var bDescEl = document.getElementById('cms-b2b-benefit' + (idx + 1) + '-desc');
-            if (bDescEl) bDescEl.textContent = b.description;
+            if (bDescEl) bDescEl.textContent = item.description;
           }
         });
       }
@@ -876,14 +791,13 @@
       // ---- Trust Badges (from list) ----
       if (Array.isArray(data.trustBadges)) {
         data.trustBadges.forEach(function (item, idx) {
-          var tb = item.badge || item;
-          if (tb.title) {
+          if (item.title) {
             var titleEl = document.getElementById('cms-trust-badge' + (idx + 1) + '-title');
-            if (titleEl) titleEl.textContent = tb.title;
+            if (titleEl) titleEl.textContent = item.title;
           }
-          if (tb.description) {
+          if (item.description) {
             var descEl = document.getElementById('cms-trust-badge' + (idx + 1) + '-desc');
-            if (descEl) descEl.textContent = tb.description;
+            if (descEl) descEl.textContent = item.description;
           }
         });
       }
@@ -1268,6 +1182,15 @@
         if (window.ScrollAnimations && typeof window.ScrollAnimations.init === 'function') {
           window.ScrollAnimations.init();
         }
+      }
+
+      // Sync CMS company data into SITE_CONFIG so site-config.js values stay current
+      if (typeof mergeCmsSettings === 'function') {
+        window.__CMS_DATA = window.__CMS_DATA || {};
+        window.__CMS_DATA.settings = window.__CMS_DATA.settings || {};
+        window.__CMS_DATA.settings.company = data;
+        mergeCmsSettings();
+        applySiteConfig();
       }
     });
   };
@@ -1748,7 +1671,7 @@
       // Badges (from list)
       if (Array.isArray(data.trustBadges)) {
         data.trustBadges.forEach(function (item, idx) {
-          var text = item.text || (item.badge ? item.badge.text : '');
+          var text = item.text || '';
           var el = document.getElementById('cms-footer-badge' + (idx + 1));
           if (text && el) el.textContent = text;
         });
@@ -1762,11 +1685,12 @@
           var linksHtml = '';
           if (col.links && col.links.length) {
             linksHtml = '<ul class="space-y-2">' + col.links.map(function (link) {
-              var href = link.href || '#';
+              var href = link.href || 'javascript:void(0)';
               if (href.indexOf('http') !== 0 && href.indexOf('/') === 0) {
                 href = basePath + href.slice(1);
               }
-              return '<li><a href="' + escapeHtml(href) + '" class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">' + escapeHtml(link.label || '') + '</a></li>';
+              var linkAttrs = href === 'javascript:void(0)' ? ' role="button" title="Coming soon"' : '';
+              return '<li><a href="' + escapeHtml(href) + '"' + linkAttrs + ' class="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">' + escapeHtml(link.label || '') + '</a></li>';
             }).join('') + '</ul>';
           }
           return '<div>' +
@@ -1791,7 +1715,9 @@
             wechat: '<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18zm5.34 2.867c-1.797-.052-3.746.512-5.28 1.786-1.72 1.428-2.687 3.72-1.78 6.22.942 2.453 3.666 4.229 6.884 4.229.826 0 1.622-.12 2.361-.336a.722.722 0 0 1 .598.082l1.584.926a.272.272 0 0 0 .14.047c.134 0 .24-.111.24-.247 0-.06-.023-.12-.038-.177l-.327-1.233a.582.582 0 0 1-.023-.156.49.49 0 0 1 .201-.398C23.024 18.48 24 16.82 24 14.98c0-3.21-2.931-5.837-7.062-6.122zm-2.036 2.84c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.983.97-.983zm4.072 0c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.983.97-.983z"/></svg>'
           };
           var icon = icons[platform] || icons.linkedin;
-          return '<a href="' + escapeHtml(social.href || '#') + '" target="_blank" rel="noopener noreferrer" class="w-11 h-11 bg-zinc-800 rounded-lg flex items-center justify-center text-zinc-400 hover:bg-yellow-400 hover:text-zinc-900 transition-colors" aria-label="' + escapeHtml(social.platform || 'Social') + '">' + icon + '</a>';
+          var socialHref = social.href || 'javascript:void(0)';
+          var socialAttrs = socialHref === 'javascript:void(0)' ? ' role="button" title="Coming soon"' : '';
+          return '<a href="' + escapeHtml(socialHref) + '"' + socialAttrs + ' target="_blank" rel="noopener noreferrer" class="w-11 h-11 bg-zinc-800 rounded-lg flex items-center justify-center text-zinc-400 hover:bg-yellow-400 hover:text-zinc-900 transition-colors" aria-label="' + escapeHtml(social.platform || 'Social') + '">' + icon + '</a>';
         }).join('');
         socialContainer.innerHTML = socialHtml;
       }
@@ -1941,10 +1867,7 @@
     var container = document.querySelector(containerSelector);
     if (!container) return Promise.resolve();
 
-    var indexPath = getBasePath() + 'content/products/index.json';
-
-    return loadJSONWithLangFallback(indexPath, currentLang).then(function (index) {
-      var products = index.products || [];
+    return loadCollectionFromMD('content/products', 'products').then(function (products) {
       // Filter out current product
       var others = products.filter(function (p) { return p.sku !== currentSku; });
       // Prefer products from the same category as the current product
@@ -2082,6 +2005,7 @@
   });
 
   document.addEventListener('DOMContentLoaded', function () {
+    loadJsYaml().catch(function() {}).then(function() {
     CMSLoader.loadHomepage();
     CMSLoader.loadPageContent();
     CMSLoader.loadCompanyInfo();
@@ -2146,5 +2070,6 @@
         });
       }
     }
+    });
   });
 })();

@@ -1,55 +1,61 @@
 ---
 name: "6\" Bench Grinder 5/8 HP"
-sku: "SY-GR-BCH-6IN"
-category: "grinders"
-categoryLabel: "Grinders"
-brand: "Ningbo Siyang"
-image: "/images/istock/10022.jpg"
+sku: SY-GR-BCH-6IN
+category: grinders
+categoryLabel: Grinders
+price: 0
+compareAtPrice: 0
+image: ../images/istock/10015.jpg
 images:
-
-  - "/images/istock/10022-2.jpg"
-
-  - "/images/istock/10022-3.jpg"
-description: "6 inch bench grinder with 5/8 HP motor, dual grinding wheels, spark guards, and eye shields. Designed for sharpening, shaping, and deburring in workshop environments. Features cast iron base for stability and adjustable tool rests for precision work."
+  - ../images/istock/10015.jpg
+  - ../images/istock/10015-2.jpg
+  - ../images/istock/10015-3.jpg
+brand: Ningbo Siyang
+tagline: 6 inch bench grinder with 5/8 HP motor, dual grinding wheels, spark guards, and eye shields. Designed for sharpening, shaping, and deburring in workshop environments. Features cast iron base for stability and adjustable tool rests for precision work.
+description: 6 inch bench grinder with 5/8 HP motor, dual grinding wheels, spark guards, and eye shields. Designed for sharpening, shaping, and deburring in workshop environments. Features cast iron base for stability and adjustable tool rests for precision work.
 userBenefits:
-
-  - "Dual grinding wheels (coarse 36-grit + fine 60-grit) let you rough-shape and finish without changing wheels"
-  - "Cast iron base absorbs vibration and prevents walking during heavy grinding operations"
-  - "Adjustable spark guards and eye shields protect the operator from hot debris and sparks"
-  - "Adjustable tool rests provide stable workpiece support for precise sharpening of chisels and blades"
-  - "Compact footprint fits on most workbenches while delivering full-size workshop grinding capability"
+  - Dual grinding wheels (coarse 36-grit + fine 60-grit) let you rough-shape and finish without changing wheels
+  - Cast iron base absorbs vibration and prevents walking during heavy grinding operations
+  - Adjustable spark guards and eye shields protect the operator from hot debris and sparks
+  - Adjustable tool rests provide stable workpiece support for precise sharpening of chisels and blades
+  - Compact footprint fits on most workbenches while delivering full-size workshop grinding capability
 specs:
-  voltage: "120V AC, 60Hz"
-  motorType: "5/8 HP / 4 Amp"
-  noLoadSpeed: "3,450 RPM"
+  voltage: 120V AC, 60Hz
+  motorType: 5/8 HP / 4 Amp
+  noLoadSpeed: 3,450 RPM
   discDiameter: "6\""
   arborSize: "1/2\""
   spindleThread: "1/2\"-13"
-  switchType: "Toggle"
-  weightToolOnly: "28.0 lbs (12.7 kg)"
+  switchType: Toggle
+  weightToolOnly: 28.0 lbs (12.7 kg)
   overallLength: "16.5\""
-  soundPower: "85 dB(A)"
-  vibrationLevel: "2.1 m/s²"
-  cordLength: "6 ft (1.8 m)"
-  wheelGuard: "Spark guards with eye shields"
-  auxiliaryHandle: "Adjustable tool rests"
-  spindleLock: "N/A"
+  soundPower: 85 dB(A)
+  vibrationLevel: 2.1 m/s²
+  cordLength: 6 ft (1.8 m)
+  wheelGuard: Spark guards with eye shields
+  auxiliaryHandle: Adjustable tool rests
+  spindleLock: N/A
 compliance:
   ce: true
   rohs: true
   gs: true
   ul: false
   eec: true
+stock: 50
 inStock: true
-moq: "200 units"
-leadTime: "30-45 days"
-warranty: "1 year standard"
+rating: 4
+reviewCount: 0
+isFeatured: false
+isTopProduct: false
 featured: false
+moq: 200 units
+leadTime: 30-45 days
+warranty: 1 year standard
 relatedProducts:
-
-  - "SY-GR-BCH-8IN"
-  - "SY-SA-DSK-5IN"
+  - SY-GR-BCH-8IN
+  - SY-SA-DSK-5IN
 downloads:
-  specSheet: "/downloads/spec-sheets/SY-GR-BCH-6IN.pdf"
-  manual: "/downloads/manuals/SY-GR-BCH-6IN.pdf"
+  specSheet: /downloads/spec-sheets/SY-GR-BCH-6IN.pdf
+  manual: /downloads/manuals/SY-GR-BCH-6IN.pdf
+slug: SY-GR-BCH-6IN
 ---

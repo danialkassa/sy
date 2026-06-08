@@ -1,56 +1,62 @@
 ---
 name: "3×21\" Belt Sander"
-sku: "SY-SA-BLT-3X21"
-category: "sanders"
-categoryLabel: "Sanders"
-brand: "Ningbo Siyang Pro"
-image: "/images/istock/10015.jpg"
+sku: SY-SA-BLT-3X21
+category: sanders
+categoryLabel: Sanders
+price: 0
+compareAtPrice: 0
+image: ../images/istock/10020.jpg
 images:
-
-  - "/images/istock/10015-2.jpg"
-
-  - "/images/istock/10015-3.jpg"
-description: "Professional 3×21 inch belt sander with 8.0 Amp motor and variable speed control. Features a dust bag for cleaner operation and an adjustable front handle for comfortable use. Designed for rapid material removal on large flat surfaces in woodworking and flooring applications."
+  - ../images/istock/10020.jpg
+  - ../images/istock/10020-2.jpg
+  - ../images/istock/10020-3.jpg
+brand: Ningbo Siyang Pro
+tagline: Professional 3×21 inch belt sander with 8.0 Amp motor and variable speed control. Features a dust bag for cleaner operation and an adjustable front handle for comfortable use. Designed for rapid material removal on large flat surfaces in woodworking and flooring applications.
+description: Professional 3×21 inch belt sander with 8.0 Amp motor and variable speed control. Features a dust bag for cleaner operation and an adjustable front handle for comfortable use. Designed for rapid material removal on large flat surfaces in woodworking and flooring applications.
 userBenefits:
-
-  - "8.0 Amp motor with variable speed (850-1,300 SFPM) delivers aggressive stock removal on hardwood and softwood"
-  - "Auto-tracking belt system keeps the belt aligned without manual adjustment for consistent sanding quality"
-  - "Quick-release lever allows belt changes in under 10 seconds, minimizing downtime between grit changes"
+  - 8.0 Amp motor with variable speed (850-1,300 SFPM) delivers aggressive stock removal on hardwood and softwood
+  - Auto-tracking belt system keeps the belt aligned without manual adjustment for consistent sanding quality
+  - Quick-release lever allows belt changes in under 10 seconds, minimizing downtime between grit changes
   - "3×21\" belt format is the most widely available size, ensuring easy sourcing of replacement abrasives"
-  - "Adjustable front handle locks in multiple positions for comfortable sanding at any angle or height"
+  - Adjustable front handle locks in multiple positions for comfortable sanding at any angle or height
 specs:
-  voltage: "120V AC, 60Hz"
-  motorType: "8.0 Amp"
-  padSize: "N/A"
-  speed: "850-1,300 SFPM"
-  orbitDiameter: "N/A"
-  dustCollection: "Dust bag included"
-  padType: "N/A"
-  weightToolOnly: "7.5 lbs (3.4 kg)"
+  voltage: 120V AC, 60Hz
+  motorType: 8.0 Amp
+  padSize: N/A
+  speed: 850-1,300 SFPM
+  orbitDiameter: N/A
+  dustCollection: Dust bag included
+  padType: N/A
+  weightToolOnly: 7.5 lbs (3.4 kg)
   overallLength: "14.5\""
-  soundPower: "95 dB(A)"
-  vibrationLevel: "4.5 m/s²"
-  cordLength: "8 ft (2.4 m)"
+  soundPower: 95 dB(A)
+  vibrationLevel: 4.5 m/s²
+  cordLength: 8 ft (2.4 m)
   beltSize: "3×21\""
-  switchType: "Trigger with lock-on"
-  beltTracking: "Auto-tracking"
-  beltChange: "Quick-release lever"
+  switchType: Trigger with lock-on
+  beltTracking: Auto-tracking
+  beltChange: Quick-release lever
 compliance:
   ce: true
   rohs: true
   gs: false
   ul: false
   eec: true
+stock: 50
 inStock: true
-moq: "300 units"
-leadTime: "30-45 days"
-warranty: "1 year standard"
+rating: 4
+reviewCount: 0
+isFeatured: false
+isTopProduct: false
 featured: false
+moq: 300 units
+leadTime: 30-45 days
+warranty: 1 year standard
 relatedProducts:
-
-  - "SY-SA-DSK-5IN"
-  - "SY-SA-ORB-6IN"
+  - SY-SA-DSK-5IN
+  - SY-SA-ORB-6IN
 downloads:
-  specSheet: "/downloads/spec-sheets/SY-SA-BLT-3X21.pdf"
-  manual: "/downloads/manuals/SY-SA-BLT-3X21.pdf"
+  specSheet: /downloads/spec-sheets/SY-SA-BLT-3X21.pdf
+  manual: /downloads/manuals/SY-SA-BLT-3X21.pdf
+slug: SY-SA-BLT-3X21
 ---

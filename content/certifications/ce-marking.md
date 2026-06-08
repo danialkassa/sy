@@ -1,7 +1,7 @@
 ---
-name: "CE Marking"
-issuer: "TUV Rheinland"
-cert_number: "CE-2024-SY"
+name: CE Marking
+issuer: TUV Rheinland
 image: ""
 year: "2024"
+slug: ce-marking
 ---

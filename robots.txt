@@ -5,7 +5,7 @@ Disallow: /assets/js/
 Disallow: /*.json$
 Allow: /
 
-Sitemap: https://ningbosiyang.com/sitemap.xml
+Sitemap: https://siyang.tools/sitemap.xml
 
 User-agent: Googlebot
 Crawl-delay: 1

@@ -1,39 +1,40 @@
 ---
 name: "Corded Impact Wrench 7.5A 1/2\""
-sku: "SY-IT-WRN-CRD"
-category: "impact-tools"
-categoryLabel: "Impact Tools"
-brand: "Ningbo Siyang"
-image: "/images/unsplach/drill-home/10054.jpeg"
+sku: SY-IT-WRN-CRD
+category: impact-tools
+categoryLabel: Impact Tools
+price: 0
+compareAtPrice: 0
+image: ../images/istock/10029.jpg
 images:
-
-  - "/images/unsplach/drill-home/10054-2.jpeg"
-
-  - "/images/unsplach/drill-home/10054-3.jpeg"
-description: "Corded 7.5 Amp impact wrench with 1/2 inch anvil delivering 330 ft-lbs of max torque. Features forward/reverse control and a rocker switch for easy one-hand operation. Ideal for automotive repair, equipment maintenance, and heavy-duty bolting applications."
+  - ../images/istock/10029.jpg
+  - ../images/istock/10029-2.jpg
+  - ../images/istock/10029-3.jpg
+brand: Ningbo Siyang
+tagline: Corded 7.5 Amp impact wrench with 1/2 inch anvil delivering 330 ft-lbs of max torque. Features forward/reverse control and a rocker switch for easy one-hand operation. Ideal for automotive repair, equipment maintenance, and heavy-duty bolting applications.
+description: Corded 7.5 Amp impact wrench with 1/2 inch anvil delivering 330 ft-lbs of max torque. Features forward/reverse control and a rocker switch for easy one-hand operation. Ideal for automotive repair, equipment maintenance, and heavy-duty bolting applications.
 userBenefits:
-
-  - "Unlimited runtime from corded power eliminates battery swaps during all-day shop work"
-  - "Forward/reverse rocker switch enables one-handed directional changes without repositioning grip"
-  - "7.5 Amp motor delivers consistent torque output without the fade that batteries experience under load"
-  - "Friction ring anvil allows quick socket changes while maintaining secure retention during operation"
-  - "Ideal for fixed-location shop environments where portability is less critical than sustained power"
+  - Unlimited runtime from corded power eliminates battery swaps during all-day shop work
+  - Forward/reverse rocker switch enables one-handed directional changes without repositioning grip
+  - 7.5 Amp motor delivers consistent torque output without the fade that batteries experience under load
+  - Friction ring anvil allows quick socket changes while maintaining secure retention during operation
+  - Ideal for fixed-location shop environments where portability is less critical than sustained power
 specs:
-  voltage: "120V AC (corded)"
-  motorType: "7.5 Amp brushed"
-  maxTorque: "330 ft-lbs"
-  noLoadSpeedLow: "0-1100 RPM"
-  noLoadSpeedHigh: "0-2100 RPM"
+  voltage: 120V AC (corded)
+  motorType: 7.5 Amp brushed
+  maxTorque: 330 ft-lbs
+  noLoadSpeedLow: 0-1100 RPM
+  noLoadSpeedHigh: 0-2100 RPM
   ipm: "2700"
   driveSize: "1/2\""
   speedSettings: 1
   modeSettings: 1
-  weightToolOnly: "6.5 lbs (2.9 kg)"
-  weightWithBattery: "6.5 lbs (2.9 kg)"
-  overallLength: "9.5 in (241 mm)"
-  soundPower: "104 dB(A)"
-  vibrationLevel: "10.8 m/s²"
-  batteryPlatform: "Corded"
+  weightToolOnly: 6.5 lbs (2.9 kg)
+  weightWithBattery: 6.5 lbs (2.9 kg)
+  overallLength: 9.5 in (241 mm)
+  soundPower: 104 dB(A)
+  vibrationLevel: 10.8 m/s²
+  batteryPlatform: Corded
   ledWorkLight: false
   beltHook: false
   chuckType: "1/2\" friction ring anvil"
@@ -43,16 +44,21 @@ compliance:
   gs: true
   ul: true
   eec: true
+stock: 50
 inStock: true
-moq: "300 units"
-leadTime: "30-45 days"
-warranty: "1 year standard"
+rating: 4
+reviewCount: 0
+isFeatured: false
+isTopProduct: false
 featured: false
+moq: 300 units
+leadTime: 30-45 days
+warranty: 1 year standard
 relatedProducts:
-
-  - "SY-IT-WRN-20V"
-  - "SY-IT-WRN-3-4"
+  - SY-IT-WRN-20V
+  - SY-IT-WRN-3-4
 downloads:
-  specSheet: "/downloads/spec-sheets/SY-IT-WRN-CRD.pdf"
-  manual: "/downloads/manuals/SY-IT-WRN-CRD.pdf"
+  specSheet: /downloads/spec-sheets/SY-IT-WRN-CRD.pdf
+  manual: /downloads/manuals/SY-IT-WRN-CRD.pdf
+slug: SY-IT-WRN-CRD
 ---

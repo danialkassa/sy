@@ -46,7 +46,6 @@
         /* Lenis is driven by the unified startLoop() rAF below. */
         // Expose globally so other scripts can use lenis.scrollTo()
         window.__lenis = lenis;
-        console.log('%c[Premium Motion] Lenis smooth scroll active', 'color: #facc15;');
       }
 
       // ── Mobile performance guard ─────────────
@@ -92,7 +91,6 @@
       this.initMagneticButtons();
       this.bindEvents();
       this.startLoop();
-      console.log('%c[Premium Motion] Engine started — physics-based motion active', 'color: #facc15; font-weight: bold;');
     },
 
     /* ── 1. AUTO-ENHANCE EXISTING DOM ───────── */

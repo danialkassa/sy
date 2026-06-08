@@ -18,7 +18,9 @@
     "testimonialAuthor": "Hans Mueller, Managing Director",
     "image": "../images/case-studies/euro-werkzeuge.jpg",
     "date": "2024-03-22",
-    "featured": true
+    "featured": true,
+    "slug": "euro-werkzeuge",
+    "sku": "euro-werkzeuge"
   },
   {
     "id": "gulf-industrial",
@@ -39,7 +41,9 @@
     "testimonialAuthor": "Ahmed Al-Rashid, Procurement Director",
     "image": "../images/case-studies/gulf-industrial.jpg",
     "date": "2024-06-15",
-    "featured": true
+    "featured": true,
+    "slug": "gulf-industrial",
+    "sku": "gulf-industrial"
   },
   {
     "id": "stroyinvest",
@@ -60,6 +64,8 @@
     "testimonialAuthor": "Dmitri Volkov, Supply Chain Director",
     "image": "../images/case-studies/stroyinvest.jpg",
     "date": "2024-09-10",
-    "featured": true
+    "featured": true,
+    "slug": "stroyinvest",
+    "sku": "stroyinvest"
   }
 ]

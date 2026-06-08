@@ -252,7 +252,6 @@
     });
   });
 
-  console.log('Ningbo Siyang - Pure HTML site loaded');
 })();
 
 function handleNewsletterSubscribe(e) {

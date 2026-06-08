@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import yaml from "js-yaml";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -12,147 +13,20 @@ let writeCount = 0;
 let draftCount = 0;
 
 // ============================================================
-// YAML Frontmatter Parser (handles scalars, quoted strings,
-// arrays with - items, nested objects, and deeply nested structures)
+// YAML Frontmatter Parser (uses js-yaml)
 // ============================================================
-
-function parseValue(raw) {
-  const trimmed = raw.trim();
-  if (trimmed === "" || trimmed === "null" || trimmed === "~") return "";
-  if (trimmed === "true") return true;
-  if (trimmed === "false") return false;
-  if (/^-?\d+(\.\d+)?$/.test(trimmed)) return Number(trimmed);
-  let str = trimmed;
-  if ((str.startsWith('"') && str.endsWith('"')) || (str.startsWith("'") && str.endsWith("'"))) {
-    str = str.slice(1, -1);
-    // Unescape
-    str = str.replace(/\\"/g, '"').replace(/\\\\/g, "\\");
-  }
-  return str;
-}
-
-function getIndent(line) {
-  const match = line.match(/^(\s*)/);
-  return match ? match[1].length : 0;
-}
 
 function parseFrontmatter(content) {
   if (!content.startsWith("---")) return null;
   const closing = content.indexOf("---", 3);
   if (closing === -1) return null;
   const raw = content.slice(3, closing).trim();
-  const lines = raw.split("\n");
-  const result = parseBlock(lines, 0, 0);
-  return result.data;
-}
-
-function parseBlock(lines, startIdx, blockIndent) {
-  const data = {};
-  let i = startIdx;
-
-  while (i < lines.length) {
-    const line = lines[i];
-    // Skip blank lines
-    if (line.trim() === "") { i++; continue; }
-    // If this line is less indented than our block, we're done
-    const lineIndent = getIndent(line);
-    if (lineIndent < blockIndent) break;
-
-    const kvMatch = line.match(/^(\s*)([\w][\w-]*):\s*(.*)/);
-    if (!kvMatch) { i++; continue; }
-
-    const key = kvMatch[2];
-    const val = kvMatch[3].trim();
-    const keyIndent = kvMatch[1].length + kvMatch[2].length + 2; // indent + "key: "
-
-    // Multiline string (| or >)
-    if (val === "|" || val === ">") {
-      const multiline = [];
-      i++;
-      while (i < lines.length && (getIndent(lines[i]) > lineIndent || lines[i] === "")) {
-        if (lines[i] !== "") multiline.push(lines[i].replace(/^\s{2,}/, ""));
-        i++;
-      }
-      data[key] = multiline.join("\n").trim();
-      continue;
-    }
-
-    // Empty value — check next non-blank line for array or nested object
-    if (val === "") {
-      if (i + 1 >= lines.length) { data[key] = ""; i++; continue; }
-      // Skip blank lines to find the actual next content
-      let peek = i + 1;
-      while (peek < lines.length && lines[peek].trim() === "") peek++;
-      if (peek >= lines.length) { data[key] = ""; i = peek; continue; }
-      const nextIndent = getIndent(lines[peek]);
-      if (nextIndent <= lineIndent) { data[key] = ""; i++; continue; }
-
-      // Array (next non-blank line starts with "  - ")
-      if (lines[peek].trim().startsWith("- ")) {
-        const arr = [];
-        // Skip blank lines between key and first array item
-        i++;
-        while (i < lines.length && lines[i].trim() === "") i++;
-        while (i < lines.length) {
-          const arrLine = lines[i];
-          if (getIndent(arrLine) < nextIndent) break;
-          if (!arrLine.trim().startsWith("- ")) break;
-          const itemContent = arrLine.replace(/^\s*-\s*/, "");
-          const objMatch = itemContent.match(/^([\w][\w-]*):\s*(.*)/);
-
-          if (objMatch) {
-            // Array item is an object
-            const obj = {};
-            obj[objMatch[1]] = parseValue(objMatch[2]);
-            i++;
-            // Read remaining keys of this object at deeper indent
-            while (i < lines.length && getIndent(lines[i]) > getIndent(arrLine)) {
-              const nestedKv = lines[i].match(/^(\s*)([\w][\w-]*):\s*(.*)/);
-              if (nestedKv) {
-                const nk = nestedKv[2];
-                const nv = nestedKv[3].trim();
-                if (nv === "" && i + 1 < lines.length && getIndent(lines[i + 1]) > getIndent(lines[i])) {
-                  // Nested value within array item object
-                  const sub = parseBlock(lines, i + 1, getIndent(lines[i + 1]));
-                  obj[nk] = sub.data;
-                  i = sub.nextIdx;
-                } else {
-                  obj[nk] = parseValue(nv);
-                  i++;
-                }
-              } else { i++; }
-            }
-            arr.push(obj);
-          } else {
-            // Array item is a scalar
-            arr.push(parseValue(itemContent));
-            i++;
-          }
-        }
-        data[key] = arr;
-        continue;
-      }
-
-      // Nested object (next non-blank line is indented key-value)
-      // Skip blank lines before parsing the block
-      i++;
-      while (i < lines.length && lines[i].trim() === "") i++;
-      const sub = parseBlock(lines, i, nextIndent);
-      data[key] = sub.data;
-      i = sub.nextIdx;
-      continue;
-    }
-
-    // Inline empty array or object
-    if (val === "[]") { data[key] = []; i++; continue; }
-    if (val === "{}") { data[key] = {}; i++; continue; }
-
-    // Simple scalar value
-    data[key] = parseValue(val);
-    i++;
+  try {
+    return yaml.load(raw);
+  } catch (e) {
+    console.error("[generate-index] YAML parse error:", e.message);
+    return null;
   }
-
-  return { data, nextIdx: i };
 }
 
 // ============================================================

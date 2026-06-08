@@ -143,7 +143,7 @@ OAUTH_RESPONSE=$(curl -s -X POST "${API_URL}/user/applications/oauth2" \
   -H "Content-Type: application/json" \
   -d '{
     "name": "Decap CMS",
-    "redirect_uri": "http://165.22.250.66/admin/",
+    "redirect_uri": "https://siyang.tools/admin/",
     "confidential_client": false
   }' 2>/dev/null) || true
 

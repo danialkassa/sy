@@ -187,7 +187,7 @@
     var columns = Array.isArray(data.columns) ? data.columns : [];
     var socialLinks = Array.isArray(data.socialLinks) ? data.socialLinks : [];
     var badges = Array.isArray(data.trustBadges) ? data.trustBadges.map(function(b) {
-      return typeof b === 'string' ? b : (b.text || (b.badge ? b.badge.text : ''));
+      return typeof b === 'string' ? b : (b.text || '');
     }).filter(Boolean) : [];
 
     return el("section", {

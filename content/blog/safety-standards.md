@@ -1,10 +1,11 @@
 ---
-title: "Safety Standards Every Power Tool Buyer Should Know"
-date: 2024-12-05T10:00:00Z
-author: "Zhang Hui"
-category: "Industry Trends"
-image: "../images/istock/10010.jpg"
-excerpt: "Understanding international safety certifications and standards for power tools, including CE, UL, and GS marks."
+title: Safety Standards Every Power Tool Buyer Should Know
+slug: safety-standards
+date: "2024-12-05T10:00:00Z"
+category: Industry Trends
+excerpt: Understanding international safety certifications and standards for power tools, including CE, UL, and GS marks.
+image: ../images/istock/10010.jpg
+author: Zhang Hui
 readTime: 7
 ---
 

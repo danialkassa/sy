@@ -1,57 +1,63 @@
 ---
-name: "20V MAX Brushless Drill/Driver"
-sku: "SY-DD-20V-BL"
-category: "drills-drivers"
+name: 20V MAX Brushless Drill/Driver
+sku: SY-DD-20V-BL
+category: drills-drivers
 categoryLabel: "Drills & Drivers"
-brand: "Ningbo Siyang Pro"
-image: "/images/unsplach/drill-home/10053.jpeg"
+price: 0
+compareAtPrice: 0
+image: ../images/istock/10001.jpg
 images:
-
-  - "/images/unsplach/drill-home/10053-2.jpeg"
-
-  - "/images/unsplach/drill-home/10053-3.jpeg"
+  - ../images/istock/10001.jpg
+  - ../images/istock/10002.jpg
+  - ../images/istock/10003.jpg
+brand: Ningbo Siyang Pro
+tagline: "Professional-grade brushless drill driver with 2-speed gearbox and 1/2 inch metal chuck. Delivers 530 in-lbs of max torque for demanding industrial applications. The brushless motor provides up to 57% more runtime over brushed motors, while the all-metal transmission and gear case ensure maximum durability on the jobsite."
 description: "Professional-grade brushless drill driver with 2-speed gearbox and 1/2 inch metal chuck. Delivers 530 in-lbs of max torque for demanding industrial applications. The brushless motor provides up to 57% more runtime over brushed motors, while the all-metal transmission and gear case ensure maximum durability on the jobsite."
 userBenefits:
-
   - "Brushless motor delivers 57% more runtime and longer tool life than brushed alternatives"
-  - "530 in-lbs of torque handles demanding industrial fastening with ease"
-  - "2-speed all-metal gearbox provides optimal power for both high-torque and high-speed applications"
+  - 530 in-lbs of torque handles demanding industrial fastening with ease
+  - 2-speed all-metal gearbox provides optimal power for both high-torque and high-speed applications
   - "1/2\" metal ratcheting chuck ensures superior bit retention under heavy load"
-  - "LED work light with 20-second delay illuminates dark work areas after trigger release"
+  - LED work light with 20-second delay illuminates dark work areas after trigger release
   - "Compact 7-5/8\" head length fits into tight spaces where larger drills cannot"
 specs:
-  voltage: "20V MAX"
-  motorType: "Brushless"
-  maxTorque: "530 in-lbs (60 Nm)"
-  noLoadSpeedLow: "0-450 RPM"
-  noLoadSpeedHigh: "0-1500 RPM"
+  voltage: 20V MAX
+  motorType: Brushless
+  maxTorque: 530 in-lbs (60 Nm)
+  noLoadSpeedLow: 0-450 RPM
+  noLoadSpeedHigh: 0-1500 RPM
   chuckSize: "1/2\" (13mm)"
-  weightToolOnly: "3.5 lbs (1.6 kg)"
-  weightWithBattery: "4.2 lbs (1.9 kg)"
+  weightToolOnly: 3.5 lbs (1.6 kg)
+  weightWithBattery: 4.2 lbs (1.9 kg)
   overallLength: "7-5/8\" (194mm)"
-  soundPower: "94 dB(A)"
-  vibrationLevel: "2.5 m/s²"
-  batteryPlatform: "Siyang 20V MAX"
-  ledWorkLight: "Yes, with 20-second delay"
-  beltHook: "Yes, adjustable"
-  clutchSettings: "16+1"
+  soundPower: 94 dB(A)
+  vibrationLevel: 2.5 m/s²
+  batteryPlatform: Siyang 20V MAX
+  ledWorkLight: Yes, with 20-second delay
+  beltHook: Yes, adjustable
+  clutchSettings: 16+1
 compliance:
   ce: true
   rohs: true
   gs: false
   ul: false
   eec: true
+stock: 50
 inStock: true
-moq: "500 units"
-leadTime: "30-45 days"
-warranty: "1 year standard, 2 year brushless motor"
+rating: 4
+reviewCount: 0
+isFeatured: true
+isTopProduct: false
 featured: true
+moq: 500 units
+leadTime: 30-45 days
+warranty: 1 year standard, 2 year brushless motor
 relatedProducts:
-
-  - "SY-DD-RHT-18V"
-  - "SY-IT-DRV-20V"
-  - "SY-CK-6PC-20V"
+  - SY-DD-RHT-18V
+  - SY-IT-DRV-20V
+  - SY-CK-6PC-20V
 downloads:
-  specSheet: "/downloads/spec-sheets/SY-DD-20V-BL.pdf"
-  manual: "/downloads/manuals/SY-DD-20V-BL.pdf"
+  specSheet: /downloads/spec-sheets/SY-DD-20V-BL.pdf
+  manual: /downloads/manuals/SY-DD-20V-BL.pdf
+slug: SY-DD-20V-BL
 ---

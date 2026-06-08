@@ -5,21 +5,27 @@
       "title": "CEO & Founder",
       "photo": "",
       "bio": "Over 25 years of experience in power tool manufacturing and international trade.",
-      "order": 1
+      "order": 1,
+      "slug": "ceo",
+      "sku": "ceo"
     },
     {
       "name": "Dr. Liang Zhang",
       "title": "CTO",
       "photo": "",
       "bio": "PhD in Mechanical Engineering. Leads R&D with 15+ patents in brushless motor technology.",
-      "order": 2
+      "order": 2,
+      "slug": "cto",
+      "sku": "cto"
     },
     {
       "name": "Wang Jun",
       "title": "Sales Director",
       "photo": "",
       "bio": "15 years of B2B export experience across 40+ countries.",
-      "order": 3
+      "order": 3,
+      "slug": "sales-director",
+      "sku": "sales-director"
     }
   ]
 }

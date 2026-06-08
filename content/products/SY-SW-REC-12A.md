@@ -1,57 +1,63 @@
 ---
-name: "Reciprocating Saw 12A Variable Speed"
-sku: "SY-SW-REC-12A"
-category: "saws"
-categoryLabel: "Saws"
-brand: "Ningbo Siyang Pro"
-image: "/images/istock/10002.jpg"
+name: Reciprocating Saw 12A Variable Speed
+sku: SY-SW-REC-12A
+category: saws
+categoryLabel: Saws
+price: 0
+compareAtPrice: 0
+image: ../images/istock/10009.jpg
 images:
-
-  - "/images/istock/10002-2.jpg"
-
-  - "/images/istock/10002-3.jpg"
-description: "Powerful 12 Amp reciprocating saw with variable speed trigger and pivoting shoe for stability during cutting. Designed for demolition, remodeling, and heavy-duty cutting in wood, metal, and nail-embedded wood. The tool-free blade clamp allows quick blade changes."
+  - ../images/istock/10009.jpg
+  - ../images/istock/10009-2.jpg
+  - ../images/istock/10009-3.jpg
+brand: Ningbo Siyang Pro
+tagline: Powerful 12 Amp reciprocating saw with variable speed trigger and pivoting shoe for stability during cutting. Designed for demolition, remodeling, and heavy-duty cutting in wood, metal, and nail-embedded wood. The tool-free blade clamp allows quick blade changes.
+description: Powerful 12 Amp reciprocating saw with variable speed trigger and pivoting shoe for stability during cutting. Designed for demolition, remodeling, and heavy-duty cutting in wood, metal, and nail-embedded wood. The tool-free blade clamp allows quick blade changes.
 userBenefits:
-
-  - "12 Amp motor powers through nail-embedded wood and thick metal pipe without bogging down"
-  - "Variable speed trigger lets you start cuts slowly for precision and ramp up for aggressive demolition"
-  - "Pivoting shoe provides stable contact with the workpiece for safer, more controlled cutting"
-  - "Tool-free blade clamp swaps blades in 5 seconds, keeping you productive during demolition work"
+  - 12 Amp motor powers through nail-embedded wood and thick metal pipe without bogging down
+  - Variable speed trigger lets you start cuts slowly for precision and ramp up for aggressive demolition
+  - Pivoting shoe provides stable contact with the workpiece for safer, more controlled cutting
+  - Tool-free blade clamp swaps blades in 5 seconds, keeping you productive during demolition work
   - "1-1/8\" stroke length removes more material per stroke for faster cutting in thick materials"
 specs:
-  voltage: "Corded"
-  motorType: "12 Amp"
-  noLoadSpeed: "0-3000 SPM"
+  voltage: Corded
+  motorType: 12 Amp
+  noLoadSpeed: 0-3000 SPM
   strokeLength: "1-1/8\" (28mm)"
   maxCuttingDepth90: "10\" (254mm) wood"
   maxCuttingDepth45: "8\" (203mm) wood"
-  bevelCapacity: "N/A"
-  weightToolOnly: "8.2 lbs (3.7 kg)"
+  bevelCapacity: N/A
+  weightToolOnly: 8.2 lbs (3.7 kg)
   overallLength: "18-1/2\" (470mm)"
-  soundPower: "101 dB(A)"
-  vibrationLevel: "5.2 m/s²"
-  cordLength: "6.5 ft (2m)"
-  bladeIncluded: "Yes, 2 blades (wood and metal)"
-  shoeMaterial: "Pivoting steel"
-  laserGuide: "No"
-  bladeChange: "Tool-free lever clamp"
-  variableSpeed: "Yes, trigger-controlled"
+  soundPower: 101 dB(A)
+  vibrationLevel: 5.2 m/s²
+  cordLength: 6.5 ft (2m)
+  bladeIncluded: Yes, 2 blades (wood and metal)
+  shoeMaterial: Pivoting steel
+  laserGuide: No
+  bladeChange: Tool-free lever clamp
+  variableSpeed: Yes, trigger-controlled
 compliance:
   ce: true
   rohs: true
   gs: true
   ul: false
   eec: true
+stock: 50
 inStock: true
-moq: "300 units"
-leadTime: "30-45 days"
-warranty: "1 year standard"
+rating: 4
+reviewCount: 0
+isFeatured: false
+isTopProduct: false
 featured: false
+moq: 300 units
+leadTime: 30-45 days
+warranty: 1 year standard
 relatedProducts:
-
-  - "SY-SW-JIG-VAR"
-  - "SY-SW-OSC-MUL"
+  - SY-SW-JIG-VAR
+  - SY-SW-OSC-MUL
 downloads:
-  specSheet: "/downloads/spec-sheets/SY-SW-REC-12A.pdf"
-  manual: "/downloads/manuals/SY-SW-REC-12A.pdf"
+  specSheet: /downloads/spec-sheets/SY-SW-REC-12A.pdf
+  manual: /downloads/manuals/SY-SW-REC-12A.pdf
+slug: SY-SW-REC-12A
 ---

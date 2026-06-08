@@ -169,11 +169,4 @@ document.addEventListener('DOMContentLoaded', function () {
     ScrollTrigger.refresh();
   });
 
-  console.log(
-    '%c[GSAP] %cEngine ready — %c' + (standaloneEls.length) + ' singles, ' +
-    grids.length + ' grids, ' + countUpEls.length + ' count-ups',
-    'color: #facc15; font-weight: bold;',
-    'color: inherit;',
-    'color: #a3a3a3;'
-  );
 });

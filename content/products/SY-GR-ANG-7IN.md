@@ -1,55 +1,61 @@
 ---
 name: "7\" Large Angle Grinder 15A"
-sku: "SY-GR-ANG-7IN"
-category: "grinders"
-categoryLabel: "Grinders"
-brand: "Ningbo Siyang Pro"
-image: "/images/istock/10023.jpg"
+sku: SY-GR-ANG-7IN
+category: grinders
+categoryLabel: Grinders
+price: 0
+compareAtPrice: 0
+image: ../images/istock/10014.jpg
 images:
-
-  - "/images/istock/10023-2.jpg"
-
-  - "/images/istock/10023-3.jpg"
-description: "Heavy-duty 7 inch angle grinder with 15 Amp motor and electronic speed control for consistent performance under load. Delivers 8500 RPM for aggressive material removal in metal fabrication and construction applications. Features overload protection and soft start."
+  - ../images/istock/10014.jpg
+  - ../images/istock/10014-2.jpg
+  - ../images/istock/10014-3.jpg
+brand: Ningbo Siyang Pro
+tagline: Heavy-duty 7 inch angle grinder with 15 Amp motor and electronic speed control for consistent performance under load. Delivers 8500 RPM for aggressive material removal in metal fabrication and construction applications. Features overload protection and soft start.
+description: Heavy-duty 7 inch angle grinder with 15 Amp motor and electronic speed control for consistent performance under load. Delivers 8500 RPM for aggressive material removal in metal fabrication and construction applications. Features overload protection and soft start.
 userBenefits:
-
-  - "15 Amp motor with electronic speed control maintains consistent RPM under heavy load for uniform results"
-  - "Soft start reduces torque kickback at power-on, protecting both operator and workpiece"
-  - "Overload protection shuts down the motor before damage occurs, extending tool service life"
-  - "Tool-free adjustable guard allows rapid repositioning without a wrench for maximum productivity"
-  - "Vibration-reducing side handle minimizes hand-arm fatigue during extended grinding sessions"
+  - 15 Amp motor with electronic speed control maintains consistent RPM under heavy load for uniform results
+  - Soft start reduces torque kickback at power-on, protecting both operator and workpiece
+  - Overload protection shuts down the motor before damage occurs, extending tool service life
+  - Tool-free adjustable guard allows rapid repositioning without a wrench for maximum productivity
+  - Vibration-reducing side handle minimizes hand-arm fatigue during extended grinding sessions
 specs:
-  voltage: "120V AC, 60Hz"
-  motorType: "15 Amp"
-  noLoadSpeed: "8,500 RPM"
+  voltage: 120V AC, 60Hz
+  motorType: 15 Amp
+  noLoadSpeed: 8,500 RPM
   discDiameter: "7\""
   arborSize: "7/8\""
   spindleThread: "5/8\"-11"
-  switchType: "Slide with lock-on"
-  weightToolOnly: "6.2 lbs (2.8 kg)"
+  switchType: Slide with lock-on
+  weightToolOnly: 6.2 lbs (2.8 kg)
   overallLength: "15.2\""
-  soundPower: "102 dB(A)"
-  vibrationLevel: "6.8 m/s²"
-  cordLength: "8 ft (2.4 m)"
-  wheelGuard: "Adjustable with tool-free release"
-  auxiliaryHandle: "Vibration-reducing side handle"
-  spindleLock: "Yes"
+  soundPower: 102 dB(A)
+  vibrationLevel: 6.8 m/s²
+  cordLength: 8 ft (2.4 m)
+  wheelGuard: Adjustable with tool-free release
+  auxiliaryHandle: Vibration-reducing side handle
+  spindleLock: Yes
 compliance:
   ce: true
   rohs: true
   gs: false
   ul: false
   eec: true
+stock: 50
 inStock: true
-moq: "300 units"
-leadTime: "30-45 days"
-warranty: "1 year standard"
+rating: 4
+reviewCount: 0
+isFeatured: false
+isTopProduct: false
 featured: false
+moq: 300 units
+leadTime: 30-45 days
+warranty: 1 year standard
 relatedProducts:
-
-  - "SY-GR-ANG-4.5"
-  - "SY-GR-POL-6IN"
+  - SY-GR-ANG-4.5
+  - SY-GR-POL-6IN
 downloads:
-  specSheet: "/downloads/spec-sheets/SY-GR-ANG-7IN.pdf"
-  manual: "/downloads/manuals/SY-GR-ANG-7IN.pdf"
+  specSheet: /downloads/spec-sheets/SY-GR-ANG-7IN.pdf
+  manual: /downloads/manuals/SY-GR-ANG-7IN.pdf
+slug: SY-GR-ANG-7IN
 ---

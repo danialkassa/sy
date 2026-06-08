@@ -15,7 +15,7 @@ backend:
     uploadMedia: "Upload image: {{path}}"
     deleteMedia: "Remove image: {{path}}"
 
-publish_mode: simple
+publish_mode: editorial_workflow
 
 logo_url: /sy-logo-dark.svg
 site_url: https://siyang.tools
@@ -38,6 +38,34 @@ media_library:
   choose_url: false
 
 collections:
+  # ============================================================
+  # 0. EDITOR'S GUIDE (Welcome)
+  # ============================================================
+  - name: "welcome"
+    label: "Editor's Guide"
+    folder: "admin"
+    create: false
+    delete: false
+    identifier_field: title
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+      - label: "Content"
+        name: "body"
+        widget: "markdown"
+    files:
+      - label: "Editor's Guide"
+        name: "welcome"
+        file: "admin/welcome.md"
+        fields:
+          - label: "Title"
+            name: "title"
+            widget: "string"
+          - label: "Guide Content"
+            name: "body"
+            widget: "markdown"
+
   # ============================================================
   # 1. PRODUCTS
   # ============================================================
@@ -93,14 +121,17 @@ collections:
       - label: "Product Name"
         name: "name"
         widget: "string"
-        hint: "Full product name as displayed to buyers."
+        required: true
+        hint: "=== BASIC INFO === Full product name as shown on the website. Example: 20V Brushless Drill Driver"
       - label: "Product Code (SKU)"
         name: "sku"
         widget: "string"
-        hint: "Unique identifier. Format: SY-TT-VV-XXX (e.g., SY-DD-20V-BL). Becomes the filename."
+        required: true
+        hint: "Unique identifier for this product. Format: SY-TT-VV-XXX (e.g., SY-DD-20V-BL). This becomes the filename — no spaces allowed."
       - label: "Category"
         name: "category"
         widget: "select"
+        required: true
         options:
           - label: "Drills & Drivers"
             value: "drills-drivers"
@@ -120,46 +151,73 @@ collections:
         widget: "select"
         options: ["Ningbo Siyang", "Ningbo Siyang Pro", "Ningbo Siyang Industrial", "Siyang Trade"]
         default: "Ningbo Siyang"
-        hint: "Which brand line does this product belong to?"
+        hint: "Which brand line does this product belong to? This affects the logo shown on the product page."
       - label: "Description"
         name: "description"
         widget: "text"
-        hint: "2-3 sentence description highlighting key features and applications."
+        required: true
+        hint: "=== DESCRIPTION === 2-3 sentence description highlighting key features and applications. This appears on the product page and in search results."
       - label: "Tagline"
         name: "tagline"
         widget: "string"
         required: false
-        hint: "Short one-liner for product cards. Falls back to description if empty."
+        hint: "Short one-liner for product cards. Falls back to description if empty. Example: Power Meets Precision"
       - label: "User Benefits"
         name: "userBenefits"
         widget: "list"
-        field: { label: "Benefit", name: "benefit", widget: "string" }
+        fields:
+          - {label: "Benefit", name: "benefit", widget: "string", hint: "One bullet point shown on product cards. Example: Brushless motor for longer runtime"}
         required: false
-        hint: "3-5 bullet points shown on product cards."
+        hint: "3-5 bullet points shown on product cards. These help buyers quickly understand key advantages."
+      # ---- Pricing & Trade ----
+      - label: "Price (USD)"
+        name: "price"
+        widget: "number"
+        value_type: "int"
+        default: 0
+        required: false
+        hint: "=== PRICING === Unit price in USD. Enter 0 if price varies — the website will show 'Contact for Quote' instead."
+      - label: "Compare At Price (USD)"
+        name: "compareAtPrice"
+        widget: "number"
+        value_type: "int"
+        default: 0
+        required: false
+        hint: "Original/reference price for showing a discount. Enter 0 to hide the comparison. Example: If you sell at $89 and want to show was $120, enter 120 here."
+      - label: "Category Label"
+        name: "categoryLabel"
+        widget: "string"
+        required: false
+        hint: "Display label for the category shown on the product page. Example: 'Combo Kits', 'Drills & Drivers'. Leave blank to use the category name automatically."
       # ---- Images ----
+      # NOTE: Existing products reference /images/istock/ for stock placeholders.
+      # New product photos uploaded via CMS go to /images/products/.
+      # Both paths are valid — migrate istock images to /images/products/ when real photos are available.
       - label: "Main Product Photo"
         name: "image"
         widget: "image"
+        required: true
         media_folder: "/images/products"
         public_folder: "/images/products"
         choose_url: false
-        hint: "Primary image. 800x800px minimum, white/neutral background."
-      - {label: "3D Viewer Scene URL", name: "splineSceneUrl", widget: "string", required: false, hint: "Spline 3D scene URL for interactive viewer."}
-      - {label: "AR Model URL (USDZ/GLB)", name: "arModelUrl", widget: "string", required: false, hint: "USDZ/GLB file for AR Quick Look."}
-      - {label: "3D Viewer Auto-Spin", name: "autoSpin", widget: "boolean", default: true, required: false, hint: "Auto-rotate 3D model on load."}
+        hint: "=== IMAGES & MEDIA === Primary product photo. Use 800x800px minimum with a white or neutral background. This is the main image buyers see."
+      - {label: "3D Viewer Scene URL", name: "splineSceneUrl", widget: "string", required: false, hint: "Link to a Spline 3D scene for the interactive viewer. Leave blank if no 3D model is available."}
+      - {label: "AR Model URL (USDZ/GLB)", name: "arModelUrl", widget: "string", required: false, hint: "Link to a USDZ or GLB file for AR Quick Look on mobile devices. Leave blank if not available."}
+      - {label: "3D Viewer Auto-Spin", name: "autoSpin", widget: "boolean", default: true, required: false, hint: "Automatically rotate the 3D model when the page loads. Turn off for static display."}
       - label: "Additional Images"
         name: "images"
         widget: "list"
-        field: {label: "Image", name: "img", widget: "image", media_folder: "/images/products", public_folder: "/images/products", choose_url: false}
+        fields:
+          - {label: "Image", name: "img", widget: "image", media_folder: "/images/products", public_folder: "/images/products", choose_url: false}
         required: false
-        hint: "2-4 photos from different angles."
+        hint: "Add 2-4 photos from different angles (side, top, in-use). These appear in the product gallery."
       # ---- Specifications ----
       - label: "Specifications"
         name: "specs"
         widget: "object"
         required: false
         collapsed: true
-        hint: "Technical specs. Only fill in relevant fields."
+        hint: "=== SPECIFICATIONS === Technical specs for this product. Only fill in the fields that apply — leave irrelevant ones blank."
         fields:
           - {label: "Voltage", name: "voltage", widget: "string", required: false, hint: "e.g., 20V MAX, 220V-240V"}
           - {label: "Motor Type", name: "motorType", widget: "select", required: false, options: ["", "Brushless", "Brushed", "Universal"], hint: "Brushless is more efficient and durable."}
@@ -191,7 +249,7 @@ collections:
         name: "compliance"
         widget: "string"
         default: "CE, ROHS, EEC"
-        hint: "Comma-separated certifications. e.g., CE, ROHS, GS, EEC"
+        hint: "=== COMPLIANCE & CERTIFICATIONS === Comma-separated list of certifications this product holds. Example: CE, ROHS, GS, EEC"
       # ---- Trade Details ----
       - label: "Related Products"
         name: "relatedProducts"
@@ -202,12 +260,13 @@ collections:
         display_fields: ["name", "sku"]
         multiple: true
         required: false
-        hint: "2-3 related products for cross-selling."
+        hint: "=== RELATED PRODUCTS === Select 2-3 similar or complementary products to show as cross-sell suggestions on this product's page."
       - label: "Downloads"
         name: "downloads"
         widget: "object"
         required: false
         collapsed: true
+        hint: "=== DOWNLOADS === Upload product documentation that buyers can download, such as spec sheets and user manuals."
         fields:
           - {label: "Spec Sheet PDF", name: "specSheet", widget: "file", media_folder: "/assets/downloads", public_folder: "/assets/downloads", choose_url: false, required: false}
           - {label: "Manual PDF", name: "manual", widget: "file", media_folder: "/assets/downloads", public_folder: "/assets/downloads", choose_url: false, required: false}
@@ -215,42 +274,79 @@ collections:
         name: "moq"
         widget: "string"
         default: "500 units"
-        hint: "e.g., 500 units"
+        hint: "=== TRADE DETAILS === Smallest number of units a buyer can order. Example: 500 units"
       - label: "Lead Time"
         name: "leadTime"
         widget: "string"
         default: "30-45 days"
-        hint: "Production lead time after order confirmation."
+        hint: "How long production takes after order confirmation. Example: 30-45 days"
       - label: "In Stock?"
         name: "inStock"
         widget: "boolean"
         default: true
+        hint: "Toggle to show an 'In Stock' or 'Out of Stock' badge on the product page."
+      - label: "Stock Quantity"
+        name: "stock"
+        widget: "number"
+        value_type: "int"
+        default: 0
+        required: false
+        hint: "Current inventory count. Enter 0 if you want buyers to contact you for availability."
+      - label: "Rating (1-5)"
+        name: "rating"
+        widget: "number"
+        value_type: "int"
+        min: 1
+        max: 5
+        default: 4
+        required: false
+        hint: "=== MARKETING & DISPLAY === Average customer rating from 1 to 5 stars. Default is 4."
+      - label: "Review Count"
+        name: "reviewCount"
+        widget: "number"
+        value_type: "int"
+        default: 0
+        required: false
+        hint: "Total number of customer reviews displayed. Enter 0 to hide reviews."
       - label: "Featured Product?"
         name: "featured"
         widget: "boolean"
         default: false
-        hint: "Show as featured on homepage."
+        hint: "Show this product in the 'Featured Tools' section on the homepage."
+      - label: "Is Featured (alias)"
+        name: "isFeatured"
+        widget: "boolean"
+        default: false
+        required: false
+        hint: "Internal system flag. Keep this in sync with 'Featured Product?' above."
+      - label: "Is Top Product?"
+        name: "isTopProduct"
+        widget: "boolean"
+        default: false
+        required: false
+        hint: "Show this product in the 'Top Products' section on the homepage."
       - label: "Warranty"
         name: "warranty"
         widget: "string"
         default: "1 year standard, 2 year brushless motor"
+        hint: "=== WARRANTY & LOGISTICS === Warranty terms for this product. Example: 1 year standard, 2 year brushless motor"
       - label: "Warehouse Location"
         name: "warehouseLocation"
         widget: "string"
         required: false
-        hint: "Internal use only. Not displayed on website."
+        hint: "Internal use only — not shown on the website. Used for inventory tracking."
       - label: "Compare Fields"
         name: "compareFields"
         widget: "object"
         required: false
         collapsed: true
-        hint: "Values shown in product comparison table. Leave blank to hide a row."
+        hint: "=== COMPARE FIELDS === Values shown when buyers compare products side-by-side. Leave a field blank to hide that row for this product."
         fields:
-          - {label: "Power (W)", name: "power", widget: "string", required: false}
-          - {label: "Voltage", name: "voltage", widget: "string", required: false}
-          - {label: "RPM", name: "noLoadSpeed", widget: "string", required: false}
-          - {label: "Disc / Blade Size", name: "discSize", widget: "string", required: false}
-          - {label: "Weight", name: "weightToolOnly", widget: "string", required: false}
+          - {label: "Power (W)", name: "power", widget: "string", required: false, hint: "e.g., 800W, 1200W"}
+          - {label: "Voltage", name: "voltage", widget: "string", required: false, hint: "e.g., 20V MAX, 220V"}
+          - {label: "RPM", name: "noLoadSpeed", widget: "string", required: false, hint: "e.g., 0-1500 RPM, 11000 RPM"}
+          - {label: "Disc / Blade Size", name: "discSize", widget: "string", required: false, hint: 'e.g., 7-1/4", 5"'}
+          - {label: "Weight", name: "weightToolOnly", widget: "string", required: false, hint: "e.g., 3.5 lbs (1.6 kg)"}
           - {label: "Price Range", name: "priceRange", widget: "string", required: false, hint: "e.g., $45-$65 USD"}
           - {label: "Certifications", name: "certifications", widget: "string", required: false, hint: "e.g., CE, RoHS, ISO 9001"}
           - {label: "MOQ", name: "moq", widget: "string", required: false, hint: "e.g., 50 units"}
@@ -1011,10 +1107,9 @@ collections:
             name: "stats"
             widget: "list"
             hint: "Big numbers shown in the stats section. Add or remove items."
-            field: {label: "Stat", name: "stat", widget: "object", fields: [
-              {label: "Value", name: "value", widget: "string", hint: "e.g., 500K+, 45+, 99%"},
-              {label: "Label", name: "label", widget: "string", hint: "e.g., Customers Worldwide"}
-            ]}
+            fields:
+              - {label: "Value", name: "value", widget: "string", hint: "e.g., 500K+, 45+, 99%"}
+              - {label: "Label", name: "label", widget: "string", hint: "e.g., Customers Worldwide"}
           # ---- Section Toggles ----
           - label: "Show Testimonials?"
             name: "showTestimonials"
@@ -1050,28 +1145,25 @@ collections:
             name: "trustBadges"
             widget: "list"
             hint: "Badges shown below the hero section."
-            field: {label: "Badge", name: "badge", widget: "object", fields: [
-              {label: "Title", name: "title", widget: "string"},
-              {label: "Description", name: "description", widget: "string"}
-            ]}
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "string"}
           # ---- Achievements (list) ----
           - label: "Achievements"
             name: "achievements"
             widget: "list"
             hint: "Brand showcase achievement cards."
-            field: {label: "Achievement", name: "item", widget: "object", fields: [
-              {label: "Title", name: "title", widget: "string"},
-              {label: "Description", name: "description", widget: "string"}
-            ]}
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "string"}
           # ---- Certifications (list) ----
           - label: "Certifications"
             name: "certifications"
             widget: "list"
             hint: "Certification badges shown on homepage."
-            field: {label: "Certification", name: "cert", widget: "object", fields: [
-              {label: "Title", name: "title", widget: "string"},
-              {label: "Description", name: "description", widget: "string"}
-            ]}
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "string"}
           # ---- Brand CTA ----
           - {label: "Brand CTA Title", name: "brandCtaTitle", widget: "string", required: false, default: "Quality You Can Trust"}
           - {label: "Brand CTA Description", name: "brandCtaDescription", widget: "text", required: false, default: "Every Ningbo Siyang tool undergoes rigorous quality testing and comes with our industry-leading warranty and support."}
@@ -1080,28 +1172,25 @@ collections:
             name: "trustIndicators"
             widget: "list"
             hint: "Trust indicator cards."
-            field: {label: "Indicator", name: "indicator", widget: "object", fields: [
-              {label: "Title", name: "title", widget: "string"},
-              {label: "Description", name: "description", widget: "string"}
-            ]}
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "string"}
           # ---- Use Cases (list) ----
           - label: "Use Cases"
             name: "useCases"
             widget: "list"
             hint: "Industry/application use cases."
-            field: {label: "Use Case", name: "useCase", widget: "object", fields: [
-              {label: "Title", name: "title", widget: "string"},
-              {label: "Description", name: "description", widget: "string"}
-            ]}
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "string"}
           # ---- B2B Benefits (list) ----
           - label: "B2B Benefits"
             name: "b2bBenefits"
             widget: "list"
             hint: "B2B bulk ordering benefits."
-            field: {label: "Benefit", name: "benefit", widget: "object", fields: [
-              {label: "Title", name: "title", widget: "string"},
-              {label: "Description", name: "description", widget: "string"}
-            ]}
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "string"}
           - {label: "B2B Heading", name: "b2bHeading", widget: "string", required: false, default: "Build Your Business With Us"}
           - {label: "B2B Description", name: "b2bDescription", widget: "text", required: false, default: "Ningbo Siyang offers comprehensive bulk ordering solutions designed for contractors, distributors, and business partners. Get special pricing, dedicated support, and streamlined procurement."}
           # ---- FAQ Section ----
@@ -1315,7 +1404,7 @@ collections:
           - label: "Copyright Text"
             name: "copyright"
             widget: "string"
-            default: "\u00a9 2025 Ningbo Siyang Power Tools Co., Ltd."
+            default: "\u00a9 2026 Ningbo Siyang Power Tools Co., Ltd."
           - label: "Trust Badges"
             name: "trustBadges"
             widget: "list"

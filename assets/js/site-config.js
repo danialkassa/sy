@@ -39,6 +39,35 @@ var SITE_CONFIG = {
   }
 };
 
+// Override SITE_CONFIG with values from CMS company settings if available
+// The CMS loader (cms-loader.js) fetches content/settings/company.md and
+// stores it at window.__CMS_DATA.settings.company. This function merges
+// those CMS values into SITE_CONFIG, with the hardcoded values above as fallbacks.
+function mergeCmsSettings() {
+  var cms = window.__CMS_DATA;
+  if (!cms || !cms.settings || !cms.settings.company) return;
+
+  var c = cms.settings.company;
+  if (c.companyName) SITE_CONFIG.companyName = c.companyName;
+  if (c.email) SITE_CONFIG.email = c.email;
+  if (c.phone) {
+    SITE_CONFIG.phone = c.phone.replace(/ /g, '-');
+    SITE_CONFIG.phoneDisplay = c.phone;
+  }
+  if (c.address) SITE_CONFIG.address = c.address;
+  if (c.whatsapp) {
+    SITE_CONFIG.whatsapp = (c.whatsapp.startsWith('+') ? '' : '+') + c.whatsapp;
+    SITE_CONFIG.socialLinks.whatsapp = SITE_CONFIG.whatsapp;
+  }
+  if (c.wechatQR) {
+    SITE_CONFIG.wechatQR = c.wechatQR;
+    SITE_CONFIG.socialLinks.wechat = c.wechatQR;
+  }
+  if (c.businessHours) SITE_CONFIG.businessHours = c.businessHours;
+  if (c.linkedin) SITE_CONFIG.socialLinks.linkedin = c.linkedin;
+  if (c.youtube) SITE_CONFIG.socialLinks.youtube = c.youtube;
+}
+
 function applySiteConfig() {
   if (typeof SITE_CONFIG === 'undefined') return;
   document.querySelectorAll('[data-site-phone]').forEach(function(el) {
