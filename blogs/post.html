@@ -541,16 +541,8 @@ document.addEventListener('DOMContentLoaded', function () {
   var basePath = '../';
   var postPath = basePath + 'content/blog/' + slug + '.md';
 
-  fetch(postPath).then(function (res) {
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    return res.text();
-  }).then(function (text) {
-    var parsed = CMSLoader.parseFrontmatter(text);
-    var post = parsed.data;
-    var bodyHtml = CMSLoader.parseMarkdown(parsed.body);
-
+  function renderPost(post, bodyHtml) {
     var color = getCategoryColor(post.category);
-
     var heroHtml = '';
     if (post.image) {
       heroHtml = '<div class="max-w-4xl mx-auto">' +
@@ -558,15 +550,12 @@ document.addEventListener('DOMContentLoaded', function () {
         '<img src="' + post.image + '" alt="' + escapeHtml(post.title || '') + '" class="w-full h-full object-cover"/>' +
         '</div></div>';
     }
-
     var metaHtml = '<div class="flex flex-wrap items-center gap-3 mb-4">' +
       '<span class="px-3 py-1 text-sm font-medium rounded-full ' + color.bg + ' ' + color.text + '">' + escapeHtml(post.category || '') + '</span>' +
       '<span class="text-sm text-zinc-500">' + formatDate(post.date) + '</span>' +
       '<span class="text-sm text-zinc-500">' + (post.readTime || '5') + ' min read</span>' +
       '</div>';
-
     var titleHtml = '<h1 class="font-oswald text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">' + escapeHtml(post.title || '') + '</h1>';
-
     var authorHtml = '';
     if (post.author) {
       var initials = post.author.split(' ').map(function (w) { return w[0]; }).join('').slice(0, 2).toUpperCase();
@@ -578,7 +567,6 @@ document.addEventListener('DOMContentLoaded', function () {
         '</div>' +
         '</div>';
     }
-
     var ctaHtml = '';
     if (post.category === 'Product Guides' || post.category === 'B2B Insights' || post.category === 'Technical Guides') {
       ctaHtml = '<div class="bg-zinc-900 border border-zinc-800 rounded-xl p-6 mt-10">' +
@@ -587,7 +575,6 @@ document.addEventListener('DOMContentLoaded', function () {
         '<a href="../contact.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-bold text-sm transition-colors">Contact Sales</a>' +
         '</div>';
     }
-
     if (dynamic) {
       dynamic.innerHTML = heroHtml +
         '<div class="max-w-3xl mx-auto">' +
@@ -596,17 +583,40 @@ document.addEventListener('DOMContentLoaded', function () {
         ctaHtml +
         '</div>';
     }
-
     if (post.title) {
       document.title = post.title + ' – Ningbo Siyang';
     }
     if (breadcrumb && post.title) {
       breadcrumb.textContent = post.title.length > 40 ? post.title.substring(0, 40) + '...' : post.title;
     }
-
     var metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc && post.excerpt) metaDesc.setAttribute('content', post.excerpt);
+  }
 
+  // Try embedded data first
+  var embeddedScript = document.getElementById('cms-blog-data');
+  if (embeddedScript) {
+    try {
+      var embeddedData = JSON.parse(embeddedScript.textContent);
+      if (embeddedData && embeddedData.posts) {
+        var embeddedPost = embeddedData.posts.find(function(post) { return post.slug === slug; });
+        if (embeddedPost) {
+          var bodyHtml = CMSLoader.parseMarkdown(embeddedPost.body || '');
+          renderPost(embeddedPost, bodyHtml);
+          return;
+        }
+      }
+    } catch (e) {}
+  }
+
+  fetch(postPath).then(function (res) {
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    return res.text();
+  }).then(function (text) {
+    var parsed = CMSLoader.parseFrontmatter(text);
+    var post = parsed.data;
+    var bodyHtml = CMSLoader.parseMarkdown(parsed.body);
+    renderPost(post, bodyHtml);
   }).catch(function () {
     showNotFound();
   });

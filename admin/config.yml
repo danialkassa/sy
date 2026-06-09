@@ -70,7 +70,7 @@ collections:
   # 1. PRODUCTS
   # ============================================================
   - name: "products"
-    label: "Products"
+    label: "Products (Full Details)"
     label_singular: "Product"
     folder: "content/products"
     create: true
@@ -350,6 +350,155 @@ collections:
           - {label: "Price Range", name: "priceRange", widget: "string", required: false, hint: "e.g., $45-$65 USD"}
           - {label: "Certifications", name: "certifications", widget: "string", required: false, hint: "e.g., CE, RoHS, ISO 9001"}
           - {label: "MOQ", name: "moq", widget: "string", required: false, hint: "e.g., 50 units"}
+
+  # ============================================================
+  # 1b. PRODUCTS — QUICK EDIT
+  # ============================================================
+  - name: "products_quick"
+    label: "Products (Quick Edit)"
+    label_singular: "Product"
+    folder: "content/products"
+    create: true
+    delete: true
+    slug: "{{sku}}"
+    extension: "md"
+    format: "yaml-frontmatter"
+    summary: "{{sku}} · {{category}}"
+    description: "Quick editing view for essential product info. ⚠️ For full specs, compliance, downloads, and advanced fields, use 'Products (Full Details)'."
+    identifier_field: "name"
+    sortable_fields: ["name", "sku", "category", "brand"]
+    view_filters:
+      - label: "In Stock"
+        field: "inStock"
+        pattern: true
+      - label: "Out of Stock"
+        field: "inStock"
+        pattern: false
+      - label: "Featured"
+        field: "featured"
+        pattern: true
+      - label: "Drills & Drivers"
+        field: "category"
+        pattern: "drills-drivers"
+      - label: "Saws"
+        field: "category"
+        pattern: "saws"
+      - label: "Grinders"
+        field: "category"
+        pattern: "grinders"
+      - label: "Sanders"
+        field: "category"
+        pattern: "sanders"
+      - label: "Impact Tools"
+        field: "category"
+        pattern: "impact-tools"
+      - label: "Combo Kits"
+        field: "category"
+        pattern: "combo-kits"
+    view_groups:
+      - label: "By Category"
+        field: "category"
+      - label: "By Brand"
+        field: "brand"
+      - label: "By Stock Status"
+        field: "inStock"
+    fields:
+      - label: "Product Name"
+        name: "name"
+        widget: "string"
+        required: true
+        hint: "Full product name as shown on the website."
+      - label: "Product Code (SKU)"
+        name: "sku"
+        widget: "string"
+        required: true
+        hint: "Unique identifier. Format: SY-TT-VV-XXX. No spaces."
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        required: true
+        options:
+          - label: "Drills & Drivers"
+            value: "drills-drivers"
+          - label: "Saws"
+            value: "saws"
+          - label: "Grinders"
+            value: "grinders"
+          - label: "Sanders"
+            value: "sanders"
+          - label: "Impact Tools"
+            value: "impact-tools"
+          - label: "Combo Kits"
+            value: "combo-kits"
+      - label: "Brand"
+        name: "brand"
+        widget: "select"
+        options: ["Ningbo Siyang", "Ningbo Siyang Pro", "Ningbo Siyang Industrial", "Siyang Trade"]
+        default: "Ningbo Siyang"
+      - label: "Description"
+        name: "description"
+        widget: "text"
+        required: true
+        hint: "2-3 sentence description for search results and product page."
+      - label: "Tagline"
+        name: "tagline"
+        widget: "string"
+        required: false
+        hint: "Short one-liner for product cards. Example: Power Meets Precision"
+      - label: "Price (USD)"
+        name: "price"
+        widget: "number"
+        value_type: "int"
+        default: 0
+        required: false
+        hint: "Unit price in USD. Enter 0 to show 'Contact for Quote'."
+      - label: "Compare At Price (USD)"
+        name: "compareAtPrice"
+        widget: "number"
+        value_type: "int"
+        default: 0
+        required: false
+        hint: "Original price for discount display. Enter 0 to hide."
+      - label: "Main Product Photo"
+        name: "image"
+        widget: "image"
+        required: true
+        media_folder: "/images/products"
+        public_folder: "/images/products"
+        choose_url: false
+      - label: "In Stock?"
+        name: "inStock"
+        widget: "boolean"
+        default: true
+      - label: "Stock Quantity"
+        name: "stock"
+        widget: "number"
+        value_type: "int"
+        default: 0
+        required: false
+      - label: "Featured Product?"
+        name: "featured"
+        widget: "boolean"
+        default: false
+        hint: "Show in 'Featured Tools' on homepage."
+      - label: "Is Top Product?"
+        name: "isTopProduct"
+        widget: "boolean"
+        default: false
+        hint: "Show in 'Top Products' on homepage."
+      - label: "Minimum Order Quantity"
+        name: "moq"
+        widget: "string"
+        default: "500 units"
+      - label: "Lead Time"
+        name: "leadTime"
+        widget: "string"
+        default: "30-45 days"
+      - label: "Category Label"
+        name: "categoryLabel"
+        widget: "string"
+        required: false
+        hint: "Display label for category. Leave blank to auto-generate."
 
   # ============================================================
   # 2. BLOG POSTS
@@ -1078,13 +1227,10 @@ collections:
     delete: false
     description: "Edit key website pages."
     files:
-      - label: "Homepage"
-        name: "homepage"
-        file: "content/pages/homepage.md"
+      - label: "Homepage — Hero"
+        name: "homepage-hero"
+        file: "content/pages/homepage-hero.md"
         fields:
-          - {label: "SEO Page Title", name: "pageTitle", widget: "string", required: false}
-          - {label: "SEO Meta Description", name: "description", widget: "text", required: false}
-          # ---- Hero ----
           - label: "Main Headline"
             name: "heroTitle"
             widget: "string"
@@ -1102,7 +1248,6 @@ collections:
             name: "heroCtaLink"
             widget: "string"
             default: "/contact"
-          # ---- Stats (list) ----
           - label: "Statistics"
             name: "stats"
             widget: "list"
@@ -1110,7 +1255,76 @@ collections:
             fields:
               - {label: "Value", name: "value", widget: "string", hint: "e.g., 500K+, 45+, 99%"}
               - {label: "Label", name: "label", widget: "string", hint: "e.g., Customers Worldwide"}
-          # ---- Section Toggles ----
+          - {label: "Trust Badges Heading", name: "trustBadgesHeading", widget: "string", required: false, default: "What We Promise"}
+          - label: "Trust Badges"
+            name: "trustBadges"
+            widget: "list"
+            hint: "Badges shown below the hero section."
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "string"}
+
+      - label: "Homepage — Products"
+        name: "homepage-products"
+        file: "content/pages/homepage-products.md"
+        fields:
+          - {label: "Featured Products Heading", name: "featuredProductsHeading", widget: "string", required: false, default: "FEATURED TOOLS"}
+          - {label: "Featured Products Description", name: "featuredProductsDescription", widget: "text", required: false, default: "Our most popular professional-grade power tools, trusted by contractors worldwide."}
+          - {label: "Category Grid Heading", name: "categoryGridHeading", widget: "string", required: false, default: "SHOP BY CATEGORY"}
+          - {label: "Category Grid Description", name: "categoryGridDescription", widget: "text", required: false, default: "Find the right tool for every job. Browse our comprehensive selection of professional-grade power tools."}
+          - {label: "Video Tutorials Heading", name: "videoTutorialsHeading", widget: "string", required: false, default: "Industry Knowledge"}
+          - {label: "Video Tutorials Description", name: "videoTutorialsDesc", widget: "string", required: false, default: "Technical guides, application expertise, and product selection resources"}
+          - label: "Featured Categories"
+            name: "featuredCategories"
+            widget: "list"
+            hint: "Product categories to feature on homepage. Use URL slugs: drills-drivers, saws, grinders, sanders, impact-tools, combo-kits"
+            required: false
+
+      - label: "Homepage — About & Trust"
+        name: "homepage-about"
+        file: "content/pages/homepage-about.md"
+        fields:
+          - {label: "Brand Showcase Heading", name: "brandShowcaseHeading", widget: "string", required: false, default: "Ningbo Siyang: 25 Years of Excellence"}
+          - {label: "Brand Showcase Description", name: "brandShowcaseDescription", widget: "text", required: false, default: "From humble beginnings as a small workshop to becoming a global leader in professional power tools, our journey is built on trust, quality, and innovation. Every tool we craft reflects our commitment to empowering professionals worldwide."}
+          - label: "Achievements"
+            name: "achievements"
+            widget: "list"
+            hint: "Brand showcase achievement cards."
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "string"}
+          - {label: "Brand CTA Title", name: "brandCtaTitle", widget: "string", required: false, default: "Quality You Can Trust"}
+          - {label: "Brand CTA Description", name: "brandCtaDescription", widget: "text", required: false, default: "Every Ningbo Siyang tool undergoes rigorous quality testing and comes with our industry-leading warranty and support."}
+          - {label: "Stats Heading", name: "statsHeading", widget: "string", required: false, default: "By the Numbers"}
+          - {label: "Stats Description", name: "statsDescription", widget: "text", required: false, default: "Trusted metrics that showcase our commitment to excellence"}
+          - label: "Trust Indicators"
+            name: "trustIndicators"
+            widget: "list"
+            hint: "Trust indicator cards."
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "string"}
+          - {label: "Use Cases Heading", name: "useCasesHeading", widget: "string", required: false, default: "Tools for Every Trade"}
+          - {label: "Use Cases Description", name: "useCasesDescription", widget: "text", required: false, default: "Specialized solutions for different industries and applications"}
+          - label: "Use Cases"
+            name: "useCases"
+            widget: "list"
+            hint: "Industry/application use cases."
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "string"}
+          - label: "Certifications"
+            name: "certifications"
+            widget: "list"
+            hint: "Certification badges shown on homepage."
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "string"}
+
+      - label: "Homepage — B2B & Social Proof"
+        name: "homepage-b2b"
+        file: "content/pages/homepage-b2b.md"
+        fields:
           - label: "Show Testimonials?"
             name: "showTestimonials"
             widget: "boolean"
@@ -1123,67 +1337,10 @@ collections:
             name: "showCertifications"
             widget: "boolean"
             default: true
-          # ---- Section Headings ----
-          - {label: "Trust Badges Heading", name: "trustBadgesHeading", widget: "string", required: false, default: "What We Promise"}
-          - {label: "Featured Products Heading", name: "featuredProductsHeading", widget: "string", required: false, default: "FEATURED TOOLS"}
-          - {label: "Featured Products Description", name: "featuredProductsDescription", widget: "text", required: false, default: "Our most popular professional-grade power tools, trusted by contractors worldwide."}
-          - {label: "Category Grid Heading", name: "categoryGridHeading", widget: "string", required: false, default: "SHOP BY CATEGORY"}
-          - {label: "Category Grid Description", name: "categoryGridDescription", widget: "text", required: false, default: "Find the right tool for every job. Browse our comprehensive selection of professional-grade power tools."}
-          - {label: "Brand Showcase Heading", name: "brandShowcaseHeading", widget: "string", required: false, default: "Ningbo Siyang: 25 Years of Excellence"}
-          - {label: "Brand Showcase Description", name: "brandShowcaseDescription", widget: "text", required: false, default: "From humble beginnings as a small workshop to becoming a global leader in professional power tools, our journey is built on trust, quality, and innovation. Every tool we craft reflects our commitment to empowering professionals worldwide."}
-          - {label: "Stats Heading", name: "statsHeading", widget: "string", required: false, default: "By the Numbers"}
-          - {label: "Stats Description", name: "statsDescription", widget: "text", required: false, default: "Trusted metrics that showcase our commitment to excellence"}
           - {label: "Testimonials Heading", name: "testimonialsHeading", widget: "string", required: false, default: "Trusted by Industry Leaders"}
           - {label: "Testimonials Description", name: "testimonialsDescription", widget: "text", required: false, default: "Real success stories from contractors and professionals worldwide"}
-          - {label: "Use Cases Heading", name: "useCasesHeading", widget: "string", required: false, default: "Tools for Every Trade"}
-          - {label: "Use Cases Description", name: "useCasesDescription", widget: "text", required: false, default: "Specialized solutions for different industries and applications"}
-          - {label: "Final CTA Heading", name: "finalCtaHeading", widget: "string", required: false, default: "Ready to Power Your Business?"}
-          - {label: "Final CTA Description", name: "finalCtaDescription", widget: "text", required: false, default: "Join thousands of professionals who trust Ningbo Siyang for their power tool needs. Get a custom quote today."}
-          - {label: "Final CTA Button Text", name: "finalCtaButtonText", widget: "string", required: false, default: "Request a Quote"}
-          # ---- Trust Badges (list) ----
-          - label: "Trust Badges"
-            name: "trustBadges"
-            widget: "list"
-            hint: "Badges shown below the hero section."
-            fields:
-              - {label: "Title", name: "title", widget: "string"}
-              - {label: "Description", name: "description", widget: "string"}
-          # ---- Achievements (list) ----
-          - label: "Achievements"
-            name: "achievements"
-            widget: "list"
-            hint: "Brand showcase achievement cards."
-            fields:
-              - {label: "Title", name: "title", widget: "string"}
-              - {label: "Description", name: "description", widget: "string"}
-          # ---- Certifications (list) ----
-          - label: "Certifications"
-            name: "certifications"
-            widget: "list"
-            hint: "Certification badges shown on homepage."
-            fields:
-              - {label: "Title", name: "title", widget: "string"}
-              - {label: "Description", name: "description", widget: "string"}
-          # ---- Brand CTA ----
-          - {label: "Brand CTA Title", name: "brandCtaTitle", widget: "string", required: false, default: "Quality You Can Trust"}
-          - {label: "Brand CTA Description", name: "brandCtaDescription", widget: "text", required: false, default: "Every Ningbo Siyang tool undergoes rigorous quality testing and comes with our industry-leading warranty and support."}
-          # ---- Trust Indicators (list) ----
-          - label: "Trust Indicators"
-            name: "trustIndicators"
-            widget: "list"
-            hint: "Trust indicator cards."
-            fields:
-              - {label: "Title", name: "title", widget: "string"}
-              - {label: "Description", name: "description", widget: "string"}
-          # ---- Use Cases (list) ----
-          - label: "Use Cases"
-            name: "useCases"
-            widget: "list"
-            hint: "Industry/application use cases."
-            fields:
-              - {label: "Title", name: "title", widget: "string"}
-              - {label: "Description", name: "description", widget: "string"}
-          # ---- B2B Benefits (list) ----
+          - {label: "B2B Heading", name: "b2bHeading", widget: "string", required: false, default: "Build Your Business With Us"}
+          - {label: "B2B Description", name: "b2bDescription", widget: "text", required: false, default: "Ningbo Siyang offers comprehensive bulk ordering solutions designed for contractors, distributors, and business partners. Get special pricing, dedicated support, and streamlined procurement."}
           - label: "B2B Benefits"
             name: "b2bBenefits"
             widget: "list"
@@ -1191,30 +1348,26 @@ collections:
             fields:
               - {label: "Title", name: "title", widget: "string"}
               - {label: "Description", name: "description", widget: "string"}
-          - {label: "B2B Heading", name: "b2bHeading", widget: "string", required: false, default: "Build Your Business With Us"}
-          - {label: "B2B Description", name: "b2bDescription", widget: "text", required: false, default: "Ningbo Siyang offers comprehensive bulk ordering solutions designed for contractors, distributors, and business partners. Get special pricing, dedicated support, and streamlined procurement."}
-          # ---- FAQ Section ----
+
+      - label: "Homepage — CTA & Footer"
+        name: "homepage-cta"
+        file: "content/pages/homepage-cta.md"
+        fields:
+          - {label: "SEO Page Title", name: "pageTitle", widget: "string", required: false}
+          - {label: "SEO Meta Description", name: "description", widget: "text", required: false}
           - {label: "FAQ Heading", name: "faqHeading", widget: "string", required: false, default: "We're Here to Help"}
           - {label: "FAQ Description", name: "faqDescription", widget: "text", required: false, default: "Find answers to common questions about our products and services"}
           - {label: "FAQ CTA Heading", name: "faqCtaHeading", widget: "string", required: false, default: "Didn't find what you're looking for?"}
           - {label: "FAQ CTA Description", name: "faqCtaDescription", widget: "text", required: false, default: "Our dedicated support team is ready to help. Reach out to us and we'll get back to you within 24 hours."}
-          # ---- Footer ----
+          - {label: "Final CTA Heading", name: "finalCtaHeading", widget: "string", required: false, default: "Ready to Power Your Business?"}
+          - {label: "Final CTA Description", name: "finalCtaDescription", widget: "text", required: false, default: "Join thousands of professionals who trust Ningbo Siyang for their power tool needs. Get a custom quote today."}
+          - {label: "Final CTA Button Text", name: "finalCtaButtonText", widget: "string", required: false, default: "Request a Quote"}
           - {label: "Footer Brand Description", name: "footerBrandDesc", widget: "string", required: false, default: "Premium power tools for professionals and serious DIY enthusiasts. Quality engineering, reliable performance, built to last."}
           - {label: "Footer Newsletter Heading", name: "footerNewsletterHeading", widget: "string", required: false, default: "Trade Resources"}
           - {label: "Footer Newsletter Description", name: "footerNewsletterDesc", widget: "text", required: false, default: "Get product alerts, trade pricing updates, and catalog downloads."}
-          # ---- 3D Viewer ----
           - {label: "3D Viewer Heading", name: "viewer3dHeading", widget: "string", required: false, default: "EXPLORE IN 3D"}
           - {label: "3D Viewer Description", name: "viewer3dDesc", widget: "string", required: false, default: "Rotate and inspect our tools from every angle. Click and drag to explore."}
           - {label: "3D Viewer Spline Scene URL", name: "splineSceneUrl", widget: "string", required: false}
-          # ---- Video Tutorials ----
-          - {label: "Video Tutorials Heading", name: "videoTutorialsHeading", widget: "string", required: false, default: "Industry Knowledge"}
-          - {label: "Video Tutorials Description", name: "videoTutorialsDesc", widget: "string", required: false, default: "Technical guides, application expertise, and product selection resources"}
-          # ---- Featured Categories ----
-          - label: "Featured Categories"
-            name: "featuredCategories"
-            widget: "list"
-            hint: "Product categories to feature on homepage. Use URL slugs: drills-drivers, saws, grinders, sanders, impact-tools, combo-kits"
-            required: false
 
       - label: "OEM/ODM Capabilities"
         name: "oem-odm"

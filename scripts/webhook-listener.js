@@ -34,6 +34,19 @@ function regenerateIndex() {
   }
 }
 
+function buildHtml() {
+  try {
+    const result = execSync(`node "${path.join(__dirname, "build-html.js")}"`, {
+      cwd: projectRoot,
+      encoding: "utf-8",
+      timeout: 60000,
+    });
+    return { success: true, output: result.trim() };
+  } catch (err) {
+    return { success: false, error: err.message };
+  }
+}
+
 // ============================================================
 // Git pull (if deployed on server)
 // ============================================================
@@ -99,7 +112,11 @@ const server = http.createServer((req, res) => {
     }
 
     console.log("[webhook] Manual regenerate triggered");
-    const result = regenerateIndex();
+    const regenResult = regenerateIndex();
+    console.log("[webhook] Regeneration:", regenResult.success ? "SUCCESS" : "FAILED");
+    const buildResult = buildHtml();
+    console.log("[webhook] HTML build:", buildResult.success ? "SUCCESS" : "FAILED");
+    const result = { regenerate: regenResult, build: buildResult, success: regenResult.success && buildResult.success };
     res.writeHead(result.success ? 200 : 500, { "Content-Type": "application/json" });
     res.end(JSON.stringify(result));
     return;
@@ -139,8 +156,13 @@ const server = http.createServer((req, res) => {
       const regenResult = regenerateIndex();
       console.log("[webhook] Regeneration:", regenResult.success ? "SUCCESS" : "FAILED");
 
-      res.writeHead(regenResult.success ? 200 : 500, { "Content-Type": "application/json" });
-      res.end(JSON.stringify({ pull: pullResult, regenerate: regenResult }));
+      // Build pre-rendered HTML files
+      const buildResult = buildHtml();
+      console.log("[webhook] HTML build:", buildResult.success ? "SUCCESS" : "FAILED");
+
+      const allSuccess = pullResult.success && regenResult.success && buildResult.success;
+      res.writeHead(allSuccess ? 200 : 500, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({ pull: pullResult, regenerate: regenResult, build: buildResult }));
     });
     return;
   }

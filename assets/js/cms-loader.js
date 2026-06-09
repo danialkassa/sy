@@ -301,6 +301,7 @@
   CMSLoader.loadBlogIndex = function (containerSelector) {
     var container = document.querySelector(containerSelector);
     if (!container) return Promise.resolve();
+    if (container.children.length > 0) return Promise.resolve();
 
     return loadCollectionFromMD('content/blog', 'posts').then(function (posts) {
       posts.sort(function (a, b) { return new Date(b.date) - new Date(a.date); });
@@ -440,6 +441,7 @@
   CMSLoader.loadProducts = function (category, containerSelector) {
     var container = document.querySelector(containerSelector);
     if (!container) return Promise.resolve();
+    if (container.children.length > 0) return Promise.resolve();
 
     return loadCollectionFromMD('content/products', 'products').then(function (products) {
       if (category) {
@@ -545,8 +547,36 @@
   // HOMEPAGE
   // ============================================================
   CMSLoader.loadHomepage = function () {
-    return CMSLoader.loadPageSettings('homepage').then(function (data) {
-      if (!data || !Object.keys(data).length) return;
+    var embeddedScript = document.getElementById('homepage-data');
+    if (embeddedScript) {
+      try {
+        var data = JSON.parse(embeddedScript.textContent);
+        CMSLoader.applyHomepageData(data);
+        return Promise.resolve();
+      } catch (e) {
+        console.warn('[CMSLoader] Failed to parse embedded homepage data', e);
+      }
+    }
+    // Load split homepage files and merge
+    var files = ['homepage-hero', 'homepage-products', 'homepage-about', 'homepage-b2b', 'homepage-cta'];
+    var promises = files.map(function(name) {
+      return CMSLoader.loadPageSettings(name).catch(function() { return {}; });
+    });
+    // Also try legacy single file as fallback
+    promises.push(CMSLoader.loadPageSettings('homepage').catch(function() { return {}; }));
+    return Promise.all(promises).then(function(results) {
+      var merged = {};
+      results.forEach(function(data) {
+        if (data && Object.keys(data).length) {
+          Object.assign(merged, data);
+        }
+      });
+      CMSLoader.applyHomepageData(merged);
+    });
+  };
+
+  CMSLoader.applyHomepageData = function (data) {
+    if (!data || !Object.keys(data).length) return;
 
       // ---- Hero ----
       var heroLine1 = document.getElementById('cms-hero-title-line1');
@@ -817,8 +847,7 @@
         var csH = document.getElementById('cms-case-studies-heading');
         if (csH) csH.textContent = data.caseStudiesHeading;
       }
-    });
-  };
+    };
 
   // ============================================================
   // GENERIC PAGE CONTENT LOADER
@@ -1263,6 +1292,7 @@
   CMSLoader.loadTeamMembers = function (containerSelector) {
     var container = document.querySelector(containerSelector);
     if (!container) return Promise.resolve();
+    if (container.children.length > 0) return Promise.resolve();
 
     return loadCollectionFromMD('content/team', 'members', function (a, b) { return (a.order || 0) - (b.order || 0); }).then(function (members) {
       var html = members.map(function (member) {
@@ -1291,6 +1321,7 @@
   CMSLoader.loadTestimonials = function (containerSelector) {
     var container = document.querySelector(containerSelector);
     if (!container) return Promise.resolve();
+    if (container.children.length > 0) return Promise.resolve();
 
     return loadCollectionFromMD('content/testimonials', 'testimonials', function (a, b) { return (a.order || 0) - (b.order || 0); }).then(function (testimonials) {
       var html = testimonials.map(function (testimonial) {
@@ -1325,6 +1356,7 @@
   CMSLoader.loadCertifications = function (containerSelector) {
     var container = document.querySelector(containerSelector);
     if (!container) return Promise.resolve();
+    if (container.children.length > 0) return Promise.resolve();
 
     return loadCollectionFromMD('content/certifications', 'certifications').then(function (certs) {
       var html = certs.map(function (cert) {
@@ -1353,6 +1385,7 @@
   CMSLoader.loadFAQ = function (containerSelector) {
     var container = document.querySelector(containerSelector);
     if (!container) return Promise.resolve();
+    if (container.children.length > 0) return Promise.resolve();
 
     return loadCollectionFromMD('content/faq', 'faq', function (a, b) { return (a.order || 0) - (b.order || 0); }).then(function (items) {
       var grouped = {};
@@ -1391,6 +1424,7 @@
   CMSLoader.loadDistributors = function (containerSelector) {
     var container = document.querySelector(containerSelector);
     if (!container) return Promise.resolve();
+    if (container.children.length > 0) return Promise.resolve();
 
     return loadCollectionFromMD('content/distributors', 'distributors').then(function (distributors) {
       var grouped = {};
@@ -1444,6 +1478,7 @@
   CMSLoader.loadWarranty = function (containerSelector) {
     var container = document.querySelector(containerSelector);
     if (!container) return Promise.resolve();
+    if (container.children.length > 0) return Promise.resolve();
 
     return loadCollectionFromMD('content/warranty', 'warranty').then(function (policies) {
       var html = policies.map(function (policy) {
@@ -1492,6 +1527,7 @@
   CMSLoader.loadSafety = function (containerSelector) {
     var container = document.querySelector(containerSelector);
     if (!container) return Promise.resolve();
+    if (container.children.length > 0) return Promise.resolve();
 
     return loadCollectionFromMD('content/safety', 'safety', function (a, b) {
       var severityOrder = { critical: 0, warning: 1, info: 2 };
@@ -1548,6 +1584,7 @@
   CMSLoader.loadPartners = function (containerSelector) {
     var container = document.querySelector(containerSelector);
     if (!container) return Promise.resolve();
+    if (container.children.length > 0) return Promise.resolve();
 
     return loadCollectionFromMD('content/partners', 'partners', function (a, b) { return (a.order || 0) - (b.order || 0); }).then(function (partners) {
       var html = '<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">';
@@ -1574,6 +1611,7 @@
   CMSLoader.loadCaseStudies = function (containerSelector) {
     var container = document.querySelector(containerSelector);
     if (!container) return Promise.resolve();
+    if (container.children.length > 0) return Promise.resolve();
 
     return loadCollectionFromMD('content/case-studies', 'case_studies').then(function (studies) {
       var html = studies.map(function (study) {
@@ -1730,6 +1768,7 @@
   CMSLoader.loadManuals = function (containerSelector) {
     var container = document.querySelector(containerSelector);
     if (!container) return Promise.resolve();
+    if (container.children.length > 0) return Promise.resolve();
 
     return loadCollectionFromMD('content/manuals', 'manuals').then(function (manuals) {
       var grouped = {};
@@ -1790,6 +1829,7 @@
   CMSLoader.loadDownloads = function (containerSelector) {
     var container = document.querySelector(containerSelector);
     if (!container) return Promise.resolve();
+    if (container.children.length > 0) return Promise.resolve();
 
     return loadCollectionFromMD('content/downloads', 'downloads').then(function (downloads) {
       var grouped = {};

@@ -1,0 +1,17 @@
+---
+pageTitle: ""
+description: ""
+faqHeading: "We're Here to Help"
+faqDescription: "Find answers to common questions about our products and services"
+faqCtaHeading: "Didn't find what you're looking for?"
+faqCtaDescription: "Our dedicated support team is ready to help. Reach out to us and we'll get back to you within 24 hours."
+finalCtaHeading: "Ready to Power Your Business?"
+finalCtaDescription: "Join thousands of professionals who trust Ningbo Siyang for their power tool needs. Get a custom quote today."
+finalCtaButtonText: "Request a Quote"
+footerBrandDesc: "Premium power tools for professionals and serious DIY enthusiasts. Quality engineering, reliable performance, built to last."
+footerNewsletterHeading: "Trade Resources"
+footerNewsletterDesc: "Get product alerts, trade pricing updates, and catalog downloads."
+viewer3dHeading: "EXPLORE IN 3D"
+viewer3dDesc: "Rotate and inspect our tools from every angle. Click and drag to explore."
+splineSceneUrl: ""
+---

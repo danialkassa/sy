@@ -584,9 +584,29 @@
     return;
   }
   var safeSku = sku.replace(/\//g, '-');
+  var p = null;
+  var embeddedScript = document.getElementById('cms-product-data');
+  if (embeddedScript) {
+    try {
+      var embeddedData = JSON.parse(embeddedScript.textContent);
+      if (embeddedData && embeddedData.products) {
+        p = embeddedData.products.find(function(prod) { return prod.sku === sku; });
+      }
+    } catch (e) {}
+  }
+  if (p) {
+    renderProduct(p);
+  } else {
   fetch('../content/products/' + safeSku + '.json')
     .then(function(r) { return r.ok ? r.json() : Promise.reject('Not found'); })
-    .then(function(p) {
+    .then(function(productData) { renderProduct(productData); })
+    .catch(function() {
+      var safeSkuEsc = sku.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+      showProductNotFound(_t('products.productNotFoundDesc','The product "' + safeSkuEsc + '" could not be found. It may have been removed or is temporarily unavailable.'));
+    });
+  }
+
+  function renderProduct(p) {
       document.title = p.name + ' � Ningbo Siyang';
       document.getElementById('product-breadcrumb-category').textContent = p.categoryLabel || p.category;
       document.getElementById('product-breadcrumb-category').href = './' + p.category + '.html';
@@ -691,11 +711,7 @@
       }
 
       // Related products are handled by cms-loader.js via #cms-related-products-grid
-    })
-    .catch(function() {
-      var safeSku = sku.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-      showProductNotFound(_t('products.productNotFoundDesc','The product "' + safeSku + '" could not be found. It may have been removed or is temporarily unavailable.'));
-    });
+    }
 
 function showProductNotFound(message) {
   document.title = 'Product Not Found \u2013 Ningbo Siyang';
