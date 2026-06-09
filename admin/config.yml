@@ -43,17 +43,6 @@ collections:
   # ============================================================
   - name: "welcome"
     label: "Editor's Guide"
-    folder: "admin"
-    create: false
-    delete: false
-    identifier_field: title
-    fields:
-      - label: "Title"
-        name: "title"
-        widget: "string"
-      - label: "Content"
-        name: "body"
-        widget: "markdown"
     files:
       - label: "Editor's Guide"
         name: "welcome"
