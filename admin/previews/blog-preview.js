@@ -51,8 +51,10 @@
   }
 
   window.BlogPreview = function(props) {
+    if (window.CMSPreviewStyles) window.CMSPreviewStyles.inject();
     var data = getData(props.entry);
     var draft = !!data.draft;
+    var archived = !!data.archived;
     var featured = !!data.featured;
     var tags = Array.isArray(data.tags) ? data.tags : [];
 
@@ -77,37 +79,22 @@
                 style: { width: "100%", height: "220px", objectFit: "cover" },
                 onerror: "this.style.display='none'"
               }),
-              draft
-                ? el("span", {
+              draft || archived || featured
+                ? el("div", {
                     style: {
                       position: "absolute",
                       top: "12px",
                       right: "12px",
-                      background: "#ef4444",
-                      color: "#ffffff",
-                      fontSize: "11px",
-                      fontWeight: "700",
-                      padding: "4px 10px",
-                      borderRadius: "9999px",
-                      boxShadow: "0 2px 12px rgba(239,68,68,0.4)"
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "6px",
+                      alignItems: "flex-end"
                     }
-                  }, "DRAFT")
-                : null,
-              featured
-                ? el("span", {
-                    style: {
-                      position: "absolute",
-                      top: draft ? "40px" : "12px",
-                      left: "12px",
-                      background: "#facc15",
-                      color: "#09090b",
-                      fontSize: "11px",
-                      fontWeight: "700",
-                      padding: "4px 10px",
-                      borderRadius: "9999px",
-                      boxShadow: "0 2px 12px rgba(250,204,21,0.4)"
-                    }
-                  }, "Featured")
+                  }, [
+                    draft ? el("span", { className: "cms-preview-badge cms-preview-badge--draft" }, "DRAFT") : null,
+                    archived ? el("span", { className: "cms-preview-badge cms-preview-badge--archived" }, "ARCHIVED") : null,
+                    featured ? el("span", { className: "cms-preview-badge cms-preview-badge--featured" }, "Featured") : null
+                  ])
                 : null
             ])
           : null,

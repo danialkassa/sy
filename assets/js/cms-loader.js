@@ -1914,8 +1914,8 @@
     if (!container) return Promise.resolve();
 
     return loadCollectionFromMD('content/products', 'products').then(function (products) {
-      // Filter out current product
-      var others = products.filter(function (p) { return p.sku !== currentSku; });
+      // Filter out archived and current product
+      var others = products.filter(function (p) { return p.sku !== currentSku && p.archived !== true; });
       // Prefer products from the same category as the current product
       var currentProduct = products.filter(function (p) { return p.sku === currentSku; })[0];
       var sameCategory = others;
@@ -1923,6 +1923,13 @@
         sameCategory = others.filter(function (p) { return p.category === currentProduct.category; });
       }
       var related = sameCategory.length >= 3 ? sameCategory.slice(0, 3) : sameCategory.concat(others.filter(function (p) { return sameCategory.indexOf(p) === -1; })).slice(0, 3);
+
+      if (!related.length) {
+        // Hide the related products section if none found
+        var section = document.getElementById('related-products-section');
+        if (section) section.classList.add('hidden');
+        return;
+      }
 
       var html = related.map(function (product) {
         var priceHtml = '';

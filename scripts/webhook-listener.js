@@ -17,6 +17,23 @@ const PORT = process.env.WEBHOOK_PORT || 3099;
 const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET || "change-me-in-production";
 const GIT_REPO_PATH = process.env.GIT_REPO_PATH || projectRoot;
 
+let lastDeploy = {
+  timestamp: null,
+  status: null,
+  steps: {},
+  error: null
+};
+
+function recordDeploy(pullResult, npmResult, regenResult, buildResult) {
+  lastDeploy.timestamp = new Date().toISOString();
+  lastDeploy.steps.gitPull = pullResult.success ? "success" : "failed";
+  lastDeploy.steps.npmInstall = npmResult ? (npmResult.success ? "success" : "failed") : "skipped";
+  lastDeploy.steps.generateIndex = regenResult.success ? "success" : "failed";
+  lastDeploy.steps.buildHtml = buildResult.success ? "success" : "failed";
+  lastDeploy.status = (pullResult.success && regenResult.success && buildResult.success) ? "success" : "failed";
+  lastDeploy.error = pullResult.error || (npmResult && npmResult.error) || regenResult.error || buildResult.error || null;
+}
+
 // ============================================================
 // Regenerate index files
 // ============================================================
@@ -101,7 +118,16 @@ const server = http.createServer((req, res) => {
   // Health check
   if (req.method === "GET" && req.url === "/health") {
     res.writeHead(200, { "Content-Type": "application/json" });
-    res.end(JSON.stringify({ status: "ok", service: "siyang-webhook" }));
+    res.end(JSON.stringify({
+      status: "ok",
+      service: "siyang-webhook",
+      lastDeploy: lastDeploy.timestamp ? {
+        timestamp: lastDeploy.timestamp,
+        status: lastDeploy.status,
+        steps: lastDeploy.steps,
+        error: lastDeploy.error
+      } : null
+    }));
     return;
   }
 
@@ -125,12 +151,14 @@ const server = http.createServer((req, res) => {
     }
 
     console.log("[webhook] Manual regenerate triggered");
+    const pullResult = { success: true, output: "manual trigger — no git pull" };
     const npmResult = npmInstall();
     console.log("[webhook] npm install:", npmResult.success ? "SUCCESS" : "FAILED");
     const regenResult = regenerateIndex();
     console.log("[webhook] Regeneration:", regenResult.success ? "SUCCESS" : "FAILED");
     const buildResult = buildHtml();
     console.log("[webhook] HTML build:", buildResult.success ? "SUCCESS" : "FAILED");
+    recordDeploy(pullResult, npmResult, regenResult, buildResult);
     const result = { npm: npmResult, regenerate: regenResult, build: buildResult, success: npmResult.success && regenResult.success && buildResult.success };
     res.writeHead(result.success ? 200 : 500, { "Content-Type": "application/json" });
     res.end(JSON.stringify(result));
@@ -144,6 +172,17 @@ const server = http.createServer((req, res) => {
     req.on("end", () => {
       const payload = Buffer.concat(chunks);
       const signature = req.headers["x-gitea-signature"] || req.headers["x-hub-signature-256"] || "";
+
+      // Parse payload to check branch
+      let body = {};
+      try { body = JSON.parse(payload.toString()); } catch(e) {}
+      const ref = body.ref || "";
+      if (!ref.endsWith("/main") && !ref.endsWith("/master")) {
+        console.log("[webhook] Ignoring push to", ref, "— only processing main branch");
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ message: "Ignored — not main branch", ref }));
+        return;
+      }
 
       // Verify signature (skip if secret is default)
       if (WEBHOOK_SECRET !== "change-me-in-production") {
@@ -179,6 +218,7 @@ const server = http.createServer((req, res) => {
       const buildResult = buildHtml();
       console.log("[webhook] HTML build:", buildResult.success ? "SUCCESS" : "FAILED");
 
+      recordDeploy(pullResult, npmResult, regenResult, buildResult);
       const allSuccess = pullResult.success && npmResult.success && regenResult.success && buildResult.success;
       res.writeHead(allSuccess ? 200 : 500, { "Content-Type": "application/json" });
       res.end(JSON.stringify({ pull: pullResult, npm: npmResult, regenerate: regenResult, build: buildResult }));

@@ -40,8 +40,10 @@
   }
 
   window.TestimonialPreview = function(props) {
+    if (window.CMSPreviewStyles) window.CMSPreviewStyles.inject();
     var data = getData(props.entry);
     var draft = !!data.draft;
+    var archived = !!data.archived;
     var rating = Math.max(1, Math.min(5, parseInt(data.rating, 10) || 5));
     var image = text(data.avatar, "");
 
@@ -87,17 +89,18 @@
               ])
             ]),
 
-            draft
-              ? el("span", {
+            draft || archived
+              ? el("div", {
                   style: {
-                    fontSize: "11px",
-                    fontWeight: "700",
-                    padding: "3px 10px",
-                    borderRadius: "9999px",
-                    background: "#ef4444",
-                    color: "#ffffff"
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "4px",
+                    alignItems: "flex-end"
                   }
-                }, "DRAFT")
+                }, [
+                  draft ? el("span", { className: "cms-preview-badge cms-preview-badge--draft" }, "DRAFT") : null,
+                  archived ? el("span", { className: "cms-preview-badge cms-preview-badge--archived" }, "ARCHIVED") : null
+                ])
               : null
           ]),
 

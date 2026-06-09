@@ -193,6 +193,13 @@
         <p id="product-brand" class="text-xs text-yellow-400/80 uppercase tracking-wider mb-2 font-semibold">Loading...</p>
         <h1 id="product-name" class="font-oswald text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">Loading product...</h1>
 
+        <div id="product-completion-warning" class="hidden mb-4 p-3 rounded-lg bg-amber-900/30 border border-amber-700/50 text-amber-200 text-sm">
+          <div class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-amber-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/></svg>
+            <span id="product-completion-text">This product is incomplete. Specifications, compliance, and trade details are missing.</span>
+          </div>
+        </div>
+
         <div class="flex items-center gap-3 mb-4">
           <div class="flex items-center gap-0.5">
             <svg class="w-4 h-4 text-yellow-400 fill-yellow-400" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
@@ -209,7 +216,7 @@
           <span data-i18n="products.addToComparison">Add to comparison</span>
         </label>
 
-        <div class="bg-zinc-900 rounded-xl border border-zinc-800 p-5 mb-6">
+        <div id="product-specs-container" class="bg-zinc-900 rounded-xl border border-zinc-800 p-5 mb-6">
           <h3 data-i18n="products.specifications" class="font-oswald text-sm uppercase tracking-wider text-zinc-400 mb-3">Specifications</h3>
           <table class="w-full">
             <tbody id="product-specs">
@@ -348,7 +355,7 @@
       </div>
     </div>
 
-    <div class="mt-16">
+    <div id="related-products-section" class="mt-16">
       <div class="flex items-center justify-between mb-8">
         <h2 class="font-oswald text-2xl md:text-3xl font-bold text-white" data-i18n="products.relatedProducts">RELATED <span class="text-yellow-400">PRODUCTS</span></h2>
         <a href="./index.html" class="inline-flex items-center gap-2 text-yellow-400 hover:text-yellow-300 font-medium text-sm transition-colors" data-i18n="products.allProductsLink">All Products <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
@@ -607,12 +614,13 @@
   }
 
   function renderProduct(p) {
-      document.title = p.name + ' � Ningbo Siyang';
+      document.title = p.name + ' \u2013 Ningbo Siyang';
       document.getElementById('product-breadcrumb-category').textContent = p.categoryLabel || p.category;
       document.getElementById('product-breadcrumb-category').href = './' + p.category + '.html';
       document.getElementById('product-breadcrumb-name').textContent = p.name;
       document.getElementById('product-name').textContent = p.name;
-      document.getElementById('product-brand').textContent = p.brand;
+      var brandEl = document.getElementById('product-brand');
+      if (brandEl) brandEl.textContent = p.brand || 'Siyang';
       document.getElementById('product-description').textContent = p.description;
       document.getElementById('product-main-image').src = p.images && p.images[0] || '/images/istock/10001.jpg';
       document.getElementById('product-main-image').alt = p.name;
@@ -621,15 +629,38 @@
         updateProductGallery(p.images || [], p.images && p.images[0] || '/images/istock/10001.jpg');
       }
 
+      // Completion warning banner
+      var compWarn = document.getElementById('product-completion-warning');
+      var compText = document.getElementById('product-completion-text');
+      if (compWarn && compText) {
+        var isIncomplete = p.completionStatus || !p.specs || !p.compliance || !p.moq;
+        if (isIncomplete) {
+          compWarn.classList.remove('hidden');
+          compText.textContent = p.completionStatus || 'This product is incomplete. Specifications, compliance, and trade details are missing. Switch to "Products (Full Details)" in the CMS to complete it.';
+        } else {
+          compWarn.classList.add('hidden');
+        }
+      }
+
+      var specsContainer = document.getElementById('product-specs-container');
       var specsTable = document.getElementById('product-specs');
       specsTable.innerHTML = '';
+      var hasSpecs = false;
       if (p.specs) {
         Object.keys(p.specs).forEach(function(key) {
           var val = p.specs[key];
           // Skip nested objects and arrays (e.g., tool1Specs, toolsIncluded)
           if (typeof val === 'object' && val !== null) return;
+          hasSpecs = true;
           specsTable.innerHTML += '<tr class="border-b border-zinc-800"><td class="py-2 pr-4 text-zinc-400 text-sm">' + key + '</td><td class="py-2 text-white text-sm font-medium">' + val + '</td></tr>';
         });
+      }
+      if (specsContainer) {
+        if (hasSpecs) {
+          specsContainer.classList.remove('hidden');
+        } else {
+          specsContainer.classList.add('hidden');
+        }
       }
       var addBtn = document.getElementById('product-add-quote');
       if (addBtn) {
@@ -638,9 +669,23 @@
       }
 
       var moqEl = document.getElementById('product-moq');
-      if (moqEl && p.moq) moqEl.textContent = 'MOQ: ' + p.moq;
+      if (moqEl) {
+        if (p.moq) {
+          moqEl.textContent = 'MOQ: ' + p.moq;
+          moqEl.style.display = '';
+        } else {
+          moqEl.style.display = 'none';
+        }
+      }
       var ltEl = document.getElementById('product-lead-time');
-      if (ltEl && p.leadTime) ltEl.textContent = 'Lead: ' + p.leadTime;
+      if (ltEl) {
+        if (p.leadTime) {
+          ltEl.textContent = 'Lead: ' + p.leadTime;
+          ltEl.style.display = '';
+        } else {
+          ltEl.style.display = 'none';
+        }
+      }
 
       var compareCb = document.querySelector('.compare-checkbox');
       if (compareCb) compareCb.setAttribute('data-compare-sku', sku);

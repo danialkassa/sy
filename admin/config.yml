@@ -424,6 +424,7 @@ collections:
         name: "name"
         widget: "string"
         required: true
+        hint: "This is a QUICK EDIT form with only basic fields. After saving, switch to 'Products (Full Details)' to add specifications, compliance, trade details, and more. A product with only these 8 fields will have an INCOMPLETE page on the live site."
       - label: "SKU"
         name: "sku"
         widget: "string"
@@ -478,6 +479,11 @@ collections:
         widget: "boolean"
         default: false
         hint: "Check this to hide this item from the live website. The item is NOT deleted — it can be unarchived later."
+      - label: "Completion Status"
+        name: "completionStatus"
+        widget: "string"
+        default: "Incomplete — add specs, compliance, and trade details in Full Details"
+        hint: "This product page is incomplete. Go to 'Products (Full Details)' to fill in specifications, compliance, trade details, and downloads."
   # ============================================================
   # 2. BLOG POSTS
   # ============================================================

@@ -113,6 +113,7 @@
   }
 
   window.HomepagePreview = function(props) {
+    if (window.CMSPreviewStyles) window.CMSPreviewStyles.inject();
     var data = getData(props.entry);
     var featuredCategories = Array.isArray(data.featuredCategories) ? data.featuredCategories : [];
 

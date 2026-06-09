@@ -63,12 +63,32 @@
       html += stepHtml('npm install', lastResult.npm);
       html += stepHtml('Index Regen', lastResult.regenerate);
       html += stepHtml('HTML Build', lastResult.build);
+    } else if (lastResult && lastResult.lastDeploy) {
+      var ld = lastResult.lastDeploy;
+      html += '<div style="margin-bottom:4px;"><strong>Last Deploy: ' + formatTime(ld.timestamp) + '</strong> (' + ld.status + ')</div>';
+      if (ld.steps) {
+        html += stepHtml('Git Pull', { success: ld.steps.gitPull === 'success' });
+        html += stepHtml('npm install', { success: ld.steps.npmInstall === 'success' });
+        html += stepHtml('Index Regen', { success: ld.steps.generateIndex === 'success' });
+        html += stepHtml('HTML Build', { success: ld.steps.buildHtml === 'success' });
+      }
+      if (ld.error) {
+        html += '<div style="color:#ef4444;margin-top:4px;">Error: ' + ld.error + '</div>';
+      }
     } else if (lastResult && lastResult.error) {
       html += '<div style="color:#ef4444;">' + lastResult.error + '</div>';
     } else {
       html += '<div style="color:#a1a1aa;">Click <strong>Retry</strong> to run the full pipeline.</div>';
     }
     detail.innerHTML = html;
+  }
+
+  function formatTime(iso) {
+    if (!iso) return 'N/A';
+    try {
+      var d = new Date(iso);
+      return d.toLocaleString();
+    } catch(e) { return iso; }
   }
 
   function stepHtml(name, result) {
@@ -89,9 +109,12 @@
     fetch(SYNC_URL, { method: 'GET', cache: 'no-store' })
       .then(function(r) { return r.json(); })
       .then(function(data) {
+        lastResult = data;
         lastCheckTime = new Date();
         if (data.status === 'ok') {
-          badge.innerHTML = '<span style="font-size:10px;">&#9679;</span> Sync Active';
+          var ld = data.lastDeploy;
+          var label = ld && ld.timestamp ? 'Synced ' + timeAgo(ld.timestamp) : 'Sync Active';
+          badge.innerHTML = '<span style="font-size:10px;">&#9679;</span> ' + label;
           badge.style.background = '#166534';
           badge.style.color = '#4ade80';
           badge.dataset.status = 'ok';
@@ -110,6 +133,16 @@
         badge.dataset.status = 'failed';
         lastResult = { error: err.message || 'Cannot reach webhook' };
       });
+  }
+
+  function timeAgo(iso) {
+    try {
+      var diff = (Date.now() - new Date(iso).getTime()) / 1000;
+      if (diff < 60) return 'just now';
+      if (diff < 3600) return Math.floor(diff / 60) + 'm ago';
+      if (diff < 86400) return Math.floor(diff / 3600) + 'h ago';
+      return Math.floor(diff / 86400) + 'd ago';
+    } catch(e) { return ''; }
   }
 
   function retrySync() {
