@@ -42,29 +42,29 @@
       if (!CMS) return;
 
       /* ── Preview Templates ─────────────────────────── */
-      CMS.registerPreviewTemplate('products',       window.ProductPreview);
-      CMS.registerPreviewTemplate('blog',           window.BlogPreview);
-      CMS.registerPreviewTemplate('homepage',       window.HomepagePreview);
-      CMS.registerPreviewTemplate('company',        window.CompanyPreview);
-      CMS.registerPreviewTemplate('oem-odm',        window.OemOdmPreview);
-      CMS.registerPreviewTemplate('navigation',     window.NavigationPreview);
-      CMS.registerPreviewTemplate('footer',         window.FooterPreview);
-      CMS.registerPreviewTemplate('team_members',   window.TeamPreview);
-      CMS.registerPreviewTemplate('testimonials',   window.TestimonialPreview);
-      CMS.registerPreviewTemplate('faq',            window.FaqPreview);
-      CMS.registerPreviewTemplate('certifications', window.CertificationPreview);
-      CMS.registerPreviewTemplate('case_studies',   window.CaseStudyPreview);
-      CMS.registerPreviewTemplate('safety',         window.SafetyPreview);
-      CMS.registerPreviewTemplate('partners',       window.PartnerPreview);
-      CMS.registerPreviewTemplate('distributors',   window.DistributorPreview);
-      CMS.registerPreviewTemplate('downloads',      window.DownloadPreview);
-      CMS.registerPreviewTemplate('warranty',       window.WarrantyPreview);
-      CMS.registerPreviewTemplate('manuals',        window.ManualsPreview);
+      try { CMS.registerPreviewTemplate('products',       window.ProductPreview); }       catch(e) { console.warn('Preview products:', e); }
+      try { CMS.registerPreviewTemplate('blog',           window.BlogPreview); }           catch(e) { console.warn('Preview blog:', e); }
+      try { CMS.registerPreviewTemplate('homepage',       window.HomepagePreview); }       catch(e) { console.warn('Preview homepage:', e); }
+      try { CMS.registerPreviewTemplate('company',        window.CompanyPreview); }        catch(e) { console.warn('Preview company:', e); }
+      try { CMS.registerPreviewTemplate('oem-odm',        window.OemOdmPreview); }         catch(e) { console.warn('Preview oem-odm:', e); }
+      try { CMS.registerPreviewTemplate('team_members',   window.TeamPreview); }           catch(e) { console.warn('Preview team_members:', e); }
+      try { CMS.registerPreviewTemplate('testimonials',   window.TestimonialPreview); }    catch(e) { console.warn('Preview testimonials:', e); }
+      try { CMS.registerPreviewTemplate('faq',            window.FaqPreview); }            catch(e) { console.warn('Preview faq:', e); }
+      try { CMS.registerPreviewTemplate('certifications', window.CertificationPreview); }  catch(e) { console.warn('Preview certifications:', e); }
+      try { CMS.registerPreviewTemplate('case_studies',   window.CaseStudyPreview); }      catch(e) { console.warn('Preview case_studies:', e); }
+      try { CMS.registerPreviewTemplate('safety',         window.SafetyPreview); }         catch(e) { console.warn('Preview safety:', e); }
+      try { CMS.registerPreviewTemplate('partners',       window.PartnerPreview); }        catch(e) { console.warn('Preview partners:', e); }
+      try { CMS.registerPreviewTemplate('distributors',   window.DistributorPreview); }    catch(e) { console.warn('Preview distributors:', e); }
+      try { CMS.registerPreviewTemplate('downloads',      window.DownloadPreview); }       catch(e) { console.warn('Preview downloads:', e); }
+      try { CMS.registerPreviewTemplate('warranty',       window.WarrantyPreview); }       catch(e) { console.warn('Preview warranty:', e); }
+      try { CMS.registerPreviewTemplate('manuals',        window.ManualsPreview); }        catch(e) { console.warn('Preview manuals:', e); }
 
       /* ── Preview Styles ────────────────────────────── */
-      CMS.registerPreviewStyle('/assets/css/styles.css');
-      CMS.registerPreviewStyle('/assets/css/premium-motion.css');
-      CMS.registerPreviewStyle('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap');
+      try {
+        CMS.registerPreviewStyle('/assets/css/styles.css');
+        CMS.registerPreviewStyle('/assets/css/premium-motion.css');
+        CMS.registerPreviewStyle('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap');
+      } catch(e) { console.warn('Preview styles:', e); }
 
       /* ── Editor Components ─────────────────────────── */
 
@@ -72,74 +72,82 @@
         return String(str || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
       }
 
-      CMS.registerEditorComponent({
-        id: "product-callout",
-        label: "Product Callout",
-        fields: [
-          { name: "product", label: "Product", widget: "relation", collection: "products", value_field: "sku", search_fields: ["name", "sku"], display_fields: ["name"] }
-        ],
-        pattern: /^product-callout (\S+)$/,
-        fromBlock: function(match) { return { product: match[1] }; },
-        toBlock: function(data) { return "product-callout " + data.product; },
-        toPreview: function(data) {
-          return '<div style="background:#18181b;border:1px solid #27272a;border-radius:8px;padding:16px;margin:16px 0;"><strong style="color:#facc15;">Product: ' + escapeHtml(data.product) + '</strong></div>';
-        }
-      });
+      try {
+        CMS.registerEditorComponent({
+          id: "product-callout",
+          label: "Product Callout",
+          fields: [
+            { name: "product", label: "Product", widget: "relation", collection: "products", value_field: "sku", search_fields: ["name", "sku"], display_fields: ["name"] }
+          ],
+          pattern: /^product-callout (\S+)$/,
+          fromBlock: function(match) { return { product: match[1] }; },
+          toBlock: function(data) { return "product-callout " + data.product; },
+          toPreview: function(data) {
+            return '<div style="background:#18181b;border:1px solid #27272a;border-radius:8px;padding:16px;margin:16px 0;"><strong style="color:#facc15;">Product: ' + escapeHtml(data.product) + '</strong></div>';
+          }
+        });
+      } catch(e) { console.warn('Editor component product-callout:', e); }
 
-      CMS.registerEditorComponent({
-        id: "cta-button",
-        label: "CTA Button",
-        fields: [
-          { name: "text", label: "Button Text", widget: "string" },
-          { name: "url", label: "Link URL", widget: "string" },
-          { name: "style", label: "Style", widget: "select", options: ["primary", "secondary"] }
-        ],
-        pattern: /^cta-button "([^"]*)" "([^"]*)" (\S+)$/,
-        fromBlock: function(match) { return { text: match[1], url: match[2], style: match[3] }; },
-        toBlock: function(data) { return 'cta-button "' + (data.text || "") + '" "' + (data.url || "") + '" ' + (data.style || "primary"); },
-        toPreview: function(data) {
-          var bg = data.style === "secondary" ? "#27272a" : "#facc15";
-          var color = data.style === "secondary" ? "#e4e4e7" : "#09090b";
-          return '<a href="' + escapeHtml(data.url) + '" style="display:inline-block;background:' + bg + ';color:' + color + ';padding:10px 24px;border-radius:8px;font-weight:600;text-decoration:none;margin:8px 0;">' + escapeHtml(data.text) + '</a>';
-        }
-      });
+      try {
+        CMS.registerEditorComponent({
+          id: "cta-button",
+          label: "CTA Button",
+          fields: [
+            { name: "text", label: "Button Text", widget: "string" },
+            { name: "url", label: "Link URL", widget: "string" },
+            { name: "style", label: "Style", widget: "select", options: ["primary", "secondary"] }
+          ],
+          pattern: /^cta-button "([^"]*)" "([^"]*)" (\S+)$/,
+          fromBlock: function(match) { return { text: match[1], url: match[2], style: match[3] }; },
+          toBlock: function(data) { return 'cta-button "' + (data.text || "") + '" "' + (data.url || "") + '" ' + (data.style || "primary"); },
+          toPreview: function(data) {
+            var bg = data.style === "secondary" ? "#27272a" : "#facc15";
+            var color = data.style === "secondary" ? "#e4e4e7" : "#09090b";
+            return '<a href="' + escapeHtml(data.url) + '" style="display:inline-block;background:' + bg + ';color:' + color + ';padding:10px 24px;border-radius:8px;font-weight:600;text-decoration:none;margin:8px 0;">' + escapeHtml(data.text) + '</a>';
+          }
+        });
+      } catch(e) { console.warn('Editor component cta-button:', e); }
 
-      CMS.registerEditorComponent({
-        id: "image-gallery",
-        label: "Image Gallery",
-        fields: [
-          { name: "images", label: "Images", widget: "list", field: { name: "image", label: "Image", widget: "image" } },
-          { name: "columns", label: "Columns", widget: "number", default: 3, min: 2, max: 4 }
-        ],
-        pattern: /^image-gallery (\d+) (.+)$/,
-        fromBlock: function(match) { return { columns: parseInt(match[1], 10) || 3, images: match[2].split(",") }; },
-        toBlock: function(data) { return "image-gallery " + (data.columns || 3) + " " + (data.images || []).join(","); },
-        toPreview: function(data) {
-          var imgs = (data.images || []);
-          var html = '<div style="display:grid;grid-template-columns:repeat(' + (data.columns || 3) + ',1fr);gap:8px;margin:16px 0;">';
-          imgs.forEach(function(img) {
-            html += '<img src="' + escapeHtml(img) + '" style="width:100%;border-radius:8px;object-fit:cover;aspect-ratio:1;" />';
-          });
-          html += '</div>';
-          return html;
-        }
-      });
+      try {
+        CMS.registerEditorComponent({
+          id: "image-gallery",
+          label: "Image Gallery",
+          fields: [
+            { name: "images", label: "Images", widget: "list", field: { name: "image", label: "Image", widget: "image" } },
+            { name: "columns", label: "Columns", widget: "number", default: 3, min: 2, max: 4 }
+          ],
+          pattern: /^image-gallery (\d+) (.+)$/,
+          fromBlock: function(match) { return { columns: parseInt(match[1], 10) || 3, images: match[2].split(",") }; },
+          toBlock: function(data) { return "image-gallery " + (data.columns || 3) + " " + (data.images || []).join(","); },
+          toPreview: function(data) {
+            var imgs = (data.images || []);
+            var html = '<div style="display:grid;grid-template-columns:repeat(' + (data.columns || 3) + ',1fr);gap:8px;margin:16px 0;">';
+            imgs.forEach(function(img) {
+              html += '<img src="' + escapeHtml(img) + '" style="width:100%;border-radius:8px;object-fit:cover;aspect-ratio:1;" />';
+            });
+            html += '</div>';
+            return html;
+          }
+        });
+      } catch(e) { console.warn('Editor component image-gallery:', e); }
 
-      CMS.registerEditorComponent({
-        id: "quote-block",
-        label: "Customer Quote",
-        fields: [
-          { name: "quote", label: "Quote Text", widget: "text" },
-          { name: "name", label: "Customer Name", widget: "string" },
-          { name: "company", label: "Company", widget: "string" }
-        ],
-        pattern: /^quote-block "([^"]*)" "([^"]*)" "([^"]*)"$/,
-        fromBlock: function(match) { return { quote: match[1], name: match[2], company: match[3] }; },
-        toBlock: function(data) { return 'quote-block "' + (data.quote || "") + '" "' + (data.name || "") + '" "' + (data.company || "") + '"'; },
-        toPreview: function(data) {
-          return '<blockquote style="border-left:3px solid #facc15;padding:16px 20px;margin:16px 0;background:#18181b;border-radius:0 8px 8px 0;"><p style="color:#e4e4e7;font-style:italic;margin:0 0 8px 0;">"' + escapeHtml(data.quote) + '"</p><cite style="color:#a1a1aa;font-style:normal;">&mdash; ' + escapeHtml(data.name) + ', ' + escapeHtml(data.company) + '</cite></blockquote>';
-        }
-      });
+      try {
+        CMS.registerEditorComponent({
+          id: "quote-block",
+          label: "Customer Quote",
+          fields: [
+            { name: "quote", label: "Quote Text", widget: "text" },
+            { name: "name", label: "Customer Name", widget: "string" },
+            { name: "company", label: "Company", widget: "string" }
+          ],
+          pattern: /^quote-block "([^"]*)" "([^"]*)" "([^"]*)"$/,
+          fromBlock: function(match) { return { quote: match[1], name: match[2], company: match[3] }; },
+          toBlock: function(data) { return 'quote-block "' + (data.quote || "") + '" "' + (data.name || "") + '" "' + (data.company || "") + '"'; },
+          toPreview: function(data) {
+            return '<blockquote style="border-left:3px solid #facc15;padding:16px 20px;margin:16px 0;background:#18181b;border-radius:0 8px 8px 0;"><p style="color:#e4e4e7;font-style:italic;margin:0 0 8px 0;">"' + escapeHtml(data.quote) + '"</p><cite style="color:#a1a1aa;font-style:normal;">&mdash; ' + escapeHtml(data.name) + ', ' + escapeHtml(data.company) + '</cite></blockquote>';
+          }
+        });
+      } catch(e) { console.warn('Editor component quote-block:', e); }
     })();
   </script>
 
