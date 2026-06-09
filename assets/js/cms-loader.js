@@ -270,6 +270,8 @@
               items.push(jsonItems[i]);
             }
           }
+          // Filter out archived items
+          items = items.filter(function(item) { return !item.archived; });
           if (sortFn) items.sort(sortFn);
           return items;
         });
@@ -397,6 +399,10 @@
     }).then(function (text) {
       var parsed = parseFrontmatter(text);
       var post = parsed.data;
+      if (post.archived) {
+        container.innerHTML = '<div class="max-w-2xl mx-auto py-16 text-center"><div class="w-20 h-20 mx-auto mb-6 rounded-full bg-zinc-800 flex items-center justify-center"><svg class="w-10 h-10 text-zinc-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M15.182 16.318A4.486 4.486 0 0 0 12.016 15a4.486 4.486 0 0 0-3.198 1.318M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Z"/></svg></div><h1 class="font-oswald text-3xl font-bold text-white mb-4">Post Unavailable</h1><p class="text-zinc-400 mb-8 max-w-md mx-auto">This blog post is no longer available.</p><a href="./index.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-bold text-sm transition-colors">Browse All Posts</a></div>';
+        return;
+      }
       var bodyHtml = parseMarkdown(parsed.body);
 
       var heroHtml = '';

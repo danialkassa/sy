@@ -41,6 +41,7 @@ function readMarkdownFiles(dir, opts = {}) {
       const parsed = parseFrontmatter(content);
       const slug = file.replace(/\.md$/, "");
       if (parsed.data.draft === true || parsed.data.draft === "true") continue;
+      if (parsed.data.archived === true || parsed.data.archived === "true") continue;
       entries.push({ data: parsed.data, slug, body: parsed.body });
     } catch (err) {
       console.warn(`  Warning: error reading ${file}: ${err.message}`);

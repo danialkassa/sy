@@ -74,7 +74,7 @@ collections:
     label_singular: "Product"
     folder: "content/products"
     create: true
-    delete: true
+    delete: false
     slug: "{{sku}}"
     extension: "md"
     format: "yaml-frontmatter"
@@ -83,6 +83,12 @@ collections:
     identifier_field: "name"
     sortable_fields: ["name", "sku", "category", "brand"]
     view_filters:
+      - label: "Active Items"
+        field: "archived"
+        pattern: false
+      - label: "Archived Items"
+        field: "archived"
+        pattern: true
       - label: "In Stock"
         field: "inStock"
         pattern: true
@@ -351,6 +357,11 @@ collections:
           - {label: "Certifications", name: "certifications", widget: "string", required: false, hint: "e.g., CE, RoHS, ISO 9001"}
           - {label: "MOQ", name: "moq", widget: "string", required: false, hint: "e.g., 50 units"}
 
+      - label: "Archive This Item"
+        name: "archived"
+        widget: "boolean"
+        default: false
+        hint: "Check this to hide this item from the live website. The item is NOT deleted — it can be unarchived later."
   # ============================================================
   # 1b. PRODUCTS — QUICK EDIT
   # ============================================================
@@ -359,7 +370,7 @@ collections:
     label_singular: "Product"
     folder: "content/products"
     create: true
-    delete: true
+    delete: false
     slug: "{{sku}}"
     extension: "md"
     format: "yaml-frontmatter"
@@ -368,6 +379,12 @@ collections:
     identifier_field: "name"
     sortable_fields: ["name", "sku", "category", "brand"]
     view_filters:
+      - label: "Active Items"
+        field: "archived"
+        pattern: false
+      - label: "Archived Items"
+        field: "archived"
+        pattern: true
       - label: "In Stock"
         field: "inStock"
         pattern: true
@@ -456,6 +473,11 @@ collections:
         widget: "boolean"
         default: true
 
+      - label: "Archive This Item"
+        name: "archived"
+        widget: "boolean"
+        default: false
+        hint: "Check this to hide this item from the live website. The item is NOT deleted — it can be unarchived later."
   # ============================================================
   # 2. BLOG POSTS
   # ============================================================
@@ -464,7 +486,7 @@ collections:
     label_singular: "Blog Post"
     folder: "content/blog"
     create: true
-    delete: true
+    delete: false
     slug: "{{slug}}"
     extension: "md"
     format: "yaml-frontmatter"
@@ -472,6 +494,12 @@ collections:
     description: "Write and manage blog posts."
     sortable_fields: ["title", "date", "category"]
     view_filters:
+      - label: "Active Items"
+        field: "archived"
+        pattern: false
+      - label: "Archived Items"
+        field: "archived"
+        pattern: true
       - label: "B2B Insights"
         field: "category"
         pattern: "B2B Insights"
@@ -551,6 +579,11 @@ collections:
         name: "body"
         widget: "markdown"
 
+      - label: "Archive This Item"
+        name: "archived"
+        widget: "boolean"
+        default: false
+        hint: "Check this to hide this item from the live website. The item is NOT deleted — it can be unarchived later."
   # ============================================================
   # 3. TESTIMONIALS
   # ============================================================
@@ -559,13 +592,20 @@ collections:
     label_singular: "Testimonial"
     folder: "content/testimonials"
     create: true
-    delete: true
+    delete: false
     slug: "{{slug}}"
     extension: "md"
     format: "yaml-frontmatter"
     summary: "{{company}} · {{country}}"
     description: "Customer testimonials and reviews."
     sortable_fields: ["name", "company", "order"]
+    view_filters:
+      - label: "Active Items"
+        field: "archived"
+        pattern: false
+      - label: "Archived Items"
+        field: "archived"
+        pattern: true
     fields:
       - label: "Customer Name"
         name: "name"
@@ -607,6 +647,11 @@ collections:
         default: 0
         hint: "Lower numbers first. Use 10, 20, 30..."
 
+      - label: "Archive This Item"
+        name: "archived"
+        widget: "boolean"
+        default: false
+        hint: "Check this to hide this item from the live website. The item is NOT deleted — it can be unarchived later."
   # ============================================================
   # 4. TEAM MEMBERS
   # ============================================================
@@ -615,13 +660,20 @@ collections:
     label_singular: "Team Member"
     folder: "content/team"
     create: true
-    delete: true
+    delete: false
     slug: "{{slug}}"
     extension: "md"
     format: "yaml-frontmatter"
     summary: "{{title}} · {{department}}"
     description: "Manage team members displayed on the About > Team page."
     sortable_fields: ["name", "title", "order"]
+    view_filters:
+      - label: "Active Items"
+        field: "archived"
+        pattern: false
+      - label: "Archived Items"
+        field: "archived"
+        pattern: true
     fields:
       - label: "Full Name"
         name: "name"
@@ -664,6 +716,11 @@ collections:
         default: 0
         hint: "Lower numbers first. Use 10, 20, 30..."
 
+      - label: "Archive This Item"
+        name: "archived"
+        widget: "boolean"
+        default: false
+        hint: "Check this to hide this item from the live website. The item is NOT deleted — it can be unarchived later."
   # ============================================================
   # 5. CERTIFICATIONS
   # ============================================================
@@ -672,13 +729,20 @@ collections:
     label_singular: "Certification"
     folder: "content/certifications"
     create: true
-    delete: true
+    delete: false
     slug: "{{slug}}"
     extension: "md"
     format: "yaml-frontmatter"
     summary: "{{issuer}} · {{year}}"
     description: "Company certifications and quality marks."
     sortable_fields: ["name", "issuer", "year"]
+    view_filters:
+      - label: "Active Items"
+        field: "archived"
+        pattern: false
+      - label: "Archived Items"
+        field: "archived"
+        pattern: true
     fields:
       - label: "Certification Name"
         name: "name"
@@ -719,6 +783,11 @@ collections:
         required: false
         pattern: ['^https?://.+', 'Enter a valid URL']
 
+      - label: "Archive This Item"
+        name: "archived"
+        widget: "boolean"
+        default: false
+        hint: "Check this to hide this item from the live website. The item is NOT deleted — it can be unarchived later."
   # ============================================================
   # 6. FAQ
   # ============================================================
@@ -727,13 +796,20 @@ collections:
     label_singular: "FAQ Item"
     folder: "content/faq"
     create: true
-    delete: true
+    delete: false
     slug: "{{slug}}"
     extension: "md"
     format: "yaml-frontmatter"
     summary: "{{category}} · #{{order}}"
     description: "Frequently asked questions grouped by category."
     sortable_fields: ["question", "category", "order"]
+    view_filters:
+      - label: "Active Items"
+        field: "archived"
+        pattern: false
+      - label: "Archived Items"
+        field: "archived"
+        pattern: true
     fields:
       - label: "Question"
         name: "question"
@@ -752,6 +828,11 @@ collections:
         default: 0
         hint: "Lower numbers first. Use 10, 20, 30..."
 
+      - label: "Archive This Item"
+        name: "archived"
+        widget: "boolean"
+        default: false
+        hint: "Check this to hide this item from the live website. The item is NOT deleted — it can be unarchived later."
   # ============================================================
   # 7. PARTNERS & CLIENTS
   # ============================================================
@@ -760,13 +841,20 @@ collections:
     label_singular: "Partner"
     folder: "content/partners"
     create: true
-    delete: true
+    delete: false
     slug: "{{slug}}"
     extension: "md"
     format: "yaml-frontmatter"
     summary: "{{partnerType}} · {{country}}"
     description: "Partner and client logos."
     sortable_fields: ["name", "order"]
+    view_filters:
+      - label: "Active Items"
+        field: "archived"
+        pattern: false
+      - label: "Archived Items"
+        field: "archived"
+        pattern: true
     fields:
       - label: "Partner/Client Name"
         name: "name"
@@ -798,6 +886,11 @@ collections:
         widget: "number"
         default: 0
 
+      - label: "Archive This Item"
+        name: "archived"
+        widget: "boolean"
+        default: false
+        hint: "Check this to hide this item from the live website. The item is NOT deleted — it can be unarchived later."
   # ============================================================
   # 8. DISTRIBUTORS
   # ============================================================
@@ -806,13 +899,20 @@ collections:
     label_singular: "Distributor"
     folder: "content/distributors"
     create: true
-    delete: true
+    delete: false
     slug: "{{slug}}"
     extension: "md"
     format: "yaml-frontmatter"
     summary: "{{country}} · {{region}}"
     description: "Global distributor network."
     sortable_fields: ["companyName", "country", "region"]
+    view_filters:
+      - label: "Active Items"
+        field: "archived"
+        pattern: false
+      - label: "Archived Items"
+        field: "archived"
+        pattern: true
     fields:
       - label: "Company Name"
         name: "companyName"
@@ -860,6 +960,11 @@ collections:
         required: false
         hint: "e.g., Drills, Grinders, Combo Kits"
 
+      - label: "Archive This Item"
+        name: "archived"
+        widget: "boolean"
+        default: false
+        hint: "Check this to hide this item from the live website. The item is NOT deleted — it can be unarchived later."
   # ============================================================
   # 9. WARRANTY
   # ============================================================
@@ -868,7 +973,7 @@ collections:
     label_singular: "Warranty Policy"
     folder: "content/warranty"
     create: true
-    delete: true
+    delete: false
     slug: "{{slug}}"
     extension: "md"
     format: "yaml-frontmatter"
@@ -876,6 +981,12 @@ collections:
     description: "Warranty policies and coverage information."
     sortable_fields: ["title", "warrantyType", "warrantyPeriod"]
     view_filters:
+      - label: "Active Items"
+        field: "archived"
+        pattern: false
+      - label: "Archived Items"
+        field: "archived"
+        pattern: true
       - label: "Standard"
         field: "warrantyType"
         pattern: "standard"
@@ -922,6 +1033,11 @@ collections:
         widget: "text"
         required: false
 
+      - label: "Archive This Item"
+        name: "archived"
+        widget: "boolean"
+        default: false
+        hint: "Check this to hide this item from the live website. The item is NOT deleted — it can be unarchived later."
   # ============================================================
   # 10. SAFETY NOTICES
   # ============================================================
@@ -930,13 +1046,20 @@ collections:
     label_singular: "Safety Notice"
     folder: "content/safety"
     create: true
-    delete: true
+    delete: false
     slug: "{{slug}}"
     extension: "md"
     format: "yaml-frontmatter"
     summary: "{{severity}} · {{noticeType}}"
     description: "Safety advisories, recalls, and compliance updates."
     sortable_fields: ["title", "noticeType", "severity", "date"]
+    view_filters:
+      - label: "Active Items"
+        field: "archived"
+        pattern: false
+      - label: "Archived Items"
+        field: "archived"
+        pattern: true
     fields:
       - label: "Notice Title"
         name: "title"
@@ -983,6 +1106,11 @@ collections:
         name: "date"
         widget: "datetime"
 
+      - label: "Archive This Item"
+        name: "archived"
+        widget: "boolean"
+        default: false
+        hint: "Check this to hide this item from the live website. The item is NOT deleted — it can be unarchived later."
   # ============================================================
   # 11. PRODUCT MANUALS
   # ============================================================
@@ -991,13 +1119,20 @@ collections:
     label_singular: "Manual"
     folder: "content/manuals"
     create: true
-    delete: true
+    delete: false
     slug: "{{slug}}"
     extension: "md"
     format: "yaml-frontmatter"
     summary: "{{productSku}} · {{language}}"
     description: "Product manuals in multiple languages."
     sortable_fields: ["title", "productSku", "language", "date"]
+    view_filters:
+      - label: "Active Items"
+        field: "archived"
+        pattern: false
+      - label: "Archived Items"
+        field: "archived"
+        pattern: true
     fields:
       - label: "Manual Title"
         name: "title"
@@ -1046,6 +1181,11 @@ collections:
         name: "date"
         widget: "datetime"
 
+      - label: "Archive This Item"
+        name: "archived"
+        widget: "boolean"
+        default: false
+        hint: "Check this to hide this item from the live website. The item is NOT deleted — it can be unarchived later."
   # ============================================================
   # 12. DOWNLOADS
   # ============================================================
@@ -1054,13 +1194,20 @@ collections:
     label_singular: "Download"
     folder: "content/downloads"
     create: true
-    delete: true
+    delete: false
     slug: "{{slug}}"
     extension: "md"
     format: "yaml-frontmatter"
     summary: "{{category}} · {{language}}"
     description: "Downloadable resources: catalogs, spec sheets, certificates, firmware."
     sortable_fields: ["title", "category", "language", "date"]
+    view_filters:
+      - label: "Active Items"
+        field: "archived"
+        pattern: false
+      - label: "Archived Items"
+        field: "archived"
+        pattern: true
     fields:
       - label: "Download Title"
         name: "title"
@@ -1109,6 +1256,11 @@ collections:
         widget: "text"
         required: false
 
+      - label: "Archive This Item"
+        name: "archived"
+        widget: "boolean"
+        default: false
+        hint: "Check this to hide this item from the live website. The item is NOT deleted — it can be unarchived later."
   # ============================================================
   # 13. CASE STUDIES
   # ============================================================
@@ -1117,13 +1269,20 @@ collections:
     label_singular: "Case Study"
     folder: "content/case-studies"
     create: true
-    delete: true
+    delete: false
     slug: "{{slug}}"
     extension: "md"
     format: "yaml-frontmatter"
     summary: "{{country}} · {{industry}}"
     description: "Success stories showcasing OEM/ODM capabilities."
     sortable_fields: ["title", "client", "country", "date"]
+    view_filters:
+      - label: "Active Items"
+        field: "archived"
+        pattern: false
+      - label: "Archived Items"
+        field: "archived"
+        pattern: true
     fields:
       - label: "Case Study Title"
         name: "title"
@@ -1175,6 +1334,11 @@ collections:
         widget: "boolean"
         default: false
 
+      - label: "Archive This Item"
+        name: "archived"
+        widget: "boolean"
+        default: false
+        hint: "Check this to hide this item from the live website. The item is NOT deleted — it can be unarchived later."
   # ============================================================
   # 14. PAGES — Homepage, OEM/ODM
   # ============================================================

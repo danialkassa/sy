@@ -64,6 +64,10 @@ function readMarkdownFiles(dir, lang) {
         draftCount++;
         continue;
       }
+      // Skip archived items — preserved in Git but hidden from the live site
+      if (frontmatter.archived === true || frontmatter.archived === "true") {
+        continue;
+      }
       entries.push({ frontmatter, slug });
     } catch (err) {
       console.warn(`  Warning: error reading ${file}: ${err.message}`);
