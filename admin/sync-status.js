@@ -22,8 +22,18 @@
     detail.id = 'sync-status-detail';
     detail.style.cssText = 'display:none;margin-top:6px;padding:10px 14px;border-radius:8px;background:#18181b;border:1px solid #3f3f46;font-size:12px;color:#d4d4d8;max-width:280px;line-height:1.5;box-shadow:0 4px 12px rgba(0,0,0,0.4);';
 
+    var viewSite = document.createElement('a');
+    viewSite.id = 'sync-view-site';
+    viewSite.href = '/';
+    viewSite.target = '_blank';
+    viewSite.textContent = 'View on Site →';
+    viewSite.style.cssText = 'display:none;margin-top:8px;padding:6px 12px;border-radius:6px;background:#27272a;border:1px solid #3f3f46;color:#e4e4e7;text-decoration:none;font-size:12px;font-weight:600;text-align:center;transition:all 0.2s;';
+    viewSite.onmouseenter = function() { viewSite.style.background = '#3f3f46'; };
+    viewSite.onmouseleave = function() { viewSite.style.background = '#27272a'; };
+
     container.appendChild(badge);
     container.appendChild(detail);
+    container.appendChild(viewSite);
     document.body.appendChild(container);
 
     badge.addEventListener('click', function() {
@@ -32,6 +42,7 @@
       } else {
         // Toggle detail panel
         detail.style.display = detail.style.display === 'none' ? 'block' : 'none';
+        viewSite.style.display = detail.style.display;
         updateDetailPanel();
       }
     });
@@ -49,8 +60,11 @@
     }
     if (lastResult && lastResult.regenerate) {
       html += '<div style="margin-bottom:4px;"><strong>Pipeline Steps:</strong></div>';
+      html += stepHtml('npm install', lastResult.npm);
       html += stepHtml('Index Regen', lastResult.regenerate);
       html += stepHtml('HTML Build', lastResult.build);
+    } else if (lastResult && lastResult.error) {
+      html += '<div style="color:#ef4444;">' + lastResult.error + '</div>';
     } else {
       html += '<div style="color:#a1a1aa;">Click <strong>Retry</strong> to run the full pipeline.</div>';
     }
@@ -117,18 +131,21 @@
     .then(function(data) {
       lastResult = data;
       lastCheckTime = new Date();
+      var viewSite = document.getElementById('sync-view-site');
       var allOk = data.success === true || (data.regenerate && data.regenerate.success && data.build && data.build.success);
       if (allOk) {
         badge.innerHTML = '<span style="font-size:10px;">&#9679;</span> Sync Complete';
         badge.style.background = '#166534';
         badge.style.color = '#4ade80';
         badge.dataset.status = 'ok';
+        if (viewSite) viewSite.style.display = 'block';
       } else {
         badge.innerHTML = '<span style="font-size:10px;">&#9679;</span> Pipeline Failed — Click for Details';
         badge.style.background = '#991b1b';
         badge.style.color = '#fca5a5';
         badge.dataset.status = 'error';
         detail.style.display = 'block';
+        if (viewSite) viewSite.style.display = 'block';
         updateDetailPanel();
       }
     })

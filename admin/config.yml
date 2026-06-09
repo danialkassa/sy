@@ -407,8 +407,7 @@ collections:
         name: "name"
         widget: "string"
         required: true
-        hint: "Full product name as shown on the website."
-      - label: "Product Code (SKU)"
+      - label: "SKU"
         name: "sku"
         widget: "string"
         required: true
@@ -430,75 +429,32 @@ collections:
             value: "impact-tools"
           - label: "Combo Kits"
             value: "combo-kits"
-      - label: "Brand"
-        name: "brand"
-        widget: "select"
-        options: ["Ningbo Siyang", "Ningbo Siyang Pro", "Ningbo Siyang Industrial", "Siyang Trade"]
-        default: "Ningbo Siyang"
-      - label: "Description"
-        name: "description"
-        widget: "text"
-        required: true
-        hint: "2-3 sentence description for search results and product page."
-      - label: "Tagline"
-        name: "tagline"
-        widget: "string"
-        required: false
-        hint: "Short one-liner for product cards. Example: Power Meets Precision"
       - label: "Price (USD)"
         name: "price"
         widget: "number"
         value_type: "int"
         default: 0
         required: false
-        hint: "Unit price in USD. Enter 0 to show 'Contact for Quote'."
-      - label: "Compare At Price (USD)"
-        name: "compareAtPrice"
-        widget: "number"
-        value_type: "int"
-        default: 0
-        required: false
-        hint: "Original price for discount display. Enter 0 to hide."
-      - label: "Main Product Photo"
+        hint: "Enter 0 to show 'Contact for Quote'."
+      - label: "Main Photo"
         name: "image"
         widget: "image"
         required: true
         media_folder: "/images/products"
         public_folder: "/images/products"
         choose_url: false
-      - label: "In Stock?"
-        name: "inStock"
-        widget: "boolean"
-        default: true
-      - label: "Stock Quantity"
-        name: "stock"
-        widget: "number"
-        value_type: "int"
-        default: 0
-        required: false
-      - label: "Featured Product?"
+      - label: "Description"
+        name: "description"
+        widget: "text"
+        required: true
+      - label: "Featured"
         name: "featured"
         widget: "boolean"
         default: false
-        hint: "Show in 'Featured Tools' on homepage."
-      - label: "Is Top Product?"
-        name: "isTopProduct"
+      - label: "In Stock"
+        name: "inStock"
         widget: "boolean"
-        default: false
-        hint: "Show in 'Top Products' on homepage."
-      - label: "Minimum Order Quantity"
-        name: "moq"
-        widget: "string"
-        default: "500 units"
-      - label: "Lead Time"
-        name: "leadTime"
-        widget: "string"
-        default: "30-45 days"
-      - label: "Category Label"
-        name: "categoryLabel"
-        widget: "string"
-        required: false
-        hint: "Display label for category. Leave blank to auto-generate."
+        default: true
 
   # ============================================================
   # 2. BLOG POSTS

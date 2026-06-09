@@ -78,6 +78,37 @@ function replaceTextById(html, id, newText) {
   return html;
 }
 
+function replaceElementTextById(html, id, text) {
+  if (!text) return html;
+  const escaped = escapeHtml(text);
+  const pattern = new RegExp(`<(\\w+)[^>]*?id=["']${id}["'][^>]*?>[\\s\\S]*?</\\1>`, "g");
+  return html.replace(pattern, `<$1>${escaped}</$1>`);
+}
+
+function injectIntoElementById(html, id, innerHtml) {
+  if (!innerHtml) return html;
+  const pattern = new RegExp(`(<[^>]*?id=["']${id}["'][^>]*?>)[\\s\\S]*?(</[^>]*?>)`, "g");
+  return html.replace(pattern, `$1${innerHtml}$2`);
+}
+
+function parseMarkdown(md) {
+  if (!md) return "";
+  let html = md
+    .replace(/^### (.*$)/gim, "<h3>$1</h3>")
+    .replace(/^## (.*$)/gim, "<h2>$1</h2>")
+    .replace(/^# (.*$)/gim, "<h1>$1</h1>")
+    .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+    .replace(/\*(.*?)\*/g, "<em>$1</em>")
+    .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2">$1</a>')
+    .replace(/^- (.*$)/gim, "<li>$1</li>");
+  html = html.replace(/(<li>.*?<\/li>\n?)+/gs, "<ul>$&</ul>");
+  const paragraphs = html.split(/\n\s*\n/).map(p => p.trim()).filter(Boolean);
+  return paragraphs.map(p => {
+    if (p.startsWith("<h") || p.startsWith("<ul") || p.startsWith("<li")) return p;
+    return `<p>${p}</p>`;
+  }).join("\n");
+}
+
 function replaceAttributeById(html, id, attr, newValue) {
   if (newValue === undefined || newValue === null) return html;
   const regex = new RegExp(`(<[^>]*?id=["']${id}["'][^>]*?\\s${attr}=["'])[^"']*(["'])`, "g");
@@ -845,6 +876,67 @@ function main() {
   // Distributors
   const distCards = distributors.map(buildDistributorCard).join("\n");
   processCollectionPage("about/distributors.html", "cms-distributors-grid", distCards, { companyData });
+
+  // Process individual content pages (title, subtitle, description, body)
+  console.log("Processing content pages...");
+  const contentPages = [
+    { html: "about/oem-odm.html", md: "oem-odm" },
+    { html: "about/warranty.html", md: "warranty" },
+    { html: "about/manuals.html", md: "manuals" },
+    { html: "about/faq.html", md: "faq" },
+    { html: "about/downloads.html", md: "downloads" },
+    { html: "about/payment-terms.html", md: "payment-terms" },
+    { html: "about/safety.html", md: "safety" },
+    { html: "about/distributors.html", md: "distributors" },
+    { html: "contact.html", md: "contact" },
+    { html: "privacy.html", md: "privacy" },
+    { html: "terms.html", md: "terms" },
+    { html: "blogs/index.html", md: "blog" },
+    { html: "products/index.html", md: "products" },
+    { html: "products/drills-drivers.html", md: "drills-drivers" },
+    { html: "products/saws.html", md: "saws" },
+    { html: "products/grinders.html", md: "grinders" },
+    { html: "products/sanders.html", md: "sanders" },
+    { html: "products/impact-tools.html", md: "impact-tools" },
+    { html: "products/combo-kits.html", md: "combo-kits" },
+  ];
+
+  for (const page of contentPages) {
+    const mdPath = path.join(projectRoot, `content/pages/${page.md}.md`);
+    const htmlPath = path.join(projectRoot, page.html);
+    if (!fs.existsSync(mdPath) || !fs.existsSync(htmlPath)) continue;
+    const mdContent = fs.readFileSync(mdPath, "utf-8");
+    const { data, body } = parseFrontmatter(mdContent);
+    if (!data || !Object.keys(data).length) continue;
+
+    let html = fs.readFileSync(htmlPath, "utf-8");
+    let modified = false;
+
+    if (data.pageTitle || data.title) {
+      html = replaceElementTextById(html, "cms-page-title", data.pageTitle || data.title);
+      modified = true;
+    }
+    if (data.subtitle) {
+      html = replaceElementTextById(html, "cms-page-subtitle", data.subtitle);
+      modified = true;
+    }
+    if (data.description) {
+      html = replaceElementTextById(html, "cms-page-description", data.description);
+      modified = true;
+    }
+    if (body) {
+      const bodyHtml = parseMarkdown(body);
+      if (bodyHtml) {
+        html = injectIntoElementById(html, "cms-page-body", bodyHtml);
+        modified = true;
+      }
+    }
+
+    if (modified) {
+      if (!dryRun) fs.writeFileSync(htmlPath, html, "utf-8");
+      console.log(`  ${page.html}: injected page content`);
+    }
+  }
 
   console.log("\nBuild complete!");
 }
