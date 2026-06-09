@@ -15,7 +15,7 @@ backend:
     uploadMedia: "Upload image: {{path}}"
     deleteMedia: "Remove image: {{path}}"
 
-publish_mode: editorial_workflow
+# publish_mode: editorial_workflow  # Gitea backend does not support editorial workflow
 
 logo_url: /sy-logo-dark.svg
 site_url: https://siyang.tools
