@@ -15,3 +15,5 @@ images/istock/
 content/products/*.json
 
 images/products/images of different power tools/
+archive/
+package-lock.json
