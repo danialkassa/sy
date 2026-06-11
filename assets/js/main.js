@@ -252,6 +252,121 @@
     });
   });
 
+  // ===== Product Filters =====
+  var activeCategory = '';
+  var activeBrand = '';
+  var inStockOnly = false;
+
+  window.setCategory = function(cat) {
+    activeCategory = cat;
+    // Update active button styling
+    document.querySelectorAll('.filter-cat-btn').forEach(function(btn) {
+      if (btn.getAttribute('data-cat') === cat) {
+        btn.classList.add('text-yellow-400', 'bg-zinc-800');
+        btn.classList.remove('text-zinc-400');
+      } else {
+        btn.classList.remove('text-yellow-400', 'bg-zinc-800');
+        btn.classList.add('text-zinc-400');
+      }
+    });
+    applyFilters();
+  };
+
+  window.setBrand = function(brand) {
+    activeBrand = brand;
+    // Update active button styling
+    document.querySelectorAll('.filter-brand-btn').forEach(function(btn) {
+      if (btn.getAttribute('data-brand') === brand) {
+        btn.classList.add('text-yellow-400', 'bg-zinc-800');
+        btn.classList.remove('text-zinc-400');
+      } else {
+        btn.classList.remove('text-yellow-400', 'bg-zinc-800');
+        btn.classList.add('text-zinc-400');
+      }
+    });
+    applyFilters();
+  };
+
+  window.clearFilters = function() {
+    activeCategory = '';
+    activeBrand = '';
+    inStockOnly = false;
+    var instockCb = document.getElementById('filter-instock');
+    if (instockCb) instockCb.checked = false;
+    document.querySelectorAll('.filter-cat-btn, .filter-brand-btn').forEach(function(btn) {
+      btn.classList.remove('text-yellow-400', 'bg-zinc-800');
+      btn.classList.add('text-zinc-400');
+    });
+    applyFilters();
+  };
+
+  function applyFilters() {
+    var cards = document.querySelectorAll('[data-filter-category]');
+    var visibleCount = 0;
+
+    function normalizeCat(str) {
+      return str.toLowerCase().replace(/\s*&\s*/g, '-').replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+    }
+
+    cards.forEach(function(card) {
+      var cardCat = card.getAttribute('data-filter-category') || '';
+      var cardBrandEl = card.querySelector('[data-quote-brand]');
+      var cardBrand = card.getAttribute('data-filter-brand') || (cardBrandEl ? cardBrandEl.getAttribute('data-quote-brand') : '') || '';
+      var cardInStock = card.getAttribute('data-in-stock') !== 'false';
+
+      var catMatch = !activeCategory || normalizeCat(cardCat) === activeCategory;
+      var brandMatch = !activeBrand || cardBrand === activeBrand;
+      var stockMatch = !inStockOnly || cardInStock;
+
+      if (catMatch && brandMatch && stockMatch) {
+        card.style.display = '';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    // Show/hide clear button
+    var clearBtn = document.getElementById('clear-all-filters');
+    if (clearBtn) {
+      if (activeCategory || activeBrand || inStockOnly) {
+        clearBtn.classList.remove('hidden');
+      } else {
+        clearBtn.classList.add('hidden');
+      }
+    }
+
+    // Update count display
+    var countEl = document.getElementById('product-count');
+    if (countEl) countEl.textContent = visibleCount;
+
+    // Show "no results" message
+    var noResults = document.getElementById('no-results');
+    if (noResults) {
+      noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+  }
+
+  // In-stock checkbox
+  var instockCb = document.getElementById('filter-instock');
+  if (instockCb) {
+    instockCb.addEventListener('change', function() {
+      inStockOnly = this.checked;
+      applyFilters();
+    });
+  }
+
+  // Make applyFilters available globally for the checkbox onchange
+  window.applyFilters = applyFilters;
+
+  // Toggle filter sections on mobile
+  window.toggleSection = function(sectionId, chevronId) {
+    var section = document.getElementById(sectionId);
+    var chevron = document.getElementById(chevronId);
+    if (section) section.classList.toggle('hidden');
+    if (chevron) chevron.classList.toggle('rotate-180');
+  };
+
 })();
 
 function handleNewsletterSubscribe(e) {
