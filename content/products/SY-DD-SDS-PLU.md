@@ -5,11 +5,11 @@ category: drills-drivers
 categoryLabel: "Drills & Drivers"
 price: 0
 compareAtPrice: 0
-image: ../images/products/10002.jpeg
+image: ../images/products/10077-2.jpeg
 images:
-  - ../images/products/10002.jpeg
-  - ../images/products/10002.jpeg
-  - ../images/products/10002.jpeg
+  - ../images/products/10077-2.jpeg
+  - ../images/products/10077-2.jpeg
+  - ../images/products/10077-2.jpeg
 brand: Ningbo Siyang Pro
 tagline: Heavy-duty SDS-Plus rotary hammer with 3-mode operation for drilling, hammer drilling, and chiseling. Features an active vibration control system and 7.5 Amp motor for reliable performance in concrete and masonry applications. Ideal for professional construction and renovation projects.
 description: Heavy-duty SDS-Plus rotary hammer with 3-mode operation for drilling, hammer drilling, and chiseling. Features an active vibration control system and 7.5 Amp motor for reliable performance in concrete and masonry applications. Ideal for professional construction and renovation projects.

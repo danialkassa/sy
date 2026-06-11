@@ -5,9 +5,9 @@ category: combo-kits
 categoryLabel: Combo Kits
 price: 0
 compareAtPrice: 0
-image: ../images/products/10067.jpeg
+image: ../images/products/10077-3.jpeg
 images:
-  - ../images/products/10067.jpeg
+  - ../images/products/10077-3.jpeg
 brand: Ningbo Siyang Pro
 tagline: Complete 6-tool 20V MAX combo kit including drill/driver, impact driver, circular saw, reciprocating saw, oscillating tool, and LED work light. Comes with 3× 4.0Ah batteries, dual charger, and carrying bag. Professional-grade set for contractors and serious DIY enthusiasts.
 description: Complete 6-tool 20V MAX combo kit including drill/driver, impact driver, circular saw, reciprocating saw, oscillating tool, and LED work light. Comes with 3× 4.0Ah batteries, dual charger, and carrying bag. Professional-grade set for contractors and serious DIY enthusiasts.

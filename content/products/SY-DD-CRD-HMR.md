@@ -5,9 +5,9 @@ category: drills-drivers
 categoryLabel: "Drills & Drivers"
 price: 0
 compareAtPrice: 0
-image: ../images/products/10072.jpeg
+image: ../images/products/10051.jpeg
 images:
-  - ../images/products/10072.jpeg
+  - ../images/products/10051.jpeg
 brand: Ningbo Siyang
 tagline: Versatile corded hammer drill with 7.5A motor and 1/2 inch metal chuck. Features anti-vibration handle and variable speed trigger for precision control in masonry, wood, and metal drilling applications. The dual-mode selector allows easy switching between drilling and hammer drilling.
 description: Versatile corded hammer drill with 7.5A motor and 1/2 inch metal chuck. Features anti-vibration handle and variable speed trigger for precision control in masonry, wood, and metal drilling applications. The dual-mode selector allows easy switching between drilling and hammer drilling.

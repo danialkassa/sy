@@ -5,9 +5,9 @@ category: combo-kits
 categoryLabel: Combo Kits
 price: 0
 compareAtPrice: 0
-image: ../images/products/10053.jpeg
+image: ../images/products/10051.jpeg
 images:
-  - ../images/products/10053.jpeg
+  - ../images/products/10051.jpeg
 brand: Ningbo Siyang
 tagline: Essential 2-tool kit featuring a 20V drill/driver and impact driver. Includes 2× 2.0Ah batteries, charger, and soft carrying bag. Perfect starter set for homeowners and light professional use covering drilling and fastening applications.
 description: Essential 2-tool kit featuring a 20V drill/driver and impact driver. Includes 2× 2.0Ah batteries, charger, and soft carrying bag. Perfect starter set for homeowners and light professional use covering drilling and fastening applications.

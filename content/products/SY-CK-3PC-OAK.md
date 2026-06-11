@@ -5,9 +5,9 @@ category: combo-kits
 categoryLabel: Combo Kits
 price: 0
 compareAtPrice: 0
-image: ../images/products/10093.jpeg
+image: ../images/products/10029.webp
 images:
-  - ../images/products/10093.jpeg
+  - ../images/products/10029.webp
 brand: Ningbo Siyang Pro
 tagline: Specialized 3-tool woodworking combo kit including drill/driver, circular saw, and random orbital sander. Comes with 2× 3.0Ah batteries and charger. Designed for woodworkers and carpenters who need essential cordless tools for cutting, drilling, and finishing.
 description: Specialized 3-tool woodworking combo kit including drill/driver, circular saw, and random orbital sander. Comes with 2× 3.0Ah batteries and charger. Designed for woodworkers and carpenters who need essential cordless tools for cutting, drilling, and finishing.

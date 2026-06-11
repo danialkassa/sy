@@ -5,9 +5,9 @@ category: impact-tools
 categoryLabel: Impact Tools
 price: 0
 compareAtPrice: 0
-image: ../images/products/10034.webp
+image: ../images/products/10029.webp
 images:
-  - ../images/products/10034.webp
+  - ../images/products/10029.webp
 brand: Ningbo Siyang
 tagline: Compact inline 20V cordless ratchet with 3/8 inch anvil delivering 70 ft-lbs of max torque at 250 RPM. Features a compact inline design for access in tight engine bays and confined spaces. Ideal for automotive and mechanical fastening applications.
 description: Compact inline 20V cordless ratchet with 3/8 inch anvil delivering 70 ft-lbs of max torque at 250 RPM. Features a compact inline design for access in tight engine bays and confined spaces. Ideal for automotive and mechanical fastening applications.

@@ -187,7 +187,7 @@ var SearchEngine = (function() {
         var html = '';
         for (var j = 0; j < Math.min(matches.length, 10); j++) {
           var p = matches[j];
-          var img = p.image || (base + 'images/products/10034.webp');
+          var img = p.image || (base + 'images/products/10029.webp');
           if (img.indexOf('http') !== 0 && img.indexOf('/') !== 0) img = base + img.replace('../', '');
           html += '<a href="' + base + 'products/product.html?sku=' + encodeURIComponent(p.sku) + '" class="flex items-center gap-4 p-3 rounded-lg hover:bg-zinc-800/50 transition-colors">';
           html += '<img src="' + img + '" alt="" class="w-12 h-12 object-contain rounded bg-zinc-900"/>';

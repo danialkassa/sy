@@ -573,11 +573,11 @@
       var brandEl = document.getElementById('product-brand');
       if (brandEl) brandEl.textContent = p.brand || 'Siyang';
       document.getElementById('product-description').textContent = p.description;
-      document.getElementById('product-main-image').src = p.images && p.images[0] || '/images/products/10034.webp';
+      document.getElementById('product-main-image').src = p.images && p.images[0] || '/images/products/10029.webp';
       document.getElementById('product-main-image').alt = p.name;
       window._productImages = p.images || [];
       if (typeof updateProductGallery === 'function') {
-        updateProductGallery(p.images || [], p.images && p.images[0] || '/images/products/10034.webp');
+        updateProductGallery(p.images || [], p.images && p.images[0] || '/images/products/10029.webp');
       }
 
       // Completion warning banner

@@ -5,9 +5,9 @@ category: drills-drivers
 categoryLabel: "Drills & Drivers"
 price: 0
 compareAtPrice: 0
-image: ../images/products/10097.jpeg
+image: ../images/products/10077-2.jpeg
 images:
-  - ../images/products/10097.jpeg
+  - ../images/products/10077-2.jpeg
 brand: Ningbo Siyang
 tagline: Compact 18V brushless drill/driver with a short 6.9 inch head length for tight spaces. Features 13 clutch settings for precise torque control and a 2-speed gearbox for versatile drilling and fastening. Lightweight design ideal for all-day professional use.
 description: Compact 18V brushless drill/driver with a short 6.9 inch head length for tight spaces. Features 13 clutch settings for precise torque control and a 2-speed gearbox for versatile drilling and fastening. Lightweight design ideal for all-day professional use.
