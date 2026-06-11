@@ -5,9 +5,9 @@ category: combo-kits
 categoryLabel: Combo Kits
 price: 0
 compareAtPrice: 0
-image: ../images/products/10051.jpeg
+image: ../images/products/10030.webp
 images:
-  - ../images/products/10051.jpeg
+  - ../images/products/10030.webp
 brand: Ningbo Siyang
 tagline: Practical 2-tool combo kit featuring a 20V angle grinder and drill/driver. Includes 2 batteries and charger. Ideal for metal fabrication, construction, and maintenance applications where both drilling and grinding capabilities are needed.
 description: Practical 2-tool combo kit featuring a 20V angle grinder and drill/driver. Includes 2 batteries and charger. Ideal for metal fabrication, construction, and maintenance applications where both drilling and grinding capabilities are needed.

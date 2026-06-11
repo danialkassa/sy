@@ -5,9 +5,9 @@ category: drills-drivers
 categoryLabel: "Drills & Drivers"
 price: 0
 compareAtPrice: 0
-image: ../images/products/10029.webp
+image: ../images/products/10077-3.jpeg
 images:
-  - ../images/products/10029.webp
+  - ../images/products/10077-3.jpeg
 brand: Ningbo Siyang
 tagline: Heavy-duty right angle drill with 7.5 Amp motor and 360° adjustable auxiliary handle. Designed for drilling in tight spaces where standard drills cannot reach. Features variable speed control and all-metal gear construction for maximum durability.
 description: Heavy-duty right angle drill with 7.5 Amp motor and 360° adjustable auxiliary handle. Designed for drilling in tight spaces where standard drills cannot reach. Features variable speed control and all-metal gear construction for maximum durability.

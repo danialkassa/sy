@@ -5,9 +5,9 @@ category: combo-kits
 categoryLabel: Combo Kits
 price: 0
 compareAtPrice: 0
-image: ../images/products/10077-2.jpeg
+image: ../images/products/10030.webp
 images:
-  - ../images/products/10077-2.jpeg
+  - ../images/products/10030.webp
 brand: Ningbo Siyang Pro
 tagline: Professional 4-tool contractor combo kit including drill/driver, circular saw, reciprocating saw, and LED work light. Comes with 2 batteries and charger. Designed for professional contractors who need versatile cordless power on the jobsite.
 description: Professional 4-tool contractor combo kit including drill/driver, circular saw, reciprocating saw, and LED work light. Comes with 2 batteries and charger. Designed for professional contractors who need versatile cordless power on the jobsite.

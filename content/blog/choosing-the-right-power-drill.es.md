@@ -3,7 +3,7 @@ title: "Cómo elegir la amoladora angular adecuada para sus proyectos"
 date: 2024-12-15T10:00:00Z
 author: "Chen Wei"
 category: "Guías técnicas"
-image: "../images/products/10002.jpeg"
+image: "../images/products/10029.webp"
 excerpt: "Una guía completa para seleccionar la amoladora angular perfecta para cualquier proyecto, desde reparaciones domésticas hasta trabajos de construcción profesional."
 readTime: 8
 lang: es

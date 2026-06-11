@@ -5,9 +5,9 @@ category: combo-kits
 categoryLabel: Combo Kits
 price: 0
 compareAtPrice: 0
-image: ../images/products/10029.webp
+image: ../images/products/10077.jpeg
 images:
-  - ../images/products/10029.webp
+  - ../images/products/10077.jpeg
   - ../images/products/10030.webp
   - ../images/products/10077-3.jpeg
 brand: Ningbo Siyang Pro
