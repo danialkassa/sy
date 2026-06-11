@@ -5,9 +5,9 @@ var SITE_CONFIG = {
   email: 'muruts57@gmail.com',
   address: 'Ningbo Industrial Zone, Zhejiang 315000, China',
   whatsapp: '+8617815622951',
-  wechatQR: '/assets/images/wechat-qr.png',
+  wechatQR: '/images/contact/wechat.jpg',
   socialLinks: {
-    wechat: '/assets/images/wechat-qr.png',
+    wechat: '/images/contact/wechat.jpg',
     whatsapp: '+8617815622951'
   },
   businessHours: 'Mon-Fri: 8:00 AM - 5:00 PM (CST, UTC+8)',
