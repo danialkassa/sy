@@ -9,9 +9,7 @@
       "Damage from dropping or impact",
       "Use with non-approved batteries"
     ],
-    "claimProcess": "1. Contact support with your product serial number.\\n2. Provide proof of purchase and description of the issue.\\n3. Our technical team will diagnose remotely first.\\n4. If confirmed, ship to service center for motor replacement.",
-    "slug": "brushless-motor-warranty",
-    "sku": "brushless-motor-warranty"
+    "claimProcess": "1. Contact support with your product serial number.\\n2. Provide proof of purchase and description of the issue.\\n3. Our technical team will diagnose remotely first.\\n4. If confirmed, ship to service center for motor replacement."
   },
   {
     "title": "Standard Warranty",
@@ -24,8 +22,6 @@
       "Consumable parts (blades, bits, belts)",
       "Modifications or unauthorized repairs"
     ],
-    "claimProcess": "1. Contact your distributor with proof of purchase.\\n2. Describe the defect and provide photos.\\n3. Ship the tool to the nearest service center.\\n4. We will repair or replace within 14 business days.",
-    "slug": "standard-warranty",
-    "sku": "standard-warranty"
+    "claimProcess": "1. Contact your distributor with proof of purchase.\\n2. Describe the defect and provide photos.\\n3. Ship the tool to the nearest service center.\\n4. We will repair or replace within 14 business days."
   }
 ]

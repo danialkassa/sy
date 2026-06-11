@@ -3,7 +3,7 @@ title: "为您的项目选择合适的电钻"
 date: 2024-12-15T10:00:00Z
 author: "Chen Wei"
 category: "技术指南"
-image: "../images/istock/10001.jpg"
+image: "../images/products/10002.jpeg"
 excerpt: "从家庭DIY维修到专业建筑施工，为任何项目选择完美电钻的综合指南。"
 readTime: 8
 lang: zh

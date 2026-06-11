@@ -3,7 +3,7 @@ title: "每位电动工具买家都应了解的安全标准"
 date: 2024-12-05T10:00:00Z
 author: "Zhang Hui"
 category: "行业趋势"
-image: "../images/istock/10010.jpg"
+image: "../images/facilities/manufacturing-07.jpg"
 excerpt: "了解电动工具的国际安全认证和标准，包括CE、UL和GS标志。"
 readTime: 7
 lang: zh

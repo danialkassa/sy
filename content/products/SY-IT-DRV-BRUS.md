@@ -5,11 +5,9 @@ category: impact-tools
 categoryLabel: Impact Tools
 price: 0
 compareAtPrice: 0
-image: ../images/unsplach/drill-closeup/10081.jpeg
+image: ../images/products/10037.jpeg
 images:
-  - ../images/unsplach/drill-closeup/10081.jpeg
-  - ../images/unsplach/drill-closeup/10081-2.jpeg
-  - ../images/unsplach/drill-closeup/10081-3.jpeg
+  - ../images/products/10037.jpeg
 brand: Ningbo Siyang Pro
 tagline: Complete 20V brushless impact driver kit including 2× 4.0Ah batteries, charger, and kit bag. Delivers professional-grade performance with brushless motor technology for maximum runtime and durability. Ideal for heavy-duty fastening in construction and remodeling.
 description: Complete 20V brushless impact driver kit including 2× 4.0Ah batteries, charger, and kit bag. Delivers professional-grade performance with brushless motor technology for maximum runtime and durability. Ideal for heavy-duty fastening in construction and remodeling.

@@ -5,11 +5,9 @@ category: combo-kits
 categoryLabel: Combo Kits
 price: 0
 compareAtPrice: 0
-image: ../images/unsplach/drill-home/10057.jpg
+image: ../images/products/10065.jpeg
 images:
-  - ../images/unsplach/drill-home/10057.jpg
-  - ../images/unsplach/drill-home/10057-2.jpg
-  - ../images/unsplach/drill-home/10057-3.jpg
+  - ../images/products/10065.jpeg
 brand: Ningbo Siyang Pro
 tagline: Specialized 5-tool electrician combo kit including drill/driver, impact driver, reciprocating saw, LED work light, and Bluetooth radio. Comes with 2 batteries and charger. Designed for electrical contractors who need reliable cordless tools for daily use.
 description: Specialized 5-tool electrician combo kit including drill/driver, impact driver, reciprocating saw, LED work light, and Bluetooth radio. Comes with 2 batteries and charger. Designed for electrical contractors who need reliable cordless tools for daily use.

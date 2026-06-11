@@ -3,7 +3,7 @@ title: "企业电动工具采购完全指南"
 date: 2024-12-10T10:00:00Z
 author: "Li Ming"
 category: "行业洞察"
-image: "../images/istock/10005.jpg"
+image: "../images/products/10053.jpeg"
 excerpt: "从质量保证到批量定价策略，了解为您的企业采购电动工具所需的一切。"
 readTime: 6
 lang: zh

@@ -4,7 +4,7 @@ slug: choosing-the-right-power-drill
 date: "2024-12-15T10:00:00Z"
 category: Technical Guides
 excerpt: A comprehensive guide to selecting the perfect power drill for any project, from DIY home repairs to professional construction work.
-image: ../images/istock/10001.jpg
+image: ../images/products/10002.jpeg
 author: Chen Wei
 readTime: 8
 ---

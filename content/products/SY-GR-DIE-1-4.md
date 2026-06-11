@@ -5,11 +5,9 @@ category: grinders
 categoryLabel: Grinders
 price: 0
 compareAtPrice: 0
-image: ../images/istock/10016.jpg
+image: ../images/products/grinder-06.jpg
 images:
-  - ../images/istock/10016.jpg
-  - ../images/istock/10016-2.jpg
-  - ../images/istock/10016-3.jpg
+  - ../images/products/grinder-06.jpg
 brand: Ningbo Siyang
 tagline: Precision 1/4 inch die grinder with 4 Amp motor and variable speed up to 25,000 RPM. Includes both 1/4 inch and 1/8 inch collets for versatile accessory compatibility. Ideal for detail grinding, deburring, and polishing in metalworking and automotive applications.
 description: Precision 1/4 inch die grinder with 4 Amp motor and variable speed up to 25,000 RPM. Includes both 1/4 inch and 1/8 inch collets for versatile accessory compatibility. Ideal for detail grinding, deburring, and polishing in metalworking and automotive applications.

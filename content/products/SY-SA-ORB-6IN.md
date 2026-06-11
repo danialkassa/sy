@@ -5,11 +5,9 @@ category: sanders
 categoryLabel: Sanders
 price: 0
 compareAtPrice: 0
-image: ../images/istock/10024.jpg
+image: ../images/products/sander-06.jpg
 images:
-  - ../images/istock/10024.jpg
-  - ../images/istock/10024-2.jpg
-  - ../images/istock/10024-3.jpg
+  - ../images/products/sander-06.jpg
 brand: Ningbo Siyang Pro
 tagline: Professional 6 inch random orbital sander with 5 Amp motor, dual action, and variable speed control. Features 21mm throw for aggressive material removal and a comfortable ergonomic design. Ideal for automotive body work, woodworking, and industrial surface finishing.
 description: Professional 6 inch random orbital sander with 5 Amp motor, dual action, and variable speed control. Features 21mm throw for aggressive material removal and a comfortable ergonomic design. Ideal for automotive body work, woodworking, and industrial surface finishing.

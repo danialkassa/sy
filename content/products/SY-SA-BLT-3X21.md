@@ -5,11 +5,9 @@ category: sanders
 categoryLabel: Sanders
 price: 0
 compareAtPrice: 0
-image: ../images/istock/10020.jpg
+image: ../images/products/sander-01.jpg
 images:
-  - ../images/istock/10020.jpg
-  - ../images/istock/10020-2.jpg
-  - ../images/istock/10020-3.jpg
+  - ../images/products/sander-01.jpg
 brand: Ningbo Siyang Pro
 tagline: Professional 3×21 inch belt sander with 8.0 Amp motor and variable speed control. Features a dust bag for cleaner operation and an adjustable front handle for comfortable use. Designed for rapid material removal on large flat surfaces in woodworking and flooring applications.
 description: Professional 3×21 inch belt sander with 8.0 Amp motor and variable speed control. Features a dust bag for cleaner operation and an adjustable front handle for comfortable use. Designed for rapid material removal on large flat surfaces in woodworking and flooring applications.

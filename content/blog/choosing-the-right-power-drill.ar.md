@@ -3,7 +3,7 @@ title: "选择适合您项目的电动工具"
 date: 2024-12-15T10:00:00Z
 author: "Chen Wei"
 category: "الأدلة التقنية"
-image: "../images/istock/10001.jpg"
+image: "../images/products/10002.jpeg"
 excerpt: "دليل شامل لاختيار الأداة الكهربائية المثالية لأي مشروع، من إصلاحات المنزل ذاتية الصنع إلى أعمال البناء الاحترافية."
 readTime: 8
 lang: ar

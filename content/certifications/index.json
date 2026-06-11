@@ -4,25 +4,19 @@
       "name": "CE Marking",
       "issuer": "TUV Rheinland",
       "image": "",
-      "year": "2024",
-      "slug": "ce-marking",
-      "sku": "ce-marking"
+      "year": "2024"
     },
     {
       "name": "ISO 9001:2015",
       "issuer": "SGS",
       "image": "",
-      "year": "2024",
-      "slug": "iso-9001",
-      "sku": "iso-9001"
+      "year": "2024"
     },
     {
       "name": "RoHS Compliance",
       "issuer": "SGS",
       "image": "",
-      "year": "2024",
-      "slug": "rohs",
-      "sku": "rohs"
+      "year": "2024"
     }
   ]
 }

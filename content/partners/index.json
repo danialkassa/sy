@@ -1,26 +1,20 @@
 [
   {
-    "name": "Middle East Tools & Hardware",
+    "name": "SGH Tools Europe",
     "logo": "",
     "website": "https://example.com",
-    "order": 3,
-    "slug": "middle-east-tools",
-    "sku": "middle-east-tools"
+    "order": 1
   },
   {
     "name": "Pacific Hardware Distributors",
     "logo": "",
     "website": "https://example.com",
-    "order": 2,
-    "slug": "pacific-hardware",
-    "sku": "pacific-hardware"
+    "order": 2
   },
   {
-    "name": "SGH Tools Europe",
+    "name": "Middle East Tools & Hardware",
     "logo": "",
     "website": "https://example.com",
-    "order": 1,
-    "slug": "sgh-tools",
-    "sku": "sgh-tools"
+    "order": 3
   }
 ]

@@ -4,7 +4,7 @@ slug: b2b-power-tools-procurement
 date: "2024-12-10T10:00:00Z"
 category: B2B Insights
 excerpt: Everything you need to know about sourcing power tools for your business, from quality assurance to bulk pricing strategies.
-image: ../images/istock/10005.jpg
+image: ../images/products/10053.jpeg
 author: Li Ming
 readTime: 6
 ---

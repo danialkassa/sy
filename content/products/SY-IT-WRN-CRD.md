@@ -5,11 +5,11 @@ category: impact-tools
 categoryLabel: Impact Tools
 price: 0
 compareAtPrice: 0
-image: ../images/istock/10029.jpg
+image: ../images/products/10029.webp
 images:
-  - ../images/istock/10029.jpg
-  - ../images/istock/10029-2.jpg
-  - ../images/istock/10029-3.jpg
+  - ../images/products/10029.webp
+  - ../images/products/10029.webp
+  - ../images/products/10029.webp
 brand: Ningbo Siyang
 tagline: Corded 7.5 Amp impact wrench with 1/2 inch anvil delivering 330 ft-lbs of max torque. Features forward/reverse control and a rocker switch for easy one-hand operation. Ideal for automotive repair, equipment maintenance, and heavy-duty bolting applications.
 description: Corded 7.5 Amp impact wrench with 1/2 inch anvil delivering 330 ft-lbs of max torque. Features forward/reverse control and a rocker switch for easy one-hand operation. Ideal for automotive repair, equipment maintenance, and heavy-duty bolting applications.

@@ -481,30 +481,34 @@
           ? '<span class="text-xs text-green-400 font-medium">&#10003; ' + _t('cms.inStock','In Stock') + '</span>'
           : '<span class="text-xs text-red-400 font-medium">' + _t('cms.outOfStock','Out of Stock') + '</span>';
 
-        var stars = product.rating || 4;
-        var starsHtml = '<div class="flex items-center gap-0.5">';
-        for (var s = 0; s < 5; s++) {
-          starsHtml += s < stars
-            ? '<svg class="w-3.5 h-3.5 text-yellow-400 fill-yellow-400" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>'
-            : '<svg class="w-3.5 h-3.5 text-zinc-600" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>';
-        }
-        starsHtml += '</div>';
+        // Stars and reviews removed per client request
 
         return '<div data-id="' + (product.sku || '') + '" class="group relative bg-zinc-800 rounded-xl overflow-hidden border border-zinc-700 hover:border-yellow-400/50 transition-all duration-300 hover:shadow-xl hover:shadow-yellow-400/5 flex flex-col">' +
-          '<a href="' + getBasePath() + 'products/product.html?sku=' + (product.sku || '') + '" class="block">' +
           '<div class="relative aspect-square bg-zinc-900 overflow-hidden shrink-0">' +
+          '<a href="' + getBasePath() + 'products/product.html?sku=' + (product.sku || '') + '" class="block">' +
           '<img src="' + (product.image || (product.images && product.images[0]) || '') + '" alt="' + escapeHtml(product.name || '') + '" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy"/>' +
           '<div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/20 to-transparent opacity-60 group-hover:opacity-35 transition-opacity"></div>' +
           badgeContainer +
-          '</div>' +
           '</a>' +
+          '<div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300">' +
+          '<a href="' + getBasePath() + 'products/product.html?sku=' + (product.sku || '') + '" aria-label="View details for ' + escapeHtml(product.name || '') + '" class="flex w-11 h-11 bg-zinc-900/90 backdrop-blur-sm rounded-lg items-center justify-center text-zinc-300 hover:text-yellow-400 hover:bg-zinc-900 transition-colors">' +
+          '<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>' +
+          '</a>' +
+          '</div>' +
+          '<div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-zinc-950 via-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">' +
+          '<button data-quote-add data-quote-sku="' + escapeHtml(product.sku || '') + '" data-quote-name="' + escapeHtml(product.name || '') + '" data-quote-brand="' + escapeHtml(product.brand || 'Ningbo Siyang') + '" data-quote-image="' + (product.image || (product.images && product.images[0]) || '') + '" class="w-full bg-yellow-400 text-zinc-900 hover:bg-yellow-300 font-semibold text-sm h-11 rounded-md flex items-center justify-center gap-2">' +
+          '<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>' +
+          '<span data-i18n="category.requestAQuote">Request Quote</span>' +
+          '</button>' +
+          '</div>' +
+          '</div>' +
           '<div class="p-4 flex flex-col flex-1">' +
           '<a href="' + getBasePath() + 'products/product.html?sku=' + (product.sku || '') + '" class="block">' +
           '<p class="text-xs text-red-400 uppercase tracking-wider mb-1 font-semibold">' + escapeHtml(product.brand || '') + '</p>' +
           '<h3 class="font-oswald font-semibold text-white group-hover:text-yellow-400 transition-colors line-clamp-2 mb-1.5 leading-snug">' + escapeHtml(product.name || '') + '</h3>' +
           '<p class="text-xs text-zinc-500 mb-2.5 line-clamp-2 leading-relaxed">' + escapeHtml(product.tagline || product.description || '') + '</p>' +
           '</a>' +
-          '<div class="flex items-center gap-2 mb-3">' + starsHtml + '<span class="text-xs text-zinc-500">(' + (product.reviewCount || 0) + ')</span></div>' +
+          // Stars removed per client request
           '<div class="mt-auto">' +
           '<div class="flex items-center gap-2 mb-1">' + priceHtml + '</div>' +
           stockHtml +
@@ -518,12 +522,7 @@
         if (typeof window.initQuoteCart === 'function') {
           window.initQuoteCart();
         }
-        if (typeof window.attachCompareCheckbox === 'function') {
-          products.forEach(function (product) {
-            var cardEl = container.querySelector('[data-id="' + (product.sku || '') + '"]');
-            if (cardEl) window.attachCompareCheckbox(cardEl, product);
-          });
-        }
+        // Compare checkbox removed per client request
       }
     }).catch(function () {
       container.innerHTML = '<p class="text-zinc-500 text-center py-8">' + _t('cms.productsUnavailable', 'Products temporarily unavailable.') + '</p>';
@@ -1167,12 +1166,7 @@
           }
         });
       }
-      if (data.logoAlt) {
-        var logoTexts = document.querySelectorAll('.cms-company-logo-text');
-        logoTexts.forEach(function (el) {
-          el.textContent = data.logoAlt.split(' - ')[0] || data.logoAlt;
-        });
-      }
+      // Logo text is set in HTML; do not override with CMS data to avoid text wrapping issues
       if (data.logoDark) {
         // Update JSON-LD logo references
         var ldScripts = document.querySelectorAll('script[type="application/ld+json"]');
@@ -1643,10 +1637,9 @@
         card += '<div class="p-6">' +
           '<div class="flex items-center gap-2 mb-3">' +
           '<span class="text-2xl">' + flag + '</span>' +
-          '<span class="text-zinc-500 text-sm">' + country + '</span>' +
+          '<span class="text-zinc-400 text-sm font-medium">' + country + '</span>' +
           '</div>' +
-          '<h3 class="font-oswald text-xl font-bold text-white mb-2">' + title + '</h3>' +
-          '<p class="text-yellow-400 text-sm font-medium mb-1">' + client + '</p>' +
+          '<h3 class="font-oswald text-xl font-bold text-white mb-1">' + client + '</h3>' +
           '<p class="text-zinc-500 text-xs mb-4">' + industry + '</p>';
 
         if (study.results && study.results.length) {

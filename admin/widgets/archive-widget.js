@@ -10,10 +10,9 @@
     // Hide the default delete button in the CMS editor
     var style = document.createElement('style');
     style.textContent = `
-      /* Hide default delete button */
+      /* Hide default delete button — specific selectors only */
       .nc-entryEditor-toolbar-deleteButton,
-      [data-testid="delete-button"],
-      button[class*="delete"] {
+      [data-testid="delete-button"] {
         display: none !important;
       }
       /* Highlight archived items in the collection list */

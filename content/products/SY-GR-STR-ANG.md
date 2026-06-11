@@ -5,11 +5,9 @@ category: grinders
 categoryLabel: Grinders
 price: 0
 compareAtPrice: 0
-image: ../images/istock/10017.jpg
+image: ../images/products/grinder-08.jpg
 images:
-  - ../images/istock/10017.jpg
-  - ../images/istock/10017-2.jpg
-  - ../images/istock/10017-3.jpg
+  - ../images/products/grinder-08.jpg
 brand: Ningbo Siyang
 tagline: 4-1/2 inch angle grinder with 7.5 Amp motor, trigger switch, and restart protection for enhanced safety. Features a slim body design for comfortable grip and control during extended use. Suitable for cutting, grinding, and surface preparation in metal and masonry.
 description: 4-1/2 inch angle grinder with 7.5 Amp motor, trigger switch, and restart protection for enhanced safety. Features a slim body design for comfortable grip and control during extended use. Suitable for cutting, grinding, and surface preparation in metal and masonry.

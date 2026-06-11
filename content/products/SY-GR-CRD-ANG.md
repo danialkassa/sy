@@ -5,11 +5,9 @@ category: grinders
 categoryLabel: Grinders
 price: 0
 compareAtPrice: 0
-image: ../images/unsplach/drill-closeup/10077.jpeg
+image: ../images/products/grinder-05.jpg
 images:
-  - ../images/unsplach/drill-closeup/10077.jpeg
-  - ../images/unsplach/drill-closeup/10077-2.jpeg
-  - ../images/unsplach/drill-closeup/10077-3.jpeg
+  - ../images/products/grinder-05.jpg
 brand: Ningbo Siyang Pro
 tagline: Cordless 20V MAX angle grinder with brushless motor delivering 9000 RPM. Features tool-free wheel change for quick disc swaps and a slim ergonomic body for comfortable use. Ideal for cutting, grinding, and surface preparation where cordless freedom is needed.
 description: Cordless 20V MAX angle grinder with brushless motor delivering 9000 RPM. Features tool-free wheel change for quick disc swaps and a slim ergonomic body for comfortable use. Ideal for cutting, grinding, and surface preparation where cordless freedom is needed.

@@ -3,7 +3,7 @@ title: "Стандарты безопасности, которые должен
 date: 2024-12-05T10:00:00Z
 author: "Zhang Hui"
 category: "Отраслевые тенденции"
-image: "../images/istock/10010.jpg"
+image: "../images/facilities/manufacturing-07.jpg"
 excerpt: "Разбираемся в международных сертификатах безопасности и стандартах для электроинструментов, включая маркировки CE, UL и GS."
 readTime: 7
 lang: ru

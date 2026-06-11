@@ -5,11 +5,9 @@ category: sanders
 categoryLabel: Sanders
 price: 0
 compareAtPrice: 0
-image: ../images/istock/10021.jpg
+image: ../images/products/sander-04.jpg
 images:
-  - ../images/istock/10021.jpg
-  - ../images/istock/10021-2.jpg
-  - ../images/istock/10021-3.jpg
+  - ../images/products/sander-04.jpg
 brand: Ningbo Siyang
 tagline: Compact detail and trim sander with 2.4 Amp motor and quick-change pad system. Includes 3 sanding bases for versatile application in corners, edges, and tight spaces. Ideal for furniture refinishing, trim work, and detail sanding projects.
 description: Compact detail and trim sander with 2.4 Amp motor and quick-change pad system. Includes 3 sanding bases for versatile application in corners, edges, and tight spaces. Ideal for furniture refinishing, trim work, and detail sanding projects.

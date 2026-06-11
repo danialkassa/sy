@@ -3,7 +3,7 @@ title: "Les normes de sécurité que tout acheteur d'outils électroportatifs do
 date: 2024-12-05T10:00:00Z
 author: "Zhang Hui"
 category: "Tendances sectorielles"
-image: "../images/istock/10010.jpg"
+image: "../images/facilities/manufacturing-07.jpg"
 excerpt: "Comprendre les certifications et normes de sécurité internationales pour les outils électroportatifs, y compris les marques CE, UL et GS."
 readTime: 7
 lang: fr

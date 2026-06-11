@@ -1,772 +1,3384 @@
 {
   "products": [
     {
+      "name": "Drill & Impact Driver 2-Tool Kit",
       "sku": "SY-CK-2PC-DRL",
-      "name": "电钻与冲击起子双工具套装",
-      "brand": "Ningbo Siyang",
       "category": "combo-kits",
-      "categoryLabel": "组合套件",
-      "description": "基础双工具套装，包含20V电钻/起子和冲击起子。配备2块2.0Ah电池、充电器和软质便携包。适合房主和轻型专业用户的入门套装，覆盖钻孔和紧固应用。",
-      "image": "../images/istock/10032.jpg",
+      "categoryLabel": "Combo Kits",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/10053.jpeg",
+      "images": [
+        "../images/products/10053.jpeg"
+      ],
+      "brand": "Ningbo Siyang",
+      "tagline": "Essential 2-tool kit featuring a 20V drill/driver and impact driver. Includes 2× 2.0Ah batteries, charger, and soft carrying bag. Perfect starter set for homeowners and light professional use covering drilling and fastening applications.",
+      "description": "Essential 2-tool kit featuring a 20V drill/driver and impact driver. Includes 2× 2.0Ah batteries, charger, and soft carrying bag. Perfect starter set for homeowners and light professional use covering drilling and fastening applications.",
+      "userBenefits": [
+        "Two most-used cordless tools in one kit covers 90% of drilling and fastening tasks",
+        "Shared 20V battery platform means both tools run on the same interchangeable batteries",
+        "2× 2.0Ah batteries allow continuous work — charge one while using the other",
+        "Soft carrying bag keeps everything organized and portable between jobsites",
+        "Affordable entry point into the 20V ecosystem with room to expand later"
+      ],
+      "specs": {
+        "voltage": "20V MAX",
+        "motorType": "Brushed",
+        "toolsIncluded": [
+          "Drill/Driver",
+          "Impact Driver"
+        ],
+        "toolsCount": 2,
+        "batteriesIncluded": "2× 2.0Ah",
+        "chargerIncluded": true,
+        "caseType": "Soft carrying bag",
+        "totalWeight": "12.0 lbs (5.4 kg)",
+        "batteryPlatform": "20V MAX",
+        "warrantyPeriod": "3 year limited",
+        "tool1Specs": {
+          "name": "Drill/Driver",
+          "maxTorque": "350 in-lbs",
+          "noLoadSpeed": "0-450/0-1500 RPM",
+          "chuckSize": "1/2\" keyless"
+        },
+        "tool2Specs": {
+          "name": "Impact Driver",
+          "maxTorque": "1400 in-lbs",
+          "noLoadSpeed": "0-2400 RPM",
+          "ipm": "0-3200",
+          "chuckType": "1/4\" hex"
+        },
+        "chargerType": "30-minute rapid charger",
+        "bagMaterial": "Heavy-duty canvas",
+        "batteryChemistry": "Lithium-ion"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": false,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": false,
+      "isTopProduct": false,
+      "featured": false,
       "moq": "500 units",
       "leadTime": "30-45 days",
-      "inStock": true,
-      "featured": false,
-      "compliance": "CE, ROHS, EEC",
       "warranty": "3 year limited kit warranty",
-      "userBenefits": "一套套件涵盖两种最常用的充电式工具，可完成90%的钻孔和紧固任务"
+      "relatedProducts": [
+        "SY-CK-3PC-HOM",
+        "SY-IT-DRV-20V"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-CK-2PC-DRL.pdf",
+        "manual": "/downloads/manuals/SY-CK-2PC-DRL.pdf"
+      }
     },
     {
+      "name": "Grinder & Drill 2-Tool Combo",
       "sku": "SY-CK-2PC-GRN",
-      "name": "角磨机与电钻双工具组合",
-      "brand": "Ningbo Siyang",
       "category": "combo-kits",
-      "categoryLabel": "组合套件",
-      "description": "实用双工具组合套装，包含20V角磨机和电钻/起子。配备2块电池和充电器。适用于金属制造、建筑和维护应用中同时需要钻孔和研磨功能的场合。",
-      "image": "../images/unsplach/drill-closeup/10082.jpeg",
+      "categoryLabel": "Combo Kits",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/10072.jpeg",
+      "images": [
+        "../images/products/10072.jpeg"
+      ],
+      "brand": "Ningbo Siyang",
+      "tagline": "Practical 2-tool combo kit featuring a 20V angle grinder and drill/driver. Includes 2 batteries and charger. Ideal for metal fabrication, construction, and maintenance applications where both drilling and grinding capabilities are needed.",
+      "description": "Practical 2-tool combo kit featuring a 20V angle grinder and drill/driver. Includes 2 batteries and charger. Ideal for metal fabrication, construction, and maintenance applications where both drilling and grinding capabilities are needed.",
+      "userBenefits": [
+        "Drill and grinder combo covers the two most common metalworking tasks in one purchase",
+        "4-1/2\" grinder handles cutting, grinding, and surface prep with readily available discs",
+        "Shared 20V battery system lets you swap batteries between tools for uninterrupted workflow",
+        "Compact drill/driver with 2-speed gearbox tackles both high-speed drilling and high-torque driving",
+        "Cost-effective alternative to buying tools individually with included batteries and charger"
+      ],
+      "specs": {
+        "voltage": "20V MAX",
+        "motorType": "Brushed",
+        "toolsIncluded": [
+          "Angle Grinder",
+          "Drill/Driver"
+        ],
+        "toolsCount": 2,
+        "batteriesIncluded": "2× 2.0Ah",
+        "chargerIncluded": true,
+        "caseType": "Soft carrying bag",
+        "totalWeight": "11.0 lbs (5.0 kg)",
+        "batteryPlatform": "20V MAX",
+        "warrantyPeriod": "3 year limited",
+        "tool1Specs": {
+          "name": "Angle Grinder",
+          "discSize": "4-1/2\"",
+          "noLoadSpeed": "8500 RPM",
+          "spindleThread": "5/8\"-11"
+        },
+        "tool2Specs": {
+          "name": "Drill/Driver",
+          "maxTorque": "350 in-lbs",
+          "noLoadSpeed": "0-450/0-1500 RPM",
+          "chuckSize": "1/2\" keyless"
+        },
+        "chargerType": "30-minute rapid charger",
+        "bagMaterial": "Heavy-duty canvas",
+        "batteryChemistry": "Lithium-ion"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": false,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": false,
+      "isTopProduct": false,
+      "featured": false,
       "moq": "400 units",
       "leadTime": "30-45 days",
-      "inStock": true,
-      "featured": false,
-      "compliance": "CE, ROHS, EEC",
       "warranty": "3 year limited kit warranty",
-      "userBenefits": "电钻与角磨机组合，一次购买即可覆盖两项最常见的金属加工任务"
+      "relatedProducts": [
+        "SY-CK-2PC-DRL",
+        "SY-CK-4PC-CON"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-CK-2PC-GRN.pdf",
+        "manual": "/downloads/manuals/SY-CK-2PC-GRN.pdf"
+      }
     },
     {
+      "name": "Homeowner 3-Tool Starter Kit",
       "sku": "SY-CK-3PC-HOM",
-      "name": "家用3工具入门套装",
-      "brand": "Ningbo Siyang",
       "category": "combo-kits",
-      "categoryLabel": "组合套件",
-      "description": "经济实惠的3工具房主入门套装，包含电钻/起子、冲击起子和LED工作灯。配备2块1.5Ah紧凑型电池、充电器和便携包。适合家居装修项目和家庭DIY任务。",
-      "image": "../images/istock/10035.jpg",
+      "categoryLabel": "Combo Kits",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/10077.jpeg",
+      "images": [
+        "../images/products/10077.jpeg"
+      ],
+      "brand": "Ningbo Siyang",
+      "tagline": "Affordable 3-tool starter kit for homeowners including drill/driver, impact driver, and LED work light. Comes with 2× 1.5Ah compact batteries, charger, and carrying bag. Perfect for home improvement projects and DIY tasks around the house.",
+      "description": "Affordable 3-tool starter kit for homeowners including drill/driver, impact driver, and LED work light. Comes with 2× 1.5Ah compact batteries, charger, and carrying bag. Perfect for home improvement projects and DIY tasks around the house.",
+      "userBenefits": [
+        "Three essential tools cover virtually every home improvement task from hanging shelves to assembling furniture",
+        "LED work light illuminates dark closets, attics, and under-sink areas for safer DIY work",
+        "Compact 1.5Ah batteries keep weight down for comfortable overhead and one-handed use",
+        "Impact driver prevents cam-out and stripping on deck screws and lag bolts that a drill alone cannot handle",
+        "Most affordable entry into the 20V platform — expand with more tools as your needs grow"
+      ],
+      "specs": {
+        "voltage": "20V MAX",
+        "motorType": "Brushed",
+        "toolsIncluded": [
+          "Drill/Driver",
+          "Impact Driver",
+          "LED Work Light"
+        ],
+        "toolsCount": 3,
+        "batteriesIncluded": "2× 1.5Ah",
+        "chargerIncluded": true,
+        "caseType": "Soft carrying bag",
+        "totalWeight": "10.0 lbs (4.5 kg)",
+        "batteryPlatform": "20V MAX",
+        "warrantyPeriod": "3 year limited",
+        "tool1Specs": {
+          "name": "Drill/Driver",
+          "maxTorque": "300 in-lbs",
+          "noLoadSpeed": "0-400/0-1300 RPM",
+          "chuckSize": "1/2\" keyless"
+        },
+        "tool2Specs": {
+          "name": "Impact Driver",
+          "maxTorque": "1200 in-lbs",
+          "noLoadSpeed": "0-2300 RPM",
+          "ipm": "0-3000",
+          "chuckType": "1/4\" hex"
+        },
+        "tool3Specs": {
+          "name": "LED Work Light",
+          "lumens": "200 lm",
+          "runtime": "4 hours on 1.5Ah battery"
+        },
+        "chargerType": "45-minute standard charger",
+        "bagMaterial": "Canvas",
+        "batteryChemistry": "Lithium-ion"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": false,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": false,
+      "isTopProduct": false,
+      "featured": false,
       "moq": "500 units",
       "leadTime": "30-45 days",
-      "inStock": true,
-      "featured": false,
-      "compliance": "CE, ROHS, EEC",
       "warranty": "3 year limited kit warranty",
-      "userBenefits": "三款必备工具几乎覆盖所有家居装修任务，从悬挂搁板到组装家具一应俱全"
+      "relatedProducts": [
+        "SY-CK-2PC-DRL",
+        "SY-CK-3PC-OAK"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-CK-3PC-HOM.pdf",
+        "manual": "/downloads/manuals/SY-CK-3PC-HOM.pdf"
+      }
     },
     {
+      "name": "3-Tool Woodworking Combo Kit",
       "sku": "SY-CK-3PC-OAK",
-      "name": "3工具木工组合套装",
-      "brand": "Ningbo Siyang Pro",
       "category": "combo-kits",
-      "categoryLabel": "组合套件",
-      "description": "专业3工具木工组合套装，包含电钻/起子、圆锯和轨道砂光机。配备2块3.0Ah电池和充电器。专为需要基本充电式工具进行切割、钻孔和抛光作业的木工和木匠而设计。",
-      "image": "../images/unsplach/drill-closeup/10083.jpeg",
+      "categoryLabel": "Combo Kits",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/10093.jpeg",
+      "images": [
+        "../images/products/10093.jpeg"
+      ],
+      "brand": "Ningbo Siyang Pro",
+      "tagline": "Specialized 3-tool woodworking combo kit including drill/driver, circular saw, and random orbital sander. Comes with 2× 3.0Ah batteries and charger. Designed for woodworkers and carpenters who need essential cordless tools for cutting, drilling, and finishing.",
+      "description": "Specialized 3-tool woodworking combo kit including drill/driver, circular saw, and random orbital sander. Comes with 2× 3.0Ah batteries and charger. Designed for woodworkers and carpenters who need essential cordless tools for cutting, drilling, and finishing.",
+      "userBenefits": [
+        "Purpose-built for woodworking — drill, cut, and finish wood projects without switching to corded tools",
+        "6-1/2\" circular saw cuts 2x lumber in a single pass at 90° for efficient framing and sheet goods",
+        "Random orbital sander delivers swirl-free finishes on cabinets, furniture, and trim work",
+        "Brushless motors provide longer runtime and longer tool life for professional woodworking demands",
+        "3.0Ah batteries deliver sustained power for continuous sawing and sanding without frequent swaps"
+      ],
+      "specs": {
+        "voltage": "20V MAX",
+        "motorType": "Brushless",
+        "toolsIncluded": [
+          "Drill/Driver",
+          "Circular Saw",
+          "Random Orbital Sander"
+        ],
+        "toolsCount": 3,
+        "batteriesIncluded": "2× 3.0Ah",
+        "chargerIncluded": true,
+        "caseType": "Hard carrying case",
+        "totalWeight": "18.0 lbs (8.2 kg)",
+        "batteryPlatform": "20V MAX",
+        "warrantyPeriod": "3 year limited",
+        "tool1Specs": {
+          "name": "Drill/Driver",
+          "maxTorque": "400 in-lbs",
+          "noLoadSpeed": "0-500/0-1700 RPM",
+          "chuckSize": "1/2\" keyless"
+        },
+        "tool2Specs": {
+          "name": "Circular Saw",
+          "bladeSize": "6-1/2\"",
+          "maxDepthCut90": "2-1/8\"",
+          "maxDepthCut45": "1-5/8\"",
+          "noLoadSpeed": "4200 RPM"
+        },
+        "tool3Specs": {
+          "name": "Random Orbital Sander",
+          "padSize": "5\" hook & loop",
+          "opm": "8000-12000",
+          "dustCollection": "Integrated dust port"
+        },
+        "chargerType": "30-minute rapid charger",
+        "caseMaterial": "Blow-molded polypropylene",
+        "batteryChemistry": "Lithium-ion"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": true,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": false,
+      "isTopProduct": false,
+      "featured": false,
       "moq": "300 units",
       "leadTime": "30-45 days",
-      "inStock": true,
-      "featured": false,
-      "compliance": "CE, ROHS, GS, EEC",
       "warranty": "3 year limited kit warranty",
-      "userBenefits": "专为木工打造——钻孔、切割和完成木作项目，无需切换有线工具"
+      "relatedProducts": [
+        "SY-CK-3PC-HOM",
+        "SY-CK-4PC-CON"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-CK-3PC-OAK.pdf",
+        "manual": "/downloads/manuals/SY-CK-3PC-OAK.pdf"
+      }
     },
     {
+      "name": "4-Tool Contractor Combo Kit",
       "sku": "SY-CK-4PC-CON",
-      "name": "4工具承包商组合套装",
-      "brand": "Ningbo Siyang Pro",
       "category": "combo-kits",
-      "categoryLabel": "组合套件",
-      "description": "专业4工具承包商组合套装，包含电钻/起子、圆锯、往复锯和LED工作灯。配备2块电池和充电器。专为需要工地多功能充电式动力的专业承包商而设计。",
-      "image": "../images/istock/10033.jpg",
-      "moq": "200 units",
-      "leadTime": "35-50 days",
+      "categoryLabel": "Combo Kits",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/10097.jpeg",
+      "images": [
+        "../images/products/10097.jpeg"
+      ],
+      "brand": "Ningbo Siyang Pro",
+      "tagline": "Professional 4-tool contractor combo kit including drill/driver, circular saw, reciprocating saw, and LED work light. Comes with 2 batteries and charger. Designed for professional contractors who need versatile cordless power on the jobsite.",
+      "description": "Professional 4-tool contractor combo kit including drill/driver, circular saw, reciprocating saw, and LED work light. Comes with 2 batteries and charger. Designed for professional contractors who need versatile cordless power on the jobsite.",
+      "userBenefits": [
+        "Four essential contractor tools eliminate the need for corded alternatives on most jobsites",
+        "Reciprocating saw handles demolition, pipe cutting, and pruning that other kits cannot cover",
+        "4.0Ah batteries provide all-day runtime for professional continuous-use applications",
+        "Brushless motors across all power tools deliver up to 57% more runtime per charge",
+        "Hard carrying case protects tools during transport in truck beds and jobsite storage"
+      ],
+      "specs": {
+        "voltage": "20V MAX",
+        "motorType": "Brushless",
+        "toolsIncluded": [
+          "Drill/Driver",
+          "Circular Saw",
+          "Reciprocating Saw",
+          "LED Work Light"
+        ],
+        "toolsCount": 4,
+        "batteriesIncluded": "2× 4.0Ah",
+        "chargerIncluded": true,
+        "caseType": "Hard carrying case",
+        "totalWeight": "26.0 lbs (11.8 kg)",
+        "batteryPlatform": "20V MAX",
+        "warrantyPeriod": "3 year limited",
+        "tool1Specs": {
+          "name": "Drill/Driver",
+          "maxTorque": "450 in-lbs",
+          "noLoadSpeed": "0-550/0-1800 RPM",
+          "chuckSize": "1/2\" keyless"
+        },
+        "tool2Specs": {
+          "name": "Circular Saw",
+          "bladeSize": "6-1/2\"",
+          "maxDepthCut90": "2-1/8\"",
+          "noLoadSpeed": "4200 RPM"
+        },
+        "tool3Specs": {
+          "name": "Reciprocating Saw",
+          "strokeLength": "1-1/8\"",
+          "spm": "0-3000",
+          "bladeType": "Tool-free blade change"
+        },
+        "tool4Specs": {
+          "name": "LED Work Light",
+          "lumens": "300 lm",
+          "runtime": "6 hours on 4.0Ah battery"
+        },
+        "chargerType": "30-minute rapid charger",
+        "caseMaterial": "Blow-molded polypropylene",
+        "batteryChemistry": "Lithium-ion"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": true,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
       "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": true,
+      "isTopProduct": false,
       "featured": true,
-      "compliance": "CE, ROHS, GS, EEC",
-      "warranty": "3 year limited kit warranty",
-      "userBenefits": "四款承包商必备工具，在大多数工地上可替代有线工具"
-    },
-    {
-      "sku": "SY-CK-5PC-ELE",
-      "name": "5工具电工组合套装",
-      "brand": "Ningbo Siyang Pro",
-      "category": "combo-kits",
-      "categoryLabel": "组合套件",
-      "description": "专业5工具电工组合套装，包含电钻/起子、冲击起子、往复锯、LED工作灯和蓝牙收音机。配备2块电池和充电器。专为需要可靠充电式工具进行日常作业的电气承包商而设计。",
-      "image": "../images/unsplach/drill-home/10057.jpg",
       "moq": "200 units",
       "leadTime": "35-50 days",
-      "inStock": true,
-      "featured": false,
-      "compliance": "CE, ROHS, UL, EEC",
       "warranty": "3 year limited kit warranty",
-      "userBenefits": "专为电工定制——冲击起子可驱动线管支架和面板螺丝，无滑牙风险"
+      "relatedProducts": [
+        "SY-CK-5PC-ELE",
+        "SY-CK-6PC-20V"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-CK-4PC-CON.pdf",
+        "manual": "/downloads/manuals/SY-CK-4PC-CON.pdf"
+      }
     },
     {
-      "sku": "SY-CK-6PC-20V",
-      "name": "6工具20V组合套装",
-      "brand": "Ningbo Siyang Pro",
+      "name": "5-Tool Electrician Combo Kit",
+      "sku": "SY-CK-5PC-ELE",
       "category": "combo-kits",
-      "categoryLabel": "组合套件",
-      "description": "完整6工具20V MAX组合套装，包含电钻/起子、冲击起子、圆锯、往复锯、振荡工具和LED工作灯。配备3块4.0Ah电池、双充电器和便携包。适用于承包商和资深DIY爱好者的专业级套装。",
-      "image": "../images/istock/10031.jpg",
+      "categoryLabel": "Combo Kits",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/10065.jpeg",
+      "images": [
+        "../images/products/10065.jpeg"
+      ],
+      "brand": "Ningbo Siyang Pro",
+      "tagline": "Specialized 5-tool electrician combo kit including drill/driver, impact driver, reciprocating saw, LED work light, and Bluetooth radio. Comes with 2 batteries and charger. Designed for electrical contractors who need reliable cordless tools for daily use.",
+      "description": "Specialized 5-tool electrician combo kit including drill/driver, impact driver, reciprocating saw, LED work light, and Bluetooth radio. Comes with 2 batteries and charger. Designed for electrical contractors who need reliable cordless tools for daily use.",
+      "userBenefits": [
+        "Tailored for electricians — impact driver drives conduit straps and panel screws without cam-out",
+        "Reciprocating saw cuts EMT conduit, MC cable, and wall openings faster than hand saws",
+        "Bluetooth radio powered by the same 20V batteries keeps your crew connected on the jobsite",
+        "LED work light illuminates dark panel boxes, crawl spaces, and ceiling plenums safely",
+        "Brushless motors across all power tools deliver professional-grade durability for daily use"
+      ],
+      "specs": {
+        "voltage": "20V MAX",
+        "motorType": "Brushless",
+        "toolsIncluded": [
+          "Drill/Driver",
+          "Impact Driver",
+          "Reciprocating Saw",
+          "LED Work Light",
+          "Bluetooth Radio"
+        ],
+        "toolsCount": 5,
+        "batteriesIncluded": "2× 4.0Ah",
+        "chargerIncluded": true,
+        "caseType": "Hard carrying case",
+        "totalWeight": "28.0 lbs (12.7 kg)",
+        "batteryPlatform": "20V MAX",
+        "warrantyPeriod": "3 year limited",
+        "tool1Specs": {
+          "name": "Drill/Driver",
+          "maxTorque": "450 in-lbs",
+          "noLoadSpeed": "0-550/0-1800 RPM",
+          "chuckSize": "1/2\" keyless"
+        },
+        "tool2Specs": {
+          "name": "Impact Driver",
+          "maxTorque": "1600 in-lbs",
+          "noLoadSpeed": "0-2600 RPM",
+          "ipm": "0-3400",
+          "chuckType": "1/4\" hex"
+        },
+        "tool3Specs": {
+          "name": "Reciprocating Saw",
+          "strokeLength": "1-1/8\"",
+          "spm": "0-3000",
+          "bladeType": "Tool-free blade change"
+        },
+        "tool4Specs": {
+          "name": "LED Work Light",
+          "lumens": "300 lm",
+          "runtime": "6 hours on 4.0Ah battery"
+        },
+        "tool5Specs": {
+          "name": "Bluetooth Radio",
+          "bluetoothRange": "30 ft",
+          "speakerPower": "5W",
+          "runtime": "8 hours on 4.0Ah battery"
+        },
+        "chargerType": "30-minute rapid charger",
+        "caseMaterial": "Blow-molded polypropylene",
+        "batteryChemistry": "Lithium-ion"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": false,
+        "ul": true,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": false,
+      "isTopProduct": false,
+      "featured": false,
+      "moq": "200 units",
+      "leadTime": "35-50 days",
+      "warranty": "3 year limited kit warranty",
+      "relatedProducts": [
+        "SY-CK-4PC-CON",
+        "SY-IT-DRV-20V"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-CK-5PC-ELE.pdf",
+        "manual": "/downloads/manuals/SY-CK-5PC-ELE.pdf"
+      }
+    },
+    {
+      "name": "6-Tool 20V Combo Kit",
+      "sku": "SY-CK-6PC-20V",
+      "category": "combo-kits",
+      "categoryLabel": "Combo Kits",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/10067.jpeg",
+      "images": [
+        "../images/products/10067.jpeg"
+      ],
+      "brand": "Ningbo Siyang Pro",
+      "tagline": "Complete 6-tool 20V MAX combo kit including drill/driver, impact driver, circular saw, reciprocating saw, oscillating tool, and LED work light. Comes with 3× 4.0Ah batteries, dual charger, and carrying bag. Professional-grade set for contractors and serious DIY enthusiasts.",
+      "description": "Complete 6-tool 20V MAX combo kit including drill/driver, impact driver, circular saw, reciprocating saw, oscillating tool, and LED work light. Comes with 3× 4.0Ah batteries, dual charger, and carrying bag. Professional-grade set for contractors and serious DIY enthusiasts.",
+      "userBenefits": [
+        "Six professional tools cover every major jobsite task from rough-in to finish work in one purchase",
+        "Oscillating tool handles flush cutting, grout removal, and sanding that no other tool can match",
+        "3× 4.0Ah batteries with dual charger ensure you always have a charged battery ready",
+        "Rolling bag with telescoping handle makes transporting 38 lbs of tools effortless",
+        "Brushless motors across all tools deliver maximum runtime and professional durability"
+      ],
+      "specs": {
+        "voltage": "20V MAX",
+        "motorType": "Brushless",
+        "toolsIncluded": [
+          "Drill/Driver",
+          "Impact Driver",
+          "Circular Saw",
+          "Reciprocating Saw",
+          "Oscillating Tool",
+          "LED Work Light"
+        ],
+        "toolsCount": 6,
+        "batteriesIncluded": "3× 4.0Ah",
+        "chargerIncluded": true,
+        "caseType": "Rolling bag",
+        "totalWeight": "38.0 lbs (17.2 kg)",
+        "batteryPlatform": "20V MAX",
+        "warrantyPeriod": "3 year limited",
+        "tool1Specs": {
+          "name": "Drill/Driver",
+          "maxTorque": "450 in-lbs",
+          "noLoadSpeed": "0-550/0-1800 RPM",
+          "chuckSize": "1/2\" keyless"
+        },
+        "tool2Specs": {
+          "name": "Impact Driver",
+          "maxTorque": "1650 in-lbs",
+          "noLoadSpeed": "0-2800 RPM",
+          "ipm": "0-3600",
+          "chuckType": "1/4\" hex"
+        },
+        "tool3Specs": {
+          "name": "Circular Saw",
+          "bladeSize": "6-1/2\"",
+          "maxDepthCut90": "2-1/8\"",
+          "noLoadSpeed": "4200 RPM"
+        },
+        "tool4Specs": {
+          "name": "Reciprocating Saw",
+          "strokeLength": "1-1/8\"",
+          "spm": "0-3000",
+          "bladeType": "Tool-free blade change"
+        },
+        "tool5Specs": {
+          "name": "Oscillating Tool",
+          "oscillationsPerMin": "10000-20000",
+          "oscillationAngle": "3.2°",
+          "accessoryFit": "Universal adapter"
+        },
+        "tool6Specs": {
+          "name": "LED Work Light",
+          "lumens": "300 lm",
+          "runtime": "6 hours on 4.0Ah battery"
+        },
+        "chargerType": "Dual-port rapid charger",
+        "bagMaterial": "Ballistic nylon with wheels",
+        "batteryChemistry": "Lithium-ion"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": true,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": true,
+      "isTopProduct": false,
+      "featured": true,
       "moq": "150 units",
       "leadTime": "35-50 days",
-      "inStock": true,
-      "featured": true,
-      "compliance": "CE, ROHS, GS, EEC",
       "warranty": "3 year limited kit warranty",
-      "userBenefits": "六款专业工具一次购买即可覆盖工地上从粗加工到精加工的所有主要任务"
+      "relatedProducts": [
+        "SY-CK-4PC-CON",
+        "SY-CK-8PC-PRO"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-CK-6PC-20V.pdf",
+        "manual": "/downloads/manuals/SY-CK-6PC-20V.pdf"
+      }
     },
     {
+      "name": "8-Tool Professional Combo Kit",
       "sku": "SY-CK-8PC-PRO",
-      "name": "8工具专业组合套装",
-      "brand": "Ningbo Siyang Pro",
       "category": "combo-kits",
-      "categoryLabel": "组合套件",
-      "description": "终极8工具专业组合套装，包含所有必备的充电式工具。包括电钻/起子、冲击起子、圆锯、往复锯、振荡工具、砂光机、LED灯和蓝牙音箱。配备4块4.0Ah电池、2个充电器和拉杆包。",
-      "image": "../images/istock/10034.webp",
+      "categoryLabel": "Combo Kits",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/10034.webp",
+      "images": [
+        "../images/products/10034.webp",
+        "../images/products/10034-2.webp",
+        "../images/products/10034-3.webp"
+      ],
+      "brand": "Ningbo Siyang Pro",
+      "tagline": "Ultimate 8-tool professional combo kit with every essential cordless tool. Includes drill/driver, impact driver, circular saw, reciprocating saw, oscillating tool, sander, LED light, and Bluetooth speaker. Comes with 4× 4.0Ah batteries, 2 chargers, and rolling bag.",
+      "description": "Ultimate 8-tool professional combo kit with every essential cordless tool. Includes drill/driver, impact driver, circular saw, reciprocating saw, oscillating tool, sander, LED light, and Bluetooth speaker. Comes with 4× 4.0Ah batteries, 2 chargers, and rolling bag.",
+      "userBenefits": [
+        "Complete 8-tool arsenal eliminates the need for any additional cordless tool purchases",
+        "4× 4.0Ah batteries with 2 dual chargers keep all tools running continuously on multi-person crews",
+        "Random orbital sander delivers professional swirl-free finishes for cabinetry and trim work",
+        "Bluetooth speaker provides jobsite entertainment powered by the same 20V battery platform",
+        "Rolling bag with telescoping handle makes transporting 52 lbs of professional tools manageable",
+        "Highest-value kit in the lineup — saves up to 35% versus purchasing each tool separately"
+      ],
+      "specs": {
+        "voltage": "20V MAX",
+        "motorType": "Brushless",
+        "toolsIncluded": [
+          "Drill/Driver",
+          "Impact Driver",
+          "Circular Saw",
+          "Reciprocating Saw",
+          "Oscillating Tool",
+          "Sander",
+          "LED Work Light",
+          "Bluetooth Speaker"
+        ],
+        "toolsCount": 8,
+        "batteriesIncluded": "4× 4.0Ah",
+        "chargerIncluded": true,
+        "caseType": "Rolling bag with telescoping handle",
+        "totalWeight": "52.0 lbs (23.6 kg)",
+        "batteryPlatform": "20V MAX",
+        "warrantyPeriod": "3 year limited",
+        "tool1Specs": {
+          "name": "Drill/Driver",
+          "maxTorque": "500 in-lbs",
+          "noLoadSpeed": "0-550/0-1800 RPM",
+          "chuckSize": "1/2\" keyless"
+        },
+        "tool2Specs": {
+          "name": "Impact Driver",
+          "maxTorque": "1800 in-lbs",
+          "noLoadSpeed": "0-3200 RPM",
+          "ipm": "0-3800",
+          "chuckType": "1/4\" hex"
+        },
+        "tool3Specs": {
+          "name": "Circular Saw",
+          "bladeSize": "6-1/2\"",
+          "maxDepthCut90": "2-1/8\"",
+          "noLoadSpeed": "4200 RPM"
+        },
+        "tool4Specs": {
+          "name": "Reciprocating Saw",
+          "strokeLength": "1-1/8\"",
+          "spm": "0-3000",
+          "bladeType": "Tool-free blade change"
+        },
+        "tool5Specs": {
+          "name": "Oscillating Tool",
+          "oscillationsPerMin": "10000-20000",
+          "oscillationAngle": "3.2°",
+          "accessoryFit": "Universal adapter"
+        },
+        "tool6Specs": {
+          "name": "Sander",
+          "padSize": "5\" hook & loop",
+          "opm": "8000-12000",
+          "dustCollection": "Integrated dust port"
+        },
+        "tool7Specs": {
+          "name": "LED Work Light",
+          "lumens": "300 lm",
+          "runtime": "6 hours on 4.0Ah battery"
+        },
+        "tool8Specs": {
+          "name": "Bluetooth Speaker",
+          "bluetoothRange": "30 ft",
+          "speakerPower": "10W",
+          "runtime": "8 hours on 4.0Ah battery"
+        },
+        "chargerType": "2× dual-port rapid chargers",
+        "bagMaterial": "Ballistic nylon with wheels and telescoping handle",
+        "batteryChemistry": "Lithium-ion"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": true,
+        "ul": true,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": false,
+      "isTopProduct": false,
+      "featured": false,
       "moq": "100 units",
       "leadTime": "35-50 days",
-      "inStock": true,
-      "featured": false,
-      "compliance": "CE, ROHS, GS, UL, EEC",
       "warranty": "3 year limited kit warranty",
-      "userBenefits": "完整的8工具阵容，无需额外购买任何充电式工具"
+      "relatedProducts": [
+        "SY-CK-6PC-20V",
+        "SY-IT-DRV-BRUS"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-CK-8PC-PRO.pdf",
+        "manual": "/downloads/manuals/SY-CK-8PC-PRO.pdf"
+      }
     },
     {
+      "name": "20V MAX Brushless Drill/Driver",
       "sku": "SY-DD-20V-BL",
-      "name": "20V MAX无刷钻/起子",
-      "brand": "Ningbo Siyang Pro",
       "category": "drills-drivers",
-      "categoryLabel": "电钻与起子",
-      "description": "专业级无刷钻起子配备2速变速箱和1/2英寸金属夹头。提供530英寸-磅的最大扭矩，满足苛刻的工业应用需求。无刷电机比有刷电机提供高达57%的更长运行时间，同时全金属传动系统和齿轮箱确保在工地上实现最大耐用性。",
-      "image": "../images/istock/10001.jpg",
+      "categoryLabel": "Drills & Drivers",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/10053.jpeg",
+      "images": [
+        "../images/products/10053.jpeg"
+      ],
+      "brand": "Ningbo Siyang Pro",
+      "tagline": "Professional-grade brushless drill driver with 2-speed gearbox and 1/2 inch metal chuck. Delivers 530 in-lbs of max torque for demanding industrial applications. The brushless motor provides up to 57% more runtime over brushed motors, while the all-metal transmission and gear case ensure maximum durability on the jobsite.",
+      "description": "Professional-grade brushless drill driver with 2-speed gearbox and 1/2 inch metal chuck. Delivers 530 in-lbs of max torque for demanding industrial applications. The brushless motor provides up to 57% more runtime over brushed motors, while the all-metal transmission and gear case ensure maximum durability on the jobsite.",
+      "userBenefits": [
+        "Brushless motor delivers 57% more runtime and longer tool life than brushed alternatives",
+        "530 in-lbs of torque handles demanding industrial fastening with ease",
+        "2-speed all-metal gearbox provides optimal power for both high-torque and high-speed applications",
+        "1/2\" metal ratcheting chuck ensures superior bit retention under heavy load",
+        "LED work light with 20-second delay illuminates dark work areas after trigger release",
+        "Compact 7-5/8\" head length fits into tight spaces where larger drills cannot"
+      ],
+      "specs": {
+        "voltage": "20V MAX",
+        "motorType": "Brushless",
+        "maxTorque": "530 in-lbs (60 Nm)",
+        "noLoadSpeedLow": "0-450 RPM",
+        "noLoadSpeedHigh": "0-1500 RPM",
+        "chuckSize": "1/2\" (13mm)",
+        "weightToolOnly": "3.5 lbs (1.6 kg)",
+        "weightWithBattery": "4.2 lbs (1.9 kg)",
+        "overallLength": "7-5/8\" (194mm)",
+        "soundPower": "94 dB(A)",
+        "vibrationLevel": "2.5 m/s²",
+        "batteryPlatform": "Siyang 20V MAX",
+        "ledWorkLight": "Yes, with 20-second delay",
+        "beltHook": "Yes, adjustable",
+        "clutchSettings": "16+1"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": false,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": true,
+      "isTopProduct": false,
+      "featured": true,
       "moq": "500 units",
       "leadTime": "30-45 days",
-      "inStock": true,
-      "featured": true,
-      "compliance": "CE, ROHS, EEC",
       "warranty": "1 year standard, 2 year brushless motor",
-      "userBenefits": "无刷电机比有刷替代方案提供57%更长的运行时间和更久的工具寿命"
+      "relatedProducts": [
+        "SY-DD-RHT-18V",
+        "SY-IT-DRV-20V",
+        "SY-CK-6PC-20V"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-DD-20V-BL.pdf",
+        "manual": "/downloads/manuals/SY-DD-20V-BL.pdf"
+      }
     },
     {
+      "name": "Corded Hammer Drill 7.5A 1/2\"",
       "sku": "SY-DD-CRD-HMR",
-      "name": "有线冲击钻 7.5A 1/2英寸",
-      "brand": "Ningbo Siyang",
       "category": "drills-drivers",
-      "categoryLabel": "电钻与起子",
-      "description": "多功能有线冲击钻配备7.5安培电机和1/2英寸金属夹头。采用防振手柄和变速扳机，可在砌体、木材和金属钻孔应用中实现精准控制。双模式选择器支持在钻孔和锤钻之间轻松切换。",
-      "image": "../images/istock/10004.jpg",
+      "categoryLabel": "Drills & Drivers",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/10072.jpeg",
+      "images": [
+        "../images/products/10072.jpeg"
+      ],
+      "brand": "Ningbo Siyang",
+      "tagline": "Versatile corded hammer drill with 7.5A motor and 1/2 inch metal chuck. Features anti-vibration handle and variable speed trigger for precision control in masonry, wood, and metal drilling applications. The dual-mode selector allows easy switching between drilling and hammer drilling.",
+      "description": "Versatile corded hammer drill with 7.5A motor and 1/2 inch metal chuck. Features anti-vibration handle and variable speed trigger for precision control in masonry, wood, and metal drilling applications. The dual-mode selector allows easy switching between drilling and hammer drilling.",
+      "userBenefits": [
+        "Dual-mode selector instantly switches between drilling and hammer drilling for versatile use",
+        "7.5A motor delivers consistent power for masonry, wood, and metal without battery dependency",
+        "Anti-vibration side handle reduces fatigue during extended overhead drilling sessions",
+        "Variable speed trigger provides precise control when starting holes in delicate materials",
+        "51,000 BPM hammer rate drills through concrete and brick efficiently"
+      ],
+      "specs": {
+        "voltage": "220V",
+        "motorType": "Brushed",
+        "maxTorque": "51,000 BPM hammer rate",
+        "noLoadSpeedLow": "0-1500 RPM",
+        "noLoadSpeedHigh": "0-3000 RPM",
+        "chuckSize": "1/2\" (13mm)",
+        "chuckType": "Metal keyless",
+        "clutchSettings": "2-mode (drill, hammer drill)",
+        "drillingCapacityWood": "1-1/4\" (32mm)",
+        "drillingCapacityMetal": "1/2\" (13mm)",
+        "drillingCapacityConcrete": "5/8\" (16mm)",
+        "weightToolOnly": "4.7 lbs (2.1 kg)",
+        "overallLength": "11-1/2\" (292mm)",
+        "soundPower": "97 dB(A)",
+        "vibrationLevel": "4.8 m/s²",
+        "cordLength": "6.5 ft (2m)",
+        "ledWorkLight": "No",
+        "beltHook": "No"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": false,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": false,
+      "isTopProduct": false,
+      "featured": false,
       "moq": "500 units",
       "leadTime": "30-45 days",
-      "inStock": true,
-      "featured": false,
-      "compliance": "CE, ROHS, EEC",
       "warranty": "1 year standard",
-      "userBenefits": "双模式选择器可在钻孔与锤钻之间即时切换，用途广泛"
+      "relatedProducts": [
+        "SY-DD-RH-1IN",
+        "SY-DD-SDS-PLU"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-DD-CRD-HMR.pdf",
+        "manual": "/downloads/manuals/SY-DD-CRD-HMR.pdf"
+      }
     },
     {
+      "name": "20V Drill & Driver Combo Set",
       "sku": "SY-DD-MIX-KIT",
-      "name": "20V电钻与起子组合套装",
-      "brand": "Ningbo Siyang Pro",
       "category": "drills-drivers",
-      "categoryLabel": "电钻与起子",
-      "description": "完整的双工具组合套装，包含20V MAX电钻/起子和冲击起子。配备两块2.0Ah电池、快速充电器和便携包。两款工具均采用无刷电机，提供更持久的运行时间和专业级性能。",
-      "image": "../images/istock/10006.jpg",
+      "categoryLabel": "Drills & Drivers",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/10006.jpeg",
+      "images": [
+        "../images/products/10006.jpeg",
+        "../images/products/10006.jpeg",
+        "../images/products/10006.jpeg"
+      ],
+      "brand": "Ningbo Siyang Pro",
+      "tagline": "Complete 2-tool combo set featuring a 20V MAX drill/driver and impact driver. Includes two 2.0Ah batteries, a fast charger, and a carrying bag. Both tools feature brushless motors for extended runtime and professional-grade performance.",
+      "description": "Complete 2-tool combo set featuring a 20V MAX drill/driver and impact driver. Includes two 2.0Ah batteries, a fast charger, and a carrying bag. Both tools feature brushless motors for extended runtime and professional-grade performance.",
+      "userBenefits": [
+        "Two essential tools cover both precision drilling and high-torque fastening applications",
+        "Brushless motors in both tools deliver 57% more runtime than brushed alternatives",
+        "Shared 20V MAX battery platform means one charger and battery system for both tools",
+        "Fast charger gets batteries to full charge in 45 minutes, minimizing downtime",
+        "Carrying bag keeps both tools and accessories organized for jobsite portability"
+      ],
+      "specs": {
+        "voltage": "20V MAX",
+        "motorType": "Brushless",
+        "maxTorque": "530 in-lbs (drill) / 1650 in-lbs (impact driver)",
+        "noLoadSpeedLow": "0-450 RPM (drill) / 0-1000 RPM (impact)",
+        "noLoadSpeedHigh": "0-1500 RPM (drill) / 0-2800 RPM (impact)",
+        "chuckSize": "1/2\" (drill) / 1/4\" hex (impact driver)",
+        "chuckType": "Metal ratcheting (drill) / Quick-release hex (impact driver)",
+        "clutchSettings": "15 + drill mode (drill) / 3-mode (impact driver)",
+        "drillingCapacityWood": "1-1/2\" (38mm)",
+        "drillingCapacityMetal": "1/2\" (13mm)",
+        "weightToolOnly": "9.5 lbs (4.3 kg) set weight",
+        "weightWithBattery": "11.2 lbs (5.1 kg) set with batteries",
+        "overallLength": "7-5/8\" (drill) / 5-3/8\" (impact driver)",
+        "soundPower": "94 dB(A)",
+        "vibrationLevel": "2.5 m/s²",
+        "batteryPlatform": "Siyang 20V MAX",
+        "ledWorkLight": "Yes, both tools",
+        "beltHook": "Yes, both tools"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": false,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": true,
+      "isTopProduct": false,
+      "featured": true,
       "moq": "300 units",
       "leadTime": "30-45 days",
-      "inStock": true,
-      "featured": true,
-      "compliance": "CE, ROHS, EEC",
       "warranty": "1 year standard, 2 year brushless motor",
-      "userBenefits": "两款核心工具同时覆盖精密钻孔和高扭矩紧固应用"
+      "relatedProducts": [
+        "SY-DD-20V-BL",
+        "SY-IT-DRV-20V",
+        "SY-CK-2PC-DRL"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-DD-MIX-KIT.pdf",
+        "manual": "/downloads/manuals/SY-DD-MIX-KIT.pdf"
+      }
     },
     {
+      "name": "1\" SDS-Plus Rotary Hammer Pro",
       "sku": "SY-DD-RH-1IN",
-      "name": "1英寸SDS Plus专业电锤",
-      "brand": "Ningbo Siyang",
       "category": "drills-drivers",
-      "categoryLabel": "电钻与起子",
-      "description": "专业SDS Plus电锤配备电子离合器和振动控制。提供5.5英尺-磅的冲击能量，可在混凝土和砌体中进行高效钻孔。变速旋钮可针对不同材料和应用提供精准控制。",
-      "image": "../images/unsplach/drill-closeup/10072.jpeg",
+      "categoryLabel": "Drills & Drivers",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/10072.jpeg",
+      "images": [
+        "../images/products/10072.jpeg",
+        "../images/products/10072-2.jpeg",
+        "../images/products/10072-3.jpeg"
+      ],
+      "brand": "Ningbo Siyang",
+      "tagline": "Professional SDS-Plus rotary hammer with electronic clutch and vibration control. Delivers 5.5 Ft-lbs of impact energy for efficient drilling in concrete and masonry. The variable speed dial provides precise control for different materials and applications.",
+      "description": "Professional SDS-Plus rotary hammer with electronic clutch and vibration control. Delivers 5.5 Ft-lbs of impact energy for efficient drilling in concrete and masonry. The variable speed dial provides precise control for different materials and applications.",
+      "userBenefits": [
+        "Electronic clutch stops rotation instantly if bit jams, preventing wrist injury",
+        "Active vibration control reduces fatigue during extended concrete drilling sessions",
+        "Variable speed dial allows precise control for different materials from tile to reinforced concrete",
+        "SDS-Plus chuck enables quick, tool-free bit changes for maximum productivity",
+        "5.5 Ft-lbs impact energy drills 1\" holes in concrete faster than standard hammer drills"
+      ],
+      "specs": {
+        "voltage": "220V",
+        "motorType": "Brushed",
+        "maxTorque": "5.5 Ft-lbs (7.5 J) impact energy",
+        "noLoadSpeedLow": "0-450 RPM",
+        "noLoadSpeedHigh": "0-950 RPM",
+        "chuckSize": "SDS-Plus",
+        "chuckType": "SDS-Plus, tool-free bit insertion",
+        "clutchSettings": "3-mode (rotary drill, hammer drill, chisel)",
+        "drillingCapacityWood": "1-1/4\" (32mm)",
+        "drillingCapacityMetal": "1/2\" (13mm)",
+        "drillingCapacityConcrete": "1\" (25mm)",
+        "weightToolOnly": "6.8 lbs (3.1 kg)",
+        "overallLength": "13-3/8\" (340mm)",
+        "soundPower": "102 dB(A)",
+        "vibrationLevel": "6.2 m/s²",
+        "cordLength": "6.5 ft (2m)",
+        "ledWorkLight": "No",
+        "beltHook": "No"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": true,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": false,
+      "isTopProduct": false,
+      "featured": false,
       "moq": "400 units",
       "leadTime": "30-45 days",
-      "inStock": true,
-      "featured": false,
-      "compliance": "CE, ROHS, GS, EEC",
       "warranty": "1 year standard",
-      "userBenefits": "电子离合器在钻头卡顿时即时停止旋转，防止手腕受伤"
+      "relatedProducts": [
+        "SY-DD-SDS-PLU",
+        "SY-DD-RH-DEM"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-DD-RH-1IN.pdf",
+        "manual": "/downloads/manuals/SY-DD-RH-1IN.pdf"
+      }
     },
     {
+      "name": "Demolition Rotary Hammer 1-9/16\"",
       "sku": "SY-DD-RH-DEM",
-      "name": "电镐 1-9/16英寸",
-      "brand": "Ningbo Siyang Pro",
       "category": "drills-drivers",
-      "categoryLabel": "电钻与起子",
-      "description": "工业级电镐配备主动振动控制，提供12.5英尺-磅的冲击能量。10安培电机为重型混凝土破碎和凿削作业提供最大功率。专为长时间使用设计，配备防振手柄和变速扳机。",
-      "image": "../images/istock/10003.jpg",
+      "categoryLabel": "Drills & Drivers",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/10077.jpeg",
+      "images": [
+        "../images/products/10077.jpeg"
+      ],
+      "brand": "Ningbo Siyang Pro",
+      "tagline": "Industrial demolition rotary hammer with Active Vibration Control delivering 12.5 Ft-lbs of impact energy. The 10 Amp motor provides maximum power for heavy-duty concrete breaking and chiseling. Designed for extended use with anti-vibration handle and variable speed trigger.",
+      "description": "Industrial demolition rotary hammer with Active Vibration Control delivering 12.5 Ft-lbs of impact energy. The 10 Amp motor provides maximum power for heavy-duty concrete breaking and chiseling. Designed for extended use with anti-vibration handle and variable speed trigger.",
+      "userBenefits": [
+        "12.5 Ft-lbs impact energy powers through reinforced concrete and thick masonry with ease",
+        "Active Vibration Control significantly reduces hand-arm vibration for safer extended use",
+        "3-mode operation (hammer drill, hammer only, chisel) covers every demolition and drilling task",
+        "Anti-vibration side handle provides secure grip and reduces fatigue during overhead chiseling",
+        "SDS-Max chuck accepts heavy-duty bits for the most demanding demolition applications"
+      ],
+      "specs": {
+        "voltage": "220V",
+        "motorType": "Brushed",
+        "maxTorque": "12.5 Ft-lbs (17 J) impact energy",
+        "noLoadSpeedLow": "0-170 RPM",
+        "noLoadSpeedHigh": "0-340 RPM",
+        "chuckSize": "SDS-Max",
+        "chuckType": "SDS-Max, tool-free bit insertion",
+        "clutchSettings": "3-mode (hammer drill, hammer only, chisel)",
+        "drillingCapacityWood": "1-1/2\" (38mm)",
+        "drillingCapacityMetal": "1/2\" (13mm)",
+        "drillingCapacityConcrete": "1-9/16\" (40mm)",
+        "weightToolOnly": "14.3 lbs (6.5 kg)",
+        "overallLength": "17-3/4\" (451mm)",
+        "soundPower": "108 dB(A)",
+        "vibrationLevel": "8.5 m/s²",
+        "cordLength": "6.5 ft (2m)",
+        "ledWorkLight": "No",
+        "beltHook": "No"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": true,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": false,
+      "isTopProduct": false,
+      "featured": false,
       "moq": "200 units",
       "leadTime": "35-50 days",
-      "inStock": true,
-      "featured": false,
-      "compliance": "CE, ROHS, GS, EEC",
       "warranty": "1 year standard",
-      "userBenefits": "12.5英尺-磅冲击能量轻松击穿钢筋混凝土和厚砌体"
+      "relatedProducts": [
+        "SY-DD-RH-1IN",
+        "SY-DD-SDS-PLU"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-DD-RH-DEM.pdf",
+        "manual": "/downloads/manuals/SY-DD-RH-DEM.pdf"
+      }
     },
     {
+      "name": "Heavy-Duty Right Angle Drill 7.5A",
       "sku": "SY-DD-RH-DEM2",
-      "name": "重型直角电钻 7.5A",
-      "brand": "Ningbo Siyang",
       "category": "drills-drivers",
-      "categoryLabel": "电钻与起子",
-      "description": "重型直角电钻配备7.5安培电机和360度可调辅助手柄。专为在标准电钻无法触及的狭小空间中进行钻孔作业而设计。采用变速控制和全金属齿轮结构，确保最大耐用性。",
-      "image": "../images/unsplach/drill-closeup/10074.jpeg",
+      "categoryLabel": "Drills & Drivers",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/10093.jpeg",
+      "images": [
+        "../images/products/10093.jpeg"
+      ],
+      "brand": "Ningbo Siyang",
+      "tagline": "Heavy-duty right angle drill with 7.5 Amp motor and 360° adjustable auxiliary handle. Designed for drilling in tight spaces where standard drills cannot reach. Features variable speed control and all-metal gear construction for maximum durability.",
+      "description": "Heavy-duty right angle drill with 7.5 Amp motor and 360° adjustable auxiliary handle. Designed for drilling in tight spaces where standard drills cannot reach. Features variable speed control and all-metal gear construction for maximum durability.",
+      "userBenefits": [
+        "Right-angle design drills between studs, joists, and in confined engine compartments where standard drills cannot fit",
+        "360° adjustable auxiliary handle provides optimal grip angle for any working position",
+        "All-metal gear construction withstands heavy-duty jobsite use and delivers long service life",
+        "Variable speed trigger allows precise control when starting holes in metal or wood",
+        "3/8\" chuck accepts a wide range of bits for plumbing, electrical, and HVAC applications"
+      ],
+      "specs": {
+        "voltage": "220V",
+        "motorType": "Brushed",
+        "maxTorque": "180 in-lbs (20 Nm)",
+        "noLoadSpeedLow": "0-750 RPM",
+        "noLoadSpeedHigh": "0-1500 RPM",
+        "chuckSize": "3/8\" (10mm)",
+        "chuckType": "Metal keyless",
+        "clutchSettings": "N/A",
+        "drillingCapacityWood": "1\" (25mm)",
+        "drillingCapacityMetal": "3/8\" (10mm)",
+        "weightToolOnly": "5.2 lbs (2.4 kg)",
+        "overallLength": "10-1/4\" (260mm)",
+        "soundPower": "95 dB(A)",
+        "vibrationLevel": "3.2 m/s²",
+        "cordLength": "6.5 ft (2m)",
+        "ledWorkLight": "No",
+        "beltHook": "No"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": false,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": false,
+      "isTopProduct": false,
+      "featured": false,
       "moq": "300 units",
       "leadTime": "30-45 days",
-      "inStock": true,
-      "featured": false,
-      "compliance": "CE, ROHS, EEC",
       "warranty": "1 year standard",
-      "userBenefits": "直角设计可在立柱、横梁之间及标准电钻无法容纳的密闭发动机舱内钻孔"
+      "relatedProducts": [
+        "SY-DD-CRD-HMR",
+        "SY-DD-RH-1IN"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-DD-RH-DEM2.pdf",
+        "manual": "/downloads/manuals/SY-DD-RH-DEM2.pdf"
+      }
     },
     {
+      "name": "18V Compact Brushless Drill/Driver",
       "sku": "SY-DD-RHT-18V",
-      "name": "18V紧凑型无刷钻/起子",
-      "brand": "Ningbo Siyang",
       "category": "drills-drivers",
-      "categoryLabel": "电钻与起子",
-      "description": "紧凑型18V无刷钻/起子，机头长度仅6.9英寸，适用于狭小空间。配备13档离合器设置，实现精准扭矩控制，以及2速变速箱，适用于多种钻孔和紧固作业。轻量化设计适合全天专业使用。",
-      "image": "../images/istock/10005.jpg",
+      "categoryLabel": "Drills & Drivers",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/10097.jpeg",
+      "images": [
+        "../images/products/10097.jpeg"
+      ],
+      "brand": "Ningbo Siyang",
+      "tagline": "Compact 18V brushless drill/driver with a short 6.9 inch head length for tight spaces. Features 13 clutch settings for precise torque control and a 2-speed gearbox for versatile drilling and fastening. Lightweight design ideal for all-day professional use.",
+      "description": "Compact 18V brushless drill/driver with a short 6.9 inch head length for tight spaces. Features 13 clutch settings for precise torque control and a 2-speed gearbox for versatile drilling and fastening. Lightweight design ideal for all-day professional use.",
+      "userBenefits": [
+        "Ultra-compact 6-7/8\" head length reaches into the tightest cabinet and framing spaces",
+        "13 clutch settings prevent overdriving and stripping screws on delicate fastening work",
+        "Brushless motor runs cooler and lasts longer, reducing replacement costs over time",
+        "Lightest in its class at 3.0 lbs tool-only, minimizing fatigue during overhead work",
+        "2-speed gearbox covers both precision driving at 400 RPM and fast drilling at 1500 RPM"
+      ],
+      "specs": {
+        "voltage": "18V",
+        "motorType": "Brushless",
+        "maxTorque": "400 in-lbs (45 Nm)",
+        "noLoadSpeedLow": "0-400 RPM",
+        "noLoadSpeedHigh": "0-1500 RPM",
+        "chuckSize": "1/2\" (13mm)",
+        "chuckType": "Metal ratcheting",
+        "clutchSettings": "13 + drill mode",
+        "drillingCapacityWood": "1-1/2\" (38mm)",
+        "drillingCapacityMetal": "1/2\" (13mm)",
+        "weightToolOnly": "3.0 lbs (1.4 kg)",
+        "weightWithBattery": "3.7 lbs (1.7 kg)",
+        "overallLength": "6-7/8\" (175mm)",
+        "soundPower": "91 dB(A)",
+        "vibrationLevel": "2.0 m/s²",
+        "batteryPlatform": "Siyang 18V",
+        "ledWorkLight": "Yes, with 15-second delay",
+        "beltHook": "Yes, fixed"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": false,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": true,
+      "isTopProduct": false,
+      "featured": true,
       "moq": "500 units",
       "leadTime": "30-45 days",
-      "inStock": true,
-      "featured": true,
-      "compliance": "CE, ROHS, EEC",
       "warranty": "1 year standard, 2 year brushless motor",
-      "userBenefits": "超紧凑6-7/8英寸机头长度可深入最狭窄的柜体和框架空间"
+      "relatedProducts": [
+        "SY-DD-20V-BL",
+        "SY-CK-3PC-HOM"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-DD-RHT-18V.pdf",
+        "manual": "/downloads/manuals/SY-DD-RHT-18V.pdf"
+      }
     },
     {
+      "name": "SDS-Plus Rotary Hammer Drill 1-1/8\"",
       "sku": "SY-DD-SDS-PLU",
-      "name": "SDS Plus电锤 1-1/8英寸",
-      "brand": "Ningbo Siyang Pro",
       "category": "drills-drivers",
-      "categoryLabel": "电钻与起子",
-      "description": "重型SDS Plus电锤，具备钻孔、锤钻和凿削三模式操作功能。配备主动振动控制系统和7.5安培电机，在混凝土和砌体应用中提供可靠性能。适用于专业建筑和翻新工程。",
-      "image": "../images/istock/10002.jpg",
+      "categoryLabel": "Drills & Drivers",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/10002.jpeg",
+      "images": [
+        "../images/products/10002.jpeg",
+        "../images/products/10002.jpeg",
+        "../images/products/10002.jpeg"
+      ],
+      "brand": "Ningbo Siyang Pro",
+      "tagline": "Heavy-duty SDS-Plus rotary hammer with 3-mode operation for drilling, hammer drilling, and chiseling. Features an active vibration control system and 7.5 Amp motor for reliable performance in concrete and masonry applications. Ideal for professional construction and renovation projects.",
+      "description": "Heavy-duty SDS-Plus rotary hammer with 3-mode operation for drilling, hammer drilling, and chiseling. Features an active vibration control system and 7.5 Amp motor for reliable performance in concrete and masonry applications. Ideal for professional construction and renovation projects.",
+      "userBenefits": [
+        "3-mode operation covers drilling, hammer drilling, and chiseling in one versatile tool",
+        "Active vibration control system reduces hand strain during long concrete drilling sessions",
+        "SDS-Plus chuck enables tool-free bit changes, saving time on the jobsite",
+        "7.5 Amp motor delivers consistent power for all-day professional use without battery downtime",
+        "1-1/8\" capacity in concrete handles the most common anchor and rebar drilling tasks"
+      ],
+      "specs": {
+        "voltage": "220V",
+        "motorType": "Brushed",
+        "maxTorque": "3.0 Ft-lbs (4.1 J) impact energy",
+        "noLoadSpeedLow": "0-450 RPM",
+        "noLoadSpeedHigh": "0-900 RPM",
+        "chuckSize": "SDS-Plus",
+        "chuckType": "SDS-Plus, tool-free bit insertion",
+        "clutchSettings": "3-mode (rotary drill, hammer drill, chisel)",
+        "drillingCapacityWood": "1-1/4\" (32mm)",
+        "drillingCapacityMetal": "1/2\" (13mm)",
+        "drillingCapacityConcrete": "1-1/8\" (28mm)",
+        "weightToolOnly": "7.2 lbs (3.3 kg)",
+        "overallLength": "14-1/2\" (368mm)",
+        "soundPower": "100 dB(A)",
+        "vibrationLevel": "5.8 m/s²",
+        "cordLength": "6.5 ft (2m)",
+        "ledWorkLight": "No",
+        "beltHook": "No"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": true,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": false,
+      "isTopProduct": false,
+      "featured": false,
       "moq": "300 units",
       "leadTime": "30-45 days",
-      "inStock": true,
-      "featured": false,
-      "compliance": "CE, ROHS, GS, EEC",
       "warranty": "1 year standard",
-      "userBenefits": "三模式操作集钻孔、锤钻和凿削于一款多功能工具"
+      "relatedProducts": [
+        "SY-DD-RH-1IN",
+        "SY-DD-RH-DEM"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-DD-SDS-PLU.pdf",
+        "manual": "/downloads/manuals/SY-DD-SDS-PLU.pdf"
+      }
     },
     {
+      "name": "4-1/2\" Angle Grinder 11A",
       "sku": "SY-GR-ANG-4.5",
-      "name": "4-1/2英寸角磨机 11A",
-      "brand": "Ningbo Siyang",
       "category": "grinders",
-      "categoryLabel": "磨光机",
-      "description": "专业4-1/2英寸角磨机配备11安培电机和拨片开关，确保操作安全。提供11,000 RPM空载速度，适用于切割、研磨和表面处理。采用轻量化设计和减振手柄，长时间使用舒适。",
-      "image": "../images/istock/10013.jpg",
+      "categoryLabel": "Grinders",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/grinder-01.jpg",
+      "images": [
+        "../images/products/grinder-01.jpg"
+      ],
+      "brand": "Ningbo Siyang",
+      "tagline": "Professional 4-1/2 inch angle grinder with 11 Amp motor and paddle switch for safe operation. Delivers 11,000 RPM no-load speed for cutting, grinding, and surface preparation. Features a lightweight design with vibration-reducing handle for comfortable extended use.",
+      "description": "Professional 4-1/2 inch angle grinder with 11 Amp motor and paddle switch for safe operation. Delivers 11,000 RPM no-load speed for cutting, grinding, and surface preparation. Features a lightweight design with vibration-reducing handle for comfortable extended use.",
+      "userBenefits": [
+        "11 Amp motor delivers aggressive cutting and grinding power for demanding jobsite tasks",
+        "Paddle switch with lock-off prevents accidental start-ups for enhanced operator safety",
+        "Lightweight 4.0 lbs design reduces fatigue during prolonged overhead and vertical grinding",
+        "Adjustable aluminum wheel guard allows quick repositioning without tools for cut or grind mode",
+        "Spindle lock enables fast, easy disc changes to minimize downtime between tasks"
+      ],
+      "specs": {
+        "voltage": "120V AC, 60Hz",
+        "motorType": "11 Amp",
+        "noLoadSpeed": "11,000 RPM",
+        "discDiameter": "4-1/2\"",
+        "arborSize": "7/8\"",
+        "spindleThread": "5/8\"-11",
+        "switchType": "Paddle",
+        "weightToolOnly": "4.0 lbs (1.8 kg)",
+        "overallLength": "11.4\"",
+        "soundPower": "98 dB(A)",
+        "vibrationLevel": "5.2 m/s²",
+        "cordLength": "6 ft (1.8 m)",
+        "wheelGuard": "Adjustable aluminum",
+        "auxiliaryHandle": "Side handle included",
+        "spindleLock": "Yes"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": false,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": true,
+      "isTopProduct": false,
+      "featured": true,
       "moq": "500 units",
       "leadTime": "30-45 days",
-      "inStock": true,
-      "featured": true,
-      "compliance": "CE, ROHS, EEC",
       "warranty": "1 year standard",
-      "userBenefits": "11安培电机提供强劲的切割和研磨动力，满足苛刻的工地任务需求"
+      "relatedProducts": [
+        "SY-GR-STR-ANG",
+        "SY-GR-CRD-ANG"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-GR-ANG-4.5.pdf",
+        "manual": "/downloads/manuals/SY-GR-ANG-4.5.pdf"
+      }
     },
     {
+      "name": "7\" Large Angle Grinder 15A",
       "sku": "SY-GR-ANG-7IN",
-      "name": "7英寸大型角磨机 15A",
-      "brand": "Ningbo Siyang Pro",
       "category": "grinders",
-      "categoryLabel": "磨光机",
-      "description": "重型7英寸角磨机配备15安培电机和电子速度控制，在负载下保持恒定性能。提供8500 RPM，适用于金属制造和建筑应用中的激进材料去除。配备过载保护和软启动功能。",
-      "image": "../images/istock/10014.jpg",
+      "categoryLabel": "Grinders",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/grinder-02.jpg",
+      "images": [
+        "../images/products/grinder-02.jpg"
+      ],
+      "brand": "Ningbo Siyang Pro",
+      "tagline": "Heavy-duty 7 inch angle grinder with 15 Amp motor and electronic speed control for consistent performance under load. Delivers 8500 RPM for aggressive material removal in metal fabrication and construction applications. Features overload protection and soft start.",
+      "description": "Heavy-duty 7 inch angle grinder with 15 Amp motor and electronic speed control for consistent performance under load. Delivers 8500 RPM for aggressive material removal in metal fabrication and construction applications. Features overload protection and soft start.",
+      "userBenefits": [
+        "15 Amp motor with electronic speed control maintains consistent RPM under heavy load for uniform results",
+        "Soft start reduces torque kickback at power-on, protecting both operator and workpiece",
+        "Overload protection shuts down the motor before damage occurs, extending tool service life",
+        "Tool-free adjustable guard allows rapid repositioning without a wrench for maximum productivity",
+        "Vibration-reducing side handle minimizes hand-arm fatigue during extended grinding sessions"
+      ],
+      "specs": {
+        "voltage": "120V AC, 60Hz",
+        "motorType": "15 Amp",
+        "noLoadSpeed": "8,500 RPM",
+        "discDiameter": "7\"",
+        "arborSize": "7/8\"",
+        "spindleThread": "5/8\"-11",
+        "switchType": "Slide with lock-on",
+        "weightToolOnly": "6.2 lbs (2.8 kg)",
+        "overallLength": "15.2\"",
+        "soundPower": "102 dB(A)",
+        "vibrationLevel": "6.8 m/s²",
+        "cordLength": "8 ft (2.4 m)",
+        "wheelGuard": "Adjustable with tool-free release",
+        "auxiliaryHandle": "Vibration-reducing side handle",
+        "spindleLock": "Yes"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": false,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": false,
+      "isTopProduct": false,
+      "featured": false,
       "moq": "300 units",
       "leadTime": "30-45 days",
-      "inStock": true,
-      "featured": false,
-      "compliance": "CE, ROHS, EEC",
       "warranty": "1 year standard",
-      "userBenefits": "15安培电机配合电子速度控制在重负载下保持恒定转速，确保均匀效果"
+      "relatedProducts": [
+        "SY-GR-ANG-4.5",
+        "SY-GR-POL-6IN"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-GR-ANG-7IN.pdf",
+        "manual": "/downloads/manuals/SY-GR-ANG-7IN.pdf"
+      }
     },
     {
+      "name": "6\" Bench Grinder 5/8 HP",
       "sku": "SY-GR-BCH-6IN",
-      "name": "6英寸台式砂轮机 5/8 HP",
-      "brand": "Ningbo Siyang",
       "category": "grinders",
-      "categoryLabel": "磨光机",
-      "description": "6英寸台式砂轮机配备5/8 HP电机、双砂轮、火花防护罩和护眼罩。专为车间环境中的打磨、成型和去毛刺作业而设计。采用铸铁底座确保稳定性，配备可调工具托架实现精密作业。",
-      "image": "../images/istock/10015.jpg",
+      "categoryLabel": "Grinders",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/grinder-03.jpg",
+      "images": [
+        "../images/products/grinder-03.jpg"
+      ],
+      "brand": "Ningbo Siyang",
+      "tagline": "6 inch bench grinder with 5/8 HP motor, dual grinding wheels, spark guards, and eye shields. Designed for sharpening, shaping, and deburring in workshop environments. Features cast iron base for stability and adjustable tool rests for precision work.",
+      "description": "6 inch bench grinder with 5/8 HP motor, dual grinding wheels, spark guards, and eye shields. Designed for sharpening, shaping, and deburring in workshop environments. Features cast iron base for stability and adjustable tool rests for precision work.",
+      "userBenefits": [
+        "Dual grinding wheels (coarse 36-grit + fine 60-grit) let you rough-shape and finish without changing wheels",
+        "Cast iron base absorbs vibration and prevents walking during heavy grinding operations",
+        "Adjustable spark guards and eye shields protect the operator from hot debris and sparks",
+        "Adjustable tool rests provide stable workpiece support for precise sharpening of chisels and blades",
+        "Compact footprint fits on most workbenches while delivering full-size workshop grinding capability"
+      ],
+      "specs": {
+        "voltage": "120V AC, 60Hz",
+        "motorType": "5/8 HP / 4 Amp",
+        "noLoadSpeed": "3,450 RPM",
+        "discDiameter": "6\"",
+        "arborSize": "1/2\"",
+        "spindleThread": "1/2\"-13",
+        "switchType": "Toggle",
+        "weightToolOnly": "28.0 lbs (12.7 kg)",
+        "overallLength": "16.5\"",
+        "soundPower": "85 dB(A)",
+        "vibrationLevel": "2.1 m/s²",
+        "cordLength": "6 ft (1.8 m)",
+        "wheelGuard": "Spark guards with eye shields",
+        "auxiliaryHandle": "Adjustable tool rests",
+        "spindleLock": "N/A"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": true,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": false,
+      "isTopProduct": false,
+      "featured": false,
       "moq": "200 units",
       "leadTime": "30-45 days",
-      "inStock": true,
-      "featured": false,
-      "compliance": "CE, ROHS, GS, EEC",
       "warranty": "1 year standard",
-      "userBenefits": "双砂轮配置（粗36目+细60目）无需更换砂轮即可完成粗加工和精加工"
+      "relatedProducts": [
+        "SY-GR-BCH-8IN",
+        "SY-SA-DSK-5IN"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-GR-BCH-6IN.pdf",
+        "manual": "/downloads/manuals/SY-GR-BCH-6IN.pdf"
+      }
     },
     {
+      "name": "8\" Bench Grinder 3/4 HP",
       "sku": "SY-GR-BCH-8IN",
-      "name": "8英寸台式砂轮机 3/4 HP",
-      "brand": "Ningbo Siyang Pro",
       "category": "grinders",
-      "categoryLabel": "磨光机",
-      "description": "重型8英寸台式砂轮机配备3/4 HP电机和1750 RPM低速运行。采用铸铁砂轮实现平稳无振动的性能。适用于专业车间中凿子、刨刀片和其他切削工具的精密打磨。",
-      "image": "../images/unsplach/drill-home/10055.jpeg",
+      "categoryLabel": "Grinders",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/grinder-04.jpg",
+      "images": [
+        "../images/products/grinder-04.jpg"
+      ],
+      "brand": "Ningbo Siyang Pro",
+      "tagline": "Heavy-duty 8 inch bench grinder with 3/4 HP motor and 1750 RPM low-speed operation. Features cast iron wheels for smooth, vibration-free performance. Ideal for precision sharpening of chisels, plane blades, and other cutting tools in professional workshops.",
+      "description": "Heavy-duty 8 inch bench grinder with 3/4 HP motor and 1750 RPM low-speed operation. Features cast iron wheels for smooth, vibration-free performance. Ideal for precision sharpening of chisels, plane blades, and other cutting tools in professional workshops.",
+      "userBenefits": [
+        "Low 1,750 RPM speed reduces heat buildup, preventing temper loss when sharpening fine cutting tools",
+        "Heavy 42 lb cast iron construction eliminates vibration for chatter-free precision sharpening results",
+        "8-inch wheels provide larger contact area for faster material removal on wide blades and chisels",
+        "Indicator light on power switch confirms unit is energized for added workshop safety awareness",
+        "GS-certified safety compliance meets stringent European workshop equipment standards"
+      ],
+      "specs": {
+        "voltage": "120V AC, 60Hz",
+        "motorType": "3/4 HP / 5 Amp",
+        "noLoadSpeed": "1,750 RPM",
+        "discDiameter": "8\"",
+        "arborSize": "5/8\"",
+        "spindleThread": "5/8\"-11",
+        "switchType": "Toggle with indicator light",
+        "weightToolOnly": "42.0 lbs (19.1 kg)",
+        "overallLength": "20.0\"",
+        "soundPower": "82 dB(A)",
+        "vibrationLevel": "1.5 m/s²",
+        "cordLength": "6 ft (1.8 m)",
+        "wheelGuard": "Spark guards with eye shields",
+        "auxiliaryHandle": "Adjustable tool rests",
+        "spindleLock": "N/A"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": true,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": false,
+      "isTopProduct": false,
+      "featured": false,
       "moq": "150 units",
       "leadTime": "35-50 days",
-      "inStock": true,
-      "featured": false,
-      "compliance": "CE, ROHS, GS, EEC",
       "warranty": "1 year standard",
-      "userBenefits": "1,750 RPM低速减少热量积聚，防止精密切削工具打磨时退火"
+      "relatedProducts": [
+        "SY-GR-BCH-6IN",
+        "SY-SA-DSK-5IN"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-GR-BCH-8IN.pdf",
+        "manual": "/downloads/manuals/SY-GR-BCH-8IN.pdf"
+      }
     },
     {
+      "name": "20V Cordless Angle Grinder",
       "sku": "SY-GR-CRD-ANG",
-      "name": "20V充电式角磨机",
-      "brand": "Ningbo Siyang Pro",
       "category": "grinders",
-      "categoryLabel": "磨光机",
-      "description": "充电式20V MAX角磨机配备无刷电机，提供9000 RPM。采用免工具砂轮更换功能，实现快速磨片更换，纤薄符合人体工程学的机身确保舒适使用。适用于需要充电式自由度的切割、研磨和表面处理作业。",
-      "image": "../images/unsplach/drill-closeup/10077.jpeg",
+      "categoryLabel": "Grinders",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/grinder-05.jpg",
+      "images": [
+        "../images/products/grinder-05.jpg"
+      ],
+      "brand": "Ningbo Siyang Pro",
+      "tagline": "Cordless 20V MAX angle grinder with brushless motor delivering 9000 RPM. Features tool-free wheel change for quick disc swaps and a slim ergonomic body for comfortable use. Ideal for cutting, grinding, and surface preparation where cordless freedom is needed.",
+      "description": "Cordless 20V MAX angle grinder with brushless motor delivering 9000 RPM. Features tool-free wheel change for quick disc swaps and a slim ergonomic body for comfortable use. Ideal for cutting, grinding, and surface preparation where cordless freedom is needed.",
+      "userBenefits": [
+        "Brushless motor delivers up to 50% longer runtime per charge and extended motor life vs. brushed motors",
+        "Cordless 20V MAX platform provides freedom to work anywhere without searching for power outlets",
+        "Tool-free adjustable guard and spindle lock enable quick disc changes to keep productivity high",
+        "Lock-off paddle switch prevents accidental activation during transport and storage",
+        "Compatible with the full Ningbo Siyang 20V MAX battery system for cross-tool versatility"
+      ],
+      "specs": {
+        "voltage": "20V MAX DC",
+        "motorType": "Brushless",
+        "noLoadSpeed": "9,000 RPM",
+        "discDiameter": "4-1/2\"",
+        "arborSize": "7/8\"",
+        "spindleThread": "5/8\"-11",
+        "switchType": "Paddle with lock-off",
+        "weightToolOnly": "4.2 lbs (1.9 kg)",
+        "overallLength": "12.1\"",
+        "soundPower": "94 dB(A)",
+        "vibrationLevel": "4.5 m/s²",
+        "cordLength": "N/A (cordless)",
+        "wheelGuard": "Tool-free adjustable guard",
+        "auxiliaryHandle": "Side handle included",
+        "spindleLock": "Yes"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": false,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": true,
+      "isTopProduct": false,
+      "featured": true,
       "moq": "400 units",
       "leadTime": "30-45 days",
-      "inStock": true,
-      "featured": true,
-      "compliance": "CE, ROHS, EEC",
       "warranty": "1 year standard, 2 year brushless motor",
-      "userBenefits": "无刷电机每次充电运行时间比有刷电机延长高达50%，电机寿命更久"
+      "relatedProducts": [
+        "SY-GR-ANG-4.5",
+        "SY-SA-CRD-ORB"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-GR-CRD-ANG.pdf",
+        "manual": "/downloads/manuals/SY-GR-CRD-ANG.pdf"
+      }
     },
     {
+      "name": "1/4\" Die Grinder 4A",
       "sku": "SY-GR-DIE-1/4",
-      "name": "1/4英寸直磨机 4A",
-      "brand": "Ningbo Siyang",
       "category": "grinders",
-      "categoryLabel": "磨光机",
-      "description": "精密1/4英寸直磨机配备4安培电机，变速最高可达25,000 RPM。同时配备1/4英寸和1/8英寸夹头，实现广泛的附件兼容性。适用于金属加工和汽车维修中的精密研磨、去毛刺和抛光作业。",
-      "image": "../images/istock/10016.jpg",
+      "categoryLabel": "Grinders",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/grinder-06.jpg",
+      "images": [
+        "../images/products/grinder-06.jpg"
+      ],
+      "brand": "Ningbo Siyang",
+      "tagline": "Precision 1/4 inch die grinder with 4 Amp motor and variable speed up to 25,000 RPM. Includes both 1/4 inch and 1/8 inch collets for versatile accessory compatibility. Ideal for detail grinding, deburring, and polishing in metalworking and automotive applications.",
+      "description": "Precision 1/4 inch die grinder with 4 Amp motor and variable speed up to 25,000 RPM. Includes both 1/4 inch and 1/8 inch collets for versatile accessory compatibility. Ideal for detail grinding, deburring, and polishing in metalworking and automotive applications.",
+      "userBenefits": [
+        "Variable speed 0-25,000 RPM dial lets you match speed to the accessory and material for optimal results",
+        "Dual collet sizes (1/4\" and 1/8\") accept a wide range of burrs, stones, and polishing wheels",
+        "Lightweight 2.5 lbs pencil-grip design enables precise control for intricate detail and deburring work",
+        "Paddle switch with speed dial provides one-handed speed adjustment without interrupting workflow",
+        "Compact 10.2\" length reaches into tight spaces and confined areas that larger grinders cannot access"
+      ],
+      "specs": {
+        "voltage": "120V AC, 60Hz",
+        "motorType": "4 Amp",
+        "noLoadSpeed": "0-25,000 RPM",
+        "discDiameter": "1/4\" collet",
+        "arborSize": "1/4\" & 1/8\"",
+        "spindleThread": "1/4\"-28",
+        "switchType": "Paddle with speed dial",
+        "weightToolOnly": "2.5 lbs (1.1 kg)",
+        "overallLength": "10.2\"",
+        "soundPower": "88 dB(A)",
+        "vibrationLevel": "3.5 m/s²",
+        "cordLength": "6 ft (1.8 m)",
+        "wheelGuard": "N/A",
+        "auxiliaryHandle": "N/A",
+        "spindleLock": "Collet lock"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": false,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": false,
+      "isTopProduct": false,
+      "featured": false,
       "moq": "500 units",
       "leadTime": "30-45 days",
-      "inStock": true,
-      "featured": false,
-      "compliance": "CE, ROHS, EEC",
       "warranty": "1 year standard",
-      "userBenefits": "0-25,000 RPM变速旋钮可根据附件和材料匹配最佳转速"
+      "relatedProducts": [
+        "SY-GR-ANG-4.5",
+        "SY-GR-STR-ANG"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-GR-DIE-1/4.pdf",
+        "manual": "/downloads/manuals/SY-GR-DIE-1/4.pdf"
+      }
     },
     {
+      "name": "6\" Variable Speed Polisher",
       "sku": "SY-GR-POL-6IN",
-      "name": "6英寸变速抛光机",
-      "brand": "Ningbo Siyang Pro",
       "category": "grinders",
-      "categoryLabel": "磨光机",
-      "description": "专业6英寸变速抛光机/研磨机配备6安培电机和软启动功能。提供2500-6800 OPM，适用于抛光、砂光和研磨应用。适用于汽车美容、船舶表面处理和工业表面处理。",
-      "image": "../images/istock/10018.jpg",
+      "categoryLabel": "Grinders",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/grinder-07.jpg",
+      "images": [
+        "../images/products/grinder-07.jpg"
+      ],
+      "brand": "Ningbo Siyang Pro",
+      "tagline": "Professional 6 inch variable speed polisher/grinder with 6 Amp motor and soft start feature. Delivers 2500-6800 OPM for polishing, sanding, and grinding applications. Ideal for automotive detailing, marine finishing, and industrial surface treatment.",
+      "description": "Professional 6 inch variable speed polisher/grinder with 6 Amp motor and soft start feature. Delivers 2500-6800 OPM for polishing, sanding, and grinding applications. Ideal for automotive detailing, marine finishing, and industrial surface treatment.",
+      "userBenefits": [
+        "Variable speed dial (2,500-6,800 OPM) matches pad speed to compound and surface for swirl-free results",
+        "Soft start prevents splatter of polishing compound and reduces torque kickback at power-on",
+        "Dual handle configuration (side + bail) provides two-handed control for even pressure distribution",
+        "6 Amp motor maintains consistent speed under load for uniform gloss across large panels",
+        "5/8\"-11 spindle thread accepts industry-standard polishing pads and backing plates"
+      ],
+      "specs": {
+        "voltage": "120V AC, 60Hz",
+        "motorType": "6 Amp",
+        "noLoadSpeed": "2,500-6,800 OPM",
+        "discDiameter": "6\"",
+        "arborSize": "N/A",
+        "spindleThread": "5/8\"-11",
+        "switchType": "Variable speed dial with trigger lock",
+        "weightToolOnly": "5.5 lbs (2.5 kg)",
+        "overallLength": "14.5\"",
+        "soundPower": "90 dB(A)",
+        "vibrationLevel": "3.2 m/s²",
+        "cordLength": "8 ft (2.4 m)",
+        "wheelGuard": "N/A",
+        "auxiliaryHandle": "Side handle + bail handle",
+        "spindleLock": "Yes"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": false,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": false,
+      "isTopProduct": false,
+      "featured": false,
       "moq": "300 units",
       "leadTime": "30-45 days",
-      "inStock": true,
-      "featured": false,
-      "compliance": "CE, ROHS, EEC",
       "warranty": "1 year standard",
-      "userBenefits": "变速旋钮（2,500-6,800 OPM）可根据研磨剂和表面匹配垫盘转速，实现无旋纹效果"
+      "relatedProducts": [
+        "SY-GR-ANG-7IN",
+        "SY-SA-ORB-6IN"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-GR-POL-6IN.pdf",
+        "manual": "/downloads/manuals/SY-GR-POL-6IN.pdf"
+      }
     },
     {
+      "name": "4-1/2\" Angle Grinder with Trigger",
       "sku": "SY-GR-STR-ANG",
-      "name": "4-1/2英寸角磨机 带扳机开关",
-      "brand": "Ningbo Siyang",
       "category": "grinders",
-      "categoryLabel": "磨光机",
-      "description": "4-1/2英寸角磨机配备7.5安培电机、扳机开关和重启保护功能，提升安全性。采用纤薄机身设计，长时间使用握持舒适。适用于金属和砌体中的切割、研磨和表面处理作业。",
-      "image": "../images/istock/10017.jpg",
+      "categoryLabel": "Grinders",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/grinder-08.jpg",
+      "images": [
+        "../images/products/grinder-08.jpg"
+      ],
+      "brand": "Ningbo Siyang",
+      "tagline": "4-1/2 inch angle grinder with 7.5 Amp motor, trigger switch, and restart protection for enhanced safety. Features a slim body design for comfortable grip and control during extended use. Suitable for cutting, grinding, and surface preparation in metal and masonry.",
+      "description": "4-1/2 inch angle grinder with 7.5 Amp motor, trigger switch, and restart protection for enhanced safety. Features a slim body design for comfortable grip and control during extended use. Suitable for cutting, grinding, and surface preparation in metal and masonry.",
+      "userBenefits": [
+        "Restart protection prevents accidental start-up after power interruption, protecting the operator",
+        "Slim body design fits comfortably in one hand for superior control in tight workspaces",
+        "7.5 Amp motor balances power and weight for all-day cutting and grinding without fatigue",
+        "Trigger switch provides intuitive on-off control with natural finger placement for quick shutoff",
+        "12,000 RPM no-load speed delivers fast material removal for efficient task completion"
+      ],
+      "specs": {
+        "voltage": "120V AC, 60Hz",
+        "motorType": "7.5 Amp",
+        "noLoadSpeed": "12,000 RPM",
+        "discDiameter": "4-1/2\"",
+        "arborSize": "7/8\"",
+        "spindleThread": "5/8\"-11",
+        "switchType": "Trigger with restart protection",
+        "weightToolOnly": "3.8 lbs (1.7 kg)",
+        "overallLength": "10.8\"",
+        "soundPower": "96 dB(A)",
+        "vibrationLevel": "4.8 m/s²",
+        "cordLength": "6 ft (1.8 m)",
+        "wheelGuard": "Adjustable aluminum",
+        "auxiliaryHandle": "Slim side handle",
+        "spindleLock": "Yes"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": false,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": false,
+      "isTopProduct": false,
+      "featured": false,
       "moq": "500 units",
       "leadTime": "30-45 days",
-      "inStock": true,
-      "featured": false,
-      "compliance": "CE, ROHS, EEC",
       "warranty": "1 year standard",
-      "userBenefits": "重启保护功能在断电后防止意外启动，保障操作人员安全"
+      "relatedProducts": [
+        "SY-GR-ANG-4.5",
+        "SY-GR-CRD-ANG"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-GR-STR-ANG.pdf",
+        "manual": "/downloads/manuals/SY-GR-STR-ANG.pdf"
+      }
     },
     {
+      "name": "1/4\" Hex Impact Driver 3A",
       "sku": "SY-IT-DRV-1/4",
-      "name": "1/4英寸六角冲击起子 3A",
-      "brand": "Ningbo Siyang",
       "category": "impact-tools",
-      "categoryLabel": "冲击工具",
-      "description": "紧凑型1/4英寸六角冲击起子配备3速设置，提供1500英寸-磅的最大扭矩。机头长度仅4.8英寸，适用于狭小空间，符合人体工程学握把设计确保全天舒适使用。适用于一般紧固和轻型作业。",
-      "image": "../images/istock/10028.jpg",
+      "categoryLabel": "Impact Tools",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/10029.webp",
+      "images": [
+        "../images/products/10029.webp"
+      ],
+      "brand": "Ningbo Siyang",
+      "tagline": "Compact 1/4 inch hex impact driver with 3-speed settings delivering 1500 in-lbs of max torque. Features a compact 4.8 inch head length for tight spaces and an ergonomic grip for comfortable all-day use. Ideal for general fastening and light-duty applications.",
+      "description": "Compact 1/4 inch hex impact driver with 3-speed settings delivering 1500 in-lbs of max torque. Features a compact 4.8 inch head length for tight spaces and an ergonomic grip for comfortable all-day use. Ideal for general fastening and light-duty applications.",
+      "userBenefits": [
+        "Ultra-compact 4.8 in head length reaches into the tightest cabinet and drawer spaces",
+        "Corded design eliminates downtime for battery charging on long work shifts",
+        "3-speed electronic speed control prevents damage to small fasteners and delicate materials",
+        "Ergonomic over-mold grip reduces hand fatigue during extended fastening sessions",
+        "Lightweight 2.8 lb design enables one-handed overhead operation with ease"
+      ],
+      "specs": {
+        "voltage": "120V AC (corded)",
+        "motorType": "3.0 Amp brushed",
+        "maxTorque": "1500 in-lbs",
+        "noLoadSpeedLow": "0-1600 RPM",
+        "noLoadSpeedHigh": "0-3200 RPM",
+        "ipm": "0-4200",
+        "driveSize": "1/4\" hex",
+        "speedSettings": 3,
+        "modeSettings": 1,
+        "weightToolOnly": "2.8 lbs (1.3 kg)",
+        "weightWithBattery": "2.8 lbs (1.3 kg)",
+        "overallLength": "4.8 in (122 mm)",
+        "soundPower": "93 dB(A)",
+        "vibrationLevel": "5.8 m/s²",
+        "batteryPlatform": "Corded",
+        "ledWorkLight": true,
+        "beltHook": false,
+        "chuckType": "1/4\" hex quick-release"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": true,
+        "ul": true,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": false,
+      "isTopProduct": false,
+      "featured": false,
       "moq": "500 units",
       "leadTime": "30-45 days",
-      "inStock": true,
-      "featured": false,
-      "compliance": "CE, ROHS, GS, UL, EEC",
       "warranty": "1 year standard",
-      "userBenefits": "超紧凑4.8英寸机头长度可深入最狭窄的柜体和抽屉空间"
+      "relatedProducts": [
+        "SY-IT-DRV-20V",
+        "SY-IT-DRV-BRUS"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-IT-DRV-1/4.pdf",
+        "manual": "/downloads/manuals/SY-IT-DRV-1/4.pdf"
+      }
     },
     {
+      "name": "20V MAX Impact Driver 1650 in-lbs",
       "sku": "SY-IT-DRV-20V",
-      "name": "20V MAX冲击起子 1650英寸-磅",
-      "brand": "Ningbo Siyang Pro",
       "category": "impact-tools",
-      "categoryLabel": "冲击工具",
-      "description": "专业20V MAX冲击起子提供1650英寸-磅的最大扭矩，配备3速设置和4模式驱动控制，实现精密紧固。采用无刷电机延长运行时间，配备LED工作灯改善暗区可视性。",
-      "image": "../images/istock/10025.jpg",
+      "categoryLabel": "Impact Tools",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/10030.webp",
+      "images": [
+        "../images/products/10030.webp"
+      ],
+      "brand": "Ningbo Siyang Pro",
+      "tagline": "Professional 20V MAX impact driver delivering 1650 in-lbs of max torque with 3-speed settings and 4-mode drive control for precision fastening. Features a brushless motor for extended runtime and an LED work light for improved visibility in dark work areas.",
+      "description": "Professional 20V MAX impact driver delivering 1650 in-lbs of max torque with 3-speed settings and 4-mode drive control for precision fastening. Features a brushless motor for extended runtime and an LED work light for improved visibility in dark work areas.",
+      "userBenefits": [
+        "4-mode drive control prevents overdriving and stripping screws on delicate fastening jobs",
+        "Brushless motor delivers up to 57% more runtime over brushed competitors",
+        "3-speed gearbox lets you match power and speed to each application for maximum productivity",
+        "Compact 5.5 in head length fits into tight spaces where bulkier drivers cannot reach",
+        "LED work light with 20-second delay illuminates work area after trigger release"
+      ],
+      "specs": {
+        "voltage": "20V MAX",
+        "motorType": "Brushless",
+        "maxTorque": "1650 in-lbs",
+        "noLoadSpeedLow": "0-1000 RPM",
+        "noLoadSpeedHigh": "0-2800 RPM",
+        "ipm": "0-3600",
+        "driveSize": "1/4\" hex",
+        "speedSettings": 3,
+        "modeSettings": 4,
+        "weightToolOnly": "3.4 lbs (1.5 kg)",
+        "weightWithBattery": "4.2 lbs (1.9 kg)",
+        "overallLength": "5.5 in (139 mm)",
+        "soundPower": "96 dB(A)",
+        "vibrationLevel": "6.5 m/s²",
+        "batteryPlatform": "20V MAX",
+        "ledWorkLight": true,
+        "beltHook": true,
+        "chuckType": "1/4\" hex quick-release"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": false,
+        "ul": true,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": true,
+      "isTopProduct": false,
+      "featured": true,
       "moq": "400 units",
       "leadTime": "30-45 days",
-      "inStock": true,
-      "featured": true,
-      "compliance": "CE, ROHS, UL, EEC",
       "warranty": "1 year standard, 2 year brushless motor",
-      "userBenefits": "4模式驱动控制防止精细紧固作业中过度驱动和滑牙"
+      "relatedProducts": [
+        "SY-IT-DRV-BRUS",
+        "SY-IT-WRN-20V",
+        "SY-CK-2PC-DRL"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-IT-DRV-20V.pdf",
+        "manual": "/downloads/manuals/SY-IT-DRV-20V.pdf"
+      }
     },
     {
+      "name": "20V Brushless Impact Driver Kit",
       "sku": "SY-IT-DRV-BRUS",
-      "name": "20V无刷冲击起子套装",
-      "brand": "Ningbo Siyang Pro",
       "category": "impact-tools",
-      "categoryLabel": "冲击工具",
-      "description": "完整20V无刷冲击起子套装，包含2块4.0Ah电池、充电器和工具包。采用无刷电机技术提供专业级性能，实现最大运行时间和耐用性。适用于建筑和翻新工程中的重型紧固作业。",
-      "image": "../images/unsplach/drill-closeup/10081.jpeg",
+      "categoryLabel": "Impact Tools",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/10037.jpeg",
+      "images": [
+        "../images/products/10037.jpeg"
+      ],
+      "brand": "Ningbo Siyang Pro",
+      "tagline": "Complete 20V brushless impact driver kit including 2× 4.0Ah batteries, charger, and kit bag. Delivers professional-grade performance with brushless motor technology for maximum runtime and durability. Ideal for heavy-duty fastening in construction and remodeling.",
+      "description": "Complete 20V brushless impact driver kit including 2× 4.0Ah batteries, charger, and kit bag. Delivers professional-grade performance with brushless motor technology for maximum runtime and durability. Ideal for heavy-duty fastening in construction and remodeling.",
+      "userBenefits": [
+        "Complete kit with 2× 4.0Ah batteries and charger means zero additional purchases to start working",
+        "1800 in-lbs of torque handles the toughest lag bolts and structural fastening with ease",
+        "Brushless motor runs cooler and lasts up to 2x longer than brushed alternatives",
+        "4-mode drive control with auto-shutoff prevents overdriving on delicate trim and cabinetry",
+        "Kit bag keeps tool, batteries, and charger organized for transport between jobsites"
+      ],
+      "specs": {
+        "voltage": "20V MAX",
+        "motorType": "Brushless",
+        "maxTorque": "1800 in-lbs",
+        "noLoadSpeedLow": "0-1000 RPM",
+        "noLoadSpeedHigh": "0-3200 RPM",
+        "ipm": "0-3800",
+        "driveSize": "1/4\" hex",
+        "speedSettings": 3,
+        "modeSettings": 4,
+        "weightToolOnly": "3.5 lbs (1.6 kg)",
+        "weightWithBattery": "5.8 lbs (2.6 kg)",
+        "overallLength": "5.6 in (142 mm)",
+        "soundPower": "97 dB(A)",
+        "vibrationLevel": "7.0 m/s²",
+        "batteryPlatform": "20V MAX",
+        "ledWorkLight": true,
+        "beltHook": true,
+        "chuckType": "1/4\" hex quick-release"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": false,
+        "ul": true,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": false,
+      "isTopProduct": false,
+      "featured": false,
       "moq": "300 units",
       "leadTime": "30-45 days",
-      "inStock": true,
-      "featured": false,
-      "compliance": "CE, ROHS, UL, EEC",
       "warranty": "1 year standard, 2 year brushless motor",
-      "userBenefits": "配备2块4.0Ah电池和充电器的完整套装，无需额外购买即可开工"
+      "relatedProducts": [
+        "SY-IT-DRV-20V",
+        "SY-CK-2PC-DRL"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-IT-DRV-BRUS.pdf",
+        "manual": "/downloads/manuals/SY-IT-DRV-BRUS.pdf"
+      }
     },
     {
+      "name": "20V Cordless Ratchet 3/8\"",
       "sku": "SY-IT-RCH-20V",
-      "name": "20V充电式棘轮扳手 3/8英寸",
-      "brand": "Ningbo Siyang",
       "category": "impact-tools",
-      "categoryLabel": "冲击工具",
-      "description": "紧凑型Inline 20V充电式棘轮扳手，配备3/8英寸砧座，在250 RPM下提供70英尺-磅的最大扭矩。采用紧凑型Inline设计，适用于狭窄的发动机舱和狭小空间。适用于汽车维修和机械紧固应用。",
-      "image": "../images/unsplach/drill-closeup/10080.jpeg",
+      "categoryLabel": "Impact Tools",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/10034.webp",
+      "images": [
+        "../images/products/10034.webp"
+      ],
+      "brand": "Ningbo Siyang",
+      "tagline": "Compact inline 20V cordless ratchet with 3/8 inch anvil delivering 70 ft-lbs of max torque at 250 RPM. Features a compact inline design for access in tight engine bays and confined spaces. Ideal for automotive and mechanical fastening applications.",
+      "description": "Compact inline 20V cordless ratchet with 3/8 inch anvil delivering 70 ft-lbs of max torque at 250 RPM. Features a compact inline design for access in tight engine bays and confined spaces. Ideal for automotive and mechanical fastening applications.",
+      "userBenefits": [
+        "Inline ratchet design reaches deep into engine bays where pistol-grip tools cannot fit",
+        "Manual ratcheting capability lets you finish tightening by hand for precise torque control",
+        "Ultra-low vibration at 2.1 m/s² makes it comfortable for extended use on assembly lines",
+        "70 ft-lbs of power drives bolts quickly then allows hand-tight finishing for critical fasteners",
+        "Variable speed trigger gives you feather-touch control for threading and light fastening work"
+      ],
+      "specs": {
+        "voltage": "20V MAX",
+        "motorType": "Brushed",
+        "maxTorque": "70 ft-lbs",
+        "noLoadSpeedLow": "0-250 RPM",
+        "noLoadSpeedHigh": "0-250 RPM",
+        "ipm": "N/A (ratchet action)",
+        "driveSize": "3/8\"",
+        "speedSettings": 1,
+        "modeSettings": 1,
+        "weightToolOnly": "2.6 lbs (1.2 kg)",
+        "weightWithBattery": "3.3 lbs (1.5 kg)",
+        "overallLength": "11.2 in (284 mm)",
+        "soundPower": "78 dB(A)",
+        "vibrationLevel": "2.1 m/s²",
+        "batteryPlatform": "20V MAX",
+        "ledWorkLight": true,
+        "beltHook": false,
+        "chuckType": "3/8\" anvil with quick-release"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": false,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": false,
+      "isTopProduct": false,
+      "featured": false,
       "moq": "400 units",
       "leadTime": "30-45 days",
-      "inStock": true,
-      "featured": false,
-      "compliance": "CE, ROHS, EEC",
       "warranty": "1 year standard",
-      "userBenefits": "Inline棘轮设计深入发动机舱，手枪握把工具无法触及的深处也能到达"
+      "relatedProducts": [
+        "SY-IT-WRN-18V",
+        "SY-IT-WRN-20V"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-IT-RCH-20V.pdf",
+        "manual": "/downloads/manuals/SY-IT-RCH-20V.pdf"
+      }
     },
     {
+      "name": "18V Impact Wrench 3/8\"",
       "sku": "SY-IT-WRN-18V",
-      "name": "18V冲击扳手 3/8英寸",
-      "brand": "Ningbo Siyang",
       "category": "impact-tools",
-      "categoryLabel": "冲击工具",
-      "description": "紧凑型18V冲击扳手配备3/8英寸砧座，提供135英尺-磅的最大扭矩。轻量化人体工程学设计，适用于汽车和机械应用中便携性和精准性至关重要的场合。",
-      "image": "../images/istock/10030.jpg",
+      "categoryLabel": "Impact Tools",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/10030.webp",
+      "images": [
+        "../images/products/10030.webp",
+        "../images/products/10030.webp",
+        "../images/products/10030.webp"
+      ],
+      "brand": "Ningbo Siyang",
+      "tagline": "Compact 18V impact wrench with 3/8 inch anvil delivering 135 ft-lbs of max torque. Lightweight and ergonomic design ideal for automotive and mechanical applications where portability and precision are essential.",
+      "description": "Compact 18V impact wrench with 3/8 inch anvil delivering 135 ft-lbs of max torque. Lightweight and ergonomic design ideal for automotive and mechanical applications where portability and precision are essential.",
+      "userBenefits": [
+        "Lightweight 3.8 lb design reduces arm fatigue during overhead and under-vehicle work",
+        "3/8\" anvil is the ideal size for automotive sensor bolts, small engine work, and motorcycle maintenance",
+        "Brushless motor maximizes battery life for a full shift of work on a single charge",
+        "Detent pin anvil securely retains sockets during vertical and overhead applications",
+        "Compact 5.8 in length accesses tight engine compartments and confined machinery spaces"
+      ],
+      "specs": {
+        "voltage": "18V",
+        "motorType": "Brushless",
+        "maxTorque": "135 ft-lbs",
+        "noLoadSpeedLow": "0-1200 RPM",
+        "noLoadSpeedHigh": "0-2500 RPM",
+        "ipm": "0-3000",
+        "driveSize": "3/8\"",
+        "speedSettings": 2,
+        "modeSettings": 2,
+        "weightToolOnly": "3.8 lbs (1.7 kg)",
+        "weightWithBattery": "4.5 lbs (2.0 kg)",
+        "overallLength": "5.8 in (147 mm)",
+        "soundPower": "95 dB(A)",
+        "vibrationLevel": "7.5 m/s²",
+        "batteryPlatform": "18V",
+        "ledWorkLight": true,
+        "beltHook": false,
+        "chuckType": "3/8\" detent pin anvil"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": false,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": false,
+      "isTopProduct": false,
+      "featured": false,
       "moq": "400 units",
       "leadTime": "30-45 days",
-      "inStock": true,
-      "featured": false,
-      "compliance": "CE, ROHS, EEC",
       "warranty": "1 year standard, 2 year brushless motor",
-      "userBenefits": "轻量化3.8磅设计减少高空和车底作业时的手臂疲劳"
+      "relatedProducts": [
+        "SY-IT-WRN-20V",
+        "SY-IT-RCH-20V"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-IT-WRN-18V.pdf",
+        "manual": "/downloads/manuals/SY-IT-WRN-18V.pdf"
+      }
     },
     {
+      "name": "20V Impact Wrench 1/2\"",
       "sku": "SY-IT-WRN-20V",
-      "name": "20V冲击扳手 1/2英寸",
-      "brand": "Ningbo Siyang Pro",
       "category": "impact-tools",
-      "categoryLabel": "冲击工具",
-      "description": "紧凑型20V冲击扳手配备1/2英寸砧座，提供330英尺-磅的最大扭矩。紧凑设计适用于狭小空间，内置LED灯提供照明。适用于汽车、机械和重型紧固应用。",
-      "image": "../images/istock/10026.jpg",
+      "categoryLabel": "Impact Tools",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/10034-2.webp",
+      "images": [
+        "../images/products/10034-2.webp"
+      ],
+      "brand": "Ningbo Siyang Pro",
+      "tagline": "Compact 20V impact wrench with 1/2 inch anvil delivering 330 ft-lbs of max torque. Features a compact design for access in tight spaces and a built-in LED light. Ideal for automotive, mechanical, and heavy-duty fastening applications.",
+      "description": "Compact 20V impact wrench with 1/2 inch anvil delivering 330 ft-lbs of max torque. Features a compact design for access in tight spaces and a built-in LED light. Ideal for automotive, mechanical, and heavy-duty fastening applications.",
+      "userBenefits": [
+        "330 ft-lbs of breakaway torque removes stubborn lug nuts and rusted bolts without an air compressor",
+        "Friction ring anvil enables fast one-handed socket changes on the jobsite",
+        "3-speed electronic control prevents over-torquing on sensitive automotive fasteners",
+        "Compact 6.2 in body fits into wheel wells and engine bays where larger wrenches cannot",
+        "Brushless motor delivers consistent power output even under continuous heavy load"
+      ],
+      "specs": {
+        "voltage": "20V MAX",
+        "motorType": "Brushless",
+        "maxTorque": "330 ft-lbs",
+        "noLoadSpeedLow": "0-800 RPM",
+        "noLoadSpeedHigh": "0-1900 RPM",
+        "ipm": "0-2400",
+        "driveSize": "1/2\"",
+        "speedSettings": 3,
+        "modeSettings": 3,
+        "weightToolOnly": "5.1 lbs (2.3 kg)",
+        "weightWithBattery": "6.0 lbs (2.7 kg)",
+        "overallLength": "6.2 in (157 mm)",
+        "soundPower": "102 dB(A)",
+        "vibrationLevel": "9.2 m/s²",
+        "batteryPlatform": "20V MAX",
+        "ledWorkLight": true,
+        "beltHook": true,
+        "chuckType": "1/2\" friction ring anvil"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": false,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": true,
+      "isTopProduct": false,
+      "featured": true,
       "moq": "300 units",
       "leadTime": "30-45 days",
-      "inStock": true,
-      "featured": true,
-      "compliance": "CE, ROHS, EEC",
       "warranty": "1 year standard, 2 year brushless motor",
-      "userBenefits": "330英尺-磅的拆卸扭矩无需空压机即可卸下顽固的轮毂螺母和锈死螺栓"
+      "relatedProducts": [
+        "SY-IT-WRN-18V",
+        "SY-IT-WRN-3-4"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-IT-WRN-20V.pdf",
+        "manual": "/downloads/manuals/SY-IT-WRN-20V.pdf"
+      }
     },
     {
+      "name": "3/4\" Impact Wrench 800 ft-lbs",
       "sku": "SY-IT-WRN-3/4",
-      "name": "3/4英寸冲击扳手 800英尺-磅",
-      "brand": "Ningbo Siyang Pro",
       "category": "impact-tools",
-      "categoryLabel": "冲击工具",
-      "description": "重型3/4英寸冲击扳手提供800英尺-磅的最大扭矩，配备销锁砧座确保套筒牢固固定。专为建筑、采矿和重型设备维护中最苛刻的螺栓紧固应用而设计。",
-      "image": "../images/istock/10027.jpg",
+      "categoryLabel": "Impact Tools",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/10034-3.webp",
+      "images": [
+        "../images/products/10034-3.webp"
+      ],
+      "brand": "Ningbo Siyang Pro",
+      "tagline": "Heavy-duty 3/4 inch impact wrench delivering 800 ft-lbs of max torque with pin detent anvil for secure socket retention. Designed for the most demanding bolting applications in construction, mining, and heavy equipment maintenance.",
+      "description": "Heavy-duty 3/4 inch impact wrench delivering 800 ft-lbs of max torque with pin detent anvil for secure socket retention. Designed for the most demanding bolting applications in construction, mining, and heavy equipment maintenance.",
+      "userBenefits": [
+        "800 ft-lbs of torque breaks free the most corroded heavy-equipment bolts without an air line",
+        "Pin detent anvil ensures sockets stay securely attached during high-torque vertical applications",
+        "3-speed precision control lets you power in large structural bolts then switch to low for final tightening",
+        "Brushless motor with heavy-duty gearbox handles continuous duty cycles in mining and steel erection",
+        "Dedicated bolt removal mode automatically slows after bolt breakaway to prevent dropping fasteners"
+      ],
+      "specs": {
+        "voltage": "20V MAX",
+        "motorType": "Brushless",
+        "maxTorque": "800 ft-lbs",
+        "noLoadSpeedLow": "0-600 RPM",
+        "noLoadSpeedHigh": "0-1700 RPM",
+        "ipm": "0-2200",
+        "driveSize": "3/4\"",
+        "speedSettings": 3,
+        "modeSettings": 3,
+        "weightToolOnly": "7.8 lbs (3.5 kg)",
+        "weightWithBattery": "9.2 lbs (4.2 kg)",
+        "overallLength": "8.9 in (226 mm)",
+        "soundPower": "108 dB(A)",
+        "vibrationLevel": "12.5 m/s²",
+        "batteryPlatform": "20V MAX",
+        "ledWorkLight": true,
+        "beltHook": false,
+        "chuckType": "3/4\" pin detent anvil"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": true,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": false,
+      "isTopProduct": false,
+      "featured": false,
       "moq": "150 units",
       "leadTime": "35-50 days",
-      "inStock": true,
-      "featured": false,
-      "compliance": "CE, ROHS, GS, EEC",
       "warranty": "1 year standard, 2 year brushless motor",
-      "userBenefits": "800英尺-磅扭矩无需气管即可松开腐蚀最严重的重型设备螺栓"
+      "relatedProducts": [
+        "SY-IT-WRN-20V",
+        "SY-IT-WRN-CRD"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-IT-WRN-3/4.pdf",
+        "manual": "/downloads/manuals/SY-IT-WRN-3/4.pdf"
+      }
     },
     {
+      "name": "Corded Impact Wrench 7.5A 1/2\"",
       "sku": "SY-IT-WRN-CRD",
-      "name": "有线冲击扳手 7.5A 1/2英寸",
-      "brand": "Ningbo Siyang",
       "category": "impact-tools",
-      "categoryLabel": "冲击工具",
-      "description": "有线7.5安培冲击扳手配备1/2英寸砧座，提供330英尺-磅的最大扭矩。配备正反转控制摇杆开关，便于单手操作。适用于汽车维修、设备维护和重型螺栓紧固应用。",
-      "image": "../images/istock/10029.jpg",
+      "categoryLabel": "Impact Tools",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/10029.webp",
+      "images": [
+        "../images/products/10029.webp",
+        "../images/products/10029.webp",
+        "../images/products/10029.webp"
+      ],
+      "brand": "Ningbo Siyang",
+      "tagline": "Corded 7.5 Amp impact wrench with 1/2 inch anvil delivering 330 ft-lbs of max torque. Features forward/reverse control and a rocker switch for easy one-hand operation. Ideal for automotive repair, equipment maintenance, and heavy-duty bolting applications.",
+      "description": "Corded 7.5 Amp impact wrench with 1/2 inch anvil delivering 330 ft-lbs of max torque. Features forward/reverse control and a rocker switch for easy one-hand operation. Ideal for automotive repair, equipment maintenance, and heavy-duty bolting applications.",
+      "userBenefits": [
+        "Unlimited runtime from corded power eliminates battery swaps during all-day shop work",
+        "Forward/reverse rocker switch enables one-handed directional changes without repositioning grip",
+        "7.5 Amp motor delivers consistent torque output without the fade that batteries experience under load",
+        "Friction ring anvil allows quick socket changes while maintaining secure retention during operation",
+        "Ideal for fixed-location shop environments where portability is less critical than sustained power"
+      ],
+      "specs": {
+        "voltage": "120V AC (corded)",
+        "motorType": "7.5 Amp brushed",
+        "maxTorque": "330 ft-lbs",
+        "noLoadSpeedLow": "0-1100 RPM",
+        "noLoadSpeedHigh": "0-2100 RPM",
+        "ipm": "2700",
+        "driveSize": "1/2\"",
+        "speedSettings": 1,
+        "modeSettings": 1,
+        "weightToolOnly": "6.5 lbs (2.9 kg)",
+        "weightWithBattery": "6.5 lbs (2.9 kg)",
+        "overallLength": "9.5 in (241 mm)",
+        "soundPower": "104 dB(A)",
+        "vibrationLevel": "10.8 m/s²",
+        "batteryPlatform": "Corded",
+        "ledWorkLight": false,
+        "beltHook": false,
+        "chuckType": "1/2\" friction ring anvil"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": true,
+        "ul": true,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": false,
+      "isTopProduct": false,
+      "featured": false,
       "moq": "300 units",
       "leadTime": "30-45 days",
-      "inStock": true,
-      "featured": false,
-      "compliance": "CE, ROHS, GS, UL, EEC",
       "warranty": "1 year standard",
-      "userBenefits": "有线供电无限制运行时间，全天车间作业无需更换电池"
+      "relatedProducts": [
+        "SY-IT-WRN-20V",
+        "SY-IT-WRN-3-4"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-IT-WRN-CRD.pdf",
+        "manual": "/downloads/manuals/SY-IT-WRN-CRD.pdf"
+      }
     },
     {
+      "name": "3×21\" Belt Sander",
       "sku": "SY-SA-BLT-3X21",
-      "name": "3×21英寸带式砂光机",
-      "brand": "Ningbo Siyang Pro",
       "category": "sanders",
-      "categoryLabel": "砂光机",
-      "description": "专业3×21英寸带式砂光机配备8.0安培电机和变速控制。配备集尘袋实现更清洁的作业，可调前手柄确保舒适使用。专为木工和地板应用中大平面快速材料去除而设计。",
-      "image": "../images/istock/10020.jpg",
+      "categoryLabel": "Sanders",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/sander-01.jpg",
+      "images": [
+        "../images/products/sander-01.jpg"
+      ],
+      "brand": "Ningbo Siyang Pro",
+      "tagline": "Professional 3×21 inch belt sander with 8.0 Amp motor and variable speed control. Features a dust bag for cleaner operation and an adjustable front handle for comfortable use. Designed for rapid material removal on large flat surfaces in woodworking and flooring applications.",
+      "description": "Professional 3×21 inch belt sander with 8.0 Amp motor and variable speed control. Features a dust bag for cleaner operation and an adjustable front handle for comfortable use. Designed for rapid material removal on large flat surfaces in woodworking and flooring applications.",
+      "userBenefits": [
+        "8.0 Amp motor with variable speed (850-1,300 SFPM) delivers aggressive stock removal on hardwood and softwood",
+        "Auto-tracking belt system keeps the belt aligned without manual adjustment for consistent sanding quality",
+        "Quick-release lever allows belt changes in under 10 seconds, minimizing downtime between grit changes",
+        "3×21\" belt format is the most widely available size, ensuring easy sourcing of replacement abrasives",
+        "Adjustable front handle locks in multiple positions for comfortable sanding at any angle or height"
+      ],
+      "specs": {
+        "voltage": "120V AC, 60Hz",
+        "motorType": "8.0 Amp",
+        "padSize": "N/A",
+        "speed": "850-1,300 SFPM",
+        "orbitDiameter": "N/A",
+        "dustCollection": "Dust bag included",
+        "padType": "N/A",
+        "weightToolOnly": "7.5 lbs (3.4 kg)",
+        "overallLength": "14.5\"",
+        "soundPower": "95 dB(A)",
+        "vibrationLevel": "4.5 m/s²",
+        "cordLength": "8 ft (2.4 m)",
+        "beltSize": "3×21\"",
+        "switchType": "Trigger with lock-on",
+        "beltTracking": "Auto-tracking",
+        "beltChange": "Quick-release lever"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": false,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": false,
+      "isTopProduct": false,
+      "featured": false,
       "moq": "300 units",
       "leadTime": "30-45 days",
-      "inStock": true,
-      "featured": false,
-      "compliance": "CE, ROHS, EEC",
       "warranty": "1 year standard",
-      "userBenefits": "8.0安培电机配合变速功能（850-1,300 SFPM）实现硬木和软木的高效材料去除"
+      "relatedProducts": [
+        "SY-SA-DSK-5IN",
+        "SY-SA-ORB-6IN"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-SA-BLT-3X21.pdf",
+        "manual": "/downloads/manuals/SY-SA-BLT-3X21.pdf"
+      }
     },
     {
+      "name": "20V Cordless Random Orbital Sander",
       "sku": "SY-SA-CRD-ORB",
-      "name": "20V充电式轨道砂光机",
-      "brand": "Ningbo Siyang Pro",
       "category": "sanders",
-      "categoryLabel": "砂光机",
-      "description": "充电式20V MAX轨道砂光机配备5英寸魔术贴砂盘。提供8,000-12,000 OPM实现专业级抛光效果，无需电源线约束。适用于现场砂光、表面准备和抛光作业。",
-      "image": "../images/unsplach/drill-closeup/10079.jpeg",
+      "categoryLabel": "Sanders",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/sander-02.jpg",
+      "images": [
+        "../images/products/sander-02.jpg"
+      ],
+      "brand": "Ningbo Siyang Pro",
+      "tagline": "Cordless 20V MAX random orbital sander with 5 inch hook & loop pad. Delivers 8,000-12,000 OPM for professional finishing results without the constraint of a power cord. Ideal for on-site sanding, surface preparation, and finishing work.",
+      "description": "Cordless 20V MAX random orbital sander with 5 inch hook & loop pad. Delivers 8,000-12,000 OPM for professional finishing results without the constraint of a power cord. Ideal for on-site sanding, surface preparation, and finishing work.",
+      "userBenefits": [
+        "Brushless motor delivers up to 40% more runtime per charge and longer motor life than brushed alternatives",
+        "Cordless 20V MAX platform eliminates power cord tangles and enables sanding anywhere on the jobsite",
+        "Variable speed 8,000-12,000 OPM matches sanding aggressiveness to the task for optimal finish quality",
+        "Compatible with the full Ningbo Siyang 20V MAX battery system for cross-tool battery sharing",
+        "Lightweight 3.5 lbs design with compact 6.8\" length provides comfortable one-handed operation"
+      ],
+      "specs": {
+        "voltage": "20V MAX DC",
+        "motorType": "Brushless",
+        "padSize": "5\"",
+        "speed": "8,000-12,000 OPM",
+        "orbitDiameter": "3/32\"",
+        "dustCollection": "Dust bag included",
+        "padType": "Hook & loop",
+        "weightToolOnly": "3.5 lbs (1.6 kg)",
+        "overallLength": "6.8\"",
+        "soundPower": "80 dB(A)",
+        "vibrationLevel": "2.5 m/s²",
+        "cordLength": "N/A (cordless)",
+        "switchType": "Paddle",
+        "padBrake": "Yes",
+        "batteryPlatform": "Ningbo Siyang 20V MAX"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": false,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": true,
+      "isTopProduct": false,
+      "featured": true,
       "moq": "400 units",
       "leadTime": "30-45 days",
-      "inStock": true,
-      "featured": true,
-      "compliance": "CE, ROHS, EEC",
       "warranty": "1 year standard, 2 year brushless motor",
-      "userBenefits": "无刷电机每次充电运行时间比有刷替代方案延长高达40%，电机寿命更久"
+      "relatedProducts": [
+        "SY-SA-ORB-5IN",
+        "SY-GR-CRD-ANG"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-SA-CRD-ORB.pdf",
+        "manual": "/downloads/manuals/SY-SA-CRD-ORB.pdf"
+      }
     },
     {
+      "name": "Disc/Belt Sander Combo 4.3A",
       "sku": "SY-SA-DSK-5IN",
-      "name": "盘/带式砂光机组合 4.3A",
-      "brand": "Ningbo Siyang",
       "category": "sanders",
-      "categoryLabel": "砂光机",
-      "description": "多功能盘式和带式砂光机组合配备4.3安培电机。配备5英寸砂盘和4×24英寸砂带，搭配铸铁工作台实现稳定精密的砂光作业。适用于需要同时具备带式和盘式砂光功能的车间应用。",
-      "image": "../images/unsplach/drill-home/10056.jpg",
+      "categoryLabel": "Sanders",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/sander-03.jpg",
+      "images": [
+        "../images/products/sander-03.jpg"
+      ],
+      "brand": "Ningbo Siyang",
+      "tagline": "Versatile disc and belt sander combo with 4.3 Amp motor. Features a 5 inch disc and 4×24 inch belt with cast iron table for stable, precise sanding. Ideal for workshop applications requiring both belt and disc sanding capabilities.",
+      "description": "Versatile disc and belt sander combo with 4.3 Amp motor. Features a 5 inch disc and 4×24 inch belt with cast iron table for stable, precise sanding. Ideal for workshop applications requiring both belt and disc sanding capabilities.",
+      "userBenefits": [
+        "Dual belt and disc stations in one benchtop unit save workshop space and budget versus two separate machines",
+        "Cast iron table tilts 0-45° for bevel sanding and precise angle work on both belt and disc",
+        "4×24\" belt provides generous sanding surface for larger workpieces and longer belt life between changes",
+        "5\" disc with adjustable miter gauge enables accurate edge sanding and contour shaping",
+        "Dust port connects to standard shop vacuums for cleaner air and better visibility while sanding"
+      ],
+      "specs": {
+        "voltage": "120V AC, 60Hz",
+        "motorType": "4.3 Amp",
+        "padSize": "5\" disc",
+        "speed": "3,400 RPM (disc) / 1,250 SFPM (belt)",
+        "orbitDiameter": "N/A",
+        "dustCollection": "Dust port",
+        "padType": "N/A",
+        "weightToolOnly": "35.0 lbs (15.9 kg)",
+        "overallLength": "18.0\"",
+        "soundPower": "88 dB(A)",
+        "vibrationLevel": "2.0 m/s²",
+        "cordLength": "6 ft (1.8 m)",
+        "beltSize": "4×24\"",
+        "switchType": "Toggle",
+        "tableTilt": "0-45°",
+        "miterGauge": "Included"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": true,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": false,
+      "isTopProduct": false,
+      "featured": false,
       "moq": "200 units",
       "leadTime": "35-50 days",
-      "inStock": true,
-      "featured": false,
-      "compliance": "CE, ROHS, GS, EEC",
       "warranty": "1 year standard",
-      "userBenefits": "一台台式设备集成带式和盘式双工位，相比两台独立机器节省车间空间和预算"
+      "relatedProducts": [
+        "SY-SA-BLT-3X21",
+        "SY-GR-BCH-6IN"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-SA-DSK-5IN.pdf",
+        "manual": "/downloads/manuals/SY-SA-DSK-5IN.pdf"
+      }
     },
     {
+      "name": "Detail/Trim Sander 2.4A",
       "sku": "SY-SA-DTL-2.4",
-      "name": "细节砂光机 2.4A",
-      "brand": "Ningbo Siyang",
       "category": "sanders",
-      "categoryLabel": "砂光机",
-      "description": "紧凑型细节砂光机配备2.4安培电机和快换垫系统。配备3种砂光底座，适用于角落、边缘和狭小空间的多种应用。适用于家具翻新、装饰线条作业和细节砂光项目。",
-      "image": "../images/istock/10021.jpg",
+      "categoryLabel": "Sanders",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/sander-04.jpg",
+      "images": [
+        "../images/products/sander-04.jpg"
+      ],
+      "brand": "Ningbo Siyang",
+      "tagline": "Compact detail and trim sander with 2.4 Amp motor and quick-change pad system. Includes 3 sanding bases for versatile application in corners, edges, and tight spaces. Ideal for furniture refinishing, trim work, and detail sanding projects.",
+      "description": "Compact detail and trim sander with 2.4 Amp motor and quick-change pad system. Includes 3 sanding bases for versatile application in corners, edges, and tight spaces. Ideal for furniture refinishing, trim work, and detail sanding projects.",
+      "userBenefits": [
+        "3 interchangeable sanding bases (finger, detail, triangular) tackle corners, edges, and contours in one tool",
+        "Quick-change hook & loop system swaps pads in seconds without tools for uninterrupted workflow",
+        "Ultra-lightweight 2.3 lbs design enables precise one-handed control for delicate trim and detail work",
+        "14,000 OPM high-speed orbit delivers smooth, consistent finishes on furniture and millwork",
+        "Compact 9.8\" length reaches into tight spaces between balusters, window sashes, and cabinet interiors"
+      ],
+      "specs": {
+        "voltage": "120V AC, 60Hz",
+        "motorType": "2.4 Amp",
+        "padSize": "Interchangeable (3 bases)",
+        "speed": "14,000 OPM",
+        "orbitDiameter": "1/32\"",
+        "dustCollection": "Built-in dust port",
+        "padType": "Quick-change hook & loop",
+        "weightToolOnly": "2.3 lbs (1.0 kg)",
+        "overallLength": "9.8\"",
+        "soundPower": "78 dB(A)",
+        "vibrationLevel": "2.2 m/s²",
+        "cordLength": "6 ft (1.8 m)",
+        "switchType": "Slide",
+        "basesIncluded": "3 (finger, detail, triangular)",
+        "bearingType": "Sealed ball bearing"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": false,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": false,
+      "isTopProduct": false,
+      "featured": false,
       "moq": "500 units",
       "leadTime": "30-45 days",
-      "inStock": true,
-      "featured": false,
-      "compliance": "CE, ROHS, EEC",
       "warranty": "1 year standard",
-      "userBenefits": "3种可互换砂光底座（指形、细节、三角形）让一款工具即可应对角落、边缘和轮廓面"
+      "relatedProducts": [
+        "SY-SA-ORB-5IN",
+        "SY-SA-SHT-1-4"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-SA-DTL-2.4.pdf",
+        "manual": "/downloads/manuals/SY-SA-DTL-2.4.pdf"
+      }
     },
     {
+      "name": "5\" Random Orbital Sander 3A",
       "sku": "SY-SA-ORB-5IN",
-      "name": "5英寸轨道砂光机 3A",
-      "brand": "Ningbo Siyang",
       "category": "sanders",
-      "categoryLabel": "砂光机",
-      "description": "5英寸轨道砂光机配备3.0安培电机和变速控制。采用防尘密封开关延长工具寿命，配备集尘袋实现更清洁的作业。适用于木材、金属和塑料表面的精细打磨、砂光和抛光作业。",
-      "image": "../images/istock/10019.jpg",
+      "categoryLabel": "Sanders",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/sander-05.jpg",
+      "images": [
+        "../images/products/sander-05.jpg"
+      ],
+      "brand": "Ningbo Siyang",
+      "tagline": "5 inch random orbital sander with 3.0 Amp motor and variable speed control. Features a dust-sealed switch for extended tool life and a dust collection bag for cleaner operation. Ideal for fine finishing, sanding, and polishing on wood, metal, and plastic surfaces.",
+      "description": "5 inch random orbital sander with 3.0 Amp motor and variable speed control. Features a dust-sealed switch for extended tool life and a dust collection bag for cleaner operation. Ideal for fine finishing, sanding, and polishing on wood, metal, and plastic surfaces.",
+      "userBenefits": [
+        "Variable speed 7,000-12,000 OPM lets you dial down for fine finishing or ramp up for rapid stock removal",
+        "Random orbital action eliminates swirl marks for a flawless finish on wood, metal, and painted surfaces",
+        "Dust-sealed switch extends tool life by preventing fine particles from entering the electrical components",
+        "Hook & loop pad system enables fast, tool-free abrasive changes to keep your workflow uninterrupted",
+        "Lightweight 3.2 lbs design with textured grip reduces hand fatigue during extended sanding sessions"
+      ],
+      "specs": {
+        "voltage": "120V AC, 60Hz",
+        "motorType": "3.0 Amp",
+        "padSize": "5\"",
+        "speed": "7,000-12,000 OPM",
+        "orbitDiameter": "3/32\"",
+        "dustCollection": "Dust bag included",
+        "padType": "Hook & loop",
+        "weightToolOnly": "3.2 lbs (1.5 kg)",
+        "overallLength": "6.5\"",
+        "soundPower": "82 dB(A)",
+        "vibrationLevel": "2.8 m/s²",
+        "cordLength": "6 ft (1.8 m)",
+        "switchType": "Dust-sealed paddle",
+        "padBrake": "Yes",
+        "bearingType": "Sealed ball bearing"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": false,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": true,
+      "isTopProduct": false,
+      "featured": true,
       "moq": "500 units",
       "leadTime": "30-45 days",
-      "inStock": true,
-      "featured": true,
-      "compliance": "CE, ROHS, EEC",
       "warranty": "1 year standard",
-      "userBenefits": "7,000-12,000 OPM变速可精细调低用于精修，或调高用于快速材料去除"
+      "relatedProducts": [
+        "SY-SA-ORB-6IN",
+        "SY-SA-CRD-ORB"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-SA-ORB-5IN.pdf",
+        "manual": "/downloads/manuals/SY-SA-ORB-5IN.pdf"
+      }
     },
     {
+      "name": "6\" Random Orbital Sander 5A",
       "sku": "SY-SA-ORB-6IN",
-      "name": "6英寸轨道砂光机 5A",
-      "brand": "Ningbo Siyang Pro",
       "category": "sanders",
-      "categoryLabel": "砂光机",
-      "description": "专业6英寸轨道砂光机配备5安培电机、双动作和变速控制。21毫米偏心距实现激进的材料去除，舒适的人体工程学设计。适用于汽车车身作业、木工和工业表面抛光。",
-      "image": "../images/istock/10024.jpg",
-      "moq": "300 units",
-      "leadTime": "30-45 days",
+      "categoryLabel": "Sanders",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/sander-06.jpg",
+      "images": [
+        "../images/products/sander-06.jpg"
+      ],
+      "brand": "Ningbo Siyang Pro",
+      "tagline": "Professional 6 inch random orbital sander with 5 Amp motor, dual action, and variable speed control. Features 21mm throw for aggressive material removal and a comfortable ergonomic design. Ideal for automotive body work, woodworking, and industrial surface finishing.",
+      "description": "Professional 6 inch random orbital sander with 5 Amp motor, dual action, and variable speed control. Features 21mm throw for aggressive material removal and a comfortable ergonomic design. Ideal for automotive body work, woodworking, and industrial surface finishing.",
+      "userBenefits": [
+        "21mm (3/4\") long-throw orbit covers more surface area per pass, cutting sanding time significantly",
+        "5 Amp motor with variable speed maintains consistent OPM under load for uniform finish quality",
+        "Vacuum port adapter connects directly to shop dust extraction systems for a cleaner, healthier workspace",
+        "6-inch pad covers 44% more area than 5-inch sanders, reducing the number of passes required",
+        "Dual-action random orbital motion prevents holograms and swirl marks on clear coat finishes"
+      ],
+      "specs": {
+        "voltage": "120V AC, 60Hz",
+        "motorType": "5 Amp",
+        "padSize": "6\"",
+        "speed": "4,000-10,000 OPM",
+        "orbitDiameter": "3/4\" (21mm)",
+        "dustCollection": "Vacuum port adapter",
+        "padType": "Hook & loop",
+        "weightToolOnly": "4.8 lbs (2.2 kg)",
+        "overallLength": "8.2\"",
+        "soundPower": "86 dB(A)",
+        "vibrationLevel": "3.5 m/s²",
+        "cordLength": "8 ft (2.4 m)",
+        "switchType": "Variable speed dial",
+        "padBrake": "Yes",
+        "bearingType": "Sealed ball bearing"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": false,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
       "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": true,
+      "isTopProduct": false,
       "featured": true,
-      "compliance": "CE, ROHS, EEC",
-      "warranty": "1 year standard",
-      "userBenefits": "21毫米（3/4英寸）长偏心轨道每道次覆盖更大面积，大幅缩短砂光时间"
-    },
-    {
-      "sku": "SY-SA-PLN-3.25",
-      "name": "电刨 3-1/4英寸",
-      "brand": "Ningbo Siyang Pro",
-      "category": "sanders",
-      "categoryLabel": "砂光机",
-      "description": "专业3-1/4英寸电刨配备6.0安培电机，提供34,000 RPM实现快速平滑的刨削。配备平行靠山确保一致效果，以及深度调节旋钮实现精准控制。适用于门框修整、梁材刨削和表面找平。",
-      "image": "../images/istock/10023.jpg",
       "moq": "300 units",
       "leadTime": "30-45 days",
-      "inStock": true,
-      "featured": false,
-      "compliance": "CE, ROHS, EEC",
       "warranty": "1 year standard",
-      "userBenefits": "6.0安培电机34,000 RPM转速即使在硬木中也能提供平滑无毛刺的刨切"
+      "relatedProducts": [
+        "SY-SA-ORB-5IN",
+        "SY-GR-POL-6IN"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-SA-ORB-6IN.pdf",
+        "manual": "/downloads/manuals/SY-SA-ORB-6IN.pdf"
+      }
     },
     {
-      "sku": "SY-SA-SHT-1/4",
-      "name": "1/4张平板砂光机 2A",
-      "brand": "Ningbo Siyang",
+      "name": "Electric Hand Planer 3-1/4\"",
+      "sku": "SY-SA-PLN-3.25",
       "category": "sanders",
-      "categoryLabel": "砂光机",
-      "description": "1/4张平板砂光机配备2.0安培电机，提供14,000 OPM实现平滑的打磨效果。采用防尘密封开关和舒适的橡胶包覆握把。适用于木材、金属和喷漆表面的精细砂光和抛光。",
-      "image": "../images/istock/10022.jpg",
+      "categoryLabel": "Sanders",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/sander-07.jpg",
+      "images": [
+        "../images/products/sander-07.jpg"
+      ],
+      "brand": "Ningbo Siyang Pro",
+      "tagline": "Professional 3-1/4 inch electric hand planer with 6.0 Amp motor delivering 34,000 RPM for fast, smooth planing. Includes a parallel fence for consistent results and a depth adjustment knob for precise control. Ideal for door fitting, joist planing, and surface leveling.",
+      "description": "Professional 3-1/4 inch electric hand planer with 6.0 Amp motor delivering 34,000 RPM for fast, smooth planing. Includes a parallel fence for consistent results and a depth adjustment knob for precise control. Ideal for door fitting, joist planing, and surface leveling.",
+      "userBenefits": [
+        "6.0 Amp motor at 34,000 RPM delivers smooth, splinter-free cuts even in dense hardwoods",
+        "16-position depth adjustment knob allows precise cuts from 0 to 1/8\" for fine-tuned material removal",
+        "Parallel fence ensures consistent, straight planing along edges for door fitting and board jointing",
+        "Dual-side chip ejection lets you direct shavings left or right to keep your work area clear",
+        "Reversible carbide blades double cutting life by flipping to the unused edge when one side dulls"
+      ],
+      "specs": {
+        "voltage": "120V AC, 60Hz",
+        "motorType": "6.0 Amp",
+        "padSize": "3-1/4\" blade",
+        "speed": "34,000 RPM",
+        "orbitDiameter": "N/A",
+        "dustCollection": "Dual-side chip ejection",
+        "padType": "N/A",
+        "weightToolOnly": "6.0 lbs (2.7 kg)",
+        "overallLength": "11.8\"",
+        "soundPower": "92 dB(A)",
+        "vibrationLevel": "3.8 m/s²",
+        "cordLength": "6 ft (1.8 m)",
+        "cuttingDepth": "1/8\" (3.2mm)",
+        "switchType": "Trigger with lock-on",
+        "bladeType": "Reversible carbide",
+        "depthStops": "16 positions",
+        "fenceIncluded": "Parallel fence"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": false,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": false,
+      "isTopProduct": false,
+      "featured": false,
+      "moq": "300 units",
+      "leadTime": "30-45 days",
+      "warranty": "1 year standard",
+      "relatedProducts": [
+        "SY-SA-BLT-3X21",
+        "SY-SA-DSK-5IN"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-SA-PLN-3.25.pdf",
+        "manual": "/downloads/manuals/SY-SA-PLN-3.25.pdf"
+      }
+    },
+    {
+      "name": "1/4-Sheet Finishing Sander 2A",
+      "sku": "SY-SA-SHT-1/4",
+      "category": "sanders",
+      "categoryLabel": "Sanders",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/sander-01.jpg",
+      "images": [
+        "../images/products/sander-01.jpg"
+      ],
+      "brand": "Ningbo Siyang",
+      "tagline": "1/4-sheet finishing sander with 2.0 Amp motor delivering 14,000 OPM for smooth finishing results. Features a dust-sealed switch and comfortable rubber overmold grip. Ideal for fine sanding and finishing on wood, metal, and painted surfaces.",
+      "description": "1/4-sheet finishing sander with 2.0 Amp motor delivering 14,000 OPM for smooth finishing results. Features a dust-sealed switch and comfortable rubber overmold grip. Ideal for fine sanding and finishing on wood, metal, and painted surfaces.",
+      "userBenefits": [
+        "1/4-sheet standard abrasive format is the most economical and widely available sandpaper size on the market",
+        "Fine 1/64\" orbit diameter produces ultra-smooth finishes ideal for final prep before painting or staining",
+        "Clamp-on pad system holds standard quarter-sheet sandpaper securely without expensive proprietary pads",
+        "Rubber overmold grip absorbs vibration and provides a secure, comfortable hold during extended use",
+        "Dust-sealed switch prevents premature failure from fine sanding dust ingress, extending tool life"
+      ],
+      "specs": {
+        "voltage": "120V AC, 60Hz",
+        "motorType": "2.0 Amp",
+        "padSize": "1/4-sheet",
+        "speed": "14,000 OPM",
+        "orbitDiameter": "1/64\"",
+        "dustCollection": "Built-in dust port",
+        "padType": "Clamp-on",
+        "weightToolOnly": "2.8 lbs (1.3 kg)",
+        "overallLength": "7.2\"",
+        "soundPower": "80 dB(A)",
+        "vibrationLevel": "2.5 m/s²",
+        "cordLength": "6 ft (1.8 m)",
+        "switchType": "Dust-sealed slide",
+        "abrasiveSize": "1/4-sheet standard",
+        "gripType": "Rubber overmold"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": false,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": false,
+      "isTopProduct": false,
+      "featured": false,
       "moq": "500 units",
       "leadTime": "30-45 days",
-      "inStock": true,
-      "featured": false,
-      "compliance": "CE, ROHS, EEC",
       "warranty": "1 year standard",
-      "userBenefits": "1/4张标准磨料规格是市场上最经济、最广泛供应的砂纸尺寸"
+      "relatedProducts": [
+        "SY-SA-ORB-5IN",
+        "SY-SA-DTL-2.4"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-SA-SHT-1/4.pdf",
+        "manual": "/downloads/manuals/SY-SA-SHT-1/4.pdf"
+      }
     },
     {
+      "name": "9\" Band Saw 2.5A",
       "sku": "SY-SW-BAND-9IN",
-      "name": "9英寸带锯 2.5A",
-      "brand": "Ningbo Siyang",
       "category": "saws",
-      "categoryLabel": "锯类工具",
-      "description": "紧凑型9英寸带锯配备2.5安培电机和变速控制。配备可倾斜调节的铸铝工作台，用于角度切割。适用于车间或工地上的曲线切割、纵向锯切和精细木工作业。",
-      "image": "../images/istock/10012.jpg",
+      "categoryLabel": "Saws",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/saw-01.jpg",
+      "images": [
+        "../images/products/saw-01.jpg"
+      ],
+      "brand": "Ningbo Siyang",
+      "tagline": "Compact 9 inch band saw with 2.5 Amp motor and variable speed control. Features a cast aluminum table with tilt adjustment for angled cuts. Ideal for curve cutting, resawing, and detailed woodworking in the workshop or jobsite.",
+      "description": "Compact 9 inch band saw with 2.5 Amp motor and variable speed control. Features a cast aluminum table with tilt adjustment for angled cuts. Ideal for curve cutting, resawing, and detailed woodworking in the workshop or jobsite.",
+      "userBenefits": [
+        "9\" throat capacity handles larger workpieces than benchtop models, expanding your project range",
+        "Variable speed control adjusts blade speed for cutting wood, metal, and plastic on one machine",
+        "Cast aluminum table tilts 0-45° for precise angled cuts and beveled resawing",
+        "3-5/8\" cutting height resaws thick hardwood boards for bookmatching and veneer work",
+        "Compact benchtop design fits in small workshops while delivering stationary saw performance"
+      ],
+      "specs": {
+        "voltage": "Corded",
+        "motorType": "2.5 Amp",
+        "noLoadSpeed": "2,400-3,600 SFPM",
+        "bladeDiameter": "N/A (9\" throat capacity)",
+        "arborSize": "N/A",
+        "maxCuttingDepth90": "3-5/8\" (92mm)",
+        "maxCuttingDepth45": "2-1/2\" (64mm)",
+        "bevelCapacity": "0-45° table tilt",
+        "weightToolOnly": "45.0 lbs (20.4 kg)",
+        "overallLength": "20-1/2\" (521mm)",
+        "soundPower": "92 dB(A)",
+        "vibrationLevel": "1.2 m/s²",
+        "cordLength": "6.5 ft (2m)",
+        "bladeIncluded": "Yes, 1/4\" 6TPI blade",
+        "shoeMaterial": "Cast aluminum table",
+        "laserGuide": "No",
+        "throatCapacity": "9\" (229mm)",
+        "bladeLength": "62\" (1575mm)"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": false,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": false,
+      "isTopProduct": false,
+      "featured": false,
       "moq": "200 units",
       "leadTime": "30-45 days",
-      "inStock": true,
-      "featured": false,
-      "compliance": "CE, ROHS, EEC",
       "warranty": "1 year standard",
-      "userBenefits": "9英寸喉深容量可加工比台式型号更大的工件，扩展项目范围"
+      "relatedProducts": [
+        "SY-SW-TAB-10IN",
+        "SY-SW-JIG-VAR"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-SW-BAND-9IN.pdf",
+        "manual": "/downloads/manuals/SY-SW-BAND-9IN.pdf"
+      }
     },
     {
+      "name": "6-1/2\" Circular Saw 20V MAX",
       "sku": "SY-SW-CIR-6.5",
-      "name": "6-1/2英寸圆锯 20V MAX",
-      "brand": "Ningbo Siyang",
       "category": "saws",
-      "categoryLabel": "锯类工具",
-      "description": "充电式6-1/2英寸圆锯由20V MAX电池系统供电。提供4750 RPM实现快速切割木材和板材。轻量化便携设计，适用于框架搭建和翻新工程，在需要充电式便捷性的场合发挥优势。",
-      "image": "../images/unsplach/drill-home/10053.jpeg",
-      "moq": "400 units",
-      "leadTime": "30-45 days",
+      "categoryLabel": "Saws",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/saw-02.jpg",
+      "images": [
+        "../images/products/saw-02.jpg"
+      ],
+      "brand": "Ningbo Siyang",
+      "tagline": "Cordless 6-1/2 inch circular saw powered by 20V MAX battery system. Delivers 4750 RPM for fast cutting through lumber and sheet goods. Lightweight and portable design ideal for framing and remodeling applications where cordless convenience is essential.",
+      "description": "Cordless 6-1/2 inch circular saw powered by 20V MAX battery system. Delivers 4750 RPM for fast cutting through lumber and sheet goods. Lightweight and portable design ideal for framing and remodeling applications where cordless convenience is essential.",
+      "userBenefits": [
+        "Cordless 20V MAX platform provides freedom to cut anywhere on the jobsite without extension cords",
+        "Brushless motor delivers up to 330 crosscuts in 2x4 pine per charge for all-day productivity",
+        "6-1/2\" blade cuts 2x material at 90° in a single pass, matching corded saw performance",
+        "Lightweight 6.8 lbs design reduces arm fatigue during overhead and repetitive cutting tasks",
+        "Shares batteries with the Siyang 20V MAX drill and impact driver for a complete cordless system"
+      ],
+      "specs": {
+        "voltage": "20V MAX",
+        "motorType": "Brushless",
+        "noLoadSpeed": "4750 RPM",
+        "bladeDiameter": "6-1/2\" (165mm)",
+        "arborSize": "5/8\" (16mm)",
+        "maxCuttingDepth90": "2-1/8\" (54mm)",
+        "maxCuttingDepth45": "1-5/8\" (41mm)",
+        "bevelCapacity": "0-50°",
+        "weightToolOnly": "6.8 lbs (3.1 kg)",
+        "weightWithBattery": "8.2 lbs (3.7 kg)",
+        "overallLength": "13-3/4\" (349mm)",
+        "soundPower": "98 dB(A)",
+        "vibrationLevel": "2.2 m/s²",
+        "batteryPlatform": "Siyang 20V MAX",
+        "bladeIncluded": "Yes, 18T carbide-tipped",
+        "shoeMaterial": "Aluminum",
+        "laserGuide": "No"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": false,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
       "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": false,
+      "isTopProduct": false,
       "featured": false,
-      "compliance": "CE, ROHS, EEC",
-      "warranty": "1 year standard, 2 year brushless motor",
-      "userBenefits": "20V MAX充电式平台可在工地上任何位置切割，无需延长线"
-    },
-    {
-      "sku": "SY-SW-CIR-714",
-      "name": "7-1/4英寸圆锯 带激光导向",
-      "brand": "Ningbo Siyang Pro",
-      "category": "saws",
-      "categoryLabel": "锯类工具",
-      "description": "专业7-1/4英寸圆锯配备15安培电机和集成激光导向，实现精准切割。具备0-56度斜切能力，采用轻量化镁合金底板，实现精确切割并减轻用户疲劳。适用于框架搭建、屋顶施工和一般建筑应用。",
-      "image": "../images/istock/10007.jpg",
       "moq": "400 units",
       "leadTime": "30-45 days",
-      "inStock": true,
-      "featured": true,
-      "compliance": "CE, ROHS, GS, EEC",
-      "warranty": "1 year standard",
-      "userBenefits": "15安培电机5800 RPM转速实现结构材和板材的快速整齐切割"
+      "warranty": "1 year standard, 2 year brushless motor",
+      "relatedProducts": [
+        "SY-SW-CIR-714",
+        "SY-DD-20V-BL"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-SW-CIR-6.5.pdf",
+        "manual": "/downloads/manuals/SY-SW-CIR-6.5.pdf"
+      }
     },
     {
-      "sku": "SY-SW-JIG-VAR",
-      "name": "变速曲线锯 7A",
-      "brand": "Ningbo Siyang",
+      "name": "7-1/4\" Circular Saw with Laser Guide",
+      "sku": "SY-SW-CIR-714",
       "category": "saws",
-      "categoryLabel": "锯类工具",
-      "description": "多功能变速曲线锯配备7安培电机、轨道运动和免工具刀片更换功能。配备集成LED灯改善可视性，以及吹尘器保持切割线清晰。适用于木材、金属和塑料中的曲线和直线切割。",
-      "image": "../images/istock/10008.jpg",
+      "categoryLabel": "Saws",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/saw-03.jpg",
+      "images": [
+        "../images/products/saw-03.jpg"
+      ],
+      "brand": "Ningbo Siyang Pro",
+      "tagline": "Professional 7-1/4 inch circular saw with 15 Amp motor and integrated laser guide for precise cutting. Features 0-56° bevel capacity and a lightweight magnesium shoe for accurate cuts and reduced user fatigue. Ideal for framing, roofing, and general construction applications.",
+      "description": "Professional 7-1/4 inch circular saw with 15 Amp motor and integrated laser guide for precise cutting. Features 0-56° bevel capacity and a lightweight magnesium shoe for accurate cuts and reduced user fatigue. Ideal for framing, roofing, and general construction applications.",
+      "userBenefits": [
+        "15 Amp motor with 5800 RPM delivers fast, clean cuts through dimensional lumber and sheet goods",
+        "Integrated laser guide ensures straight cuts every time, reducing material waste on the jobsite",
+        "Magnesium shoe is 40% lighter than steel bases while providing superior flatness and durability",
+        "0-56° bevel capacity covers the full range of framing and roofing bevel cuts",
+        "2-7/16\" depth of cut at 90° handles 2x dimensional lumber in a single pass"
+      ],
+      "specs": {
+        "voltage": "Corded",
+        "motorType": "15 Amp",
+        "noLoadSpeed": "5800 RPM",
+        "bladeDiameter": "7-1/4\" (184mm)",
+        "arborSize": "5/8\" (16mm)",
+        "maxCuttingDepth90": "2-7/16\" (62mm)",
+        "maxCuttingDepth45": "1-7/8\" (48mm)",
+        "bevelCapacity": "0-56°",
+        "weightToolOnly": "9.0 lbs (4.1 kg)",
+        "overallLength": "14-1/2\" (368mm)",
+        "soundPower": "104 dB(A)",
+        "vibrationLevel": "2.8 m/s²",
+        "cordLength": "6.5 ft (2m)",
+        "bladeIncluded": "Yes, 24T carbide-tipped",
+        "shoeMaterial": "Magnesium",
+        "laserGuide": "Yes, integrated"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": true,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": true,
+      "isTopProduct": false,
+      "featured": true,
+      "moq": "400 units",
+      "leadTime": "30-45 days",
+      "warranty": "1 year standard",
+      "relatedProducts": [
+        "SY-SW-CIR-6.5",
+        "SY-SW-MIT-10IN"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-SW-CIR-714.pdf",
+        "manual": "/downloads/manuals/SY-SW-CIR-714.pdf"
+      }
+    },
+    {
+      "name": "Variable Speed Jigsaw 7A",
+      "sku": "SY-SW-JIG-VAR",
+      "category": "saws",
+      "categoryLabel": "Saws",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/saw-04.jpg",
+      "images": [
+        "../images/products/saw-04.jpg"
+      ],
+      "brand": "Ningbo Siyang",
+      "tagline": "Versatile variable speed jigsaw with 7 Amp motor, orbital action, and tool-free blade change. Features an integrated LED light for improved visibility and a dust blower to keep the cut line clear. Suitable for curved and straight cuts in wood, metal, and plastic.",
+      "description": "Versatile variable speed jigsaw with 7 Amp motor, orbital action, and tool-free blade change. Features an integrated LED light for improved visibility and a dust blower to keep the cut line clear. Suitable for curved and straight cuts in wood, metal, and plastic.",
+      "userBenefits": [
+        "4-position orbital action adjusts cut aggressiveness from smooth curves to fast straight cuts",
+        "Tool-free blade change system swaps blades in seconds without touching hot blades",
+        "Variable speed trigger with dial provides precise control for cutting different materials",
+        "Dust blower keeps the cut line visible for accurate tracking on every stroke",
+        "5-1/2\" wood cutting capacity handles thick stock and countertop cutouts with ease"
+      ],
+      "specs": {
+        "voltage": "Corded",
+        "motorType": "7 Amp",
+        "noLoadSpeed": "0-3200 SPM",
+        "strokeLength": "1\" (25.4mm)",
+        "maxCuttingDepth90": "5-1/2\" (140mm) wood",
+        "maxCuttingDepth45": "4\" (102mm) wood",
+        "bevelCapacity": "0-45°",
+        "weightToolOnly": "5.4 lbs (2.5 kg)",
+        "overallLength": "11-3/4\" (298mm)",
+        "soundPower": "96 dB(A)",
+        "vibrationLevel": "3.5 m/s²",
+        "cordLength": "6.5 ft (2m)",
+        "bladeIncluded": "Yes, 2 blades (wood and metal)",
+        "shoeMaterial": "Aluminum, with steel insert",
+        "laserGuide": "No",
+        "orbitalAction": "4-position",
+        "bladeChange": "Tool-free"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": false,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": false,
+      "isTopProduct": false,
+      "featured": false,
       "moq": "500 units",
       "leadTime": "30-45 days",
-      "inStock": true,
-      "featured": false,
-      "compliance": "CE, ROHS, EEC",
       "warranty": "1 year standard",
-      "userBenefits": "4档轨道运动可调节切割 aggressiveness，从平滑曲线到快速直线切割一机搞定"
+      "relatedProducts": [
+        "SY-SW-REC-12A",
+        "SY-SW-OSC-MUL"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-SW-JIG-VAR.pdf",
+        "manual": "/downloads/manuals/SY-SW-JIG-VAR.pdf"
+      }
     },
     {
+      "name": "10\" Sliding Compound Miter Saw",
       "sku": "SY-SW-MIT-10IN",
-      "name": "10英寸滑动复合斜切锯",
-      "brand": "Ningbo Siyang Pro",
       "category": "saws",
-      "categoryLabel": "锯类工具",
-      "description": "专业10英寸滑动复合斜切锯配备15安培电机和双斜切功能。采用滑动导轨扩展横切能力，支持精密斜切和斜角调节。适用于皇冠装饰线条、框架搭建和精密木工应用。",
-      "image": "../images/istock/10010.jpg",
+      "categoryLabel": "Saws",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/saw-05.jpg",
+      "images": [
+        "../images/products/saw-05.jpg"
+      ],
+      "brand": "Ningbo Siyang Pro",
+      "tagline": "Professional 10 inch sliding compound miter saw with 15 Amp motor and dual bevel capability. Features sliding rails for extended crosscut capacity and precise miter and bevel adjustments. Ideal for crown molding, framing, and precision woodworking applications.",
+      "description": "Professional 10 inch sliding compound miter saw with 15 Amp motor and dual bevel capability. Features sliding rails for extended crosscut capacity and precise miter and bevel adjustments. Ideal for crown molding, framing, and precision woodworking applications.",
+      "userBenefits": [
+        "Sliding rails extend crosscut capacity to 12\" at 90° for cutting wider boards in a single pass",
+        "Dual bevel capability tilts both left and right, eliminating the need to flip workpieces for compound cuts",
+        "15 positive miter stops at common angles speed up setup for repetitive crown molding and trim cuts",
+        "10\" 40T carbide blade delivers smooth, splinter-free cuts in hardwoods and moldings",
+        "LED cut line indicator provides precise blade alignment for accurate cuts every time"
+      ],
+      "specs": {
+        "voltage": "Corded",
+        "motorType": "15 Amp",
+        "noLoadSpeed": "5000 RPM",
+        "bladeDiameter": "10\" (254mm)",
+        "arborSize": "5/8\" (16mm)",
+        "maxCuttingDepth90": "3-1/2\" (89mm)",
+        "maxCuttingDepth45": "2-1/2\" (64mm)",
+        "bevelCapacity": "0-48° dual bevel",
+        "miterRangeLeft": "0-52°",
+        "miterRangeRight": "0-60°",
+        "weightToolOnly": "52.0 lbs (23.6 kg)",
+        "overallLength": "28-1/2\" (724mm)",
+        "soundPower": "103 dB(A)",
+        "vibrationLevel": "1.5 m/s²",
+        "cordLength": "6.5 ft (2m)",
+        "bladeIncluded": "Yes, 40T carbide-tipped",
+        "shoeMaterial": "Cast aluminum base",
+        "laserGuide": "Yes, LED cut line indicator"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": true,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": true,
+      "isTopProduct": false,
+      "featured": true,
       "moq": "200 units",
       "leadTime": "35-50 days",
-      "inStock": true,
-      "featured": true,
-      "compliance": "CE, ROHS, GS, EEC",
       "warranty": "1 year standard",
-      "userBenefits": "滑动导轨将90度横切容量扩展至12英寸，单次切割更宽板材"
+      "relatedProducts": [
+        "SY-SW-CIR-714",
+        "SY-SW-TAB-10IN"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-SW-MIT-10IN.pdf",
+        "manual": "/downloads/manuals/SY-SW-MIT-10IN.pdf"
+      }
     },
     {
+      "name": "Multi-Tool Oscillating Saw Kit",
       "sku": "SY-SW-OSC-MUL",
-      "name": "多功能振荡工具套件",
-      "brand": "Ningbo Siyang",
       "category": "saws",
-      "categoryLabel": "锯类工具",
-      "description": "多功能振荡工具配备3.0安培电机和28件附件套件。采用免工具附件更换系统，实现快速刀片和配件更换。适用于狭小空间和精细作业中的切割、砂光、刮削和研磨作业。",
-      "image": "../images/unsplach/drill-home/10054.jpeg",
+      "categoryLabel": "Saws",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/saw-06.jpg",
+      "images": [
+        "../images/products/saw-06.jpg"
+      ],
+      "brand": "Ningbo Siyang",
+      "tagline": "Versatile oscillating multi-tool with 3.0 Amp motor and 28-piece accessory kit. Features tool-free accessory change system for quick blade and attachment swaps. Ideal for cutting, sanding, scraping, and grinding in tight spaces and detail work.",
+      "description": "Versatile oscillating multi-tool with 3.0 Amp motor and 28-piece accessory kit. Features tool-free accessory change system for quick blade and attachment swaps. Ideal for cutting, sanding, scraping, and grinding in tight spaces and detail work.",
+      "userBenefits": [
+        "28-piece accessory kit covers cutting, sanding, scraping, and grinding out of the box with no extra purchases",
+        "Tool-free accessory change system swaps blades and pads in 3 seconds without wrenches",
+        "3.2° oscillation angle provides precise, controlled cuts in tight spaces where other saws cannot reach",
+        "Variable speed dial matches oscillation rate to material for clean cuts in wood, drywall, and metal",
+        "Compact 3.2 lbs design allows one-handed operation for overhead and detail work"
+      ],
+      "specs": {
+        "voltage": "Corded",
+        "motorType": "3.0 Amp",
+        "noLoadSpeed": "10,000-22,000 OPM",
+        "oscillationAngle": "3.2°",
+        "maxCuttingDepth90": "1-5/8\" (41mm) wood",
+        "bevelCapacity": "N/A",
+        "weightToolOnly": "3.2 lbs (1.5 kg)",
+        "overallLength": "11-1/2\" (292mm)",
+        "soundPower": "89 dB(A)",
+        "vibrationLevel": "2.8 m/s²",
+        "cordLength": "6.5 ft (2m)",
+        "bladeIncluded": "Yes, 28-piece accessory kit",
+        "shoeMaterial": "N/A",
+        "laserGuide": "No",
+        "accessoryChange": "Tool-free",
+        "variableSpeed": "Yes, dial-controlled",
+        "sandingPadSize": "2-1/2\" x 3-1/2\""
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": false,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": false,
+      "isTopProduct": false,
+      "featured": false,
       "moq": "500 units",
       "leadTime": "30-45 days",
-      "inStock": true,
-      "featured": false,
-      "compliance": "CE, ROHS, EEC",
       "warranty": "1 year standard",
-      "userBenefits": "28件附件套件开箱即用，覆盖切割、砂光、刮削和研磨，无需额外采购"
+      "relatedProducts": [
+        "SY-SW-REC-12A",
+        "SY-SW-JIG-VAR"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-SW-OSC-MUL.pdf",
+        "manual": "/downloads/manuals/SY-SW-OSC-MUL.pdf"
+      }
     },
     {
+      "name": "Reciprocating Saw 12A Variable Speed",
       "sku": "SY-SW-REC-12A",
-      "name": "往复锯 12A 变速",
-      "brand": "Ningbo Siyang Pro",
       "category": "saws",
-      "categoryLabel": "锯类工具",
-      "description": "强劲12安培往复锯配备变速扳机和可调节底板，确保切割过程中的稳定性。专为拆除、翻新和木材、金属及含钉木材中的重型切割作业而设计。免工具刀片夹支持快速更换刀片。",
-      "image": "../images/istock/10009.jpg",
+      "categoryLabel": "Saws",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/saw-07.jpg",
+      "images": [
+        "../images/products/saw-07.jpg"
+      ],
+      "brand": "Ningbo Siyang Pro",
+      "tagline": "Powerful 12 Amp reciprocating saw with variable speed trigger and pivoting shoe for stability during cutting. Designed for demolition, remodeling, and heavy-duty cutting in wood, metal, and nail-embedded wood. The tool-free blade clamp allows quick blade changes.",
+      "description": "Powerful 12 Amp reciprocating saw with variable speed trigger and pivoting shoe for stability during cutting. Designed for demolition, remodeling, and heavy-duty cutting in wood, metal, and nail-embedded wood. The tool-free blade clamp allows quick blade changes.",
+      "userBenefits": [
+        "12 Amp motor powers through nail-embedded wood and thick metal pipe without bogging down",
+        "Variable speed trigger lets you start cuts slowly for precision and ramp up for aggressive demolition",
+        "Pivoting shoe provides stable contact with the workpiece for safer, more controlled cutting",
+        "Tool-free blade clamp swaps blades in 5 seconds, keeping you productive during demolition work",
+        "1-1/8\" stroke length removes more material per stroke for faster cutting in thick materials"
+      ],
+      "specs": {
+        "voltage": "Corded",
+        "motorType": "12 Amp",
+        "noLoadSpeed": "0-3000 SPM",
+        "strokeLength": "1-1/8\" (28mm)",
+        "maxCuttingDepth90": "10\" (254mm) wood",
+        "maxCuttingDepth45": "8\" (203mm) wood",
+        "bevelCapacity": "N/A",
+        "weightToolOnly": "8.2 lbs (3.7 kg)",
+        "overallLength": "18-1/2\" (470mm)",
+        "soundPower": "101 dB(A)",
+        "vibrationLevel": "5.2 m/s²",
+        "cordLength": "6.5 ft (2m)",
+        "bladeIncluded": "Yes, 2 blades (wood and metal)",
+        "shoeMaterial": "Pivoting steel",
+        "laserGuide": "No",
+        "bladeChange": "Tool-free lever clamp",
+        "variableSpeed": "Yes, trigger-controlled"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": true,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": false,
+      "isTopProduct": false,
+      "featured": false,
       "moq": "300 units",
       "leadTime": "30-45 days",
-      "inStock": true,
-      "featured": false,
-      "compliance": "CE, ROHS, GS, EEC",
       "warranty": "1 year standard",
-      "userBenefits": "12安培电机轻松切断含钉木材和厚金属管，不会卡顿"
+      "relatedProducts": [
+        "SY-SW-JIG-VAR",
+        "SY-SW-OSC-MUL"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-SW-REC-12A.pdf",
+        "manual": "/downloads/manuals/SY-SW-REC-12A.pdf"
+      }
     },
     {
+      "name": "10\" Table Saw",
       "sku": "SY-SW-TAB-10IN",
-      "name": "10英寸台锯",
-      "brand": "Ningbo Siyang Pro",
       "category": "saws",
-      "categoryLabel": "锯类工具",
-      "description": "重型10英寸台锯配备15安培电机和齿轮齿条靠山系统，实现精密调节。采用铸铝台面和附件板载存储。专为专业木工、纵切和横切应用而设计。",
-      "image": "../images/istock/10011.jpg",
+      "categoryLabel": "Saws",
+      "price": 0,
+      "compareAtPrice": 0,
+      "image": "../images/products/saw-08.jpg",
+      "images": [
+        "../images/products/saw-08.jpg"
+      ],
+      "brand": "Ningbo Siyang Pro",
+      "tagline": "Heavy-duty 10 inch table saw with 15 Amp motor and rack & pinion fence system for precise adjustments. Features a cast aluminum table top and on-board storage for accessories. Designed for professional woodworking, rip cutting, and crosscutting applications.",
+      "description": "Heavy-duty 10 inch table saw with 15 Amp motor and rack & pinion fence system for precise adjustments. Features a cast aluminum table top and on-board storage for accessories. Designed for professional woodworking, rip cutting, and crosscutting applications.",
+      "userBenefits": [
+        "Rack & pinion fence system delivers micro-adjusted, repeatable rip cuts with sub-1/32\" accuracy",
+        "30\" right rip capacity handles full sheets of plywood and wide hardwood boards in a single pass",
+        "15 Amp motor with 4800 RPM powers through hardwoods and pressure-treated lumber without stalling",
+        "Cast aluminum table top stays flat and resists warping for precise cuts over years of use",
+        "On-board storage keeps blade wrenches, push stick, and rip fence organized and always within reach"
+      ],
+      "specs": {
+        "voltage": "Corded",
+        "motorType": "15 Amp",
+        "noLoadSpeed": "4800 RPM",
+        "bladeDiameter": "10\" (254mm)",
+        "arborSize": "5/8\" (16mm)",
+        "maxCuttingDepth90": "3-1/8\" (79mm)",
+        "maxCuttingDepth45": "2-1/4\" (57mm)",
+        "bevelCapacity": "0-45°",
+        "weightToolOnly": "68.0 lbs (30.8 kg)",
+        "overallLength": "26-1/2\" (673mm)",
+        "soundPower": "105 dB(A)",
+        "vibrationLevel": "1.8 m/s²",
+        "cordLength": "6.5 ft (2m)",
+        "bladeIncluded": "Yes, 24T carbide-tipped",
+        "shoeMaterial": "Cast aluminum table top",
+        "laserGuide": "No",
+        "fenceSystem": "Rack & pinion",
+        "maxRipCapacityRight": "30\" (762mm)",
+        "maxRipCapacityLeft": "12\" (305mm)"
+      },
+      "compliance": {
+        "ce": true,
+        "rohs": true,
+        "gs": true,
+        "ul": false,
+        "eec": true
+      },
+      "stock": 50,
+      "inStock": true,
+      "rating": 4,
+      "reviewCount": 0,
+      "isFeatured": false,
+      "isTopProduct": false,
+      "featured": false,
       "moq": "150 units",
       "leadTime": "35-50 days",
-      "inStock": true,
-      "featured": false,
-      "compliance": "CE, ROHS, GS, EEC",
       "warranty": "1 year standard",
-      "userBenefits": "齿轮齿条靠山系统实现微调可重复纵切，精度达1/32英寸以内"
+      "relatedProducts": [
+        "SY-SW-MIT-10IN",
+        "SY-SW-BAND-9IN"
+      ],
+      "downloads": {
+        "specSheet": "/downloads/spec-sheets/SY-SW-TAB-10IN.pdf",
+        "manual": "/downloads/manuals/SY-SW-TAB-10IN.pdf"
+      }
     }
   ]
 }

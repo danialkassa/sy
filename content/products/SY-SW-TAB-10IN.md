@@ -5,11 +5,9 @@ category: saws
 categoryLabel: Saws
 price: 0
 compareAtPrice: 0
-image: ../images/istock/10011.jpg
+image: ../images/products/saw-08.jpg
 images:
-  - ../images/istock/10011.jpg
-  - ../images/istock/10011-2.jpg
-  - ../images/istock/10011-3.jpg
+  - ../images/products/saw-08.jpg
 brand: Ningbo Siyang Pro
 tagline: "Heavy-duty 10 inch table saw with 15 Amp motor and rack & pinion fence system for precise adjustments. Features a cast aluminum table top and on-board storage for accessories. Designed for professional woodworking, rip cutting, and crosscutting applications."
 description: "Heavy-duty 10 inch table saw with 15 Amp motor and rack & pinion fence system for precise adjustments. Features a cast aluminum table top and on-board storage for accessories. Designed for professional woodworking, rip cutting, and crosscutting applications."

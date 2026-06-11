@@ -3,7 +3,7 @@ title: "Choisir la bonne perceuse pour vos projets"
 date: 2024-12-15T10:00:00Z
 author: "Chen Wei"
 category: "Guides techniques"
-image: "../images/istock/10001.jpg"
+image: "../images/products/10002.jpeg"
 excerpt: "Un guide complet pour sélectionner la perceuse parfaite pour tout projet, des réparations domestiques de bricolage aux travaux de construction professionnels."
 readTime: 8
 lang: fr

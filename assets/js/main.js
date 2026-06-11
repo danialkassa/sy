@@ -231,9 +231,9 @@
 
   // ===== Active Navigation Highlighting =====
   const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('a[href]').forEach(function(link) {
-    const href = link.getAttribute('href').split('/').pop();
-    if (href === currentPath || (currentPath === '' && href === 'index.html')) {
+  document.querySelectorAll('header a[href], nav a[href]').forEach(function(link) {
+    const href = link.getAttribute('href').split('/').pop().split('?')[0].split('#')[0];
+    if (href === currentPath || (currentPath === '' && href === 'index.html') || (currentPath === 'index.html' && href === '')) {
       link.classList.add('text-yellow-400');
       link.classList.remove('text-zinc-300', 'text-zinc-400');
     }
@@ -256,16 +256,29 @@
 
 function handleNewsletterSubscribe(e) {
   e.preventDefault();
-  var input = e.target.closest('div').querySelector('input[type="email"]') || document.querySelector('#newsletter-email');
+  var wrapper = e.target.closest('form') || e.target.closest('div');
+  var input = wrapper.querySelector('input[type="email"]') || document.querySelector('#newsletter-email');
   if (!input) return;
   var email = input.value.trim();
-  if (!email || email.indexOf('@') === -1) { alert(_t('quote.errorEmail','Please enter a valid email address.')); return; }
-  var recipient = (typeof SITE_CONFIG !== 'undefined') ? SITE_CONFIG.email : 'sales@ningbosiyang.com';
-  var subject = encodeURIComponent(_t('newsletter.subject','Newsletter Subscription Request'));
-  var body = encodeURIComponent(_t('newsletter.bodyText','Please add ') + email + _t('newsletter.bodyText2',' to the Ningbo Siyang newsletter mailing list.\n\nThank you.'));
-  window.location.href = 'mailto:' + recipient + '?subject=' + subject + '&body=' + body;
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    alert(_t('quote.errorEmail','Please enter a valid email address.'));
+    return;
+  }
+  var subscribers = JSON.parse(localStorage.getItem('sy_newsletter_subscribers') || '[]');
+  if (subscribers.indexOf(email) !== -1) {
+    alert(_t('newsletter.alreadySubscribed','You are already subscribed to trade updates.'));
+    return;
+  }
+  subscribers.push(email);
+  localStorage.setItem('sy_newsletter_subscribers', JSON.stringify(subscribers));
   input.value = '';
-  alert(_t('newsletter.success','Your subscription request has been prepared. Please send the email that was opened in your email client.'));
+  var successMsg = wrapper.querySelector('.newsletter-success');
+  if (successMsg) {
+    successMsg.classList.remove('hidden');
+    setTimeout(function() { successMsg.classList.add('hidden'); }, 5000);
+  } else {
+    alert(_t('newsletter.success','Thank you! You have been subscribed to trade updates.'));
+  }
 }
 
 document.addEventListener('click', function(e) {

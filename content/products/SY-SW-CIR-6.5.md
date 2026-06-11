@@ -5,11 +5,9 @@ category: saws
 categoryLabel: Saws
 price: 0
 compareAtPrice: 0
-image: ../images/unsplach/drill-home/10053.jpeg
+image: ../images/products/saw-02.jpg
 images:
-  - ../images/unsplach/drill-home/10053.jpeg
-  - ../images/unsplach/drill-home/10053-2.jpeg
-  - ../images/unsplach/drill-home/10053-3.jpeg
+  - ../images/products/saw-02.jpg
 brand: Ningbo Siyang
 tagline: Cordless 6-1/2 inch circular saw powered by 20V MAX battery system. Delivers 4750 RPM for fast cutting through lumber and sheet goods. Lightweight and portable design ideal for framing and remodeling applications where cordless convenience is essential.
 description: Cordless 6-1/2 inch circular saw powered by 20V MAX battery system. Delivers 4750 RPM for fast cutting through lumber and sheet goods. Lightweight and portable design ideal for framing and remodeling applications where cordless convenience is essential.

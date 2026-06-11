@@ -5,11 +5,9 @@ category: saws
 categoryLabel: Saws
 price: 0
 compareAtPrice: 0
-image: ../images/istock/10009.jpg
+image: ../images/products/saw-07.jpg
 images:
-  - ../images/istock/10009.jpg
-  - ../images/istock/10009-2.jpg
-  - ../images/istock/10009-3.jpg
+  - ../images/products/saw-07.jpg
 brand: Ningbo Siyang Pro
 tagline: Powerful 12 Amp reciprocating saw with variable speed trigger and pivoting shoe for stability during cutting. Designed for demolition, remodeling, and heavy-duty cutting in wood, metal, and nail-embedded wood. The tool-free blade clamp allows quick blade changes.
 description: Powerful 12 Amp reciprocating saw with variable speed trigger and pivoting shoe for stability during cutting. Designed for demolition, remodeling, and heavy-duty cutting in wood, metal, and nail-embedded wood. The tool-free blade clamp allows quick blade changes.

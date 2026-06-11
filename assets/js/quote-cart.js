@@ -324,7 +324,13 @@
       }
       saveCart(items);
       render();
-      this.open();
+      // Update header badge count without opening the drawer
+      var headerBadge = document.getElementById('quote-header-badge');
+      if (headerBadge) {
+        var total = loadCart().reduce(function(s, i) { return s + i.quantity; }, 0);
+        headerBadge.textContent = total;
+        headerBadge.classList.toggle('hidden', total === 0);
+      }
     },
 
     removeItem: function(sku) {

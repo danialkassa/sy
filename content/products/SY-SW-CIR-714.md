@@ -5,11 +5,9 @@ category: saws
 categoryLabel: Saws
 price: 0
 compareAtPrice: 0
-image: ../images/istock/10007.jpg
+image: ../images/products/saw-03.jpg
 images:
-  - ../images/istock/10007.jpg
-  - ../images/istock/10007-2.jpg
-  - ../images/istock/10007-3.jpg
+  - ../images/products/saw-03.jpg
 brand: Ningbo Siyang Pro
 tagline: Professional 7-1/4 inch circular saw with 15 Amp motor and integrated laser guide for precise cutting. Features 0-56° bevel capacity and a lightweight magnesium shoe for accurate cuts and reduced user fatigue. Ideal for framing, roofing, and general construction applications.
 description: Professional 7-1/4 inch circular saw with 15 Amp motor and integrated laser guide for precise cutting. Features 0-56° bevel capacity and a lightweight magnesium shoe for accurate cuts and reduced user fatigue. Ideal for framing, roofing, and general construction applications.

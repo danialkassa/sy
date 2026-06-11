@@ -5,11 +5,9 @@ category: sanders
 categoryLabel: Sanders
 price: 0
 compareAtPrice: 0
-image: ../images/unsplach/drill-closeup/10079.jpeg
+image: ../images/products/sander-02.jpg
 images:
-  - ../images/unsplach/drill-closeup/10079.jpeg
-  - ../images/unsplach/drill-closeup/10079-2.jpeg
-  - ../images/unsplach/drill-closeup/10079-3.jpeg
+  - ../images/products/sander-02.jpg
 brand: Ningbo Siyang Pro
 tagline: "Cordless 20V MAX random orbital sander with 5 inch hook & loop pad. Delivers 8,000-12,000 OPM for professional finishing results without the constraint of a power cord. Ideal for on-site sanding, surface preparation, and finishing work."
 description: "Cordless 20V MAX random orbital sander with 5 inch hook & loop pad. Delivers 8,000-12,000 OPM for professional finishing results without the constraint of a power cord. Ideal for on-site sanding, surface preparation, and finishing work."

@@ -5,11 +5,9 @@ category: sanders
 categoryLabel: Sanders
 price: 0
 compareAtPrice: 0
-image: ../images/istock/10019.jpg
+image: ../images/products/sander-05.jpg
 images:
-  - ../images/istock/10019.jpg
-  - ../images/istock/10019-2.jpg
-  - ../images/istock/10019-3.jpg
+  - ../images/products/sander-05.jpg
 brand: Ningbo Siyang
 tagline: 5 inch random orbital sander with 3.0 Amp motor and variable speed control. Features a dust-sealed switch for extended tool life and a dust collection bag for cleaner operation. Ideal for fine finishing, sanding, and polishing on wood, metal, and plastic surfaces.
 description: 5 inch random orbital sander with 3.0 Amp motor and variable speed control. Features a dust-sealed switch for extended tool life and a dust collection bag for cleaner operation. Ideal for fine finishing, sanding, and polishing on wood, metal, and plastic surfaces.

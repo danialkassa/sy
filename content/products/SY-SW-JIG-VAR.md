@@ -5,11 +5,9 @@ category: saws
 categoryLabel: Saws
 price: 0
 compareAtPrice: 0
-image: ../images/istock/10008.jpg
+image: ../images/products/saw-04.jpg
 images:
-  - ../images/istock/10008.jpg
-  - ../images/istock/10008-2.jpg
-  - ../images/istock/10008-3.jpg
+  - ../images/products/saw-04.jpg
 brand: Ningbo Siyang
 tagline: Versatile variable speed jigsaw with 7 Amp motor, orbital action, and tool-free blade change. Features an integrated LED light for improved visibility and a dust blower to keep the cut line clear. Suitable for curved and straight cuts in wood, metal, and plastic.
 description: Versatile variable speed jigsaw with 7 Amp motor, orbital action, and tool-free blade change. Features an integrated LED light for improved visibility and a dust blower to keep the cut line clear. Suitable for curved and straight cuts in wood, metal, and plastic.

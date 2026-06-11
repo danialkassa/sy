@@ -1,50 +1,38 @@
 [
   {
-    "question": "Can I visit your factory?",
-    "answer": "Absolutely! We welcome factory visits. Our facility in Ningbo is about 30 minutes from Ningbo Lishe International Airport. We can arrange airport pickup and hotel recommendations. Please contact us at least one week in advance.",
-    "category": "Company & Factory",
-    "order": 6,
-    "slug": "factory-visit",
-    "sku": "factory-visit"
+    "question": "What is the minimum order quantity (MOQ)?",
+    "answer": "Our standard MOQ is 500 units per model. For new customers, we can discuss smaller trial orders of 200-300 units to help you test the market.",
+    "category": "Ordering & Payment",
+    "order": 1
   },
   {
     "question": "What is the typical lead time for orders?",
     "answer": "Standard production lead time is 30-45 days after order confirmation and deposit payment. For repeat orders of existing models, we can often reduce this to 25-30 days.",
     "category": "Shipping & Delivery",
-    "order": 2,
-    "slug": "lead-time",
-    "sku": "lead-time"
-  },
-  {
-    "question": "What is the minimum order quantity (MOQ)?",
-    "answer": "Our standard MOQ is 500 units per model. For new customers, we can discuss smaller trial orders of 200-300 units to help you test the market.",
-    "category": "Ordering & Payment",
-    "order": 1,
-    "slug": "moq",
-    "sku": "moq"
+    "order": 2
   },
   {
     "question": "Do you offer OEM/ODM services?",
     "answer": "Yes! We offer full OEM and ODM services including custom branding, packaging design, color schemes, and product modifications. Our in-house R&D team can develop new products based on your specifications.",
     "category": "OEM/ODM Services",
-    "order": 3,
-    "slug": "oem-service",
-    "sku": "oem-service"
-  },
-  {
-    "question": "How do you ensure product quality?",
-    "answer": "Every product undergoes a 6-step quality control process: incoming material inspection, in-process QC, assembly line testing, performance testing, safety testing, and final inspection before packaging. We are ISO 9001:2015 certified.",
-    "category": "Products & Quality",
-    "order": 5,
-    "slug": "quality-control",
-    "sku": "quality-control"
+    "order": 3
   },
   {
     "question": "What is your warranty policy?",
     "answer": "All Siyang power tools come with a standard 1-year warranty covering manufacturing defects. Brushless motor products include an extended 2-year motor warranty. We provide replacement parts and support for warranty claims.",
     "category": "Warranty & Support",
-    "order": 4,
-    "slug": "warranty-policy",
-    "sku": "warranty-policy"
+    "order": 4
+  },
+  {
+    "question": "How do you ensure product quality?",
+    "answer": "Every product undergoes a 6-step quality control process: incoming material inspection, in-process QC, assembly line testing, performance testing, safety testing, and final inspection before packaging. We are ISO 9001:2015 certified.",
+    "category": "Products & Quality",
+    "order": 5
+  },
+  {
+    "question": "Can I visit your factory?",
+    "answer": "Absolutely! We welcome factory visits. Our facility in Ningbo is about 30 minutes from Ningbo Lishe International Airport. We can arrange airport pickup and hotel recommendations. Please contact us at least one week in advance.",
+    "category": "Company & Factory",
+    "order": 6
   }
 ]

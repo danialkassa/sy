@@ -5,11 +5,9 @@ category: grinders
 categoryLabel: Grinders
 price: 0
 compareAtPrice: 0
-image: ../images/istock/10015.jpg
+image: ../images/products/grinder-03.jpg
 images:
-  - ../images/istock/10015.jpg
-  - ../images/istock/10015-2.jpg
-  - ../images/istock/10015-3.jpg
+  - ../images/products/grinder-03.jpg
 brand: Ningbo Siyang
 tagline: 6 inch bench grinder with 5/8 HP motor, dual grinding wheels, spark guards, and eye shields. Designed for sharpening, shaping, and deburring in workshop environments. Features cast iron base for stability and adjustable tool rests for precision work.
 description: 6 inch bench grinder with 5/8 HP motor, dual grinding wheels, spark guards, and eye shields. Designed for sharpening, shaping, and deburring in workshop environments. Features cast iron base for stability and adjustable tool rests for precision work.

@@ -5,11 +5,9 @@ category: impact-tools
 categoryLabel: Impact Tools
 price: 0
 compareAtPrice: 0
-image: ../images/istock/10026.jpg
+image: ../images/products/10034-2.webp
 images:
-  - ../images/istock/10026.jpg
-  - ../images/istock/10026-2.jpg
-  - ../images/istock/10026-3.jpg
+  - ../images/products/10034-2.webp
 brand: Ningbo Siyang Pro
 tagline: Compact 20V impact wrench with 1/2 inch anvil delivering 330 ft-lbs of max torque. Features a compact design for access in tight spaces and a built-in LED light. Ideal for automotive, mechanical, and heavy-duty fastening applications.
 description: Compact 20V impact wrench with 1/2 inch anvil delivering 330 ft-lbs of max torque. Features a compact design for access in tight spaces and a built-in LED light. Ideal for automotive, mechanical, and heavy-duty fastening applications.

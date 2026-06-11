@@ -1,31 +1,25 @@
 {
   "members": [
     {
-      "name": "Chen Wei",
-      "title": "CEO & Founder",
-      "photo": "",
+      "name": "Daniel",
+      "title": "CEO, Designer and Developer",
+      "photo": "/images/team/myphoto.png",
       "bio": "Over 25 years of experience in power tool manufacturing and international trade.",
-      "order": 1,
-      "slug": "ceo",
-      "sku": "ceo"
+      "order": 1
     },
     {
       "name": "Dr. Liang Zhang",
       "title": "CTO",
       "photo": "",
       "bio": "PhD in Mechanical Engineering. Leads R&D with 15+ patents in brushless motor technology.",
-      "order": 2,
-      "slug": "cto",
-      "sku": "cto"
+      "order": 2
     },
     {
-      "name": "Wang Jun",
+      "name": "Romeo",
       "title": "Sales Director",
-      "photo": "",
+      "photo": "/images/team/romeo.jpg",
       "bio": "15 years of B2B export experience across 40+ countries.",
-      "order": 3,
-      "slug": "sales-director",
-      "sku": "sales-director"
+      "order": 3
     }
   ]
 }

@@ -3,7 +3,7 @@ title: "Normas de seguridad que todo comprador de herramientas eléctricas debe 
 date: 2024-12-05T10:00:00Z
 author: "Zhang Hui"
 category: "Tendencias del sector"
-image: "../images/istock/10010.jpg"
+image: "../images/facilities/manufacturing-07.jpg"
 excerpt: "Comprender las certificaciones y normas internacionales de seguridad para herramientas eléctricas, incluidas las marcas CE, UL y GS."
 readTime: 7
 lang: es

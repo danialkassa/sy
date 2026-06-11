@@ -24,7 +24,7 @@ var SearchEngine = (function() {
     return fetch(base + 'content/products/index.json')
       .then(function(r) { return r.json(); })
       .then(function(data) {
-        productIndex = data;
+        productIndex = Array.isArray(data) ? data : (data.products || []);
         isLoaded = true;
         isLoading = false;
         return productIndex;
@@ -96,6 +96,8 @@ var SearchEngine = (function() {
     var results = document.getElementById('search-results');
     var closeBtn = document.getElementById('search-close');
     var openBtns = document.querySelectorAll('[data-search-open]');
+    var headerSearch = document.getElementById('header-search');
+    var headerForm = headerSearch && headerSearch.closest('form');
 
     if (!overlay || !input) return;
 
@@ -121,6 +123,25 @@ var SearchEngine = (function() {
       openBtns[i].addEventListener('click', function(e) {
         e.preventDefault();
         openSearch();
+      });
+    }
+
+    if (headerSearch) {
+      headerSearch.addEventListener('focus', function(e) {
+        e.preventDefault();
+        openSearch();
+        headerSearch.blur();
+      });
+    }
+
+    if (headerForm) {
+      headerForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        openSearch();
+        if (input) {
+          input.value = headerSearch.value;
+          input.dispatchEvent(new Event('input'));
+        }
       });
     }
 
@@ -166,7 +187,7 @@ var SearchEngine = (function() {
         var html = '';
         for (var j = 0; j < Math.min(matches.length, 10); j++) {
           var p = matches[j];
-          var img = p.image || (base + 'images/istock/placeholder.jpg');
+          var img = p.image || (base + 'images/products/10034.webp');
           if (img.indexOf('http') !== 0 && img.indexOf('/') !== 0) img = base + img.replace('../', '');
           html += '<a href="' + base + 'products/product.html?sku=' + encodeURIComponent(p.sku) + '" class="flex items-center gap-4 p-3 rounded-lg hover:bg-zinc-800/50 transition-colors">';
           html += '<img src="' + img + '" alt="" class="w-12 h-12 object-contain rounded bg-zinc-900"/>';

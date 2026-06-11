@@ -1,24 +1,20 @@
 {
   "testimonials": [
     {
-      "name": "Ahmed Hassan",
-      "company": "Gulf Tools Trading",
-      "quote": "We've been importing from Siyang for 8 years. Their OEM service and consistent quality keep our customers coming back.",
-      "avatar": "",
-      "rating": 5,
-      "order": 2,
-      "slug": "ahmed-hassan",
-      "sku": "ahmed-hassan"
-    },
-    {
       "name": "John Mueller",
       "company": "Mueller Industrial Supply",
       "quote": "Siyang's brushless drills have become our top seller. The quality-to-price ratio is unmatched in the market.",
       "avatar": "",
       "rating": 5,
-      "order": 1,
-      "slug": "john-mueller",
-      "sku": "john-mueller"
+      "order": 1
+    },
+    {
+      "name": "Ahmed Hassan",
+      "company": "Gulf Tools Trading",
+      "quote": "We've been importing from Siyang for 8 years. Their OEM service and consistent quality keep our customers coming back.",
+      "avatar": "",
+      "rating": 5,
+      "order": 2
     },
     {
       "name": "Maria Santos",
@@ -26,9 +22,7 @@
       "quote": "The combo kits are perfect for our market. Great packaging, reliable performance, and the warranty support is excellent.",
       "avatar": "",
       "rating": 4,
-      "order": 3,
-      "slug": "maria-santos",
-      "sku": "maria-santos"
+      "order": 3
     }
   ]
 }

@@ -17,10 +17,8 @@
     "testimonial": "Entering the German industrial market with angle grinders meant one thing: GS and TÜV certification or nothing. Ningbo Siyang worked with us through a joint quality program and dedicated QC line to get TÜV certification on the first submission.",
     "testimonialAuthor": "Hans Mueller, Managing Director",
     "image": "../images/case-studies/euro-werkzeuge.jpg",
-    "date": "2024-03-22",
-    "featured": true,
-    "slug": "euro-werkzeuge",
-    "sku": "euro-werkzeuge"
+    "date": "2024-03-22T00:00:00.000Z",
+    "featured": true
   },
   {
     "id": "gulf-industrial",
@@ -40,10 +38,8 @@
     "testimonial": "We've been distributing Ningbo Siyang products across the GCC for over 5 years now, and their 0.3% return rate speaks for itself. When we launched our OEM private-label line of 20V drills and drivers, the factory delivered Arabic/English packaging and tool specs that matched our market perfectly.",
     "testimonialAuthor": "Ahmed Al-Rashid, Procurement Director",
     "image": "../images/case-studies/gulf-industrial.jpg",
-    "date": "2024-06-15",
-    "featured": true,
-    "slug": "gulf-industrial",
-    "sku": "gulf-industrial"
+    "date": "2024-06-15T00:00:00.000Z",
+    "featured": true
   },
   {
     "id": "stroyinvest",
@@ -63,9 +59,7 @@
     "testimonial": "We needed a 20V cordless range that could handle Russian winters, and Ningbo Siyang delivered battery chemistry rated for reliable cold-start performance at minus 20 degrees Celsius. Our field tests confirmed a 98% cold-start reliability rate across 15,000 units in the first season.",
     "testimonialAuthor": "Dmitri Volkov, Supply Chain Director",
     "image": "../images/case-studies/stroyinvest.jpg",
-    "date": "2024-09-10",
-    "featured": true,
-    "slug": "stroyinvest",
-    "sku": "stroyinvest"
+    "date": "2024-09-10T00:00:00.000Z",
+    "featured": true
   }
 ]

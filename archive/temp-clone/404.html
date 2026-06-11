@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>404 — Page Not Found | Ningbo Siyang</title>
+  <meta name="description" content="The page you are looking for could not be found."/>
+  <meta name="robots" content="noindex, follow"/>
+  <link rel="icon" href="./favicon.ico"/>
+  <link rel="stylesheet" href="./assets/css/styles.css"/>
+  <style>
+    body { margin: 0; background: #09090b; color: #e4e4e7; font-family: 'Source Sans 3', system-ui, sans-serif; }
+    .error-page { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem; text-align: center; }
+    .error-code { font-family: 'Oswald', sans-serif; font-size: 8rem; font-weight: 700; color: #facc15; line-height: 1; margin: 0; }
+    .error-title { font-family: 'Oswald', sans-serif; font-size: 1.5rem; font-weight: 600; color: #e4e4e7; margin: 1rem 0 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .error-desc { color: #a1a1aa; font-size: 1.1rem; max-width: 480px; margin: 0 auto 2rem; line-height: 1.6; }
+    .error-links { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    .error-links a { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: all 0.2s; }
+    .btn-primary { background: #facc15; color: #09090b; }
+    .btn-primary:hover { background: #eab308; }
+    .btn-secondary { background: #27272a; color: #e4e4e7; border: 1px solid #3f3f46; }
+    .btn-secondary:hover { background: #3f3f46; }
+    .error-logo { margin-bottom: 2rem; }
+    .error-logo img { height: 48px; }
+  </style>
+</head>
+<body>
+  <div class="error-page">
+    <div class="error-logo">
+      <a href="/" title="Ningbo Siyang Home">
+        <img src="./sy-logo-dark.svg" alt="Ningbo Siyang" onerror="this.style.display='none'"/>
+      </a>
+    </div>
+    <p class="error-code">404</p>
+    <h1 class="error-title">Page Not Found</h1>
+    <p class="error-desc">The page you are looking for may have been moved, deleted, or is temporarily unavailable. Try one of the links below to get back on track.</p>
+    <div class="error-links">
+      <a href="/" class="btn-primary">Go to Homepage</a>
+      <a href="/products/" class="btn-secondary">Browse Products</a>
+      <a href="/contact.html" class="btn-secondary">Contact Us</a>
+    </div>
+  </div>
+</body>
+</html>

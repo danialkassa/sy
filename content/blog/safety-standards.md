@@ -4,7 +4,7 @@ slug: safety-standards
 date: "2024-12-05T10:00:00Z"
 category: Industry Trends
 excerpt: Understanding international safety certifications and standards for power tools, including CE, UL, and GS marks.
-image: ../images/istock/10010.jpg
+image: ../images/facilities/manufacturing-07.jpg
 author: Zhang Hui
 readTime: 7
 ---
