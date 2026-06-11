@@ -1,14 +1,14 @@
 var SITE_CONFIG = {
   companyName: 'Ningbo Siyang',
-  phone: '+86-574-8888-8888',
-  phoneDisplay: '+86 574 8888 8888',
-  email: 'sales@ningbosiyang.com',
+  phone: '+86-178-1562-2951',
+  phoneDisplay: '+86 178 1562 2951',
+  email: 'muruts57@gmail.com',
   address: 'Ningbo Industrial Zone, Zhejiang 315000, China',
-  whatsapp: '+8657488888888',
+  whatsapp: '+8617815622951',
   wechatQR: '/assets/images/wechat-qr.png',
   socialLinks: {
     wechat: '/assets/images/wechat-qr.png',
-    whatsapp: '+8657488888888'
+    whatsapp: '+8617815622951'
   },
   businessHours: 'Mon-Fri: 8:00 AM - 5:00 PM (CST, UTC+8)',
   moq: {
