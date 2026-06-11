@@ -1,3 +1,61 @@
+/* Scroll reveal animations */
+.animate-fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.animate-fade-in-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* FAQ accordion */
+.faq-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+.faq-content.active {
+  opacity: 1;
+}
+
+/* Quote cart drawer */
+.quote-panel {
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.quote-panel.is-closed {
+  transform: translateX(100%);
+}
+.quote-panel.is-open {
+  transform: translateX(0);
+}
+
+/* Trust badge float */
+@keyframes trust-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+.trust-badge-float {
+  animation: trust-float 2.5s ease-in-out infinite;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-up { opacity: 1; transform: none; transition: none; }
+  .trust-badge-float { animation: none; }
+  .faq-content { transition: none; }
+  .quote-panel { transition: none; }
+}
+
+/* Premium gradient text */
+.pm-gradient-text {
+  background: linear-gradient(135deg, #facc15, #f59e0b, #facc15);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 :root {
   --color-primary: #facc15;
   --color-primary-hover: #fde047;

@@ -40,7 +40,7 @@
   }
   </script>
   <link rel="stylesheet" href="./assets/css/styles.css"/>
-  <link rel="stylesheet" href="./assets/css/premium-motion.css"/>
+
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
@@ -51,19 +51,7 @@
     .font-oswald { font-family: 'Oswald', sans-serif; }
     .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
     .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-    .perspective-2000 { perspective: 2000px; }
-    .preserve-3d { transform-style: preserve-3d; }
-    .hero-slide {
-      transform-style: preserve-3d;
-      backface-visibility: hidden;
-    }
-    .hero-slide-animated {
-      transition: transform 1s cubic-bezier(0.43, 0.13, 0.23, 0.96), opacity 1s cubic-bezier(0.43, 0.13, 0.23, 0.96);
-    }
-    .hero-slide-right { transform: rotateY(90deg); opacity: 0; }
-    .hero-slide-visible { transform: rotateY(0deg); opacity: 1; }
-    .hero-slide-left { transform: rotateY(-90deg); opacity: 0; }
-    .bg-gradient-radial { background: radial-gradient(circle at center, var(--tw-gradient-from), var(--tw-gradient-via), var(--tw-gradient-to)); }
+    .hero-bg { background-size: cover; background-position: center; }
     .dropdown-panel { transition: opacity 0.2s, transform 0.2s; display: none; }
     .group:hover > .dropdown-panel, .group:focus-within > .dropdown-panel { display: block; }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
@@ -214,21 +202,8 @@
   <main id="main-content" class="flex-1" tabindex="-1">
 
     <section id="hero" class="relative h-screen w-full overflow-hidden bg-zinc-950">
-      <div class="absolute inset-0 perspective-2000">
-        <div id="hero-slides" class="relative w-full h-full preserve-3d">
-          <div class="hero-slide hero-slide-visible absolute inset-0" data-index="0">
-            <img src="./images/products/10030.webp" alt="Ningbo Siyang professional cordless drill driver" class="absolute inset-0 w-full h-full object-cover" loading="lazy"/>
-            <div class="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-zinc-950/30"></div>
-          </div>
-          <div class="hero-slide hero-slide-right absolute inset-0" data-index="1">
-            <img src="./images/products/10077-3.jpeg" alt="Ningbo Siyang professional cordless drill driver" class="absolute inset-0 w-full h-full object-cover" loading="lazy"/>
-            <div class="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-zinc-950/30"></div>
-          </div>
-          <div class="hero-slide hero-slide-right absolute inset-0" data-index="2">
-            <img src="./images/products/10077-3.jpeg" alt="Ningbo Siyang professional cordless drill driver" class="absolute inset-0 w-full h-full object-cover" loading="lazy"/>
-            <div class="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-zinc-950/30"></div>
-          </div>
-        </div>
+      <div class="absolute inset-0 hero-bg" style="background-image:url('./images/products/10077.jpeg')">
+        <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent"></div>
       </div>
 
       <div class="absolute inset-0 flex items-center justify-center z-10">
@@ -252,31 +227,6 @@
           </div>
         </div>
       </div>
-
-      <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex items-center gap-4 z-20">
-        <button onclick="toggleAutoPlay(this)" class="w-8 h-8 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-yellow-400 hover:text-zinc-900 transition-all duration-300 border border-white/20" aria-label="Pause slideshow" aria-pressed="false">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="5" y="4" width="4" height="16" rx="1"/><rect x="15" y="4" width="4" height="16" rx="1"/></svg>
-        </button>
-        <button onclick="goToSlide(0)" class="hero-dot w-16 h-4 bg-yellow-400 rounded-full shadow-lg shadow-yellow-400/50 transition-all duration-300" aria-label="Go to slide 1"></button>
-        <button onclick="goToSlide(1)" class="hero-dot w-4 h-4 bg-white/40 hover:bg-white/60 backdrop-blur-sm rounded-full transition-all duration-300" aria-label="Go to slide 2"></button>
-        <button onclick="goToSlide(2)" class="hero-dot w-4 h-4 bg-white/40 hover:bg-white/60 backdrop-blur-sm rounded-full transition-all duration-300" aria-label="Go to slide 3"></button>
-      </div>
-
-      <button onclick="prevSlide()" class="absolute left-8 top-1/2 -translate-y-1/2 z-20 w-14 h-14 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-yellow-400 hover:text-zinc-900 transition-all duration-300 hover:scale-110 active:scale-95 border border-white/20" aria-label="Previous slide">
-        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7"/></svg>
-      </button>
-      <button onclick="nextSlide()" class="absolute right-8 top-1/2 -translate-y-1/2 z-20 w-14 h-14 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-yellow-400 hover:text-zinc-900 transition-all duration-300 hover:scale-110 active:scale-95 border border-white/20" aria-label="Next slide">
-        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
-      </button>
-
-      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-fade-in-up" style="animation-delay:1.2s">
-        <div class="flex flex-col items-center gap-2">
-          <span class="text-xs text-white/60 uppercase tracking-widest font-medium">Scroll</span>
-          <div class="w-6 h-10 border-2 border-white/40 rounded-full flex justify-center pt-2 backdrop-blur-sm">
-            <div class="w-1.5 h-1.5 bg-yellow-400 rounded-full shadow-lg shadow-yellow-400/50 animate-scroll-bounce"></div>
-          </div>
-        </div>
-      </div>
     </section>
 
     <section id="product-3d-showcase" class="relative bg-zinc-950 overflow-hidden" aria-labelledby="cms-3d-heading">
@@ -286,41 +236,27 @@
             EXPLORE OUR <span class="pm-gradient-text">TOOLS</span>
           </h2>
           <p id="cms-3d-desc" class="text-zinc-400 text-lg max-w-2xl mx-auto">
-            Hover to pause
+            Professional-grade power tools built for performance
           </p>
         </div>
-        <div class="relative mx-auto max-w-4xl aspect-[16/10] rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900 shadow-2xl">
-          <div id="cms-spline-container" class="w-full h-full flex items-center justify-center">
-            <div class="pm-3d-carousel w-full h-full flex items-center justify-center">
-              <div class="pm-3d-carousel-track">
-                <div class="pm-3d-carousel-item">
-                  <img src="/images/products/10077.jpeg" alt="Cordless Drill" loading="lazy"/>
-                </div>
-                <div class="pm-3d-carousel-item">
-                  <img src="/images/products/10029.webp" alt="Professional Power Drill" loading="lazy"/>
-                </div>
-                <div class="pm-3d-carousel-item">
-                  <img src="/images/products/10030.webp" alt="Compact Drill Driver" loading="lazy"/>
-                </div>
-                <div class="pm-3d-carousel-item">
-                  <img src="/images/products/10051.jpeg" alt="Industrial Power Drill" loading="lazy"/>
-                </div>
-                <div class="pm-3d-carousel-item">
-                  <img src="/images/products/10108.jpg" alt="Multi-Function Drill" loading="lazy"/>
-                </div>
-                <div class="pm-3d-carousel-item">
-                  <img src="/images/products/10112.jpg" alt="Professional Tool in Action" loading="lazy"/>
-                </div>
-              </div>
-            </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+          <div class="overflow-hidden rounded-xl border border-zinc-800 hover:scale-105 transition-transform duration-300">
+            <img src="/images/products/10077.jpeg" alt="Cordless Drill" class="w-full h-full object-cover" loading="lazy"/>
           </div>
-          <div id="cms-spline-hint" class="absolute inset-0 flex items-center justify-center pointer-events-none z-10 transition-opacity duration-700" style="opacity:1;">
-            <div class="bg-black/60 backdrop-blur-sm rounded-xl px-6 py-3 flex items-center gap-3">
-              <svg class="w-5 h-5 text-yellow-400 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"/>
-              </svg>
-              <span class="text-white text-sm font-medium">Click &amp; drag to rotate</span>
-            </div>
+          <div class="overflow-hidden rounded-xl border border-zinc-800 hover:scale-105 transition-transform duration-300">
+            <img src="/images/products/10029.webp" alt="Professional Power Drill" class="w-full h-full object-cover" loading="lazy"/>
+          </div>
+          <div class="overflow-hidden rounded-xl border border-zinc-800 hover:scale-105 transition-transform duration-300">
+            <img src="/images/products/10030.webp" alt="Compact Drill Driver" class="w-full h-full object-cover" loading="lazy"/>
+          </div>
+          <div class="overflow-hidden rounded-xl border border-zinc-800 hover:scale-105 transition-transform duration-300">
+            <img src="/images/products/10051.jpeg" alt="Industrial Power Drill" class="w-full h-full object-cover" loading="lazy"/>
+          </div>
+          <div class="overflow-hidden rounded-xl border border-zinc-800 hover:scale-105 transition-transform duration-300">
+            <img src="/images/products/10108.jpg" alt="Multi-Function Drill" class="w-full h-full object-cover" loading="lazy"/>
+          </div>
+          <div class="overflow-hidden rounded-xl border border-zinc-800 hover:scale-105 transition-transform duration-300">
+            <img src="/images/products/10112.jpg" alt="Professional Tool in Action" class="w-full h-full object-cover" loading="lazy"/>
           </div>
         </div>
       </div>
@@ -1318,139 +1254,6 @@
   </footer>
 
   <script>
-    // ===== Hero Carousel (3D rotateY) =====
-    let currentSlide = 0;
-    let previousSlide = 0;
-    const slides = document.querySelectorAll('.hero-slide');
-    const dots = document.querySelectorAll('.hero-dot');
-    const totalSlides = slides.length;
-    let autoPlayInterval;
-    let isAnimating = false;
-    let transitionTimeout;
-
-    function updateDots() {
-      dots.forEach((dot, i) => {
-        if (i === currentSlide) {
-          dot.classList.remove('w-4', 'bg-white/40');
-          dot.classList.add('w-16', 'bg-yellow-400');
-        } else {
-          dot.classList.remove('w-16', 'bg-yellow-400');
-          dot.classList.add('w-4', 'bg-white/40');
-        }
-      });
-    }
-
-    function finishTransition(outgoing, incoming) {
-      outgoing.classList.remove('hero-slide-animated', 'hero-slide-left');
-      outgoing.classList.add('hero-slide-right');
-
-      incoming.classList.remove('hero-slide-right');
-      incoming.classList.add('hero-slide-visible');
-
-      transitionTimeout = setTimeout(function() {
-        incoming.classList.remove('hero-slide-animated');
-        isAnimating = false;
-      }, 1000);
-    }
-
-    function animateSlideChange() {
-      if (isAnimating) return;
-      isAnimating = true;
-      clearTimeout(transitionTimeout);
-
-      const outgoing = slides[previousSlide];
-      const incoming = slides[currentSlide];
-
-      // Enable transitions on both
-      outgoing.classList.add('hero-slide-animated');
-      incoming.classList.add('hero-slide-animated');
-
-      // Exit outgoing to left
-      outgoing.classList.remove('hero-slide-visible');
-      outgoing.classList.add('hero-slide-left');
-
-      // After exit finishes, enter incoming
-      transitionTimeout = setTimeout(function() {
-        finishTransition(outgoing, incoming);
-      }, 1000);
-
-      updateDots();
-    }
-
-    function nextSlide() {
-      if (isAnimating) return;
-      previousSlide = currentSlide;
-      currentSlide = (currentSlide + 1) % totalSlides;
-      animateSlideChange();
-      resetAutoPlay();
-    }
-
-    function prevSlide() {
-      if (isAnimating) return;
-      previousSlide = currentSlide;
-      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-      animateSlideChange();
-      resetAutoPlay();
-    }
-
-    function goToSlide(index) {
-      if (isAnimating || index === currentSlide) return;
-      previousSlide = currentSlide;
-      currentSlide = index;
-      animateSlideChange();
-      resetAutoPlay();
-    }
-
-    function startAutoPlay() {
-      autoPlayInterval = setInterval(function() {
-        if (!isAnimating) {
-          previousSlide = currentSlide;
-          currentSlide = (currentSlide + 1) % totalSlides;
-          animateSlideChange();
-        }
-      }, 5000);
-    }
-
-    function stopAutoPlay() {
-      clearInterval(autoPlayInterval);
-    }
-
-    function resetAutoPlay() {
-      clearInterval(autoPlayInterval);
-      if (autoPlayActive) {
-        startAutoPlay();
-      }
-    }
-
-    // Pause/Resume toggle for WCAG 2.2.2 compliance
-    let autoPlayActive = true;
-    window.toggleAutoPlay = function(btn) {
-      autoPlayActive = !autoPlayActive;
-      if (autoPlayActive) {
-        startAutoPlay();
-        if (btn) {
-          btn.setAttribute('aria-label', 'Pause slideshow');
-          btn.setAttribute('aria-pressed', 'false');
-          btn.innerHTML = '<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="5" y="4" width="4" height="16" rx="1"/><rect x="15" y="4" width="4" height="16" rx="1"/></svg>';
-          btn.classList.remove('bg-yellow-400/30');
-          btn.classList.add('bg-white/10');
-        }
-      } else {
-        stopAutoPlay();
-        if (btn) {
-          btn.setAttribute('aria-label', 'Resume slideshow');
-          btn.setAttribute('aria-pressed', 'true');
-          btn.innerHTML = '<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg>';
-          btn.classList.remove('bg-white/10');
-          btn.classList.add('bg-yellow-400/30');
-        }
-      }
-    };
-
-    // Init
-    updateDots();
-    startAutoPlay();
-
     // ===== Mobile Navigation =====
     const mobileMenuBtn = document.querySelector('[data-mobile-menu-toggle]');
     const mobileNav = document.getElementById('mobile-menu-panel');
@@ -1465,23 +1268,14 @@
       });
     }
 
-    // ===== FAQ Accordion (delegated to animations.js for Anime.js smooth expand) =====
-    // toggleFaq is defined in animations.js with Anime.js-powered transitions
+    // ===== FAQ Accordion =====
+    // toggleFaq is defined in scroll-reveal.js
 
     // ===== Video Modal (delegated to main.js) =====
     // openVideo/closeVideo are defined in main.js
   </script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" crossorigin="anonymous" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js" crossorigin="anonymous" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js" crossorigin="anonymous"></script>
-  <script type="module" src="https://cdn.jsdelivr.net/npm/@splinetool/viewer@1.9.28/build/spline-viewer.js" crossorigin="anonymous"></script>
-  <script src="./assets/js/premium-motion.js" defer></script>
-  <script src="./assets/js/gsap-animations.js" defer></script>
-  <script src="./assets/js/animations.js" defer></script>
-
-
+  <script src="./assets/js/scroll-reveal.js" defer></script>
 
   <script src="./assets/js/site-config.js"></script>
 <script src="./assets/js/i18n.js"></script>
