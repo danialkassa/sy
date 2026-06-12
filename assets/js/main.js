@@ -105,18 +105,26 @@
   }
 
   // ===== Mobile Navigation =====
-  const mobileMenuBtn = document.querySelector('[data-mobile-menu-toggle]');
-  const mobileNav = document.getElementById('mobile-menu-panel');
-  if (mobileMenuBtn && mobileNav) {
-    mobileMenuBtn.addEventListener('click', function() {
-      mobileNav.classList.toggle('hidden');
-      const isOpen = !mobileNav.classList.contains('hidden');
-      this.setAttribute('aria-expanded', isOpen);
-      this.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
-      this.innerHTML = isOpen
-        ? '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>'
-        : '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>';
-    });
+  function setupMobileMenu() {
+    const mobileMenuBtn = document.querySelector('[data-mobile-menu-toggle]');
+    const mobileNav = document.getElementById('mobile-menu-panel');
+    if (mobileMenuBtn && mobileNav) {
+      mobileMenuBtn.addEventListener('click', function() {
+        mobileNav.classList.toggle('hidden');
+        const isOpen = !mobileNav.classList.contains('hidden');
+        this.setAttribute('aria-expanded', isOpen);
+        this.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+        this.innerHTML = isOpen
+          ? '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>'
+          : '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>';
+      });
+    }
+  }
+  // Run immediately if DOM ready, otherwise wait
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupMobileMenu);
+  } else {
+    setupMobileMenu();
   }
 
   // ===== Dropdown menus (click to toggle on mobile, hover on desktop) =====
