@@ -9,7 +9,7 @@ image: ../images/products/10077-2.jpeg
 images:
   - ../images/products/10077-2.jpeg
   - ../images/products/10077-3.jpeg
-  - ../images/products/10077.jpeg
+  - ../images/products/10077.webp
 brand: Ningbo Siyang
 tagline: Professional SDS-Plus rotary hammer with electronic clutch and vibration control. Delivers 5.5 Ft-lbs of impact energy for efficient drilling in concrete and masonry. The variable speed dial provides precise control for different materials and applications.
 description: Professional SDS-Plus rotary hammer with electronic clutch and vibration control. Delivers 5.5 Ft-lbs of impact energy for efficient drilling in concrete and masonry. The variable speed dial provides precise control for different materials and applications.

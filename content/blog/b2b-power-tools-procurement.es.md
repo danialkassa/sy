@@ -3,7 +3,7 @@ title: "Guía completa para la compra de herramientas eléctricas B2B"
 date: 2024-12-10T10:00:00Z
 author: "Li Ming"
 category: "Análisis B2B"
-image: "../images/products/10051.jpeg"
+image: "../images/products/10051.webp"
 excerpt: "Todo lo que necesita saber sobre la adquisición de herramientas eléctricas para su empresa, desde la garantía de calidad hasta las estrategias de precios al por mayor."
 readTime: 6
 lang: es

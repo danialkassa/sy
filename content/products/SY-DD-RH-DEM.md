@@ -5,9 +5,9 @@ category: drills-drivers
 categoryLabel: "Drills & Drivers"
 price: 0
 compareAtPrice: 0
-image: ../images/products/10077.jpeg
+image: ../images/products/10077.webp
 images:
-  - ../images/products/10077.jpeg
+  - ../images/products/10077.webp
 brand: Ningbo Siyang Pro
 tagline: Industrial demolition rotary hammer with Active Vibration Control delivering 12.5 Ft-lbs of impact energy. The 10 Amp motor provides maximum power for heavy-duty concrete breaking and chiseling. Designed for extended use with anti-vibration handle and variable speed trigger.
 description: Industrial demolition rotary hammer with Active Vibration Control delivering 12.5 Ft-lbs of impact energy. The 10 Amp motor provides maximum power for heavy-duty concrete breaking and chiseling. Designed for extended use with anti-vibration handle and variable speed trigger.

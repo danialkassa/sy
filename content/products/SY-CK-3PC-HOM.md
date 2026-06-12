@@ -5,9 +5,9 @@ category: combo-kits
 categoryLabel: Combo Kits
 price: 0
 compareAtPrice: 0
-image: ../images/products/10077.jpeg
+image: ../images/products/10077.webp
 images:
-  - ../images/products/10077.jpeg
+  - ../images/products/10077.webp
 brand: Ningbo Siyang
 tagline: Affordable 3-tool starter kit for homeowners including drill/driver, impact driver, and LED work light. Comes with 2× 1.5Ah compact batteries, charger, and carrying bag. Perfect for home improvement projects and DIY tasks around the house.
 description: Affordable 3-tool starter kit for homeowners including drill/driver, impact driver, and LED work light. Comes with 2× 1.5Ah compact batteries, charger, and carrying bag. Perfect for home improvement projects and DIY tasks around the house.

@@ -3,7 +3,7 @@ title: "Le guide complet de l'approvisionnement en outils électroportatifs B2B"
 date: 2024-12-10T10:00:00Z
 author: "Li Ming"
 category: "Analyses sectorielles"
-image: "../images/products/10051.jpeg"
+image: "../images/products/10051.webp"
 excerpt: "Tout ce que vous devez savoir sur l'approvisionnement en outils électroportatifs pour votre entreprise, de l'assurance qualité aux stratégies de prix en gros."
 readTime: 6
 lang: fr
