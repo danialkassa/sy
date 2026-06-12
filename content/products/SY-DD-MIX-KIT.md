@@ -5,11 +5,11 @@ category: drills-drivers
 categoryLabel: "Drills & Drivers"
 price: 0
 compareAtPrice: 0
-image: ../images/products/10108.jpg
+image: ../images/products/10108.webp
 images:
-  - ../images/products/10108.jpg
-  - ../images/products/10108.jpg
-  - ../images/products/10108.jpg
+  - ../images/products/10108.webp
+  - ../images/products/10108.webp
+  - ../images/products/10108.webp
 brand: Ningbo Siyang Pro
 tagline: Complete 2-tool combo set featuring a 20V MAX drill/driver and impact driver. Includes two 2.0Ah batteries, a fast charger, and a carrying bag. Both tools feature brushless motors for extended runtime and professional-grade performance.
 description: Complete 2-tool combo set featuring a 20V MAX drill/driver and impact driver. Includes two 2.0Ah batteries, a fast charger, and a carrying bag. Both tools feature brushless motors for extended runtime and professional-grade performance.

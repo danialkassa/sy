@@ -254,12 +254,9 @@
 
         return Promise.all(mdPromises).then(function (mdItems) {
           // Merge: JSON data as base, .md data overrides on top
-          // This preserves fields like price/rating that exist in
-          // index.json but not in .md frontmatter.
           var items = [];
           for (var i = 0; i < slugs.length; i++) {
             if (mdItems[i] && i < jsonItems.length) {
-              // Merge: start with JSON, overlay .md data
               var merged = {};
               for (var k in jsonItems[i]) merged[k] = jsonItems[i][k];
               for (var m in mdItems[i]) merged[m] = mdItems[i][m];
@@ -270,7 +267,6 @@
               items.push(jsonItems[i]);
             }
           }
-          // Filter out archived items
           items = items.filter(function(item) { return !item.archived; });
           if (sortFn) items.sort(sortFn);
           return items;
@@ -281,7 +277,60 @@
       if (sortFn) jsonItems.sort(sortFn);
       return jsonItems;
     }).catch(function () {
-      return [];
+      // index.json not found — try loading .md files directly
+      return loadMDFilesDirectly(folder, sortFn);
+    });
+  }
+
+  function loadMDFilesDirectly(folder, sortFn) {
+    var basePath = getBasePath() + folder;
+    // Known product slugs - used as fallback when index.json is unavailable
+    var knownSlugs = {
+      'content/products': [
+        'SY-CK-2PC-DRL','SY-CK-2PC-GRN','SY-CK-3PC-HOM','SY-CK-3PC-OAK','SY-CK-4PC-CON',
+        'SY-CK-5PC-ELE','SY-CK-6PC-20V','SY-CK-8PC-PRO','SY-DD-20V-BL','SY-DD-CRD-HMR',
+        'SY-DD-MIX-KIT','SY-DD-RH-1IN','SY-DD-RH-DEM','SY-DD-RH-DEM2','SY-DD-RHT-18V',
+        'SY-DD-SDS-PLU','SY-GR-ANG-4.5','SY-GR-ANG-7IN','SY-GR-BCH-6IN','SY-GR-BCH-8IN',
+        'SY-GR-CRD-ANG','SY-GR-DIE-1-4','SY-GR-POL-6IN','SY-GR-STR-ANG','SY-IT-DRV-1-4',
+        'SY-IT-DRV-20V','SY-IT-DRV-BRUS','SY-IT-RCH-20V','SY-IT-WRN-18V','SY-IT-WRN-20V',
+        'SY-IT-WRN-3-4','SY-IT-WRN-CRD','SY-SA-BLT-3X21','SY-SA-CRD-ORB','SY-SA-DSK-5IN',
+        'SY-SA-DTL-2.4','SY-SA-ORB-5IN','SY-SA-ORB-6IN','SY-SA-PLN-3.25','SY-SA-SHT-1-4',
+        'SY-SW-BAND-9IN','SY-SW-CIR-6.5','SY-SW-CIR-714','SY-SW-JIG-VAR','SY-SW-MIT-10IN',
+        'SY-SW-OSC-MUL','SY-SW-REC-12A','SY-SW-TAB-10IN'
+      ],
+      'content/blog': ['b2b-power-tools-procurement','choosing-the-right-power-drill','safety-standards'],
+      'content/testimonials': ['ahmed-hassan','john-mueller','maria-santos'],
+      'content/team': ['ceo','sales-director'],
+      'content/certifications': ['ce-marking','iso-9001','rohs'],
+      'content/faq': ['factory-visit','lead-time','moq','oem-service','quality-control','warranty-policy'],
+      'content/distributors': ['ferramentas-brasil','gulf-tools','mueller-supply'],
+      'content/partners': ['middle-east-tools','pacific-hardware','sgh-tools'],
+      'content/case-studies': ['euro-werkzeuge','gulf-industrial','stroyinvest'],
+      'content/warranty': ['brushless-motor-warranty','standard-warranty'],
+      'content/safety': ['battery-safety'],
+      'content/manuals': ['20v-drill-manual'],
+      'content/downloads': ['product-catalog']
+    };
+
+    var slugs = knownSlugs[folder];
+    if (!slugs || slugs.length === 0) return Promise.resolve([]);
+
+    var mdPromises = slugs.map(function (slug) {
+      var mdPath = basePath + '/' + slug + '.md';
+      return fetchText(mdPath).then(function (text) {
+        var parsed = parseFrontmatter(text);
+        parsed.data.slug = parsed.data.slug || slug;
+        parsed.data.sku = parsed.data.sku || slug;
+        return parsed.data;
+      }).catch(function () {
+        return null;
+      });
+    });
+
+    return Promise.all(mdPromises).then(function (items) {
+      items = items.filter(function(item) { return item !== null && !item.archived; });
+      if (sortFn) items.sort(sortFn);
+      return items;
     });
   }
 
